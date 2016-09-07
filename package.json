@@ -1,0 +1,23 @@
+{
+  "name": "remote-pay-cloud-api",
+  "version": "0.0.1",
+  "description": "API objects for the remote-pay cloud only. Includes objects used in serialization, and the ICloverConnector and ICloverConnectorListener",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike-clover-com/remote-pay-cloud-api.git"
+  },
+  "keywords": [
+    "remote-pay",
+    "Clover"
+  ],
+  "author": "Mike Hampton <mike@clover.com> (http://www.clover.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mike-clover-com/remote-pay-cloud-api/issues"
+  },
+  "homepage": "https://github.com/mike-clover-com/remote-pay-cloud-api#readme"
+}
