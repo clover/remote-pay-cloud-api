@@ -4,8 +4,8 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var employees_Employee = require("../employees/Employee");
 var order_LineItem = require("../order/LineItem");
+var base_Reference = require("../base/Reference");
 
 /** For reporting on a removed line item */
 /**
@@ -15,9 +15,12 @@ var order_LineItem = require("../order/LineItem");
 var VoidedLineItem = function() {
   this._class_ = VoidedLineItem;
   this.lineItem = undefined;
+  this.merchant = undefined;
   this.reason = undefined;
   this.removedBy = undefined;
   this.createdBy = undefined;
+  this.deletedTime = undefined;
+  this.environment = undefined;
 };
 
 
@@ -44,6 +47,24 @@ VoidedLineItem.prototype.getLineItem = function() {
 
 /**
 * Set the field value
+* @memberof order.VoidedLineItem
+* @param {base.Reference} merchant 
+*/
+VoidedLineItem.prototype.setMerchant = function(merchant) {
+  this.merchant = merchant;
+};
+
+/**
+* Get the field value
+* @memberof order.VoidedLineItem
+* @return {base.Reference} 
+*/
+VoidedLineItem.prototype.getMerchant = function() {
+  return this.merchant;
+};
+
+/**
+* Set the field value
 * Why was the line item voided
 *
 * @memberof order.VoidedLineItem
@@ -65,10 +86,10 @@ VoidedLineItem.prototype.getReason = function() {
 
 /**
 * Set the field value
-* Who voided the item
+* Employee who voided the item
 *
 * @memberof order.VoidedLineItem
-* @param {employees.Employee} removedBy 
+* @param {base.Reference} removedBy 
 */
 VoidedLineItem.prototype.setRemovedBy = function(removedBy) {
   this.removedBy = removedBy;
@@ -76,9 +97,9 @@ VoidedLineItem.prototype.setRemovedBy = function(removedBy) {
 
 /**
 * Get the field value
-* Who voided the item
+* Employee who voided the item
 * @memberof order.VoidedLineItem
-* @return {employees.Employee} 
+* @return {base.Reference} 
 */
 VoidedLineItem.prototype.getRemovedBy = function() {
   return this.removedBy;
@@ -86,10 +107,10 @@ VoidedLineItem.prototype.getRemovedBy = function() {
 
 /**
 * Set the field value
-* Who created the order from which the line item was voided
+* Employee who created the order from which the line item was voided
 *
 * @memberof order.VoidedLineItem
-* @param {employees.Employee} createdBy 
+* @param {base.Reference} createdBy 
 */
 VoidedLineItem.prototype.setCreatedBy = function(createdBy) {
   this.createdBy = createdBy;
@@ -97,12 +118,54 @@ VoidedLineItem.prototype.setCreatedBy = function(createdBy) {
 
 /**
 * Get the field value
-* Who created the order from which the line item was voided
+* Employee who created the order from which the line item was voided
 * @memberof order.VoidedLineItem
-* @return {employees.Employee} 
+* @return {base.Reference} 
 */
 VoidedLineItem.prototype.getCreatedBy = function() {
   return this.createdBy;
+};
+
+/**
+* Set the field value
+* Timestamp of when this line item was deleted
+*
+* @memberof order.VoidedLineItem
+* @param {Number} deletedTime must be a long integer
+*/
+VoidedLineItem.prototype.setDeletedTime = function(deletedTime) {
+  this.deletedTime = deletedTime;
+};
+
+/**
+* Get the field value
+* Timestamp of when this line item was deleted
+* @memberof order.VoidedLineItem
+* @return {Number} must be a long integer
+*/
+VoidedLineItem.prototype.getDeletedTime = function() {
+  return this.deletedTime;
+};
+
+/**
+* Set the field value
+* Which environment was this recorded in
+*
+* @memberof order.VoidedLineItem
+* @param {Null|String} environment 
+*/
+VoidedLineItem.prototype.setEnvironment = function(environment) {
+  this.environment = environment;
+};
+
+/**
+* Get the field value
+* Which environment was this recorded in
+* @memberof order.VoidedLineItem
+* @return {Null|String} 
+*/
+VoidedLineItem.prototype.getEnvironment = function() {
+  return this.environment;
 };
 
 /**
@@ -128,12 +191,18 @@ VoidedLineItem.prototype.toString = function() {
 VoidedLineItem._meta_ =  {fields:  {}};
 VoidedLineItem._meta_.fields["lineItem"] = {};
 VoidedLineItem._meta_.fields["lineItem"].type = order_LineItem;
+VoidedLineItem._meta_.fields["merchant"] = {};
+VoidedLineItem._meta_.fields["merchant"].type = base_Reference;
 VoidedLineItem._meta_.fields["reason"] = {};
 VoidedLineItem._meta_.fields["reason"].type = String;
 VoidedLineItem._meta_.fields["removedBy"] = {};
-VoidedLineItem._meta_.fields["removedBy"].type = employees_Employee;
+VoidedLineItem._meta_.fields["removedBy"].type = base_Reference;
 VoidedLineItem._meta_.fields["createdBy"] = {};
-VoidedLineItem._meta_.fields["createdBy"].type = employees_Employee;
+VoidedLineItem._meta_.fields["createdBy"].type = base_Reference;
+VoidedLineItem._meta_.fields["deletedTime"] = {};
+VoidedLineItem._meta_.fields["deletedTime"].type = Number;
+VoidedLineItem._meta_.fields["environment"] = {};
+VoidedLineItem._meta_.fields["environment"].type = String;
 
 //
 // Expose the module.

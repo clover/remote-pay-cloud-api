@@ -119,7 +119,7 @@ ICloverConnectorListener.prototype.onVerifySignatureRequest = function(request) 
 };
 
 /**
-* Will be called, passing in the Payment and Signature, if the user provides an on-screen signature, that needs to be accepted or rejected for a payment.
+* Will be called, passing in the Payment, if some type of confirmation is required to accept a payment.  To accept and continue, CloverConnector.acceptPayment should be called, passing in the payment from the request.  To reject the payment, CloverConnector.rejectpayment should be called, passing in one of the VoidReason objects from the corresponding Challenge in the ConfirmPaymentRequest.
 * @memberof remotepay.ICloverConnectorListener
 *
 * @param {remotepay.ConfirmPaymentRequest} request 
