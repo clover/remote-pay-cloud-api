@@ -8,6 +8,7 @@ var payments_CardType = require("../payments/CardType");
 var payments_CardTransactionState = require("../payments/CardTransactionState");
 var base_Reference = require("../base/Reference");
 var payments_CardEntryType = require("../payments/CardEntryType");
+var payments_VaultedCard = require("../payments/VaultedCard");
 var payments_CardTransactionType = require("../payments/CardTransactionType");
 var payments_AVSResult = require("../payments/AVSResult");
 
@@ -34,6 +35,7 @@ var CardTransaction = function() {
   this.avsResult = undefined;
   this.cardholderName = undefined;
   this.token = undefined;
+  this.vaultedCard = undefined;
 };
 
 
@@ -362,6 +364,27 @@ CardTransaction.prototype.getToken = function() {
 };
 
 /**
+* Set the field value
+* Vaulted card which can be used for subsequent transactions
+*
+* @memberof payments.CardTransaction
+* @param {Null|payments.VaultedCard} vaultedCard 
+*/
+CardTransaction.prototype.setVaultedCard = function(vaultedCard) {
+  this.vaultedCard = vaultedCard;
+};
+
+/**
+* Get the field value
+* Vaulted card which can be used for subsequent transactions
+* @memberof payments.CardTransaction
+* @return {Null|payments.VaultedCard} 
+*/
+CardTransaction.prototype.getVaultedCard = function() {
+  return this.vaultedCard;
+};
+
+/**
 * @memberof payments.CardTransaction
 * @private
 */
@@ -416,6 +439,8 @@ CardTransaction._meta_.fields["cardholderName"] = {};
 CardTransaction._meta_.fields["cardholderName"].type = String;
 CardTransaction._meta_.fields["token"] = {};
 CardTransaction._meta_.fields["token"].type = String;
+CardTransaction._meta_.fields["vaultedCard"] = {};
+CardTransaction._meta_.fields["vaultedCard"].type = payments_VaultedCard;
 
 //
 // Expose the module.
