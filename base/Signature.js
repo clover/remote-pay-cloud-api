@@ -13,6 +13,8 @@ var base_Points = require("../base/Points");
 var Signature = function() {
   this._class_ = Signature;
   this.strokes = undefined;
+  this.width = undefined;
+  this.height = undefined;
 };
 
 
@@ -35,6 +37,48 @@ Signature.prototype.setStrokes = function(strokes) {
 */
 Signature.prototype.getStrokes = function() {
   return this.strokes;
+};
+
+/**
+* Set the field value
+* The pixel width of the signature
+*
+* @memberof base.Signature
+* @param {Number} width must be an integer
+*/
+Signature.prototype.setWidth = function(width) {
+  this.width = width;
+};
+
+/**
+* Get the field value
+* The pixel width of the signature
+* @memberof base.Signature
+* @return {Number} must be an integer
+*/
+Signature.prototype.getWidth = function() {
+  return this.width;
+};
+
+/**
+* Set the field value
+* The pixel height of the signature
+*
+* @memberof base.Signature
+* @param {Number} height must be an integer
+*/
+Signature.prototype.setHeight = function(height) {
+  this.height = height;
+};
+
+/**
+* Get the field value
+* The pixel height of the signature
+* @memberof base.Signature
+* @return {Number} must be an integer
+*/
+Signature.prototype.getHeight = function() {
+  return this.height;
 };
 
 /**
@@ -61,6 +105,10 @@ Signature._meta_ =  {fields:  {}};
 Signature._meta_.fields["strokes"] = {};
 Signature._meta_.fields["strokes"].type = Array;
 Signature._meta_.fields["strokes"].elementType = base_Points;
+Signature._meta_.fields["width"] = {};
+Signature._meta_.fields["width"].type = Number;
+Signature._meta_.fields["height"] = {};
+Signature._meta_.fields["height"].type = Number;
 
 //
 // Expose the module.

@@ -8,6 +8,7 @@ device.BuildType = require("./BuildType");
 device.Device = require("./Device");
 device.DeviceProvision = require("./DeviceProvision");
 device.DeviceProvisionState = require("./DeviceProvisionState");
+device.LimitedDevice = require("./LimitedDevice");
 device.Rom = require("./Rom");
 device.RomBuildType = require("./RomBuildType");
 device.SwapRequestEvent = require("./SwapRequestEvent.js");

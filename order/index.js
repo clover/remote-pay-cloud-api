@@ -8,6 +8,7 @@ function order() {}
 */
 order.operation = {}
 
+order.CreateLineItemsRequest = require("./CreateLineItemsRequest");
 order.CustomerIdMethod = require("./CustomerIdMethod");
 order.Discount = require("./Discount");
 order.DisplayDiscount = require("./DisplayDiscount");

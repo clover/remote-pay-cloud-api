@@ -13,7 +13,9 @@ var payments_PaymentTaxRate = require("../payments/PaymentTaxRate");
 var payments_DCCInfo = require("../payments/DCCInfo");
 var base_Reference = require("../base/Reference");
 var base_Tender = require("../base/Tender");
+var payments_TransactionSettings = require("../payments/TransactionSettings");
 var payments_Refund = require("../payments/Refund");
+var payments_GermanInfo = require("../payments/GermanInfo");
 
 /**
 * @constructor
@@ -45,6 +47,8 @@ var Payment = function() {
   this.lineItemPayments = undefined;
   this.voidReason = undefined;
   this.dccInfo = undefined;
+  this.transactionSettings = undefined;
+  this.germanInfo = undefined;
 };
 
 
@@ -529,6 +533,48 @@ Payment.prototype.getDccInfo = function() {
 };
 
 /**
+* Set the field value
+* Per transaction settings for the payment
+*
+* @memberof payments.Payment
+* @param {payments.TransactionSettings} transactionSettings 
+*/
+Payment.prototype.setTransactionSettings = function(transactionSettings) {
+  this.transactionSettings = transactionSettings;
+};
+
+/**
+* Get the field value
+* Per transaction settings for the payment
+* @memberof payments.Payment
+* @return {payments.TransactionSettings} 
+*/
+Payment.prototype.getTransactionSettings = function() {
+  return this.transactionSettings;
+};
+
+/**
+* Set the field value
+* German region-specific information
+*
+* @memberof payments.Payment
+* @param {payments.GermanInfo|Null} germanInfo 
+*/
+Payment.prototype.setGermanInfo = function(germanInfo) {
+  this.germanInfo = germanInfo;
+};
+
+/**
+* Get the field value
+* German region-specific information
+* @memberof payments.Payment
+* @return {payments.GermanInfo|Null} 
+*/
+Payment.prototype.getGermanInfo = function() {
+  return this.germanInfo;
+};
+
+/**
 * @memberof payments.Payment
 * @private
 */
@@ -600,6 +646,10 @@ Payment._meta_.fields["voidReason"] = {};
 Payment._meta_.fields["voidReason"].type = order_VoidReason;
 Payment._meta_.fields["dccInfo"] = {};
 Payment._meta_.fields["dccInfo"].type = payments_DCCInfo;
+Payment._meta_.fields["transactionSettings"] = {};
+Payment._meta_.fields["transactionSettings"].type = payments_TransactionSettings;
+Payment._meta_.fields["germanInfo"] = {};
+Payment._meta_.fields["germanInfo"].type = payments_GermanInfo;
 
 //
 // Expose the module.

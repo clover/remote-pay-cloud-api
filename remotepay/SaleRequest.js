@@ -5,6 +5,7 @@
  */
 
 var remotepay_TransactionType = require("../remotepay/TransactionType");
+var payments_TipMode = require("../payments/TipMode");
 var remotepay_TransactionRequest = require("../remotepay/TransactionRequest");
 
 /**
@@ -24,6 +25,7 @@ var SaleRequest = function() {
   this.taxAmount = undefined;
   this.allowOfflinePayment = undefined;
   this.approveOfflinePaymentWithoutPrompt = undefined;
+  this.tipMode = undefined;
 };
 
 SaleRequest.prototype = Object.create(remotepay_TransactionRequest.prototype);
@@ -176,6 +178,24 @@ SaleRequest.prototype.getApproveOfflinePaymentWithoutPrompt = function() {
   return this.approveOfflinePaymentWithoutPrompt;
 };
 
+/**
+* Set the field value
+* @memberof remotepay.SaleRequest
+* @param {payments.TipMode} tipMode 
+*/
+SaleRequest.prototype.setTipMode = function(tipMode) {
+  this.tipMode = tipMode;
+};
+
+/**
+* Get the field value
+* @memberof remotepay.SaleRequest
+* @return {payments.TipMode} 
+*/
+SaleRequest.prototype.getTipMode = function() {
+  return this.tipMode;
+};
+
 SaleRequest._meta_ =  {fields:  {}};
 SaleRequest._meta_.fields["tippableAmount"] = {};
 SaleRequest._meta_.fields["tippableAmount"].type = Number;
@@ -191,6 +211,8 @@ SaleRequest._meta_.fields["allowOfflinePayment"] = {};
 SaleRequest._meta_.fields["allowOfflinePayment"].type = Boolean;
 SaleRequest._meta_.fields["approveOfflinePaymentWithoutPrompt"] = {};
 SaleRequest._meta_.fields["approveOfflinePaymentWithoutPrompt"].type = Boolean;
+SaleRequest._meta_.fields["tipMode"] = {};
+SaleRequest._meta_.fields["tipMode"].type = payments_TipMode;
 
 //
 // Expose the module.
