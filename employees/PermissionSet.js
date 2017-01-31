@@ -21,6 +21,7 @@ var PermissionSet = function() {
   this.managerDefault = undefined;
   this.permissions = undefined;
   this.roles = undefined;
+  this.module = undefined;
 };
 
 
@@ -184,6 +185,27 @@ PermissionSet.prototype.getRoles = function() {
 };
 
 /**
+* Set the field value
+* The module associated with this permission set (if any)
+*
+* @memberof employees.PermissionSet
+* @param {base.Reference} module 
+*/
+PermissionSet.prototype.setModule = function(module) {
+  this.module = module;
+};
+
+/**
+* Get the field value
+* The module associated with this permission set (if any)
+* @memberof employees.PermissionSet
+* @return {base.Reference} 
+*/
+PermissionSet.prototype.getModule = function() {
+  return this.module;
+};
+
+/**
 * @memberof employees.PermissionSet
 * @private
 */
@@ -221,6 +243,8 @@ PermissionSet._meta_.fields["permissions"].type = employees_Permissions;
 PermissionSet._meta_.fields["roles"] = {};
 PermissionSet._meta_.fields["roles"].type = Array;
 PermissionSet._meta_.fields["roles"].elementType = base_Reference;
+PermissionSet._meta_.fields["module"] = {};
+PermissionSet._meta_.fields["module"].type = base_Reference;
 
 //
 // Expose the module.

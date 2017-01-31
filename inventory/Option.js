@@ -15,6 +15,7 @@ var Option = function() {
   this.id = undefined;
   this.name = undefined;
   this.attribute = undefined;
+  this.items = undefined;
 };
 
 
@@ -79,6 +80,27 @@ Option.prototype.getAttribute = function() {
 };
 
 /**
+* Set the field value
+* Items associated with this option
+*
+* @memberof inventory.Option
+* @param {Array.<base.Reference>} items An array of 
+*/
+Option.prototype.setItems = function(items) {
+  this.items = items;
+};
+
+/**
+* Get the field value
+* Items associated with this option
+* @memberof inventory.Option
+* @return {Array.<base.Reference>} An array of 
+*/
+Option.prototype.getItems = function() {
+  return this.items;
+};
+
+/**
 * @memberof inventory.Option
 * @private
 */
@@ -105,6 +127,9 @@ Option._meta_.fields["name"] = {};
 Option._meta_.fields["name"].type = String;
 Option._meta_.fields["attribute"] = {};
 Option._meta_.fields["attribute"].type = base_Reference;
+Option._meta_.fields["items"] = {};
+Option._meta_.fields["items"].type = Array;
+Option._meta_.fields["items"].elementType = base_Reference;
 
 //
 // Expose the module.

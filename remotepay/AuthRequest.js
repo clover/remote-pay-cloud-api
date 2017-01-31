@@ -18,6 +18,7 @@ var AuthRequest = function() {
   this._superClass_ = remotepay_TransactionRequest;
   this._class_ = AuthRequest;
   this.setType(remotepay_TransactionType["PAYMENT"]);
+  this.tippableAmount = undefined;
   this.disableCashback = undefined;
   this.taxAmount = undefined;
   this.allowOfflinePayment = undefined;
@@ -26,6 +27,27 @@ var AuthRequest = function() {
 
 AuthRequest.prototype = Object.create(remotepay_TransactionRequest.prototype);
 AuthRequest.prototype.constructor = AuthRequest;
+
+/**
+* Set the field value
+* Total amount used when calculating tips
+*
+* @memberof remotepay.AuthRequest
+* @param {Number|Null} tippableAmount must be a long integer, 
+*/
+AuthRequest.prototype.setTippableAmount = function(tippableAmount) {
+  this.tippableAmount = tippableAmount;
+};
+
+/**
+* Get the field value
+* Total amount used when calculating tips
+* @memberof remotepay.AuthRequest
+* @return {Number|Null} must be a long integer, 
+*/
+AuthRequest.prototype.getTippableAmount = function() {
+  return this.tippableAmount;
+};
 
 /**
 * Set the field value
@@ -112,6 +134,8 @@ AuthRequest.prototype.getApproveOfflinePaymentWithoutPrompt = function() {
 };
 
 AuthRequest._meta_ =  {fields:  {}};
+AuthRequest._meta_.fields["tippableAmount"] = {};
+AuthRequest._meta_.fields["tippableAmount"].type = Number;
 AuthRequest._meta_.fields["disableCashback"] = {};
 AuthRequest._meta_.fields["disableCashback"].type = Boolean;
 AuthRequest._meta_.fields["taxAmount"] = {};

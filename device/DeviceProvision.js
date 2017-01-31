@@ -27,6 +27,7 @@ var DeviceProvision = function() {
   this.activatedTime = undefined;
   this.reseller = undefined;
   this.currentRom = undefined;
+  this.currentSecureBoardRom = undefined;
 };
 
 
@@ -286,6 +287,24 @@ DeviceProvision.prototype.getCurrentRom = function() {
 };
 
 /**
+* Set the field value
+* @memberof device.DeviceProvision
+* @param {base.Reference} currentSecureBoardRom 
+*/
+DeviceProvision.prototype.setCurrentSecureBoardRom = function(currentSecureBoardRom) {
+  this.currentSecureBoardRom = currentSecureBoardRom;
+};
+
+/**
+* Get the field value
+* @memberof device.DeviceProvision
+* @return {base.Reference} 
+*/
+DeviceProvision.prototype.getCurrentSecureBoardRom = function() {
+  return this.currentSecureBoardRom;
+};
+
+/**
 * @memberof device.DeviceProvision
 * @private
 */
@@ -334,6 +353,8 @@ DeviceProvision._meta_.fields["reseller"] = {};
 DeviceProvision._meta_.fields["reseller"].type = base_Reference;
 DeviceProvision._meta_.fields["currentRom"] = {};
 DeviceProvision._meta_.fields["currentRom"].type = base_Reference;
+DeviceProvision._meta_.fields["currentSecureBoardRom"] = {};
+DeviceProvision._meta_.fields["currentSecureBoardRom"].type = base_Reference;
 
 //
 // Expose the module.

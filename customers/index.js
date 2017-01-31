@@ -7,6 +7,7 @@ module.exports.customers = customers;
 customers.Address = require("./Address");
 customers.Card = require("./Card");
 customers.Customer = require("./Customer");
+customers.CustomerMetadata = require("./CustomerMetadata");
 customers.EmailAddress = require("./EmailAddress");
 customers.PhoneNumber = require("./PhoneNumber.js");
 //

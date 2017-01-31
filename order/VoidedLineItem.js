@@ -14,6 +14,7 @@ var base_Reference = require("../base/Reference");
 */
 var VoidedLineItem = function() {
   this._class_ = VoidedLineItem;
+  this.id = undefined;
   this.lineItem = undefined;
   this.merchant = undefined;
   this.reason = undefined;
@@ -23,6 +24,27 @@ var VoidedLineItem = function() {
   this.environment = undefined;
 };
 
+
+/**
+* Set the field value
+* Unique identifier.
+*
+* @memberof order.VoidedLineItem
+* @param {String} id 
+*/
+VoidedLineItem.prototype.setId = function(id) {
+  this.id = id;
+};
+
+/**
+* Get the field value
+* Unique identifier.
+* @memberof order.VoidedLineItem
+* @return {String} 
+*/
+VoidedLineItem.prototype.getId = function() {
+  return this.id;
+};
 
 /**
 * Set the field value
@@ -189,6 +211,8 @@ VoidedLineItem.prototype.toString = function() {
 };
 
 VoidedLineItem._meta_ =  {fields:  {}};
+VoidedLineItem._meta_.fields["id"] = {};
+VoidedLineItem._meta_.fields["id"].type = String;
 VoidedLineItem._meta_.fields["lineItem"] = {};
 VoidedLineItem._meta_.fields["lineItem"].type = order_LineItem;
 VoidedLineItem._meta_.fields["merchant"] = {};

@@ -15,6 +15,7 @@ var payments_GiftCard = require("../payments/GiftCard");
 */
 var GiftCardTransaction = function() {
   this._class_ = GiftCardTransaction;
+  this.id = undefined;
   this.amount = undefined;
   this.taxAmount = undefined;
   this.orderId = undefined;
@@ -28,6 +29,27 @@ var GiftCardTransaction = function() {
   this.suppressPayment = "false";
 };
 
+
+/**
+* Set the field value
+* UUID
+*
+* @memberof payments.GiftCardTransaction
+* @param {String} id 
+*/
+GiftCardTransaction.prototype.setId = function(id) {
+  this.id = id;
+};
+
+/**
+* Get the field value
+* UUID
+* @memberof payments.GiftCardTransaction
+* @return {String} 
+*/
+GiftCardTransaction.prototype.getId = function() {
+  return this.id;
+};
 
 /**
 * Set the field value
@@ -260,6 +282,8 @@ GiftCardTransaction.prototype.toString = function() {
 };
 
 GiftCardTransaction._meta_ =  {fields:  {}};
+GiftCardTransaction._meta_.fields["id"] = {};
+GiftCardTransaction._meta_.fields["id"].type = String;
 GiftCardTransaction._meta_.fields["amount"] = {};
 GiftCardTransaction._meta_.fields["amount"].type = Number;
 GiftCardTransaction._meta_.fields["taxAmount"] = {};

@@ -6,6 +6,7 @@
 
 var customers_EmailAddress = require("../customers/EmailAddress");
 var customers_PhoneNumber = require("../customers/PhoneNumber");
+var customers_CustomerMetadata = require("../customers/CustomerMetadata");
 var base_Reference = require("../base/Reference");
 var customers_Address = require("../customers/Address");
 var customers_Card = require("../customers/Card");
@@ -27,6 +28,7 @@ var Customer = function() {
   this.emailAddresses = undefined;
   this.phoneNumbers = undefined;
   this.cards = undefined;
+  this.metadata = undefined;
 };
 
 
@@ -241,6 +243,27 @@ Customer.prototype.getCards = function() {
 };
 
 /**
+* Set the field value
+* Additional information about the customer.
+*
+* @memberof customers.Customer
+* @param {customers.CustomerMetadata} metadata 
+*/
+Customer.prototype.setMetadata = function(metadata) {
+  this.metadata = metadata;
+};
+
+/**
+* Get the field value
+* Additional information about the customer.
+* @memberof customers.Customer
+* @return {customers.CustomerMetadata} 
+*/
+Customer.prototype.getMetadata = function() {
+  return this.metadata;
+};
+
+/**
 * @memberof customers.Customer
 * @private
 */
@@ -288,6 +311,8 @@ Customer._meta_.fields["phoneNumbers"].elementType = customers_PhoneNumber;
 Customer._meta_.fields["cards"] = {};
 Customer._meta_.fields["cards"].type = Array;
 Customer._meta_.fields["cards"].elementType = customers_Card;
+Customer._meta_.fields["metadata"] = {};
+Customer._meta_.fields["metadata"].type = customers_CustomerMetadata;
 
 //
 // Expose the module.

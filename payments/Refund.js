@@ -20,6 +20,7 @@ var Refund = function() {
   this.device = undefined;
   this.amount = undefined;
   this.taxAmount = undefined;
+  this.tipAmount = undefined;
   this.createdTime = undefined;
   this.clientCreatedTime = undefined;
   this.payment = undefined;
@@ -96,7 +97,7 @@ Refund.prototype.getDevice = function() {
 
 /**
 * Set the field value
-* Total amount refunded, including tax
+* Total amount refunded, including tax and tip
 *
 * @memberof payments.Refund
 * @param {Number} amount must be a long integer
@@ -107,7 +108,7 @@ Refund.prototype.setAmount = function(amount) {
 
 /**
 * Get the field value
-* Total amount refunded, including tax
+* Total amount refunded, including tax and tip
 * @memberof payments.Refund
 * @return {Number} must be a long integer
 */
@@ -134,6 +135,27 @@ Refund.prototype.setTaxAmount = function(taxAmount) {
 */
 Refund.prototype.getTaxAmount = function() {
   return this.taxAmount;
+};
+
+/**
+* Set the field value
+* Tip amount refunded
+*
+* @memberof payments.Refund
+* @param {Number|Null} tipAmount must be a long integer, 
+*/
+Refund.prototype.setTipAmount = function(tipAmount) {
+  this.tipAmount = tipAmount;
+};
+
+/**
+* Get the field value
+* Tip amount refunded
+* @memberof payments.Refund
+* @return {Number|Null} must be a long integer, 
+*/
+Refund.prototype.getTipAmount = function() {
+  return this.tipAmount;
 };
 
 /**
@@ -323,6 +345,8 @@ Refund._meta_.fields["amount"] = {};
 Refund._meta_.fields["amount"].type = Number;
 Refund._meta_.fields["taxAmount"] = {};
 Refund._meta_.fields["taxAmount"].type = Number;
+Refund._meta_.fields["tipAmount"] = {};
+Refund._meta_.fields["tipAmount"].type = Number;
 Refund._meta_.fields["createdTime"] = {};
 Refund._meta_.fields["createdTime"].type = Number;
 Refund._meta_.fields["clientCreatedTime"] = {};

@@ -10,6 +10,8 @@ var payments_TaxableAmountRate = require("../payments/TaxableAmountRate");
 var payments_DCCInfo = require("../payments/DCCInfo");
 var base_Reference = require("../base/Reference");
 var base_Tender = require("../base/Tender");
+var payments_TransactionSettings = require("../payments/TransactionSettings");
+var payments_GermanInfo = require("../payments/GermanInfo");
 
 /**
 * @constructor
@@ -32,6 +34,8 @@ var Credit = function() {
   this.voided = undefined;
   this.voidReason = undefined;
   this.dccInfo = undefined;
+  this.transactionSettings = undefined;
+  this.germanInfo = undefined;
 };
 
 
@@ -339,6 +343,48 @@ Credit.prototype.getDccInfo = function() {
 };
 
 /**
+* Set the field value
+* Per transaction settings for the payment
+*
+* @memberof payments.Credit
+* @param {payments.TransactionSettings} transactionSettings 
+*/
+Credit.prototype.setTransactionSettings = function(transactionSettings) {
+  this.transactionSettings = transactionSettings;
+};
+
+/**
+* Get the field value
+* Per transaction settings for the payment
+* @memberof payments.Credit
+* @return {payments.TransactionSettings} 
+*/
+Credit.prototype.getTransactionSettings = function() {
+  return this.transactionSettings;
+};
+
+/**
+* Set the field value
+* German region-specific information
+*
+* @memberof payments.Credit
+* @param {payments.GermanInfo|Null} germanInfo 
+*/
+Credit.prototype.setGermanInfo = function(germanInfo) {
+  this.germanInfo = germanInfo;
+};
+
+/**
+* Get the field value
+* German region-specific information
+* @memberof payments.Credit
+* @return {payments.GermanInfo|Null} 
+*/
+Credit.prototype.getGermanInfo = function() {
+  return this.germanInfo;
+};
+
+/**
 * @memberof payments.Credit
 * @private
 */
@@ -390,6 +436,10 @@ Credit._meta_.fields["voidReason"] = {};
 Credit._meta_.fields["voidReason"].type = String;
 Credit._meta_.fields["dccInfo"] = {};
 Credit._meta_.fields["dccInfo"].type = payments_DCCInfo;
+Credit._meta_.fields["transactionSettings"] = {};
+Credit._meta_.fields["transactionSettings"].type = payments_TransactionSettings;
+Credit._meta_.fields["germanInfo"] = {};
+Credit._meta_.fields["germanInfo"].type = payments_GermanInfo;
 
 //
 // Expose the module.

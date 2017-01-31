@@ -6,6 +6,7 @@
 
 var remotepay_BaseRequest = require("../remotepay/BaseRequest");
 var remotepay_TransactionType = require("../remotepay/TransactionType");
+var payments_DataEntryLocation = require("../payments/DataEntryLocation");
 var payments_VaultedCard = require("../payments/VaultedCard");
 
 /**
@@ -17,7 +18,12 @@ var TransactionRequest = function() {
   remotepay_BaseRequest.call(this);
   this._superClass_ = remotepay_BaseRequest;
   this._class_ = TransactionRequest;
-  this.disablePrinting = undefined;
+  this.orderId = undefined;
+  this.signatureThreshold = undefined;
+  this.cloverShouldHandleReceipts = undefined;
+  this.disableReceiptSelection = undefined;
+  this.disableDuplicateChecking = undefined;
+  this.signatureEntryLocation = undefined;
   this.cardNotPresent = undefined;
   this.disableRestartTransactionOnFail = undefined;
   this.amount = undefined;
@@ -25,6 +31,8 @@ var TransactionRequest = function() {
   this.vaultedCard = undefined;
   this.externalId = undefined;
   this.type = undefined;
+  this.autoAcceptPaymentConfirmations = undefined;
+  this.autoAcceptSignature = undefined;
 };
 
 TransactionRequest.prototype = Object.create(remotepay_BaseRequest.prototype);
@@ -32,23 +40,128 @@ TransactionRequest.prototype.constructor = TransactionRequest;
 
 /**
 * Set the field value
-* Do not print
+* Identifier for the order to apply this to.  The order must exist in the clover system.
 *
 * @memberof remotepay.TransactionRequest
-* @param {Boolean|Null} disablePrinting 
+* @param {String} orderId 
 */
-TransactionRequest.prototype.setDisablePrinting = function(disablePrinting) {
-  this.disablePrinting = disablePrinting;
+TransactionRequest.prototype.setOrderId = function(orderId) {
+  this.orderId = orderId;
 };
 
 /**
 * Get the field value
-* Do not print
+* Identifier for the order to apply this to.  The order must exist in the clover system.
+* @memberof remotepay.TransactionRequest
+* @return {String} 
+*/
+TransactionRequest.prototype.getOrderId = function() {
+  return this.orderId;
+};
+
+/**
+* Set the field value
+* If the amount is equal to or greater than this amount, then a signature should be obtained
+*
+* @memberof remotepay.TransactionRequest
+* @param {Number} signatureThreshold must be a long integer
+*/
+TransactionRequest.prototype.setSignatureThreshold = function(signatureThreshold) {
+  this.signatureThreshold = signatureThreshold;
+};
+
+/**
+* Get the field value
+* If the amount is equal to or greater than this amount, then a signature should be obtained
+* @memberof remotepay.TransactionRequest
+* @return {Number} must be a long integer
+*/
+TransactionRequest.prototype.getSignatureThreshold = function() {
+  return this.signatureThreshold;
+};
+
+/**
+* Set the field value
+* If false, then do not print using the clover printer.  Return print information.
+*
+* @memberof remotepay.TransactionRequest
+* @param {Boolean|Null} cloverShouldHandleReceipts 
+*/
+TransactionRequest.prototype.setCloverShouldHandleReceipts = function(cloverShouldHandleReceipts) {
+  this.cloverShouldHandleReceipts = cloverShouldHandleReceipts;
+};
+
+/**
+* Get the field value
+* If false, then do not print using the clover printer.  Return print information.
 * @memberof remotepay.TransactionRequest
 * @return {Boolean|Null} 
 */
-TransactionRequest.prototype.getDisablePrinting = function() {
-  return this.disablePrinting;
+TransactionRequest.prototype.getCloverShouldHandleReceipts = function() {
+  return this.cloverShouldHandleReceipts;
+};
+
+/**
+* Set the field value
+* Do not show the receipt options screen
+*
+* @memberof remotepay.TransactionRequest
+* @param {Boolean|Null} disableReceiptSelection 
+*/
+TransactionRequest.prototype.setDisableReceiptSelection = function(disableReceiptSelection) {
+  this.disableReceiptSelection = disableReceiptSelection;
+};
+
+/**
+* Get the field value
+* Do not show the receipt options screen
+* @memberof remotepay.TransactionRequest
+* @return {Boolean|Null} 
+*/
+TransactionRequest.prototype.getDisableReceiptSelection = function() {
+  return this.disableReceiptSelection;
+};
+
+/**
+* Set the field value
+* Do not do heuristic duplicate checking
+*
+* @memberof remotepay.TransactionRequest
+* @param {Boolean|Null} disableDuplicateChecking 
+*/
+TransactionRequest.prototype.setDisableDuplicateChecking = function(disableDuplicateChecking) {
+  this.disableDuplicateChecking = disableDuplicateChecking;
+};
+
+/**
+* Get the field value
+* Do not do heuristic duplicate checking
+* @memberof remotepay.TransactionRequest
+* @return {Boolean|Null} 
+*/
+TransactionRequest.prototype.getDisableDuplicateChecking = function() {
+  return this.disableDuplicateChecking;
+};
+
+/**
+* Set the field value
+* Where the signature should be obtined from (paper, screen...etc)
+*
+* @memberof remotepay.TransactionRequest
+* @param {payments.DataEntryLocation|Null} signatureEntryLocation 
+*/
+TransactionRequest.prototype.setSignatureEntryLocation = function(signatureEntryLocation) {
+  this.signatureEntryLocation = signatureEntryLocation;
+};
+
+/**
+* Get the field value
+* Where the signature should be obtined from (paper, screen...etc)
+* @memberof remotepay.TransactionRequest
+* @return {payments.DataEntryLocation|Null} 
+*/
+TransactionRequest.prototype.getSignatureEntryLocation = function() {
+  return this.signatureEntryLocation;
 };
 
 /**
@@ -98,7 +211,7 @@ TransactionRequest.prototype.getDisableRestartTransactionOnFail = function() {
 * Total amount paid
 *
 * @memberof remotepay.TransactionRequest
-* @param {Number|Null} amount must be a long integer, 
+* @param {Number} amount must be a long integer
 */
 TransactionRequest.prototype.setAmount = function(amount) {
   this.amount = amount;
@@ -108,7 +221,7 @@ TransactionRequest.prototype.setAmount = function(amount) {
 * Get the field value
 * Total amount paid
 * @memberof remotepay.TransactionRequest
-* @return {Number|Null} must be a long integer, 
+* @return {Number} must be a long integer
 */
 TransactionRequest.prototype.getAmount = function() {
   return this.amount;
@@ -198,9 +311,61 @@ TransactionRequest.prototype.getType = function() {
   return this.type;
 };
 
+/**
+* Set the field value
+* Do not show/send potential duplicate challenges
+*
+* @memberof remotepay.TransactionRequest
+* @param {Boolean|Null} autoAcceptPaymentConfirmations 
+*/
+TransactionRequest.prototype.setAutoAcceptPaymentConfirmations = function(autoAcceptPaymentConfirmations) {
+  this.autoAcceptPaymentConfirmations = autoAcceptPaymentConfirmations;
+};
+
+/**
+* Get the field value
+* Do not show/send potential duplicate challenges
+* @memberof remotepay.TransactionRequest
+* @return {Boolean|Null} 
+*/
+TransactionRequest.prototype.getAutoAcceptPaymentConfirmations = function() {
+  return this.autoAcceptPaymentConfirmations;
+};
+
+/**
+* Set the field value
+* Do not show/send signature verification challenges
+*
+* @memberof remotepay.TransactionRequest
+* @param {Boolean|Null} autoAcceptSignature 
+*/
+TransactionRequest.prototype.setAutoAcceptSignature = function(autoAcceptSignature) {
+  this.autoAcceptSignature = autoAcceptSignature;
+};
+
+/**
+* Get the field value
+* Do not show/send signature verification challenges
+* @memberof remotepay.TransactionRequest
+* @return {Boolean|Null} 
+*/
+TransactionRequest.prototype.getAutoAcceptSignature = function() {
+  return this.autoAcceptSignature;
+};
+
 TransactionRequest._meta_ =  {fields:  {}};
-TransactionRequest._meta_.fields["disablePrinting"] = {};
-TransactionRequest._meta_.fields["disablePrinting"].type = Boolean;
+TransactionRequest._meta_.fields["orderId"] = {};
+TransactionRequest._meta_.fields["orderId"].type = String;
+TransactionRequest._meta_.fields["signatureThreshold"] = {};
+TransactionRequest._meta_.fields["signatureThreshold"].type = Number;
+TransactionRequest._meta_.fields["cloverShouldHandleReceipts"] = {};
+TransactionRequest._meta_.fields["cloverShouldHandleReceipts"].type = Boolean;
+TransactionRequest._meta_.fields["disableReceiptSelection"] = {};
+TransactionRequest._meta_.fields["disableReceiptSelection"].type = Boolean;
+TransactionRequest._meta_.fields["disableDuplicateChecking"] = {};
+TransactionRequest._meta_.fields["disableDuplicateChecking"].type = Boolean;
+TransactionRequest._meta_.fields["signatureEntryLocation"] = {};
+TransactionRequest._meta_.fields["signatureEntryLocation"].type = payments_DataEntryLocation;
 TransactionRequest._meta_.fields["cardNotPresent"] = {};
 TransactionRequest._meta_.fields["cardNotPresent"].type = Boolean;
 TransactionRequest._meta_.fields["disableRestartTransactionOnFail"] = {};
@@ -215,6 +380,10 @@ TransactionRequest._meta_.fields["externalId"] = {};
 TransactionRequest._meta_.fields["externalId"].type = String;
 TransactionRequest._meta_.fields["type"] = {};
 TransactionRequest._meta_.fields["type"].type = remotepay_TransactionType;
+TransactionRequest._meta_.fields["autoAcceptPaymentConfirmations"] = {};
+TransactionRequest._meta_.fields["autoAcceptPaymentConfirmations"].type = Boolean;
+TransactionRequest._meta_.fields["autoAcceptSignature"] = {};
+TransactionRequest._meta_.fields["autoAcceptSignature"].type = Boolean;
 
 //
 // Expose the module.

@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -19,6 +20,7 @@ var Card = function() {
   this.expirationDate = undefined;
   this.cardType = undefined;
   this.token = undefined;
+  this.customer = undefined;
 };
 
 
@@ -167,6 +169,27 @@ Card.prototype.getToken = function() {
 };
 
 /**
+* Set the field value
+* Customer who this card belongs to.
+*
+* @memberof customers.Card
+* @param {base.Reference} customer 
+*/
+Card.prototype.setCustomer = function(customer) {
+  this.customer = customer;
+};
+
+/**
+* Get the field value
+* Customer who this card belongs to.
+* @memberof customers.Card
+* @return {base.Reference} 
+*/
+Card.prototype.getCustomer = function() {
+  return this.customer;
+};
+
+/**
 * @memberof customers.Card
 * @private
 */
@@ -203,6 +226,8 @@ Card._meta_.fields["cardType"] = {};
 Card._meta_.fields["cardType"].type = String;
 Card._meta_.fields["token"] = {};
 Card._meta_.fields["token"].type = String;
+Card._meta_.fields["customer"] = {};
+Card._meta_.fields["customer"].type = base_Reference;
 
 //
 // Expose the module.

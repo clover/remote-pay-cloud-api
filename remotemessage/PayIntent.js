@@ -6,8 +6,10 @@
 
 var remotemessage_TransactionType = require("../remotemessage/TransactionType");
 var payments_TaxableAmountRate = require("../payments/TaxableAmountRate");
+var apps_AppTracking = require("../apps/AppTracking");
 var payments_ServiceChargeAmount = require("../payments/ServiceChargeAmount");
 var payments_VaultedCard = require("../payments/VaultedCard");
+var payments_TransactionSettings = require("../payments/TransactionSettings");
 
 /**
 * @constructor
@@ -21,15 +23,17 @@ var PayIntent = function() {
   this.tipAmount = undefined;
   this.taxAmount = undefined;
   this.orderId = undefined;
+  this.paymentId = undefined;
   this.employeeId = undefined;
   this.transactionType = undefined;
-  this.taxableAmountRateList = undefined;
+  this.taxableAmountRates = undefined;
   this.serviceChargeAmount = undefined;
   this.isDisableCashBack = undefined;
   this.isTesting = undefined;
   this.cardEntryMethods = undefined;
   this.voiceAuthCode = undefined;
   this.streetAddress = undefined;
+  this.postalCode = undefined;
   this.isCardNotPresent = undefined;
   this.cardDataMessage = undefined;
   this.remotePrint = undefined;
@@ -41,6 +45,8 @@ var PayIntent = function() {
   this.allowOfflinePayment = undefined;
   this.approveOfflinePaymentWithoutPrompt = undefined;
   this.requiresRemoteConfirmation = undefined;
+  this.applicationTracking = undefined;
+  this.transactionSettings = undefined;
 };
 
 
@@ -169,6 +175,27 @@ PayIntent.prototype.getOrderId = function() {
 
 /**
 * Set the field value
+* Unique identifier for a payment
+*
+* @memberof remotemessage.PayIntent
+* @param {String} paymentId 
+*/
+PayIntent.prototype.setPaymentId = function(paymentId) {
+  this.paymentId = paymentId;
+};
+
+/**
+* Get the field value
+* Unique identifier for a payment
+* @memberof remotemessage.PayIntent
+* @return {String} 
+*/
+PayIntent.prototype.getPaymentId = function() {
+  return this.paymentId;
+};
+
+/**
+* Set the field value
 * Unique identifier for a employee
 *
 * @memberof remotemessage.PayIntent
@@ -209,10 +236,10 @@ PayIntent.prototype.getTransactionType = function() {
 /**
 * Set the field value
 * @memberof remotemessage.PayIntent
-* @param {Array.<payments.TaxableAmountRate>} taxableAmountRateList An array of 
+* @param {Array.<payments.TaxableAmountRate>} taxableAmountRates An array of 
 */
-PayIntent.prototype.setTaxableAmountRateList = function(taxableAmountRateList) {
-  this.taxableAmountRateList = taxableAmountRateList;
+PayIntent.prototype.setTaxableAmountRates = function(taxableAmountRates) {
+  this.taxableAmountRates = taxableAmountRates;
 };
 
 /**
@@ -220,8 +247,8 @@ PayIntent.prototype.setTaxableAmountRateList = function(taxableAmountRateList) {
 * @memberof remotemessage.PayIntent
 * @return {Array.<payments.TaxableAmountRate>} An array of 
 */
-PayIntent.prototype.getTaxableAmountRateList = function() {
-  return this.taxableAmountRateList;
+PayIntent.prototype.getTaxableAmountRates = function() {
+  return this.taxableAmountRates;
 };
 
 /**
@@ -336,6 +363,24 @@ PayIntent.prototype.setStreetAddress = function(streetAddress) {
 */
 PayIntent.prototype.getStreetAddress = function() {
   return this.streetAddress;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.PayIntent
+* @param {String} postalCode 
+*/
+PayIntent.prototype.setPostalCode = function(postalCode) {
+  this.postalCode = postalCode;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.PayIntent
+* @return {String} 
+*/
+PayIntent.prototype.getPostalCode = function() {
+  return this.postalCode;
 };
 
 /**
@@ -543,6 +588,42 @@ PayIntent.prototype.getRequiresRemoteConfirmation = function() {
 };
 
 /**
+* Set the field value
+* @memberof remotemessage.PayIntent
+* @param {apps.AppTracking} applicationTracking 
+*/
+PayIntent.prototype.setApplicationTracking = function(applicationTracking) {
+  this.applicationTracking = applicationTracking;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.PayIntent
+* @return {apps.AppTracking} 
+*/
+PayIntent.prototype.getApplicationTracking = function() {
+  return this.applicationTracking;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.PayIntent
+* @param {payments.TransactionSettings} transactionSettings 
+*/
+PayIntent.prototype.setTransactionSettings = function(transactionSettings) {
+  this.transactionSettings = transactionSettings;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.PayIntent
+* @return {payments.TransactionSettings} 
+*/
+PayIntent.prototype.getTransactionSettings = function() {
+  return this.transactionSettings;
+};
+
+/**
 * @memberof remotemessage.PayIntent
 * @private
 */
@@ -575,13 +656,15 @@ PayIntent._meta_.fields["taxAmount"] = {};
 PayIntent._meta_.fields["taxAmount"].type = Number;
 PayIntent._meta_.fields["orderId"] = {};
 PayIntent._meta_.fields["orderId"].type = String;
+PayIntent._meta_.fields["paymentId"] = {};
+PayIntent._meta_.fields["paymentId"].type = String;
 PayIntent._meta_.fields["employeeId"] = {};
 PayIntent._meta_.fields["employeeId"].type = String;
 PayIntent._meta_.fields["transactionType"] = {};
 PayIntent._meta_.fields["transactionType"].type = remotemessage_TransactionType;
-PayIntent._meta_.fields["taxableAmountRateList"] = {};
-PayIntent._meta_.fields["taxableAmountRateList"].type = Array;
-PayIntent._meta_.fields["taxableAmountRateList"].elementType = payments_TaxableAmountRate;
+PayIntent._meta_.fields["taxableAmountRates"] = {};
+PayIntent._meta_.fields["taxableAmountRates"].type = Array;
+PayIntent._meta_.fields["taxableAmountRates"].elementType = payments_TaxableAmountRate;
 PayIntent._meta_.fields["serviceChargeAmount"] = {};
 PayIntent._meta_.fields["serviceChargeAmount"].type = Array;
 PayIntent._meta_.fields["serviceChargeAmount"].elementType = payments_ServiceChargeAmount;
@@ -595,6 +678,8 @@ PayIntent._meta_.fields["voiceAuthCode"] = {};
 PayIntent._meta_.fields["voiceAuthCode"].type = String;
 PayIntent._meta_.fields["streetAddress"] = {};
 PayIntent._meta_.fields["streetAddress"].type = String;
+PayIntent._meta_.fields["postalCode"] = {};
+PayIntent._meta_.fields["postalCode"].type = String;
 PayIntent._meta_.fields["isCardNotPresent"] = {};
 PayIntent._meta_.fields["isCardNotPresent"].type = Boolean;
 PayIntent._meta_.fields["cardDataMessage"] = {};
@@ -617,6 +702,10 @@ PayIntent._meta_.fields["approveOfflinePaymentWithoutPrompt"] = {};
 PayIntent._meta_.fields["approveOfflinePaymentWithoutPrompt"].type = Boolean;
 PayIntent._meta_.fields["requiresRemoteConfirmation"] = {};
 PayIntent._meta_.fields["requiresRemoteConfirmation"].type = Boolean;
+PayIntent._meta_.fields["applicationTracking"] = {};
+PayIntent._meta_.fields["applicationTracking"].type = apps_AppTracking;
+PayIntent._meta_.fields["transactionSettings"] = {};
+PayIntent._meta_.fields["transactionSettings"].type = payments_TransactionSettings;
 
 //
 // Expose the module.
