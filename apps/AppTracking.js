@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var base_Reference = require("../base/Reference");
 
 /** Used to track the origin of a distributed call. */
 /**
@@ -12,12 +13,60 @@
 */
 var AppTracking = function() {
   this._class_ = AppTracking;
+  this.developerAppId = undefined;
+  this.applicationName = undefined;
   this.applicationID = undefined;
   this.applicationVersion = undefined;
   this.sourceSDK = undefined;
   this.sourceSDKVersion = undefined;
+  this.paymentRef = undefined;
+  this.creditRef = undefined;
+  this.refundRef = undefined;
+  this.creditRefundRef = undefined;
 };
 
+
+/**
+* Set the field value
+* The uuid from the developer application.  This is typically populated and used only on the back end.
+*
+* @memberof apps.AppTracking
+* @param {String} developerAppId 
+*/
+AppTracking.prototype.setDeveloperAppId = function(developerAppId) {
+  this.developerAppId = developerAppId;
+};
+
+/**
+* Get the field value
+* The uuid from the developer application.  This is typically populated and used only on the back end.
+* @memberof apps.AppTracking
+* @return {String} 
+*/
+AppTracking.prototype.getDeveloperAppId = function() {
+  return this.developerAppId;
+};
+
+/**
+* Set the field value
+* The name of the developer application.
+*
+* @memberof apps.AppTracking
+* @param {String} applicationName 
+*/
+AppTracking.prototype.setApplicationName = function(applicationName) {
+  this.applicationName = applicationName;
+};
+
+/**
+* Get the field value
+* The name of the developer application.
+* @memberof apps.AppTracking
+* @return {String} 
+*/
+AppTracking.prototype.getApplicationName = function() {
+  return this.applicationName;
+};
 
 /**
 * Set the field value
@@ -104,6 +153,90 @@ AppTracking.prototype.getSourceSDKVersion = function() {
 };
 
 /**
+* Set the field value
+* The payment with which this app tracking info is associated
+*
+* @memberof apps.AppTracking
+* @param {base.Reference} paymentRef 
+*/
+AppTracking.prototype.setPaymentRef = function(paymentRef) {
+  this.paymentRef = paymentRef;
+};
+
+/**
+* Get the field value
+* The payment with which this app tracking info is associated
+* @memberof apps.AppTracking
+* @return {base.Reference} 
+*/
+AppTracking.prototype.getPaymentRef = function() {
+  return this.paymentRef;
+};
+
+/**
+* Set the field value
+* The credit with which this app tracking info is associated
+*
+* @memberof apps.AppTracking
+* @param {base.Reference} creditRef 
+*/
+AppTracking.prototype.setCreditRef = function(creditRef) {
+  this.creditRef = creditRef;
+};
+
+/**
+* Get the field value
+* The credit with which this app tracking info is associated
+* @memberof apps.AppTracking
+* @return {base.Reference} 
+*/
+AppTracking.prototype.getCreditRef = function() {
+  return this.creditRef;
+};
+
+/**
+* Set the field value
+* The refund with which this app tracking info is associated
+*
+* @memberof apps.AppTracking
+* @param {base.Reference} refundRef 
+*/
+AppTracking.prototype.setRefundRef = function(refundRef) {
+  this.refundRef = refundRef;
+};
+
+/**
+* Get the field value
+* The refund with which this app tracking info is associated
+* @memberof apps.AppTracking
+* @return {base.Reference} 
+*/
+AppTracking.prototype.getRefundRef = function() {
+  return this.refundRef;
+};
+
+/**
+* Set the field value
+* The credit refund with which this app tracking info is associated
+*
+* @memberof apps.AppTracking
+* @param {base.Reference} creditRefundRef 
+*/
+AppTracking.prototype.setCreditRefundRef = function(creditRefundRef) {
+  this.creditRefundRef = creditRefundRef;
+};
+
+/**
+* Get the field value
+* The credit refund with which this app tracking info is associated
+* @memberof apps.AppTracking
+* @return {base.Reference} 
+*/
+AppTracking.prototype.getCreditRefundRef = function() {
+  return this.creditRefundRef;
+};
+
+/**
 * @memberof apps.AppTracking
 * @private
 */
@@ -124,6 +257,10 @@ AppTracking.prototype.toString = function() {
 };
 
 AppTracking._meta_ =  {fields:  {}};
+AppTracking._meta_.fields["developerAppId"] = {};
+AppTracking._meta_.fields["developerAppId"].type = String;
+AppTracking._meta_.fields["applicationName"] = {};
+AppTracking._meta_.fields["applicationName"].type = String;
 AppTracking._meta_.fields["applicationID"] = {};
 AppTracking._meta_.fields["applicationID"].type = String;
 AppTracking._meta_.fields["applicationVersion"] = {};
@@ -132,6 +269,14 @@ AppTracking._meta_.fields["sourceSDK"] = {};
 AppTracking._meta_.fields["sourceSDK"].type = String;
 AppTracking._meta_.fields["sourceSDKVersion"] = {};
 AppTracking._meta_.fields["sourceSDKVersion"].type = String;
+AppTracking._meta_.fields["paymentRef"] = {};
+AppTracking._meta_.fields["paymentRef"].type = base_Reference;
+AppTracking._meta_.fields["creditRef"] = {};
+AppTracking._meta_.fields["creditRef"].type = base_Reference;
+AppTracking._meta_.fields["refundRef"] = {};
+AppTracking._meta_.fields["refundRef"].type = base_Reference;
+AppTracking._meta_.fields["creditRefundRef"] = {};
+AppTracking._meta_.fields["creditRefundRef"].type = base_Reference;
 
 //
 // Expose the module.

@@ -19,6 +19,7 @@ var Customer = function() {
   this._class_ = Customer;
   this.id = undefined;
   this.orderRef = undefined;
+  this.merchant = undefined;
   this.firstName = undefined;
   this.lastName = undefined;
   this.marketingAllowed = undefined;
@@ -72,6 +73,27 @@ Customer.prototype.setOrderRef = function(orderRef) {
 */
 Customer.prototype.getOrderRef = function() {
   return this.orderRef;
+};
+
+/**
+* Set the field value
+* The merchant that is associated with this customer
+*
+* @memberof customers.Customer
+* @param {base.Reference} merchant 
+*/
+Customer.prototype.setMerchant = function(merchant) {
+  this.merchant = merchant;
+};
+
+/**
+* Get the field value
+* The merchant that is associated with this customer
+* @memberof customers.Customer
+* @return {base.Reference} 
+*/
+Customer.prototype.getMerchant = function() {
+  return this.merchant;
 };
 
 /**
@@ -288,6 +310,8 @@ Customer._meta_.fields["id"] = {};
 Customer._meta_.fields["id"].type = String;
 Customer._meta_.fields["orderRef"] = {};
 Customer._meta_.fields["orderRef"].type = base_Reference;
+Customer._meta_.fields["merchant"] = {};
+Customer._meta_.fields["merchant"].type = base_Reference;
 Customer._meta_.fields["firstName"] = {};
 Customer._meta_.fields["firstName"].type = String;
 Customer._meta_.fields["lastName"] = {};

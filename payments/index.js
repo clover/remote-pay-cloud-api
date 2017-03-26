@@ -1,8 +1,10 @@
+
 module.exports.payments = payments;
 /**
 * @namespace payments
 */
 function payments() {}
+
 
 payments.AVSResult = require("./AVSResult");
 payments.Authorization = require("./Authorization");
@@ -21,10 +23,12 @@ payments.CardTransactionState = require("./CardTransactionState");
 payments.CardTransactionType = require("./CardTransactionType");
 payments.CardType = require("./CardType");
 payments.Credit = require("./Credit");
+payments.CreditRefund = require("./CreditRefund");
 payments.Currency = require("./Currency");
 payments.CvmResult = require("./CvmResult");
 payments.DCCInfo = require("./DCCInfo");
 payments.DataEntryLocation = require("./DataEntryLocation");
+payments.DiscountApprover = require("./DiscountApprover");
 payments.GatewayTxState = require("./GatewayTxState");
 payments.GatewayTxType = require("./GatewayTxType");
 payments.GatewayTxs = require("./GatewayTxs");
@@ -52,9 +56,11 @@ payments.TransactionSettings = require("./TransactionSettings");
 payments.TxType = require("./TxType");
 payments.Type = require("./Type");
 payments.VaultedCard = require("./VaultedCard.js");
+
 //
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
   module.exports = payments;
 }
+    

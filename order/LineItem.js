@@ -40,6 +40,8 @@ var LineItem = function() {
   this.isRevenue = false;
   this.taxRates = undefined;
   this.payments = undefined;
+  this.revenueAmount = undefined;
+  this.quantitySold = undefined;
 };
 
 
@@ -524,6 +526,48 @@ LineItem.prototype.getPayments = function() {
 };
 
 /**
+* Set the field value
+* Revenue collected for this. This field is only used in reporting.
+*
+* @memberof order.LineItem
+* @param {Number} revenueAmount must be a long integer
+*/
+LineItem.prototype.setRevenueAmount = function(revenueAmount) {
+  this.revenueAmount = revenueAmount;
+};
+
+/**
+* Get the field value
+* Revenue collected for this. This field is only used in reporting.
+* @memberof order.LineItem
+* @return {Number} must be a long integer
+*/
+LineItem.prototype.getRevenueAmount = function() {
+  return this.revenueAmount;
+};
+
+/**
+* Set the field value
+* Quantity sold for this line item. This field is only used in reporting
+*
+* @memberof order.LineItem
+* @param {Number} quantitySold must be a double
+*/
+LineItem.prototype.setQuantitySold = function(quantitySold) {
+  this.quantitySold = quantitySold;
+};
+
+/**
+* Get the field value
+* Quantity sold for this line item. This field is only used in reporting
+* @memberof order.LineItem
+* @return {Number} must be a double
+*/
+LineItem.prototype.getQuantitySold = function() {
+  return this.quantitySold;
+};
+
+/**
 * @memberof order.LineItem
 * @private
 */
@@ -596,6 +640,10 @@ LineItem._meta_.fields["taxRates"].elementType = inventory_TaxRate;
 LineItem._meta_.fields["payments"] = {};
 LineItem._meta_.fields["payments"].type = Array;
 LineItem._meta_.fields["payments"].elementType = payments_LineItemPayment;
+LineItem._meta_.fields["revenueAmount"] = {};
+LineItem._meta_.fields["revenueAmount"].type = Number;
+LineItem._meta_.fields["quantitySold"] = {};
+LineItem._meta_.fields["quantitySold"].type = Number;
 
 //
 // Expose the module.

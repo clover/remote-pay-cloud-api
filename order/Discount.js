@@ -16,6 +16,7 @@ var Discount = function() {
   this.orderRef = undefined;
   this.lineItemRef = undefined;
   this.discount = undefined;
+  this.approver = undefined;
   this.name = undefined;
   this.amount = undefined;
   this.percentage = undefined;
@@ -104,6 +105,27 @@ Discount.prototype.setDiscount = function(discount) {
 */
 Discount.prototype.getDiscount = function() {
   return this.discount;
+};
+
+/**
+* Set the field value
+* The person that authorized a discount
+*
+* @memberof order.Discount
+* @param {Null|base.Reference} approver 
+*/
+Discount.prototype.setApprover = function(approver) {
+  this.approver = approver;
+};
+
+/**
+* Get the field value
+* The person that authorized a discount
+* @memberof order.Discount
+* @return {Null|base.Reference} 
+*/
+Discount.prototype.getApprover = function() {
+  return this.approver;
 };
 
 /**
@@ -198,6 +220,8 @@ Discount._meta_.fields["lineItemRef"] = {};
 Discount._meta_.fields["lineItemRef"].type = base_Reference;
 Discount._meta_.fields["discount"] = {};
 Discount._meta_.fields["discount"].type = base_Reference;
+Discount._meta_.fields["approver"] = {};
+Discount._meta_.fields["approver"].type = base_Reference;
 Discount._meta_.fields["name"] = {};
 Discount._meta_.fields["name"].type = String;
 Discount._meta_.fields["amount"] = {};

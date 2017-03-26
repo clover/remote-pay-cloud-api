@@ -5,9 +5,11 @@
  */
 
 var payments_TaxableAmountRate = require("../payments/TaxableAmountRate");
+var apps_AppTracking = require("../apps/AppTracking");
 var payments_ServiceChargeAmount = require("../payments/ServiceChargeAmount");
 var base_Reference = require("../base/Reference");
 var base_Tender = require("../base/Tender");
+var payments_GermanInfo = require("../payments/GermanInfo");
 
 /**
 * @constructor
@@ -29,6 +31,8 @@ var Refund = function() {
   this.overrideMerchantTender = undefined;
   this.taxableAmountRates = undefined;
   this.serviceChargeAmount = undefined;
+  this.germanInfo = undefined;
+  this.appTracking = undefined;
 };
 
 
@@ -315,6 +319,48 @@ Refund.prototype.getServiceChargeAmount = function() {
 };
 
 /**
+* Set the field value
+* German region-specific information
+*
+* @memberof payments.Refund
+* @param {payments.GermanInfo|Null} germanInfo 
+*/
+Refund.prototype.setGermanInfo = function(germanInfo) {
+  this.germanInfo = germanInfo;
+};
+
+/**
+* Get the field value
+* German region-specific information
+* @memberof payments.Refund
+* @return {payments.GermanInfo|Null} 
+*/
+Refund.prototype.getGermanInfo = function() {
+  return this.germanInfo;
+};
+
+/**
+* Set the field value
+* Tracking information for the app that created this refund.
+*
+* @memberof payments.Refund
+* @param {apps.AppTracking|Null} appTracking 
+*/
+Refund.prototype.setAppTracking = function(appTracking) {
+  this.appTracking = appTracking;
+};
+
+/**
+* Get the field value
+* Tracking information for the app that created this refund.
+* @memberof payments.Refund
+* @return {apps.AppTracking|Null} 
+*/
+Refund.prototype.getAppTracking = function() {
+  return this.appTracking;
+};
+
+/**
 * @memberof payments.Refund
 * @private
 */
@@ -365,6 +411,10 @@ Refund._meta_.fields["taxableAmountRates"].type = Array;
 Refund._meta_.fields["taxableAmountRates"].elementType = payments_TaxableAmountRate;
 Refund._meta_.fields["serviceChargeAmount"] = {};
 Refund._meta_.fields["serviceChargeAmount"].type = payments_ServiceChargeAmount;
+Refund._meta_.fields["germanInfo"] = {};
+Refund._meta_.fields["germanInfo"].type = payments_GermanInfo;
+Refund._meta_.fields["appTracking"] = {};
+Refund._meta_.fields["appTracking"].type = apps_AppTracking;
 
 //
 // Expose the module.

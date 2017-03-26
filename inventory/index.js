@@ -1,8 +1,10 @@
+
 module.exports.inventory = inventory;
 /**
 * @namespace inventory
 */
 function inventory() {}
+
 
 inventory.Attribute = require("./Attribute");
 inventory.Category = require("./Category");
@@ -22,9 +24,11 @@ inventory.TagItem = require("./TagItem");
 inventory.TagPrinter = require("./TagPrinter");
 inventory.TaxRate = require("./TaxRate");
 inventory.TaxRateItem = require("./TaxRateItem.js");
+
 //
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
   module.exports = inventory;
 }
+    

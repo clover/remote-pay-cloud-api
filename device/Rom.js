@@ -21,6 +21,7 @@ var Rom = function() {
   this.isCritical = undefined;
   this.published = undefined;
   this.enabled = undefined;
+  this.associationTime = undefined;
 };
 
 
@@ -193,6 +194,27 @@ Rom.prototype.getEnabled = function() {
 };
 
 /**
+* Set the field value
+* When the ROM was associated with a merchant group
+*
+* @memberof device.Rom
+* @param {Number} associationTime must be a long integer
+*/
+Rom.prototype.setAssociationTime = function(associationTime) {
+  this.associationTime = associationTime;
+};
+
+/**
+* Get the field value
+* When the ROM was associated with a merchant group
+* @memberof device.Rom
+* @return {Number} must be a long integer
+*/
+Rom.prototype.getAssociationTime = function() {
+  return this.associationTime;
+};
+
+/**
 * @memberof device.Rom
 * @private
 */
@@ -231,6 +253,8 @@ Rom._meta_.fields["published"] = {};
 Rom._meta_.fields["published"].type = Boolean;
 Rom._meta_.fields["enabled"] = {};
 Rom._meta_.fields["enabled"].type = Boolean;
+Rom._meta_.fields["associationTime"] = {};
+Rom._meta_.fields["associationTime"].type = Number;
 
 //
 // Expose the module.
