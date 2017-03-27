@@ -20,7 +20,7 @@ var TransactionRequest = function() {
   this._class_ = TransactionRequest;
   this.orderId = undefined;
   this.signatureThreshold = undefined;
-  this.cloverShouldHandleReceipts = undefined;
+  this.disablePrinting = undefined;
   this.disableReceiptSelection = undefined;
   this.disableDuplicateChecking = undefined;
   this.signatureEntryLocation = undefined;
@@ -82,23 +82,23 @@ TransactionRequest.prototype.getSignatureThreshold = function() {
 
 /**
 * Set the field value
-* If false, then do not print using the clover printer.  Return print information.
+* If true, then do not print using the clover printer.  Return print information.
 *
 * @memberof remotepay.TransactionRequest
-* @param {Boolean|Null} cloverShouldHandleReceipts 
+* @param {Boolean|Null} disablePrinting 
 */
-TransactionRequest.prototype.setCloverShouldHandleReceipts = function(cloverShouldHandleReceipts) {
-  this.cloverShouldHandleReceipts = cloverShouldHandleReceipts;
+TransactionRequest.prototype.setDisablePrinting = function(disablePrinting) {
+  this.disablePrinting = disablePrinting;
 };
 
 /**
 * Get the field value
-* If false, then do not print using the clover printer.  Return print information.
+* If true, then do not print using the clover printer.  Return print information.
 * @memberof remotepay.TransactionRequest
 * @return {Boolean|Null} 
 */
-TransactionRequest.prototype.getCloverShouldHandleReceipts = function() {
-  return this.cloverShouldHandleReceipts;
+TransactionRequest.prototype.getDisablePrinting = function() {
+  return this.disablePrinting;
 };
 
 /**
@@ -358,8 +358,8 @@ TransactionRequest._meta_.fields["orderId"] = {};
 TransactionRequest._meta_.fields["orderId"].type = String;
 TransactionRequest._meta_.fields["signatureThreshold"] = {};
 TransactionRequest._meta_.fields["signatureThreshold"].type = Number;
-TransactionRequest._meta_.fields["cloverShouldHandleReceipts"] = {};
-TransactionRequest._meta_.fields["cloverShouldHandleReceipts"].type = Boolean;
+TransactionRequest._meta_.fields["disablePrinting"] = {};
+TransactionRequest._meta_.fields["disablePrinting"].type = Boolean;
 TransactionRequest._meta_.fields["disableReceiptSelection"] = {};
 TransactionRequest._meta_.fields["disableReceiptSelection"].type = Boolean;
 TransactionRequest._meta_.fields["disableDuplicateChecking"] = {};

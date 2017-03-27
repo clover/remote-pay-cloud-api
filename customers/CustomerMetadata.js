@@ -14,7 +14,9 @@ var CustomerMetadata = function() {
   this._class_ = CustomerMetadata;
   this.businessName = undefined;
   this.note = undefined;
-  this.dateOfBirth = undefined;
+  this.dobYear = undefined;
+  this.dobMonth = undefined;
+  this.dobDay = undefined;
   this.customer = undefined;
 };
 
@@ -63,23 +65,65 @@ CustomerMetadata.prototype.getNote = function() {
 
 /**
 * Set the field value
-* The date of birth of the customer.
+* The year part of the date of birth for this customer. This part of the date of birth is optional, i.e., it's possible that only dobMonth and dobDay are populated.
 *
 * @memberof customers.CustomerMetadata
-* @param {Number} dateOfBirth must be a long integer
+* @param {Number} dobYear must be an integer
 */
-CustomerMetadata.prototype.setDateOfBirth = function(dateOfBirth) {
-  this.dateOfBirth = dateOfBirth;
+CustomerMetadata.prototype.setDobYear = function(dobYear) {
+  this.dobYear = dobYear;
 };
 
 /**
 * Get the field value
-* The date of birth of the customer.
+* The year part of the date of birth for this customer. This part of the date of birth is optional, i.e., it's possible that only dobMonth and dobDay are populated.
 * @memberof customers.CustomerMetadata
-* @return {Number} must be a long integer
+* @return {Number} must be an integer
 */
-CustomerMetadata.prototype.getDateOfBirth = function() {
-  return this.dateOfBirth;
+CustomerMetadata.prototype.getDobYear = function() {
+  return this.dobYear;
+};
+
+/**
+* Set the field value
+* The month part of the date of birth for this customer.
+*
+* @memberof customers.CustomerMetadata
+* @param {Number} dobMonth must be an integer
+*/
+CustomerMetadata.prototype.setDobMonth = function(dobMonth) {
+  this.dobMonth = dobMonth;
+};
+
+/**
+* Get the field value
+* The month part of the date of birth for this customer.
+* @memberof customers.CustomerMetadata
+* @return {Number} must be an integer
+*/
+CustomerMetadata.prototype.getDobMonth = function() {
+  return this.dobMonth;
+};
+
+/**
+* Set the field value
+* The day part of the date of birth for this customer.
+*
+* @memberof customers.CustomerMetadata
+* @param {Number} dobDay must be an integer
+*/
+CustomerMetadata.prototype.setDobDay = function(dobDay) {
+  this.dobDay = dobDay;
+};
+
+/**
+* Get the field value
+* The day part of the date of birth for this customer.
+* @memberof customers.CustomerMetadata
+* @return {Number} must be an integer
+*/
+CustomerMetadata.prototype.getDobDay = function() {
+  return this.dobDay;
 };
 
 /**
@@ -128,8 +172,12 @@ CustomerMetadata._meta_.fields["businessName"] = {};
 CustomerMetadata._meta_.fields["businessName"].type = String;
 CustomerMetadata._meta_.fields["note"] = {};
 CustomerMetadata._meta_.fields["note"].type = String;
-CustomerMetadata._meta_.fields["dateOfBirth"] = {};
-CustomerMetadata._meta_.fields["dateOfBirth"].type = Number;
+CustomerMetadata._meta_.fields["dobYear"] = {};
+CustomerMetadata._meta_.fields["dobYear"].type = Number;
+CustomerMetadata._meta_.fields["dobMonth"] = {};
+CustomerMetadata._meta_.fields["dobMonth"].type = Number;
+CustomerMetadata._meta_.fields["dobDay"] = {};
+CustomerMetadata._meta_.fields["dobDay"].type = Number;
 CustomerMetadata._meta_.fields["customer"] = {};
 CustomerMetadata._meta_.fields["customer"].type = base_Reference;
 

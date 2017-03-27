@@ -4,18 +4,19 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var payments_CardTransaction = require("../payments/CardTransaction");
-var payments_LineItemPayment = require("../payments/LineItemPayment");
-var order_VoidReason = require("../order/VoidReason");
 var payments_Result = require("../payments/Result");
 var payments_ServiceChargeAmount = require("../payments/ServiceChargeAmount");
 var payments_PaymentTaxRate = require("../payments/PaymentTaxRate");
 var payments_DCCInfo = require("../payments/DCCInfo");
+var payments_Refund = require("../payments/Refund");
+var payments_GermanInfo = require("../payments/GermanInfo");
+var payments_CardTransaction = require("../payments/CardTransaction");
+var payments_LineItemPayment = require("../payments/LineItemPayment");
+var order_VoidReason = require("../order/VoidReason");
+var apps_AppTracking = require("../apps/AppTracking");
 var base_Reference = require("../base/Reference");
 var base_Tender = require("../base/Tender");
 var payments_TransactionSettings = require("../payments/TransactionSettings");
-var payments_Refund = require("../payments/Refund");
-var payments_GermanInfo = require("../payments/GermanInfo");
 
 /**
 * @constructor
@@ -49,6 +50,7 @@ var Payment = function() {
   this.dccInfo = undefined;
   this.transactionSettings = undefined;
   this.germanInfo = undefined;
+  this.appTracking = undefined;
 };
 
 
@@ -575,6 +577,27 @@ Payment.prototype.getGermanInfo = function() {
 };
 
 /**
+* Set the field value
+* Tracking information for the app that created this payment.
+*
+* @memberof payments.Payment
+* @param {apps.AppTracking|Null} appTracking 
+*/
+Payment.prototype.setAppTracking = function(appTracking) {
+  this.appTracking = appTracking;
+};
+
+/**
+* Get the field value
+* Tracking information for the app that created this payment.
+* @memberof payments.Payment
+* @return {apps.AppTracking|Null} 
+*/
+Payment.prototype.getAppTracking = function() {
+  return this.appTracking;
+};
+
+/**
 * @memberof payments.Payment
 * @private
 */
@@ -650,6 +673,8 @@ Payment._meta_.fields["transactionSettings"] = {};
 Payment._meta_.fields["transactionSettings"].type = payments_TransactionSettings;
 Payment._meta_.fields["germanInfo"] = {};
 Payment._meta_.fields["germanInfo"].type = payments_GermanInfo;
+Payment._meta_.fields["appTracking"] = {};
+Payment._meta_.fields["appTracking"].type = apps_AppTracking;
 
 //
 // Expose the module.

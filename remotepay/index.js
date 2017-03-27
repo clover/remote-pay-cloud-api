@@ -1,8 +1,10 @@
+
 module.exports.remotepay = remotepay;
 /**
 * @namespace remotepay
 */
 function remotepay() {}
+
 
 remotepay.AuthRequest = require("./AuthRequest");
 remotepay.AuthResponse = require("./AuthResponse");
@@ -59,9 +61,11 @@ remotepay.VoidCreditRequest = require("./VoidCreditRequest");
 remotepay.VoidCreditResponse = require("./VoidCreditResponse");
 remotepay.VoidPaymentRequest = require("./VoidPaymentRequest");
 remotepay.VoidPaymentResponse = require("./VoidPaymentResponse.js");
+
 //
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
   module.exports = remotepay;
 }
+    

@@ -1,12 +1,10 @@
+
 module.exports.order = order;
 /**
 * @namespace order
 */
 function order() {}
-/**
-* @namespace order.operation
-*/
-order.operation = {}
+
 
 order.CreateLineItemsRequest = require("./CreateLineItemsRequest");
 order.CustomerIdMethod = require("./CustomerIdMethod");
@@ -27,15 +25,12 @@ order.OrderTypeCategory = require("./OrderTypeCategory");
 order.PayType = require("./PayType");
 order.SystemOrderType = require("./SystemOrderType");
 order.VoidReason = require("./VoidReason");
-order.VoidedLineItem = require("./VoidedLineItem");
-order.operation.DiscountsAddedOperation = require("./operation/DiscountsAddedOperation");
-order.operation.DiscountsDeletedOperation = require("./operation/DiscountsDeletedOperation");
-order.operation.LineItemsAddedOperation = require("./operation/LineItemsAddedOperation");
-order.operation.LineItemsDeletedOperation = require("./operation/LineItemsDeletedOperation");
-order.operation.OrderDeletedOperation = require("./operation/OrderDeletedOperation.js");
+order.VoidedLineItem = require("./VoidedLineItem.js");
+
 //
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
   module.exports = order;
 }
+    

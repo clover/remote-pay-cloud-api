@@ -1,8 +1,10 @@
+
 module.exports.remotemessage = remotemessage;
 /**
 * @namespace remotemessage
 */
 function remotemessage() {}
+
 
 remotemessage.AcknowledgementMessage = require("./AcknowledgementMessage");
 remotemessage.AddDiscountAction = require("./AddDiscountAction");
@@ -40,7 +42,10 @@ remotemessage.OrderActionRemoveDiscountMessage = require("./OrderActionRemoveDis
 remotemessage.OrderActionRemoveLineItemMessage = require("./OrderActionRemoveLineItemMessage");
 remotemessage.OrderActionResponse = require("./OrderActionResponse");
 remotemessage.OrderActionResponseMessage = require("./OrderActionResponseMessage");
-remotemessage.OrderUpdateMessage = require("./OrderUpdateMessage");
+remotemessage.PairingCodeMessage = require("./PairingCodeMessage");
+remotemessage.PairingRequestMessage = require("./PairingRequestMessage");
+remotemessage.PairingResponseMessage = require("./PairingResponseMessage");
+remotemessage.PairingState = require("./PairingState");
 remotemessage.PartialAuthMessage = require("./PartialAuthMessage");
 remotemessage.PayIntent = require("./PayIntent");
 remotemessage.PaymentConfirmedMessage = require("./PaymentConfirmedMessage");
@@ -48,6 +53,7 @@ remotemessage.PaymentRejectedMessage = require("./PaymentRejectedMessage");
 remotemessage.PaymentVoidedMessage = require("./PaymentVoidedMessage");
 remotemessage.RefundRequestMessage = require("./RefundRequestMessage");
 remotemessage.RefundResponseMessage = require("./RefundResponseMessage");
+remotemessage.RemoteError = require("./RemoteError");
 remotemessage.RemoteMessage = require("./RemoteMessage");
 remotemessage.RemoteMessageType = require("./RemoteMessageType");
 remotemessage.RemoveDiscountAction = require("./RemoveDiscountAction");
@@ -79,9 +85,11 @@ remotemessage.VaultCardResponseMessage = require("./VaultCardResponseMessage");
 remotemessage.VerifySignatureMessage = require("./VerifySignatureMessage");
 remotemessage.VoidPaymentMessage = require("./VoidPaymentMessage");
 remotemessage.WelcomeMessage = require("./WelcomeMessage.js");
+
 //
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
   module.exports = remotemessage;
 }
+    

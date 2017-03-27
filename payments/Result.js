@@ -6,6 +6,7 @@
 
 
 /**
+The expected values of the payment.result and credit.result fields
 * @memberof payments
 * @enum {string}
 */

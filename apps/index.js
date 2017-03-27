@@ -1,14 +1,17 @@
+
 module.exports.apps = apps;
 /**
- * @namespace base
- */
-function apps() {
-}
+* @namespace apps
+*/
+function apps() {}
 
-apps.AppTracking = require("./AppTracking");
+
+apps.AppTracking = require("./AppTracking.js");
+
 //
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
-    module.exports = apps;
+  module.exports = apps;
 }
+    

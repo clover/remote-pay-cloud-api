@@ -15,6 +15,7 @@ var PaymentResponse = function() {
   this.requestSuccessful = undefined;
   this.responseErrorMessage = undefined;
   this.payment = undefined;
+  this.clientData = undefined;
 };
 
 
@@ -73,6 +74,27 @@ PaymentResponse.prototype.getPayment = function() {
 };
 
 /**
+* Set the field value
+* Additional data sent back from the gateway
+*
+* @memberof payments.PaymentResponse
+* @param {Object.<String,String>} clientData A map of <String> to <>
+*/
+PaymentResponse.prototype.setClientData = function(clientData) {
+  this.clientData = clientData;
+};
+
+/**
+* Get the field value
+* Additional data sent back from the gateway
+* @memberof payments.PaymentResponse
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+PaymentResponse.prototype.getClientData = function() {
+  return this.clientData;
+};
+
+/**
 * @memberof payments.PaymentResponse
 * @private
 */
@@ -99,6 +121,8 @@ PaymentResponse._meta_.fields["responseErrorMessage"] = {};
 PaymentResponse._meta_.fields["responseErrorMessage"].type = String;
 PaymentResponse._meta_.fields["payment"] = {};
 PaymentResponse._meta_.fields["payment"].type = payments_Payment;
+PaymentResponse._meta_.fields["clientData"] = {};
+PaymentResponse._meta_.fields["clientData"].type = Object;
 
 //
 // Expose the module.

@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var payments_CreditRefund = require("../payments/CreditRefund");
 var payments_Payment = require("../payments/Payment");
 var payments_Refund = require("../payments/Refund");
 var payments_Credit = require("../payments/Credit");
@@ -19,6 +20,7 @@ var Transaction = function() {
   this.payment = undefined;
   this.refund = undefined;
   this.credit = undefined;
+  this.creditRefund = undefined;
 };
 
 
@@ -119,6 +121,24 @@ Transaction.prototype.getCredit = function() {
 };
 
 /**
+* Set the field value
+* @memberof payments.Transaction
+* @param {payments.CreditRefund} creditRefund 
+*/
+Transaction.prototype.setCreditRefund = function(creditRefund) {
+  this.creditRefund = creditRefund;
+};
+
+/**
+* Get the field value
+* @memberof payments.Transaction
+* @return {payments.CreditRefund} 
+*/
+Transaction.prototype.getCreditRefund = function() {
+  return this.creditRefund;
+};
+
+/**
 * @memberof payments.Transaction
 * @private
 */
@@ -149,6 +169,8 @@ Transaction._meta_.fields["refund"] = {};
 Transaction._meta_.fields["refund"].type = payments_Refund;
 Transaction._meta_.fields["credit"] = {};
 Transaction._meta_.fields["credit"].type = payments_Credit;
+Transaction._meta_.fields["creditRefund"] = {};
+Transaction._meta_.fields["creditRefund"].type = payments_CreditRefund;
 
 //
 // Expose the module.

@@ -6,7 +6,10 @@
 
 var customers_Customer = require("../customers/Customer");
 var payments_CardTransaction = require("../payments/CardTransaction");
+var payments_CreditRefund = require("../payments/CreditRefund");
+var payments_Result = require("../payments/Result");
 var payments_TaxableAmountRate = require("../payments/TaxableAmountRate");
+var apps_AppTracking = require("../apps/AppTracking");
 var payments_DCCInfo = require("../payments/DCCInfo");
 var base_Reference = require("../base/Reference");
 var base_Tender = require("../base/Tender");
@@ -35,7 +38,10 @@ var Credit = function() {
   this.voidReason = undefined;
   this.dccInfo = undefined;
   this.transactionSettings = undefined;
+  this.creditRefunds = undefined;
   this.germanInfo = undefined;
+  this.appTracking = undefined;
+  this.result = undefined;
 };
 
 
@@ -365,6 +371,24 @@ Credit.prototype.getTransactionSettings = function() {
 
 /**
 * Set the field value
+* @memberof payments.Credit
+* @param {Array.<payments.CreditRefund>} creditRefunds An array of 
+*/
+Credit.prototype.setCreditRefunds = function(creditRefunds) {
+  this.creditRefunds = creditRefunds;
+};
+
+/**
+* Get the field value
+* @memberof payments.Credit
+* @return {Array.<payments.CreditRefund>} An array of 
+*/
+Credit.prototype.getCreditRefunds = function() {
+  return this.creditRefunds;
+};
+
+/**
+* Set the field value
 * German region-specific information
 *
 * @memberof payments.Credit
@@ -382,6 +406,45 @@ Credit.prototype.setGermanInfo = function(germanInfo) {
 */
 Credit.prototype.getGermanInfo = function() {
   return this.germanInfo;
+};
+
+/**
+* Set the field value
+* Tracking information for the app that created this credit.
+*
+* @memberof payments.Credit
+* @param {apps.AppTracking|Null} appTracking 
+*/
+Credit.prototype.setAppTracking = function(appTracking) {
+  this.appTracking = appTracking;
+};
+
+/**
+* Get the field value
+* Tracking information for the app that created this credit.
+* @memberof payments.Credit
+* @return {apps.AppTracking|Null} 
+*/
+Credit.prototype.getAppTracking = function() {
+  return this.appTracking;
+};
+
+/**
+* Set the field value
+* @memberof payments.Credit
+* @param {payments.Result} result 
+*/
+Credit.prototype.setResult = function(result) {
+  this.result = result;
+};
+
+/**
+* Get the field value
+* @memberof payments.Credit
+* @return {payments.Result} 
+*/
+Credit.prototype.getResult = function() {
+  return this.result;
 };
 
 /**
@@ -438,8 +501,15 @@ Credit._meta_.fields["dccInfo"] = {};
 Credit._meta_.fields["dccInfo"].type = payments_DCCInfo;
 Credit._meta_.fields["transactionSettings"] = {};
 Credit._meta_.fields["transactionSettings"].type = payments_TransactionSettings;
+Credit._meta_.fields["creditRefunds"] = {};
+Credit._meta_.fields["creditRefunds"].type = Array;
+Credit._meta_.fields["creditRefunds"].elementType = payments_CreditRefund;
 Credit._meta_.fields["germanInfo"] = {};
 Credit._meta_.fields["germanInfo"].type = payments_GermanInfo;
+Credit._meta_.fields["appTracking"] = {};
+Credit._meta_.fields["appTracking"].type = apps_AppTracking;
+Credit._meta_.fields["result"] = {};
+Credit._meta_.fields["result"].type = payments_Result;
 
 //
 // Expose the module.

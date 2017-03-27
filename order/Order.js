@@ -27,6 +27,7 @@ var Order = function() {
   this.id = undefined;
   this.currency = undefined;
   this.customerId = undefined;
+  this.customerUuid = undefined;
   this.orderTypeId = undefined;
   this.customers = undefined;
   this.employee = undefined;
@@ -116,6 +117,24 @@ Order.prototype.setCustomerId = function(customerId) {
 */
 Order.prototype.getCustomerId = function() {
   return this.customerId;
+};
+
+/**
+* Set the field value
+* @memberof order.Order
+* @param {String} customerUuid 
+*/
+Order.prototype.setCustomerUuid = function(customerUuid) {
+  this.customerUuid = customerUuid;
+};
+
+/**
+* Get the field value
+* @memberof order.Order
+* @return {String} 
+*/
+Order.prototype.getCustomerUuid = function() {
+  return this.customerUuid;
 };
 
 /**
@@ -718,6 +737,8 @@ Order._meta_.fields["currency"] = {};
 Order._meta_.fields["currency"].type = String;
 Order._meta_.fields["customerId"] = {};
 Order._meta_.fields["customerId"].type = Number;
+Order._meta_.fields["customerUuid"] = {};
+Order._meta_.fields["customerUuid"].type = String;
 Order._meta_.fields["orderTypeId"] = {};
 Order._meta_.fields["orderTypeId"].type = Number;
 Order._meta_.fields["customers"] = {};

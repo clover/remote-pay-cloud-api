@@ -20,6 +20,7 @@ var Modification = function() {
   this.alternateName = undefined;
   this.amount = undefined;
   this.modifier = undefined;
+  this.quantitySold = undefined;
 };
 
 
@@ -144,6 +145,27 @@ Modification.prototype.getModifier = function() {
 };
 
 /**
+* Set the field value
+* This is only used in reports. The count of how many of these modifiers that were sold.
+*
+* @memberof order.Modification
+* @param {Number} quantitySold must be a long integer
+*/
+Modification.prototype.setQuantitySold = function(quantitySold) {
+  this.quantitySold = quantitySold;
+};
+
+/**
+* Get the field value
+* This is only used in reports. The count of how many of these modifiers that were sold.
+* @memberof order.Modification
+* @return {Number} must be a long integer
+*/
+Modification.prototype.getQuantitySold = function() {
+  return this.quantitySold;
+};
+
+/**
 * @memberof order.Modification
 * @private
 */
@@ -176,6 +198,8 @@ Modification._meta_.fields["amount"] = {};
 Modification._meta_.fields["amount"].type = Number;
 Modification._meta_.fields["modifier"] = {};
 Modification._meta_.fields["modifier"].type = inventory_Modifier;
+Modification._meta_.fields["quantitySold"] = {};
+Modification._meta_.fields["quantitySold"].type = Number;
 
 //
 // Expose the module.
