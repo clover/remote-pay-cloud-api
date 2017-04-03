@@ -65,7 +65,11 @@ TagPrinter.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -75,6 +79,7 @@ TagPrinter.prototype.toString = function() {
 };
 
 TagPrinter._meta_ =  {fields:  {}};
+TagPrinter._meta_._class_ =  TagPrinter;
 TagPrinter._meta_.fields["tag"] = {};
 TagPrinter._meta_.fields["tag"].type = inventory_Tag;
 TagPrinter._meta_.fields["printer"] = {};

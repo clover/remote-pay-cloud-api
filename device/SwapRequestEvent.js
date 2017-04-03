@@ -124,7 +124,11 @@ SwapRequestEvent.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -134,6 +138,7 @@ SwapRequestEvent.prototype.toString = function() {
 };
 
 SwapRequestEvent._meta_ =  {fields:  {}};
+SwapRequestEvent._meta_._class_ =  SwapRequestEvent;
 SwapRequestEvent._meta_.fields["id"] = {};
 SwapRequestEvent._meta_.fields["id"].type = String;
 SwapRequestEvent._meta_.fields["type"] = {};

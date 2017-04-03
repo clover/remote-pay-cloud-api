@@ -93,7 +93,11 @@ ItemStock.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -103,6 +107,7 @@ ItemStock.prototype.toString = function() {
 };
 
 ItemStock._meta_ =  {fields:  {}};
+ItemStock._meta_._class_ =  ItemStock;
 ItemStock._meta_.fields["item"] = {};
 ItemStock._meta_.fields["item"].type = base_Reference;
 ItemStock._meta_.fields["stockCount"] = {};

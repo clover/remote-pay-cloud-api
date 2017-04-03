@@ -133,7 +133,11 @@ Modifier.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -143,6 +147,7 @@ Modifier.prototype.toString = function() {
 };
 
 Modifier._meta_ =  {fields:  {}};
+Modifier._meta_._class_ =  Modifier;
 Modifier._meta_.fields["id"] = {};
 Modifier._meta_.fields["id"].type = String;
 Modifier._meta_.fields["name"] = {};

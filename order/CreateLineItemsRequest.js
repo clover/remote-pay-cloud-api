@@ -48,7 +48,11 @@ CreateLineItemsRequest.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -58,6 +62,7 @@ CreateLineItemsRequest.prototype.toString = function() {
 };
 
 CreateLineItemsRequest._meta_ =  {fields:  {}};
+CreateLineItemsRequest._meta_._class_ =  CreateLineItemsRequest;
 CreateLineItemsRequest._meta_.fields["items"] = {};
 CreateLineItemsRequest._meta_.fields["items"].type = Array;
 CreateLineItemsRequest._meta_.fields["items"].elementType = order_LineItem;

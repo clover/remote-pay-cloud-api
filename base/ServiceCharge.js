@@ -158,7 +158,11 @@ ServiceCharge.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -168,6 +172,7 @@ ServiceCharge.prototype.toString = function() {
 };
 
 ServiceCharge._meta_ =  {fields:  {}};
+ServiceCharge._meta_._class_ =  ServiceCharge;
 ServiceCharge._meta_.fields["id"] = {};
 ServiceCharge._meta_.fields["id"].type = String;
 ServiceCharge._meta_.fields["orderRef"] = {};

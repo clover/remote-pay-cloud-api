@@ -159,7 +159,11 @@ BatchTotalStats.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -169,6 +173,7 @@ BatchTotalStats.prototype.toString = function() {
 };
 
 BatchTotalStats._meta_ =  {fields:  {}};
+BatchTotalStats._meta_._class_ =  BatchTotalStats;
 BatchTotalStats._meta_.fields["sales"] = {};
 BatchTotalStats._meta_.fields["sales"].type = payments_BatchTotalType;
 BatchTotalStats._meta_.fields["refunds"] = {};

@@ -146,7 +146,11 @@ TaxRate.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -156,6 +160,7 @@ TaxRate.prototype.toString = function() {
 };
 
 TaxRate._meta_ =  {fields:  {}};
+TaxRate._meta_._class_ =  TaxRate;
 TaxRate._meta_.fields["id"] = {};
 TaxRate._meta_.fields["id"].type = String;
 TaxRate._meta_.fields["lineItemRef"] = {};

@@ -88,6 +88,8 @@ CapturePreAuthResponse.prototype.getTipAmount = function() {
 };
 
 CapturePreAuthResponse._meta_ =  {fields:  {}};
+CapturePreAuthResponse._meta_._class_ =  CapturePreAuthResponse;
+CapturePreAuthResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 CapturePreAuthResponse._meta_.fields["paymentId"] = {};
 CapturePreAuthResponse._meta_.fields["paymentId"].type = String;
 CapturePreAuthResponse._meta_.fields["amount"] = {};

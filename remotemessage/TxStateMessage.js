@@ -46,6 +46,8 @@ TxStateMessage.prototype.getTxState = function() {
 };
 
 TxStateMessage._meta_ =  {fields:  {}};
+TxStateMessage._meta_._class_ =  TxStateMessage;
+TxStateMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 TxStateMessage._meta_.fields["txState"] = {};
 TxStateMessage._meta_.fields["txState"].type = remotemessage_TxState;
 

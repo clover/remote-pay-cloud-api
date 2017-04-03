@@ -91,7 +91,11 @@ Img.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -101,6 +105,7 @@ Img.prototype.toString = function() {
 };
 
 Img._meta_ =  {fields:  {}};
+Img._meta_._class_ =  Img;
 Img._meta_.fields["src"] = {};
 Img._meta_.fields["src"].type = String;
 Img._meta_.fields["width"] = {};

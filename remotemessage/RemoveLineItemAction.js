@@ -44,7 +44,11 @@ RemoveLineItemAction.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -54,6 +58,7 @@ RemoveLineItemAction.prototype.toString = function() {
 };
 
 RemoveLineItemAction._meta_ =  {fields:  {}};
+RemoveLineItemAction._meta_._class_ =  RemoveLineItemAction;
 RemoveLineItemAction._meta_.fields["lineItemId"] = {};
 RemoveLineItemAction._meta_.fields["lineItemId"].type = String;
 

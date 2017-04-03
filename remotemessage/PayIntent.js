@@ -5,11 +5,13 @@
  */
 
 var remotemessage_TransactionType = require("../remotemessage/TransactionType");
+var payments_CashAdvanceCustomerIdentification = require("../payments/CashAdvanceCustomerIdentification");
 var payments_TaxableAmountRate = require("../payments/TaxableAmountRate");
 var apps_AppTracking = require("../apps/AppTracking");
 var payments_ServiceChargeAmount = require("../payments/ServiceChargeAmount");
 var payments_VaultedCard = require("../payments/VaultedCard");
 var payments_TransactionSettings = require("../payments/TransactionSettings");
+var payments_GermanInfo = require("../payments/GermanInfo");
 
 /**
 * @constructor
@@ -46,6 +48,9 @@ var PayIntent = function() {
   this.approveOfflinePaymentWithoutPrompt = undefined;
   this.requiresRemoteConfirmation = undefined;
   this.applicationTracking = undefined;
+  this.allowPartialAuth = undefined;
+  this.germanInfo = undefined;
+  this.cashAdvanceCustomerIdentification = undefined;
   this.transactionSettings = undefined;
 };
 
@@ -608,6 +613,60 @@ PayIntent.prototype.getApplicationTracking = function() {
 /**
 * Set the field value
 * @memberof remotemessage.PayIntent
+* @param {Boolean|Null} allowPartialAuth 
+*/
+PayIntent.prototype.setAllowPartialAuth = function(allowPartialAuth) {
+  this.allowPartialAuth = allowPartialAuth;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.PayIntent
+* @return {Boolean|Null} 
+*/
+PayIntent.prototype.getAllowPartialAuth = function() {
+  return this.allowPartialAuth;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.PayIntent
+* @param {payments.GermanInfo} germanInfo 
+*/
+PayIntent.prototype.setGermanInfo = function(germanInfo) {
+  this.germanInfo = germanInfo;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.PayIntent
+* @return {payments.GermanInfo} 
+*/
+PayIntent.prototype.getGermanInfo = function() {
+  return this.germanInfo;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.PayIntent
+* @param {payments.CashAdvanceCustomerIdentification} cashAdvanceCustomerIdentification 
+*/
+PayIntent.prototype.setCashAdvanceCustomerIdentification = function(cashAdvanceCustomerIdentification) {
+  this.cashAdvanceCustomerIdentification = cashAdvanceCustomerIdentification;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.PayIntent
+* @return {payments.CashAdvanceCustomerIdentification} 
+*/
+PayIntent.prototype.getCashAdvanceCustomerIdentification = function() {
+  return this.cashAdvanceCustomerIdentification;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.PayIntent
 * @param {payments.TransactionSettings} transactionSettings 
 */
 PayIntent.prototype.setTransactionSettings = function(transactionSettings) {
@@ -634,7 +693,11 @@ PayIntent.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -644,6 +707,7 @@ PayIntent.prototype.toString = function() {
 };
 
 PayIntent._meta_ =  {fields:  {}};
+PayIntent._meta_._class_ =  PayIntent;
 PayIntent._meta_.fields["action"] = {};
 PayIntent._meta_.fields["action"].type = String;
 PayIntent._meta_.fields["amount"] = {};
@@ -704,6 +768,12 @@ PayIntent._meta_.fields["requiresRemoteConfirmation"] = {};
 PayIntent._meta_.fields["requiresRemoteConfirmation"].type = Boolean;
 PayIntent._meta_.fields["applicationTracking"] = {};
 PayIntent._meta_.fields["applicationTracking"].type = apps_AppTracking;
+PayIntent._meta_.fields["allowPartialAuth"] = {};
+PayIntent._meta_.fields["allowPartialAuth"].type = Boolean;
+PayIntent._meta_.fields["germanInfo"] = {};
+PayIntent._meta_.fields["germanInfo"].type = payments_GermanInfo;
+PayIntent._meta_.fields["cashAdvanceCustomerIdentification"] = {};
+PayIntent._meta_.fields["cashAdvanceCustomerIdentification"].type = payments_CashAdvanceCustomerIdentification;
 PayIntent._meta_.fields["transactionSettings"] = {};
 PayIntent._meta_.fields["transactionSettings"].type = payments_TransactionSettings;
 

@@ -47,7 +47,11 @@ Reference.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -57,6 +61,7 @@ Reference.prototype.toString = function() {
 };
 
 Reference._meta_ =  {fields:  {}};
+Reference._meta_._class_ =  Reference;
 Reference._meta_.fields["id"] = {};
 Reference._meta_.fields["id"].type = String;
 

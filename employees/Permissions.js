@@ -92,7 +92,11 @@ Permissions.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -102,6 +106,7 @@ Permissions.prototype.toString = function() {
 };
 
 Permissions._meta_ =  {fields:  {}};
+Permissions._meta_._class_ =  Permissions;
 Permissions._meta_.fields["id"] = {};
 Permissions._meta_.fields["id"].type = String;
 Permissions._meta_.fields["bits"] = {};

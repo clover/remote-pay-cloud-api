@@ -296,7 +296,11 @@ Batch.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -306,6 +310,7 @@ Batch.prototype.toString = function() {
 };
 
 Batch._meta_ =  {fields:  {}};
+Batch._meta_._class_ =  Batch;
 Batch._meta_.fields["id"] = {};
 Batch._meta_.fields["id"].type = String;
 Batch._meta_.fields["merchantId"] = {};

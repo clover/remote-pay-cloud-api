@@ -45,7 +45,11 @@ AddDiscountAction.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -55,6 +59,7 @@ AddDiscountAction.prototype.toString = function() {
 };
 
 AddDiscountAction._meta_ =  {fields:  {}};
+AddDiscountAction._meta_._class_ =  AddDiscountAction;
 AddDiscountAction._meta_.fields["discount"] = {};
 AddDiscountAction._meta_.fields["discount"].type = order_DisplayDiscount;
 

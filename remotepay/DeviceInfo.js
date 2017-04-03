@@ -14,6 +14,7 @@ var DeviceInfo = function() {
   this.name = undefined;
   this.model = undefined;
   this.serial = undefined;
+  this.supportsAcks = undefined;
 };
 
 
@@ -75,6 +76,27 @@ DeviceInfo.prototype.getSerial = function() {
 };
 
 /**
+* Set the field value
+* If true, then the device supports acknowledgements.
+*
+* @memberof remotepay.DeviceInfo
+* @param {Boolean} supportsAcks 
+*/
+DeviceInfo.prototype.setSupportsAcks = function(supportsAcks) {
+  this.supportsAcks = supportsAcks;
+};
+
+/**
+* Get the field value
+* If true, then the device supports acknowledgements.
+* @memberof remotepay.DeviceInfo
+* @return {Boolean} 
+*/
+DeviceInfo.prototype.getSupportsAcks = function() {
+  return this.supportsAcks;
+};
+
+/**
 * @memberof remotepay.DeviceInfo
 * @private
 */
@@ -85,7 +107,11 @@ DeviceInfo.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -95,12 +121,15 @@ DeviceInfo.prototype.toString = function() {
 };
 
 DeviceInfo._meta_ =  {fields:  {}};
+DeviceInfo._meta_._class_ =  DeviceInfo;
 DeviceInfo._meta_.fields["name"] = {};
 DeviceInfo._meta_.fields["name"].type = String;
 DeviceInfo._meta_.fields["model"] = {};
 DeviceInfo._meta_.fields["model"].type = String;
 DeviceInfo._meta_.fields["serial"] = {};
 DeviceInfo._meta_.fields["serial"].type = String;
+DeviceInfo._meta_.fields["supportsAcks"] = {};
+DeviceInfo._meta_.fields["supportsAcks"].type = Boolean;
 
 //
 // Expose the module.

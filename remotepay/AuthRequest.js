@@ -134,6 +134,8 @@ AuthRequest.prototype.getApproveOfflinePaymentWithoutPrompt = function() {
 };
 
 AuthRequest._meta_ =  {fields:  {}};
+AuthRequest._meta_._class_ =  AuthRequest;
+AuthRequest._meta_._superMeta_ = remotepay_TransactionRequest._meta_;
 AuthRequest._meta_.fields["tippableAmount"] = {};
 AuthRequest._meta_.fields["tippableAmount"].type = Number;
 AuthRequest._meta_.fields["disableCashback"] = {};

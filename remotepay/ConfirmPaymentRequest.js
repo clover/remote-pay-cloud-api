@@ -67,6 +67,8 @@ ConfirmPaymentRequest.prototype.getChallenges = function() {
 };
 
 ConfirmPaymentRequest._meta_ =  {fields:  {}};
+ConfirmPaymentRequest._meta_._class_ =  ConfirmPaymentRequest;
+ConfirmPaymentRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 ConfirmPaymentRequest._meta_.fields["payment"] = {};
 ConfirmPaymentRequest._meta_.fields["payment"].type = payments_Payment;
 ConfirmPaymentRequest._meta_.fields["challenges"] = {};

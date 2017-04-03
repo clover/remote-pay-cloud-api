@@ -45,7 +45,11 @@ TransactionTypeEnum.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -55,6 +59,7 @@ TransactionTypeEnum.prototype.toString = function() {
 };
 
 TransactionTypeEnum._meta_ =  {fields:  {}};
+TransactionTypeEnum._meta_._class_ =  TransactionTypeEnum;
 TransactionTypeEnum._meta_.fields["status"] = {};
 TransactionTypeEnum._meta_.fields["status"].type = remotepay_TransactionType;
 

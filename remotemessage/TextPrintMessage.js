@@ -42,6 +42,8 @@ TextPrintMessage.prototype.getTextLines = function() {
 };
 
 TextPrintMessage._meta_ =  {fields:  {}};
+TextPrintMessage._meta_._class_ =  TextPrintMessage;
+TextPrintMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 TextPrintMessage._meta_.fields["textLines"] = {};
 TextPrintMessage._meta_.fields["textLines"].type = Array;
 

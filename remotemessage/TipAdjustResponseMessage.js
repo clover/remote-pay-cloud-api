@@ -111,6 +111,8 @@ TipAdjustResponseMessage.prototype.getPaymentId = function() {
 };
 
 TipAdjustResponseMessage._meta_ =  {fields:  {}};
+TipAdjustResponseMessage._meta_._class_ =  TipAdjustResponseMessage;
+TipAdjustResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 TipAdjustResponseMessage._meta_.fields["success"] = {};
 TipAdjustResponseMessage._meta_.fields["success"].type = Boolean;
 TipAdjustResponseMessage._meta_.fields["amount"] = {};

@@ -44,7 +44,11 @@ BatchRequest.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -54,6 +58,7 @@ BatchRequest.prototype.toString = function() {
 };
 
 BatchRequest._meta_ =  {fields:  {}};
+BatchRequest._meta_._class_ =  BatchRequest;
 BatchRequest._meta_.fields["devices"] = {};
 BatchRequest._meta_.fields["devices"].type = Array;
 

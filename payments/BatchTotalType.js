@@ -69,7 +69,11 @@ BatchTotalType.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -79,6 +83,7 @@ BatchTotalType.prototype.toString = function() {
 };
 
 BatchTotalType._meta_ =  {fields:  {}};
+BatchTotalType._meta_._class_ =  BatchTotalType;
 BatchTotalType._meta_.fields["count"] = {};
 BatchTotalType._meta_.fields["count"].type = Number;
 BatchTotalType._meta_.fields["total"] = {};

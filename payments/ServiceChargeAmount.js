@@ -105,7 +105,11 @@ ServiceChargeAmount.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -115,6 +119,7 @@ ServiceChargeAmount.prototype.toString = function() {
 };
 
 ServiceChargeAmount._meta_ =  {fields:  {}};
+ServiceChargeAmount._meta_._class_ =  ServiceChargeAmount;
 ServiceChargeAmount._meta_.fields["id"] = {};
 ServiceChargeAmount._meta_.fields["id"].type = String;
 ServiceChargeAmount._meta_.fields["name"] = {};

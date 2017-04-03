@@ -264,7 +264,11 @@ Authorization.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -274,6 +278,7 @@ Authorization.prototype.toString = function() {
 };
 
 Authorization._meta_ =  {fields:  {}};
+Authorization._meta_._class_ =  Authorization;
 Authorization._meta_.fields["id"] = {};
 Authorization._meta_.fields["id"].type = String;
 Authorization._meta_.fields["payment"] = {};

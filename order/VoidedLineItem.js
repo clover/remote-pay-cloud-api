@@ -179,7 +179,11 @@ VoidedLineItem.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -189,6 +193,7 @@ VoidedLineItem.prototype.toString = function() {
 };
 
 VoidedLineItem._meta_ =  {fields:  {}};
+VoidedLineItem._meta_._class_ =  VoidedLineItem;
 VoidedLineItem._meta_.fields["lineItem"] = {};
 VoidedLineItem._meta_.fields["lineItem"].type = order_LineItem;
 VoidedLineItem._meta_.fields["merchant"] = {};

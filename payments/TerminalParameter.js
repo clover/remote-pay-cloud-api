@@ -240,7 +240,11 @@ TerminalParameter.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -250,6 +254,7 @@ TerminalParameter.prototype.toString = function() {
 };
 
 TerminalParameter._meta_ =  {fields:  {}};
+TerminalParameter._meta_._class_ =  TerminalParameter;
 TerminalParameter._meta_.fields["id"] = {};
 TerminalParameter._meta_.fields["id"].type = String;
 TerminalParameter._meta_.fields["param"] = {};

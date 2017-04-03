@@ -88,6 +88,8 @@ VaultCardResponseMessage.prototype.getCard = function() {
 };
 
 VaultCardResponseMessage._meta_ =  {fields:  {}};
+VaultCardResponseMessage._meta_._class_ =  VaultCardResponseMessage;
+VaultCardResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 VaultCardResponseMessage._meta_.fields["reason"] = {};
 VaultCardResponseMessage._meta_.fields["reason"].type = String;
 VaultCardResponseMessage._meta_.fields["status"] = {};

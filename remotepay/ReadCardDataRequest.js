@@ -65,6 +65,8 @@ ReadCardDataRequest.prototype.getCardEntryMethods = function() {
 };
 
 ReadCardDataRequest._meta_ =  {fields:  {}};
+ReadCardDataRequest._meta_._class_ =  ReadCardDataRequest;
+ReadCardDataRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 ReadCardDataRequest._meta_.fields["isForceSwipePinEntry"] = {};
 ReadCardDataRequest._meta_.fields["isForceSwipePinEntry"].type = Boolean;
 ReadCardDataRequest._meta_.fields["cardEntryMethods"] = {};

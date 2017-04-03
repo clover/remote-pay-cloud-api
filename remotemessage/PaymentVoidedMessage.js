@@ -66,6 +66,8 @@ PaymentVoidedMessage.prototype.getVoidReason = function() {
 };
 
 PaymentVoidedMessage._meta_ =  {fields:  {}};
+PaymentVoidedMessage._meta_._class_ =  PaymentVoidedMessage;
+PaymentVoidedMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 PaymentVoidedMessage._meta_.fields["payment"] = {};
 PaymentVoidedMessage._meta_.fields["payment"].type = payments_Payment;
 PaymentVoidedMessage._meta_.fields["voidReason"] = {};

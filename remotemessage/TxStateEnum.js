@@ -45,7 +45,11 @@ TxStateEnum.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -55,6 +59,7 @@ TxStateEnum.prototype.toString = function() {
 };
 
 TxStateEnum._meta_ =  {fields:  {}};
+TxStateEnum._meta_._class_ =  TxStateEnum;
 TxStateEnum._meta_.fields["txState"] = {};
 TxStateEnum._meta_.fields["txState"].type = remotemessage_TxState;
 

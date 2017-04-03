@@ -46,6 +46,8 @@ CardDataRequestMessage.prototype.getPayIntent = function() {
 };
 
 CardDataRequestMessage._meta_ =  {fields:  {}};
+CardDataRequestMessage._meta_._class_ =  CardDataRequestMessage;
+CardDataRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 CardDataRequestMessage._meta_.fields["payIntent"] = {};
 CardDataRequestMessage._meta_.fields["payIntent"].type = remotemessage_PayIntent;
 

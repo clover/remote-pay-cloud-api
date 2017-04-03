@@ -272,7 +272,11 @@ GiftCardTransaction.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -282,6 +286,7 @@ GiftCardTransaction.prototype.toString = function() {
 };
 
 GiftCardTransaction._meta_ =  {fields:  {}};
+GiftCardTransaction._meta_._class_ =  GiftCardTransaction;
 GiftCardTransaction._meta_.fields["id"] = {};
 GiftCardTransaction._meta_.fields["id"].type = String;
 GiftCardTransaction._meta_.fields["amount"] = {};

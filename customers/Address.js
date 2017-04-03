@@ -200,7 +200,11 @@ Address.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -210,6 +214,7 @@ Address.prototype.toString = function() {
 };
 
 Address._meta_ =  {fields:  {}};
+Address._meta_._class_ =  Address;
 Address._meta_.fields["id"] = {};
 Address._meta_.fields["id"].type = String;
 Address._meta_.fields["address1"] = {};

@@ -65,7 +65,11 @@ TaxRateItem.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -75,6 +79,7 @@ TaxRateItem.prototype.toString = function() {
 };
 
 TaxRateItem._meta_ =  {fields:  {}};
+TaxRateItem._meta_._class_ =  TaxRateItem;
 TaxRateItem._meta_.fields["taxRate"] = {};
 TaxRateItem._meta_.fields["taxRate"].type = inventory_TaxRate;
 TaxRateItem._meta_.fields["item"] = {};

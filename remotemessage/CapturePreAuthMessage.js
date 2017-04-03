@@ -89,6 +89,8 @@ CapturePreAuthMessage.prototype.getPaymentId = function() {
 };
 
 CapturePreAuthMessage._meta_ =  {fields:  {}};
+CapturePreAuthMessage._meta_._class_ =  CapturePreAuthMessage;
+CapturePreAuthMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 CapturePreAuthMessage._meta_.fields["amount"] = {};
 CapturePreAuthMessage._meta_.fields["amount"].type = Number;
 CapturePreAuthMessage._meta_.fields["tipAmount"] = {};

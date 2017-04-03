@@ -111,6 +111,8 @@ RefundRequestMessage.prototype.getPaymentId = function() {
 };
 
 RefundRequestMessage._meta_ =  {fields:  {}};
+RefundRequestMessage._meta_._class_ =  RefundRequestMessage;
+RefundRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 RefundRequestMessage._meta_.fields["fullRefund"] = {};
 RefundRequestMessage._meta_.fields["fullRefund"].type = Boolean;
 RefundRequestMessage._meta_.fields["amount"] = {};

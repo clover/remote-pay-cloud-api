@@ -315,7 +315,11 @@ DeviceProvision.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -325,6 +329,7 @@ DeviceProvision.prototype.toString = function() {
 };
 
 DeviceProvision._meta_ =  {fields:  {}};
+DeviceProvision._meta_._class_ =  DeviceProvision;
 DeviceProvision._meta_.fields["id"] = {};
 DeviceProvision._meta_.fields["id"].type = String;
 DeviceProvision._meta_.fields["deviceRef"] = {};

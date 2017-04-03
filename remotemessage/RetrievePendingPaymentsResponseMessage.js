@@ -69,6 +69,8 @@ RetrievePendingPaymentsResponseMessage.prototype.getPendingPaymentEntries = func
 };
 
 RetrievePendingPaymentsResponseMessage._meta_ =  {fields:  {}};
+RetrievePendingPaymentsResponseMessage._meta_._class_ =  RetrievePendingPaymentsResponseMessage;
+RetrievePendingPaymentsResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 RetrievePendingPaymentsResponseMessage._meta_.fields["status"] = {};
 RetrievePendingPaymentsResponseMessage._meta_.fields["status"].type = remotemessage_ResultStatus;
 RetrievePendingPaymentsResponseMessage._meta_.fields["pendingPaymentEntries"] = {};

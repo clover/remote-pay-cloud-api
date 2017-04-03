@@ -135,7 +135,11 @@ SystemOrderType.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -145,6 +149,7 @@ SystemOrderType.prototype.toString = function() {
 };
 
 SystemOrderType._meta_ =  {fields:  {}};
+SystemOrderType._meta_._class_ =  SystemOrderType;
 SystemOrderType._meta_.fields["id"] = {};
 SystemOrderType._meta_.fields["id"].type = String;
 SystemOrderType._meta_.fields["labelKey"] = {};

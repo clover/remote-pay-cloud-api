@@ -67,6 +67,8 @@ CloseoutRequestMessage.prototype.getBatchId = function() {
 };
 
 CloseoutRequestMessage._meta_ =  {fields:  {}};
+CloseoutRequestMessage._meta_._class_ =  CloseoutRequestMessage;
+CloseoutRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 CloseoutRequestMessage._meta_.fields["allowOpenTabs"] = {};
 CloseoutRequestMessage._meta_.fields["allowOpenTabs"].type = Boolean;
 CloseoutRequestMessage._meta_.fields["batchId"] = {};

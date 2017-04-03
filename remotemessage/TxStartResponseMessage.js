@@ -110,6 +110,8 @@ TxStartResponseMessage.prototype.getResult = function() {
 };
 
 TxStartResponseMessage._meta_ =  {fields:  {}};
+TxStartResponseMessage._meta_._class_ =  TxStartResponseMessage;
+TxStartResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 TxStartResponseMessage._meta_.fields["success"] = {};
 TxStartResponseMessage._meta_.fields["success"].type = Boolean;
 TxStartResponseMessage._meta_.fields["order"] = {};

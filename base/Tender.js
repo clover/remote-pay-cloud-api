@@ -223,7 +223,11 @@ Tender.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -233,6 +237,7 @@ Tender.prototype.toString = function() {
 };
 
 Tender._meta_ =  {fields:  {}};
+Tender._meta_._class_ =  Tender;
 Tender._meta_.fields["id"] = {};
 Tender._meta_.fields["id"].type = String;
 Tender._meta_.fields["editable"] = {};

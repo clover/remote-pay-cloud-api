@@ -88,6 +88,8 @@ CardDataResponseMessage.prototype.getCardData = function() {
 };
 
 CardDataResponseMessage._meta_ =  {fields:  {}};
+CardDataResponseMessage._meta_._class_ =  CardDataResponseMessage;
+CardDataResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 CardDataResponseMessage._meta_.fields["reason"] = {};
 CardDataResponseMessage._meta_.fields["reason"].type = String;
 CardDataResponseMessage._meta_.fields["status"] = {};

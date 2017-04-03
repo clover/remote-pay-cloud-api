@@ -62,6 +62,8 @@ LogMessage.prototype.getMessages = function() {
 };
 
 LogMessage._meta_ =  {fields:  {}};
+LogMessage._meta_._class_ =  LogMessage;
+LogMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 LogMessage._meta_.fields["logLevel"] = {};
 LogMessage._meta_.fields["logLevel"].type = remotemessage_LogLevelEnum;
 LogMessage._meta_.fields["messages"] = {};

@@ -223,7 +223,11 @@ HoursSet.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -233,6 +237,7 @@ HoursSet.prototype.toString = function() {
 };
 
 HoursSet._meta_ =  {fields:  {}};
+HoursSet._meta_._class_ =  HoursSet;
 HoursSet._meta_.fields["id"] = {};
 HoursSet._meta_.fields["id"].type = String;
 HoursSet._meta_.fields["name"] = {};

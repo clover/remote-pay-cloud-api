@@ -175,7 +175,11 @@ DiscountApprover.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -185,6 +189,7 @@ DiscountApprover.prototype.toString = function() {
 };
 
 DiscountApprover._meta_ =  {fields:  {}};
+DiscountApprover._meta_._class_ =  DiscountApprover;
 DiscountApprover._meta_.fields["discount"] = {};
 DiscountApprover._meta_.fields["discount"].type = base_Reference;
 DiscountApprover._meta_.fields["merchant"] = {};

@@ -22,6 +22,8 @@ AuthResponse.prototype = Object.create(remotepay_PaymentResponse.prototype);
 AuthResponse.prototype.constructor = AuthResponse;
 
 AuthResponse._meta_ =  {fields:  {}};
+AuthResponse._meta_._class_ =  AuthResponse;
+AuthResponse._meta_._superMeta_ = remotepay_PaymentResponse._meta_;
 
 //
 // Expose the module.

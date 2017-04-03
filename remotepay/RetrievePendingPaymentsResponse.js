@@ -44,6 +44,8 @@ RetrievePendingPaymentsResponse.prototype.getPendingPaymentEntries = function() 
 };
 
 RetrievePendingPaymentsResponse._meta_ =  {fields:  {}};
+RetrievePendingPaymentsResponse._meta_._class_ =  RetrievePendingPaymentsResponse;
+RetrievePendingPaymentsResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 RetrievePendingPaymentsResponse._meta_.fields["pendingPaymentEntries"] = {};
 RetrievePendingPaymentsResponse._meta_.fields["pendingPaymentEntries"].type = Array;
 RetrievePendingPaymentsResponse._meta_.fields["pendingPaymentEntries"].elementType = base_PendingPaymentEntry;

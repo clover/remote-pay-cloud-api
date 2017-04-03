@@ -297,7 +297,11 @@ GiftCardResponse.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -307,6 +311,7 @@ GiftCardResponse.prototype.toString = function() {
 };
 
 GiftCardResponse._meta_ =  {fields:  {}};
+GiftCardResponse._meta_._class_ =  GiftCardResponse;
 GiftCardResponse._meta_.fields["txType"] = {};
 GiftCardResponse._meta_.fields["txType"].type = payments_TxType;
 GiftCardResponse._meta_.fields["state"] = {};

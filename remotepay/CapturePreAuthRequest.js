@@ -88,6 +88,8 @@ CapturePreAuthRequest.prototype.getPaymentId = function() {
 };
 
 CapturePreAuthRequest._meta_ =  {fields:  {}};
+CapturePreAuthRequest._meta_._class_ =  CapturePreAuthRequest;
+CapturePreAuthRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 CapturePreAuthRequest._meta_.fields["amount"] = {};
 CapturePreAuthRequest._meta_.fields["amount"].type = Number;
 CapturePreAuthRequest._meta_.fields["tipAmount"] = {};

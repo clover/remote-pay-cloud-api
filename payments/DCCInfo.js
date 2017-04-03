@@ -246,7 +246,11 @@ DCCInfo.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -256,6 +260,7 @@ DCCInfo.prototype.toString = function() {
 };
 
 DCCInfo._meta_ =  {fields:  {}};
+DCCInfo._meta_._class_ =  DCCInfo;
 DCCInfo._meta_.fields["inquiryRateId"] = {};
 DCCInfo._meta_.fields["inquiryRateId"].type = Number;
 DCCInfo._meta_.fields["dccApplied"] = {};

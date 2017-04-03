@@ -324,7 +324,11 @@ DisplayOrder.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -334,6 +338,7 @@ DisplayOrder.prototype.toString = function() {
 };
 
 DisplayOrder._meta_ =  {fields:  {}};
+DisplayOrder._meta_._class_ =  DisplayOrder;
 DisplayOrder._meta_.fields["id"] = {};
 DisplayOrder._meta_.fields["id"].type = String;
 DisplayOrder._meta_.fields["currency"] = {};

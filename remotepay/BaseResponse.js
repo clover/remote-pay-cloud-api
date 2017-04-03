@@ -115,7 +115,11 @@ BaseResponse.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -125,6 +129,7 @@ BaseResponse.prototype.toString = function() {
 };
 
 BaseResponse._meta_ =  {fields:  {}};
+BaseResponse._meta_._class_ =  BaseResponse;
 BaseResponse._meta_.fields["success"] = {};
 BaseResponse._meta_.fields["success"].type = Boolean;
 BaseResponse._meta_.fields["result"] = {};

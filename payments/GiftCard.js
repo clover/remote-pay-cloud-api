@@ -110,7 +110,11 @@ GiftCard.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -120,6 +124,7 @@ GiftCard.prototype.toString = function() {
 };
 
 GiftCard._meta_ =  {fields:  {}};
+GiftCard._meta_._class_ =  GiftCard;
 GiftCard._meta_.fields["track2"] = {};
 GiftCard._meta_.fields["track2"].type = String;
 GiftCard._meta_.fields["cardNumber"] = {};

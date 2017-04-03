@@ -121,6 +121,8 @@ PaymentResponse.prototype.getSignature = function() {
 };
 
 PaymentResponse._meta_ =  {fields:  {}};
+PaymentResponse._meta_._class_ =  PaymentResponse;
+PaymentResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 PaymentResponse._meta_.fields["payment"] = {};
 PaymentResponse._meta_.fields["payment"].type = payments_Payment;
 PaymentResponse._meta_.fields["isSale"] = {};

@@ -232,6 +232,8 @@ DiscoveryResponseMessage.prototype.getSupportsAcknowledgement = function() {
 };
 
 DiscoveryResponseMessage._meta_ =  {fields:  {}};
+DiscoveryResponseMessage._meta_._class_ =  DiscoveryResponseMessage;
+DiscoveryResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 DiscoveryResponseMessage._meta_.fields["merchantId"] = {};
 DiscoveryResponseMessage._meta_.fields["merchantId"].type = String;
 DiscoveryResponseMessage._meta_.fields["merchantName"] = {};

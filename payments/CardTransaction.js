@@ -395,7 +395,11 @@ CardTransaction.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -405,6 +409,7 @@ CardTransaction.prototype.toString = function() {
 };
 
 CardTransaction._meta_ =  {fields:  {}};
+CardTransaction._meta_._class_ =  CardTransaction;
 CardTransaction._meta_.fields["paymentRef"] = {};
 CardTransaction._meta_.fields["paymentRef"].type = base_Reference;
 CardTransaction._meta_.fields["creditRef"] = {};

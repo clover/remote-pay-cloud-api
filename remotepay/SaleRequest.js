@@ -197,6 +197,8 @@ SaleRequest.prototype.getTipMode = function() {
 };
 
 SaleRequest._meta_ =  {fields:  {}};
+SaleRequest._meta_._class_ =  SaleRequest;
+SaleRequest._meta_._superMeta_ = remotepay_TransactionRequest._meta_;
 SaleRequest._meta_.fields["tippableAmount"] = {};
 SaleRequest._meta_.fields["tippableAmount"].type = Number;
 SaleRequest._meta_.fields["tipAmount"] = {};

@@ -92,7 +92,11 @@ Signature.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -102,6 +106,7 @@ Signature.prototype.toString = function() {
 };
 
 Signature._meta_ =  {fields:  {}};
+Signature._meta_._class_ =  Signature;
 Signature._meta_.fields["strokes"] = {};
 Signature._meta_.fields["strokes"].type = Array;
 Signature._meta_.fields["strokes"].elementType = base_Points;

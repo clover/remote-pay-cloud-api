@@ -230,7 +230,11 @@ CountryInfo.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -240,6 +244,7 @@ CountryInfo.prototype.toString = function() {
 };
 
 CountryInfo._meta_ =  {fields:  {}};
+CountryInfo._meta_._class_ =  CountryInfo;
 CountryInfo._meta_.fields["countryCode"] = {};
 CountryInfo._meta_.fields["countryCode"].type = String;
 CountryInfo._meta_.fields["displayName"] = {};

@@ -562,7 +562,11 @@ GatewayTxs.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -572,6 +576,7 @@ GatewayTxs.prototype.toString = function() {
 };
 
 GatewayTxs._meta_ =  {fields:  {}};
+GatewayTxs._meta_._class_ =  GatewayTxs;
 GatewayTxs._meta_.fields["merchantGatewayId"] = {};
 GatewayTxs._meta_.fields["merchantGatewayId"].type = Number;
 GatewayTxs._meta_.fields["clientId"] = {};

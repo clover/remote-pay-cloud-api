@@ -23,6 +23,8 @@ LastMessageRequestMessage.prototype = Object.create(remotemessage_Message.protot
 LastMessageRequestMessage.prototype.constructor = LastMessageRequestMessage;
 
 LastMessageRequestMessage._meta_ =  {fields:  {}};
+LastMessageRequestMessage._meta_._class_ =  LastMessageRequestMessage;
+LastMessageRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 
 //
 // Expose the module.

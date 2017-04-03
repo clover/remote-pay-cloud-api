@@ -158,7 +158,11 @@ CustomerMetadata.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -168,6 +172,7 @@ CustomerMetadata.prototype.toString = function() {
 };
 
 CustomerMetadata._meta_ =  {fields:  {}};
+CustomerMetadata._meta_._class_ =  CustomerMetadata;
 CustomerMetadata._meta_.fields["businessName"] = {};
 CustomerMetadata._meta_.fields["businessName"].type = String;
 CustomerMetadata._meta_.fields["note"] = {};

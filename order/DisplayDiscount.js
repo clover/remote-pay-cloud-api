@@ -135,7 +135,11 @@ DisplayDiscount.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -145,6 +149,7 @@ DisplayDiscount.prototype.toString = function() {
 };
 
 DisplayDiscount._meta_ =  {fields:  {}};
+DisplayDiscount._meta_._class_ =  DisplayDiscount;
 DisplayDiscount._meta_.fields["id"] = {};
 DisplayDiscount._meta_.fields["id"].type = String;
 DisplayDiscount._meta_.fields["lineItemId"] = {};

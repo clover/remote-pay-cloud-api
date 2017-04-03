@@ -115,7 +115,11 @@ Attribute.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -125,6 +129,7 @@ Attribute.prototype.toString = function() {
 };
 
 Attribute._meta_ =  {fields:  {}};
+Attribute._meta_._class_ =  Attribute;
 Attribute._meta_.fields["id"] = {};
 Attribute._meta_.fields["id"].type = String;
 Attribute._meta_.fields["name"] = {};

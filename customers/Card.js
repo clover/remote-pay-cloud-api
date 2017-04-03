@@ -200,7 +200,11 @@ Card.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -210,6 +214,7 @@ Card.prototype.toString = function() {
 };
 
 Card._meta_ =  {fields:  {}};
+Card._meta_._class_ =  Card;
 Card._meta_.fields["id"] = {};
 Card._meta_.fields["id"].type = String;
 Card._meta_.fields["first6"] = {};

@@ -71,7 +71,11 @@ OptionItem.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -81,6 +85,7 @@ OptionItem.prototype.toString = function() {
 };
 
 OptionItem._meta_ =  {fields:  {}};
+OptionItem._meta_._class_ =  OptionItem;
 OptionItem._meta_.fields["option"] = {};
 OptionItem._meta_.fields["option"].type = base_Reference;
 OptionItem._meta_.fields["item"] = {};

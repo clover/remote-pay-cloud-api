@@ -67,6 +67,8 @@ ImagePrintMessage.prototype.getUrlString = function() {
 };
 
 ImagePrintMessage._meta_ =  {fields:  {}};
+ImagePrintMessage._meta_._class_ =  ImagePrintMessage;
+ImagePrintMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 ImagePrintMessage._meta_.fields["png"] = {};
 ImagePrintMessage._meta_.fields["png"].type = Object;
 ImagePrintMessage._meta_.fields["urlString"] = {};

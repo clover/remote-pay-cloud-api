@@ -89,7 +89,11 @@ BatchCardTotal.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -99,6 +103,7 @@ BatchCardTotal.prototype.toString = function() {
 };
 
 BatchCardTotal._meta_ =  {fields:  {}};
+BatchCardTotal._meta_._class_ =  BatchCardTotal;
 BatchCardTotal._meta_.fields["cardType"] = {};
 BatchCardTotal._meta_.fields["cardType"].type = payments_CardType;
 BatchCardTotal._meta_.fields["count"] = {};

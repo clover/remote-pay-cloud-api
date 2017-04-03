@@ -45,6 +45,8 @@ PartialAuthMessage.prototype.getPartialAuthAmount = function() {
 };
 
 PartialAuthMessage._meta_ =  {fields:  {}};
+PartialAuthMessage._meta_._class_ =  PartialAuthMessage;
+PartialAuthMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 PartialAuthMessage._meta_.fields["partialAuthAmount"] = {};
 PartialAuthMessage._meta_.fields["partialAuthAmount"].type = Number;
 

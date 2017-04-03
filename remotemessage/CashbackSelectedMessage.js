@@ -45,6 +45,8 @@ CashbackSelectedMessage.prototype.getCashbackAmount = function() {
 };
 
 CashbackSelectedMessage._meta_ =  {fields:  {}};
+CashbackSelectedMessage._meta_._class_ =  CashbackSelectedMessage;
+CashbackSelectedMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 CashbackSelectedMessage._meta_.fields["cashbackAmount"] = {};
 CashbackSelectedMessage._meta_.fields["cashbackAmount"].type = Number;
 

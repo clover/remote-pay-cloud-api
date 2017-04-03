@@ -7,6 +7,8 @@ function remotemessage() {}
 
 
 remotemessage.AcknowledgementMessage = require("./AcknowledgementMessage");
+remotemessage.ActivityRequest = require("./ActivityRequest");
+remotemessage.ActivityResponseMessage = require("./ActivityResponseMessage");
 remotemessage.AddDiscountAction = require("./AddDiscountAction");
 remotemessage.AddLineItemAction = require("./AddLineItemAction");
 remotemessage.BreakMessage = require("./BreakMessage");
@@ -24,6 +26,7 @@ remotemessage.ErrorCode = require("./ErrorCode");
 remotemessage.ErrorCodeEnum = require("./ErrorCodeEnum");
 remotemessage.FinishCancelMessage = require("./FinishCancelMessage");
 remotemessage.FinishOkMessage = require("./FinishOkMessage");
+remotemessage.ForceConnectMessage = require("./ForceConnectMessage");
 remotemessage.ImagePrintMessage = require("./ImagePrintMessage");
 remotemessage.InputOption = require("./InputOption");
 remotemessage.KeyPress = require("./KeyPress");
@@ -58,11 +61,13 @@ remotemessage.RemoteMessage = require("./RemoteMessage");
 remotemessage.RemoteMessageType = require("./RemoteMessageType");
 remotemessage.RemoveDiscountAction = require("./RemoveDiscountAction");
 remotemessage.RemoveLineItemAction = require("./RemoveLineItemAction");
+remotemessage.ResetMessage = require("./ResetMessage");
 remotemessage.ResultStatus = require("./ResultStatus");
 remotemessage.ResultStatusEnum = require("./ResultStatusEnum");
 remotemessage.RetrievePendingPaymentsMessage = require("./RetrievePendingPaymentsMessage");
 remotemessage.RetrievePendingPaymentsResponseMessage = require("./RetrievePendingPaymentsResponseMessage");
 remotemessage.ShowPaymentReceiptOptionsMessage = require("./ShowPaymentReceiptOptionsMessage");
+remotemessage.ShutDownMessage = require("./ShutDownMessage");
 remotemessage.SignatureVerifiedMessage = require("./SignatureVerifiedMessage");
 remotemessage.TerminalMessage = require("./TerminalMessage");
 remotemessage.TextPrintMessage = require("./TextPrintMessage");

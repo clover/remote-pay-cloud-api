@@ -109,6 +109,8 @@ RefundPaymentRequest.prototype.getPaymentId = function() {
 };
 
 RefundPaymentRequest._meta_ =  {fields:  {}};
+RefundPaymentRequest._meta_._class_ =  RefundPaymentRequest;
+RefundPaymentRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 RefundPaymentRequest._meta_.fields["fullRefund"] = {};
 RefundPaymentRequest._meta_.fields["fullRefund"].type = Boolean;
 RefundPaymentRequest._meta_.fields["amount"] = {};

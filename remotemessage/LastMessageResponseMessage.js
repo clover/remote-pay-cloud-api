@@ -67,6 +67,8 @@ LastMessageResponseMessage.prototype.getResponse = function() {
 };
 
 LastMessageResponseMessage._meta_ =  {fields:  {}};
+LastMessageResponseMessage._meta_._class_ =  LastMessageResponseMessage;
+LastMessageResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 LastMessageResponseMessage._meta_.fields["request"] = {};
 LastMessageResponseMessage._meta_.fields["request"].type = remotemessage_Message;
 LastMessageResponseMessage._meta_.fields["response"] = {};

@@ -296,7 +296,11 @@ Customer.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -306,6 +310,7 @@ Customer.prototype.toString = function() {
 };
 
 Customer._meta_ =  {fields:  {}};
+Customer._meta_._class_ =  Customer;
 Customer._meta_.fields["id"] = {};
 Customer._meta_.fields["id"].type = String;
 Customer._meta_.fields["orderRef"] = {};

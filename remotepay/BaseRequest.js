@@ -48,7 +48,11 @@ BaseRequest.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -58,6 +62,7 @@ BaseRequest.prototype.toString = function() {
 };
 
 BaseRequest._meta_ =  {fields:  {}};
+BaseRequest._meta_._class_ =  BaseRequest;
 BaseRequest._meta_.fields["requestId"] = {};
 BaseRequest._meta_.fields["requestId"].type = String;
 

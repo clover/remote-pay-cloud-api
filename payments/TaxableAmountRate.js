@@ -120,7 +120,11 @@ TaxableAmountRate.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -130,6 +134,7 @@ TaxableAmountRate.prototype.toString = function() {
 };
 
 TaxableAmountRate._meta_ =  {fields:  {}};
+TaxableAmountRate._meta_._class_ =  TaxableAmountRate;
 TaxableAmountRate._meta_.fields["id"] = {};
 TaxableAmountRate._meta_.fields["id"].type = String;
 TaxableAmountRate._meta_.fields["name"] = {};

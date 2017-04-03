@@ -65,7 +65,11 @@ CategoryItem.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -75,6 +79,7 @@ CategoryItem.prototype.toString = function() {
 };
 
 CategoryItem._meta_ =  {fields:  {}};
+CategoryItem._meta_._class_ =  CategoryItem;
 CategoryItem._meta_.fields["item"] = {};
 CategoryItem._meta_.fields["item"].type = inventory_Item;
 CategoryItem._meta_.fields["category"] = {};

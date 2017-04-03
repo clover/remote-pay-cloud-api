@@ -158,7 +158,11 @@ LineItemPayment.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -168,6 +172,7 @@ LineItemPayment.prototype.toString = function() {
 };
 
 LineItemPayment._meta_ =  {fields:  {}};
+LineItemPayment._meta_._class_ =  LineItemPayment;
 LineItemPayment._meta_.fields["id"] = {};
 LineItemPayment._meta_.fields["id"].type = String;
 LineItemPayment._meta_.fields["lineItemRef"] = {};

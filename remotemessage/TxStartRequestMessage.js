@@ -91,6 +91,8 @@ TxStartRequestMessage.prototype.getPayIntent = function() {
 };
 
 TxStartRequestMessage._meta_ =  {fields:  {}};
+TxStartRequestMessage._meta_._class_ =  TxStartRequestMessage;
+TxStartRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 TxStartRequestMessage._meta_.fields["suppressOnScreenTips"] = {};
 TxStartRequestMessage._meta_.fields["suppressOnScreenTips"].type = Boolean;
 TxStartRequestMessage._meta_.fields["order"] = {};

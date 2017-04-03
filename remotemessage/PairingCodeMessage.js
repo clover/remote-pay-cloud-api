@@ -45,6 +45,8 @@ PairingCodeMessage.prototype.getPairingCode = function() {
 };
 
 PairingCodeMessage._meta_ =  {fields:  {}};
+PairingCodeMessage._meta_._class_ =  PairingCodeMessage;
+PairingCodeMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 PairingCodeMessage._meta_.fields["pairingCode"] = {};
 PairingCodeMessage._meta_.fields["pairingCode"].type = String;
 

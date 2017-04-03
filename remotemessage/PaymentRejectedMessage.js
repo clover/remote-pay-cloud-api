@@ -69,6 +69,8 @@ PaymentRejectedMessage.prototype.getVoidReason = function() {
 };
 
 PaymentRejectedMessage._meta_ =  {fields:  {}};
+PaymentRejectedMessage._meta_._class_ =  PaymentRejectedMessage;
+PaymentRejectedMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 PaymentRejectedMessage._meta_.fields["payment"] = {};
 PaymentRejectedMessage._meta_.fields["payment"].type = payments_Payment;
 PaymentRejectedMessage._meta_.fields["voidReason"] = {};

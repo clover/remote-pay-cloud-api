@@ -44,6 +44,8 @@ ManualRefundResponse.prototype.getCredit = function() {
 };
 
 ManualRefundResponse._meta_ =  {fields:  {}};
+ManualRefundResponse._meta_._class_ =  ManualRefundResponse;
+ManualRefundResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 ManualRefundResponse._meta_.fields["credit"] = {};
 ManualRefundResponse._meta_.fields["credit"].type = payments_Credit;
 

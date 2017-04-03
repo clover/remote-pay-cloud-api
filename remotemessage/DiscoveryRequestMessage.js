@@ -45,6 +45,8 @@ DiscoveryRequestMessage.prototype.getSupportsOrderModification = function() {
 };
 
 DiscoveryRequestMessage._meta_ =  {fields:  {}};
+DiscoveryRequestMessage._meta_._class_ =  DiscoveryRequestMessage;
+DiscoveryRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 DiscoveryRequestMessage._meta_.fields["supportsOrderModification"] = {};
 DiscoveryRequestMessage._meta_.fields["supportsOrderModification"].type = Boolean;
 

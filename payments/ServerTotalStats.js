@@ -200,7 +200,11 @@ ServerTotalStats.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -210,6 +214,7 @@ ServerTotalStats.prototype.toString = function() {
 };
 
 ServerTotalStats._meta_ =  {fields:  {}};
+ServerTotalStats._meta_._class_ =  ServerTotalStats;
 ServerTotalStats._meta_.fields["employeeId"] = {};
 ServerTotalStats._meta_.fields["employeeId"].type = String;
 ServerTotalStats._meta_.fields["employeeName"] = {};

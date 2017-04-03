@@ -45,6 +45,8 @@ TerminalMessage.prototype.getText = function() {
 };
 
 TerminalMessage._meta_ =  {fields:  {}};
+TerminalMessage._meta_._class_ =  TerminalMessage;
+TerminalMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 TerminalMessage._meta_.fields["text"] = {};
 TerminalMessage._meta_.fields["text"].type = String;
 

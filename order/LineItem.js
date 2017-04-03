@@ -578,7 +578,11 @@ LineItem.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -588,6 +592,7 @@ LineItem.prototype.toString = function() {
 };
 
 LineItem._meta_ =  {fields:  {}};
+LineItem._meta_._class_ =  LineItem;
 LineItem._meta_.fields["id"] = {};
 LineItem._meta_.fields["id"].type = String;
 LineItem._meta_.fields["orderRef"] = {};

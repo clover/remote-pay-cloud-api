@@ -91,7 +91,11 @@ FireOrder.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -101,6 +105,7 @@ FireOrder.prototype.toString = function() {
 };
 
 FireOrder._meta_ =  {fields:  {}};
+FireOrder._meta_._class_ =  FireOrder;
 FireOrder._meta_.fields["id"] = {};
 FireOrder._meta_.fields["id"].type = String;
 FireOrder._meta_.fields["orderId"] = {};
