@@ -23,6 +23,8 @@ WelcomeMessage.prototype = Object.create(remotemessage_Message.prototype);
 WelcomeMessage.prototype.constructor = WelcomeMessage;
 
 WelcomeMessage._meta_ =  {fields:  {}};
+WelcomeMessage._meta_._class_ =  WelcomeMessage;
+WelcomeMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 
 //
 // Expose the module.

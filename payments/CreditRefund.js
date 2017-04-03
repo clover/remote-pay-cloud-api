@@ -19,6 +19,7 @@ var CreditRefund = function() {
   this.createdTime = undefined;
   this.clientCreatedTime = undefined;
   this.credit = undefined;
+  this.employee = undefined;
   this.germanInfo = undefined;
   this.appTracking = undefined;
 };
@@ -131,6 +132,24 @@ CreditRefund.prototype.getCredit = function() {
 
 /**
 * Set the field value
+* @memberof payments.CreditRefund
+* @param {base.Reference} employee 
+*/
+CreditRefund.prototype.setEmployee = function(employee) {
+  this.employee = employee;
+};
+
+/**
+* Get the field value
+* @memberof payments.CreditRefund
+* @return {base.Reference} 
+*/
+CreditRefund.prototype.getEmployee = function() {
+  return this.employee;
+};
+
+/**
+* Set the field value
 * German region-specific information
 *
 * @memberof payments.CreditRefund
@@ -182,7 +201,11 @@ CreditRefund.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -192,6 +215,7 @@ CreditRefund.prototype.toString = function() {
 };
 
 CreditRefund._meta_ =  {fields:  {}};
+CreditRefund._meta_._class_ =  CreditRefund;
 CreditRefund._meta_.fields["id"] = {};
 CreditRefund._meta_.fields["id"].type = String;
 CreditRefund._meta_.fields["orderRef"] = {};
@@ -202,6 +226,8 @@ CreditRefund._meta_.fields["clientCreatedTime"] = {};
 CreditRefund._meta_.fields["clientCreatedTime"].type = Number;
 CreditRefund._meta_.fields["credit"] = {};
 CreditRefund._meta_.fields["credit"].type = base_Reference;
+CreditRefund._meta_.fields["employee"] = {};
+CreditRefund._meta_.fields["employee"].type = base_Reference;
 CreditRefund._meta_.fields["germanInfo"] = {};
 CreditRefund._meta_.fields["germanInfo"].type = payments_GermanInfo;
 CreditRefund._meta_.fields["appTracking"] = {};

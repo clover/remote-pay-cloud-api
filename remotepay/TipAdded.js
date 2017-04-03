@@ -43,6 +43,8 @@ TipAdded.prototype.getTipAmount = function() {
 };
 
 TipAdded._meta_ =  {fields:  {}};
+TipAdded._meta_._class_ =  TipAdded;
+TipAdded._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 TipAdded._meta_.fields["tipAmount"] = {};
 TipAdded._meta_.fields["tipAmount"].type = Number;
 

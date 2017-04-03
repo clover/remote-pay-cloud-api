@@ -23,6 +23,8 @@ ThankYouMessage.prototype = Object.create(remotemessage_Message.prototype);
 ThankYouMessage.prototype.constructor = ThankYouMessage;
 
 ThankYouMessage._meta_ =  {fields:  {}};
+ThankYouMessage._meta_._class_ =  ThankYouMessage;
+ThankYouMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 
 //
 // Expose the module.

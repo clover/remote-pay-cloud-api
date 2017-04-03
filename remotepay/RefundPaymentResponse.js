@@ -16,11 +16,55 @@ var RefundPaymentResponse = function() {
   remotepay_BaseResponse.call(this);
   this._superClass_ = remotepay_BaseResponse;
   this._class_ = RefundPaymentResponse;
+  this.orderId = undefined;
+  this.paymentId = undefined;
   this.refund = undefined;
 };
 
 RefundPaymentResponse.prototype = Object.create(remotepay_BaseResponse.prototype);
 RefundPaymentResponse.prototype.constructor = RefundPaymentResponse;
+
+/**
+* Set the field value
+* Unique identifier
+*
+* @memberof remotepay.RefundPaymentResponse
+* @param {String} orderId 
+*/
+RefundPaymentResponse.prototype.setOrderId = function(orderId) {
+  this.orderId = orderId;
+};
+
+/**
+* Get the field value
+* Unique identifier
+* @memberof remotepay.RefundPaymentResponse
+* @return {String} 
+*/
+RefundPaymentResponse.prototype.getOrderId = function() {
+  return this.orderId;
+};
+
+/**
+* Set the field value
+* Unique identifier
+*
+* @memberof remotepay.RefundPaymentResponse
+* @param {String} paymentId 
+*/
+RefundPaymentResponse.prototype.setPaymentId = function(paymentId) {
+  this.paymentId = paymentId;
+};
+
+/**
+* Get the field value
+* Unique identifier
+* @memberof remotepay.RefundPaymentResponse
+* @return {String} 
+*/
+RefundPaymentResponse.prototype.getPaymentId = function() {
+  return this.paymentId;
+};
 
 /**
 * Set the field value
@@ -44,6 +88,12 @@ RefundPaymentResponse.prototype.getRefund = function() {
 };
 
 RefundPaymentResponse._meta_ =  {fields:  {}};
+RefundPaymentResponse._meta_._class_ =  RefundPaymentResponse;
+RefundPaymentResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
+RefundPaymentResponse._meta_.fields["orderId"] = {};
+RefundPaymentResponse._meta_.fields["orderId"].type = String;
+RefundPaymentResponse._meta_.fields["paymentId"] = {};
+RefundPaymentResponse._meta_.fields["paymentId"].type = String;
 RefundPaymentResponse._meta_.fields["refund"] = {};
 RefundPaymentResponse._meta_.fields["refund"].type = payments_Refund;
 

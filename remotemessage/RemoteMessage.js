@@ -178,7 +178,11 @@ RemoteMessage.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -188,6 +192,7 @@ RemoteMessage.prototype.toString = function() {
 };
 
 RemoteMessage._meta_ =  {fields:  {}};
+RemoteMessage._meta_._class_ =  RemoteMessage;
 RemoteMessage._meta_.fields["id"] = {};
 RemoteMessage._meta_.fields["id"].type = String;
 RemoteMessage._meta_.fields["type"] = {};

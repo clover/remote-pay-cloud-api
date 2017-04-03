@@ -437,7 +437,11 @@ DisplayLineItem.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -447,6 +451,7 @@ DisplayLineItem.prototype.toString = function() {
 };
 
 DisplayLineItem._meta_ =  {fields:  {}};
+DisplayLineItem._meta_._class_ =  DisplayLineItem;
 DisplayLineItem._meta_.fields["id"] = {};
 DisplayLineItem._meta_.fields["id"].type = String;
 DisplayLineItem._meta_.fields["orderId"] = {};

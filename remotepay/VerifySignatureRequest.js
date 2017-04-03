@@ -64,6 +64,8 @@ VerifySignatureRequest.prototype.getSignature = function() {
 };
 
 VerifySignatureRequest._meta_ =  {fields:  {}};
+VerifySignatureRequest._meta_._class_ =  VerifySignatureRequest;
+VerifySignatureRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 VerifySignatureRequest._meta_.fields["payment"] = {};
 VerifySignatureRequest._meta_.fields["payment"].type = payments_Payment;
 VerifySignatureRequest._meta_.fields["signature"] = {};

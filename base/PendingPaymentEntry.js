@@ -69,7 +69,11 @@ PendingPaymentEntry.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -79,6 +83,7 @@ PendingPaymentEntry.prototype.toString = function() {
 };
 
 PendingPaymentEntry._meta_ =  {fields:  {}};
+PendingPaymentEntry._meta_._class_ =  PendingPaymentEntry;
 PendingPaymentEntry._meta_.fields["amount"] = {};
 PendingPaymentEntry._meta_.fields["amount"].type = Number;
 PendingPaymentEntry._meta_.fields["paymentId"] = {};

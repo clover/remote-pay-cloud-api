@@ -69,6 +69,8 @@ ConfirmPaymentMessage.prototype.getChallenges = function() {
 };
 
 ConfirmPaymentMessage._meta_ =  {fields:  {}};
+ConfirmPaymentMessage._meta_._class_ =  ConfirmPaymentMessage;
+ConfirmPaymentMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 ConfirmPaymentMessage._meta_.fields["payment"] = {};
 ConfirmPaymentMessage._meta_.fields["payment"].type = payments_Payment;
 ConfirmPaymentMessage._meta_.fields["challenges"] = {};

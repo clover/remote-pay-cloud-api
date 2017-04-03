@@ -63,7 +63,11 @@ Point.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -73,6 +77,7 @@ Point.prototype.toString = function() {
 };
 
 Point._meta_ =  {fields:  {}};
+Point._meta_._class_ =  Point;
 Point._meta_.fields["x"] = {};
 Point._meta_.fields["x"].type = Number;
 Point._meta_.fields["y"] = {};

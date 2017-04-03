@@ -65,7 +65,11 @@ TagItem.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -75,6 +79,7 @@ TagItem.prototype.toString = function() {
 };
 
 TagItem._meta_ =  {fields:  {}};
+TagItem._meta_._class_ =  TagItem;
 TagItem._meta_.fields["tag"] = {};
 TagItem._meta_.fields["tag"].type = inventory_Tag;
 TagItem._meta_.fields["item"] = {};

@@ -65,7 +65,11 @@ OrderTypeCategory.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -75,6 +79,7 @@ OrderTypeCategory.prototype.toString = function() {
 };
 
 OrderTypeCategory._meta_ =  {fields:  {}};
+OrderTypeCategory._meta_._class_ =  OrderTypeCategory;
 OrderTypeCategory._meta_.fields["orderType"] = {};
 OrderTypeCategory._meta_.fields["orderType"].type = order_OrderType;
 OrderTypeCategory._meta_.fields["category"] = {};

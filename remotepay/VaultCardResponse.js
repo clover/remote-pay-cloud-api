@@ -44,6 +44,8 @@ VaultCardResponse.prototype.getCard = function() {
 };
 
 VaultCardResponse._meta_ =  {fields:  {}};
+VaultCardResponse._meta_._class_ =  VaultCardResponse;
+VaultCardResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 VaultCardResponse._meta_.fields["card"] = {};
 VaultCardResponse._meta_.fields["card"].type = payments_VaultedCard;
 

@@ -23,6 +23,8 @@ FinishCancelMessage.prototype = Object.create(remotemessage_Message.prototype);
 FinishCancelMessage.prototype.constructor = FinishCancelMessage;
 
 FinishCancelMessage._meta_ =  {fields:  {}};
+FinishCancelMessage._meta_._class_ =  FinishCancelMessage;
+FinishCancelMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 
 //
 // Expose the module.

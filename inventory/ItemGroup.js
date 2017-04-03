@@ -114,7 +114,11 @@ ItemGroup.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -124,6 +128,7 @@ ItemGroup.prototype.toString = function() {
 };
 
 ItemGroup._meta_ =  {fields:  {}};
+ItemGroup._meta_._class_ =  ItemGroup;
 ItemGroup._meta_.fields["id"] = {};
 ItemGroup._meta_.fields["id"].type = String;
 ItemGroup._meta_.fields["name"] = {};

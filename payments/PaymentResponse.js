@@ -105,7 +105,11 @@ PaymentResponse.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -115,6 +119,7 @@ PaymentResponse.prototype.toString = function() {
 };
 
 PaymentResponse._meta_ =  {fields:  {}};
+PaymentResponse._meta_._class_ =  PaymentResponse;
 PaymentResponse._meta_.fields["requestSuccessful"] = {};
 PaymentResponse._meta_.fields["requestSuccessful"].type = Boolean;
 PaymentResponse._meta_.fields["responseErrorMessage"] = {};

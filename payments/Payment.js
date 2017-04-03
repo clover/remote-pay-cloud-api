@@ -8,6 +8,7 @@ var payments_Result = require("../payments/Result");
 var payments_ServiceChargeAmount = require("../payments/ServiceChargeAmount");
 var payments_PaymentTaxRate = require("../payments/PaymentTaxRate");
 var payments_DCCInfo = require("../payments/DCCInfo");
+var payments_CashAdvanceExtra = require("../payments/CashAdvanceExtra");
 var payments_Refund = require("../payments/Refund");
 var payments_GermanInfo = require("../payments/GermanInfo");
 var payments_CardTransaction = require("../payments/CardTransaction");
@@ -51,6 +52,7 @@ var Payment = function() {
   this.transactionSettings = undefined;
   this.germanInfo = undefined;
   this.appTracking = undefined;
+  this.cashAdvanceExtra = undefined;
 };
 
 
@@ -598,6 +600,27 @@ Payment.prototype.getAppTracking = function() {
 };
 
 /**
+* Set the field value
+* Information specific to cash advance transactions.
+*
+* @memberof payments.Payment
+* @param {payments.CashAdvanceExtra} cashAdvanceExtra 
+*/
+Payment.prototype.setCashAdvanceExtra = function(cashAdvanceExtra) {
+  this.cashAdvanceExtra = cashAdvanceExtra;
+};
+
+/**
+* Get the field value
+* Information specific to cash advance transactions.
+* @memberof payments.Payment
+* @return {payments.CashAdvanceExtra} 
+*/
+Payment.prototype.getCashAdvanceExtra = function() {
+  return this.cashAdvanceExtra;
+};
+
+/**
 * @memberof payments.Payment
 * @private
 */
@@ -608,7 +631,11 @@ Payment.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -618,6 +645,7 @@ Payment.prototype.toString = function() {
 };
 
 Payment._meta_ =  {fields:  {}};
+Payment._meta_._class_ =  Payment;
 Payment._meta_.fields["id"] = {};
 Payment._meta_.fields["id"].type = String;
 Payment._meta_.fields["order"] = {};
@@ -675,6 +703,8 @@ Payment._meta_.fields["germanInfo"] = {};
 Payment._meta_.fields["germanInfo"].type = payments_GermanInfo;
 Payment._meta_.fields["appTracking"] = {};
 Payment._meta_.fields["appTracking"].type = apps_AppTracking;
+Payment._meta_.fields["cashAdvanceExtra"] = {};
+Payment._meta_.fields["cashAdvanceExtra"].type = payments_CashAdvanceExtra;
 
 //
 // Expose the module.

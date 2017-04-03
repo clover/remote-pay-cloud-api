@@ -43,6 +43,8 @@ CardInfoRequest.prototype.getCardEntryMethods = function() {
 };
 
 CardInfoRequest._meta_ =  {fields:  {}};
+CardInfoRequest._meta_._class_ =  CardInfoRequest;
+CardInfoRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 CardInfoRequest._meta_.fields["cardEntryMethods"] = {};
 CardInfoRequest._meta_.fields["cardEntryMethods"].type = Number;
 

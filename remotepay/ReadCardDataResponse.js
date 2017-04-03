@@ -44,6 +44,8 @@ ReadCardDataResponse.prototype.getCardData = function() {
 };
 
 ReadCardDataResponse._meta_ =  {fields:  {}};
+ReadCardDataResponse._meta_._class_ =  ReadCardDataResponse;
+ReadCardDataResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 ReadCardDataResponse._meta_.fields["cardData"] = {};
 ReadCardDataResponse._meta_.fields["cardData"].type = base_CardData;
 

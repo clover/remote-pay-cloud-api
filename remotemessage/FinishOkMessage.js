@@ -115,6 +115,8 @@ FinishOkMessage.prototype.getSignature = function() {
 };
 
 FinishOkMessage._meta_ =  {fields:  {}};
+FinishOkMessage._meta_._class_ =  FinishOkMessage;
+FinishOkMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 FinishOkMessage._meta_.fields["credit"] = {};
 FinishOkMessage._meta_.fields["credit"].type = payments_Credit;
 FinishOkMessage._meta_.fields["payment"] = {};

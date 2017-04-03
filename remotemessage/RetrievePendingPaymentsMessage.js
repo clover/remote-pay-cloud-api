@@ -23,6 +23,8 @@ RetrievePendingPaymentsMessage.prototype = Object.create(remotemessage_Message.p
 RetrievePendingPaymentsMessage.prototype.constructor = RetrievePendingPaymentsMessage;
 
 RetrievePendingPaymentsMessage._meta_ =  {fields:  {}};
+RetrievePendingPaymentsMessage._meta_._class_ =  RetrievePendingPaymentsMessage;
+RetrievePendingPaymentsMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 
 //
 // Expose the module.

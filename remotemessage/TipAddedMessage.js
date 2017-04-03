@@ -45,6 +45,8 @@ TipAddedMessage.prototype.getTipAmount = function() {
 };
 
 TipAddedMessage._meta_ =  {fields:  {}};
+TipAddedMessage._meta_._class_ =  TipAddedMessage;
+TipAddedMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 TipAddedMessage._meta_.fields["tipAmount"] = {};
 TipAddedMessage._meta_.fields["tipAmount"].type = Number;
 

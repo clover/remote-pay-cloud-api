@@ -66,6 +66,8 @@ CloseoutRequest.prototype.getBatchId = function() {
 };
 
 CloseoutRequest._meta_ =  {fields:  {}};
+CloseoutRequest._meta_._class_ =  CloseoutRequest;
+CloseoutRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 CloseoutRequest._meta_.fields["allowOpenTabs"] = {};
 CloseoutRequest._meta_.fields["allowOpenTabs"].type = Boolean;
 CloseoutRequest._meta_.fields["batchId"] = {};

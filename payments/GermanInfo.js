@@ -494,7 +494,11 @@ GermanInfo.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -504,6 +508,7 @@ GermanInfo.prototype.toString = function() {
 };
 
 GermanInfo._meta_ =  {fields:  {}};
+GermanInfo._meta_._class_ =  GermanInfo;
 GermanInfo._meta_.fields["cardTrack2"] = {};
 GermanInfo._meta_.fields["cardTrack2"].type = String;
 GermanInfo._meta_.fields["cardSequenceNumber"] = {};

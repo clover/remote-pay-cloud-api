@@ -45,7 +45,11 @@ ResponseCodeEnum.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -55,6 +59,7 @@ ResponseCodeEnum.prototype.toString = function() {
 };
 
 ResponseCodeEnum._meta_ =  {fields:  {}};
+ResponseCodeEnum._meta_._class_ =  ResponseCodeEnum;
 ResponseCodeEnum._meta_.fields["status"] = {};
 ResponseCodeEnum._meta_.fields["status"].type = remotepay_ResponseCode;
 

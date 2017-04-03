@@ -111,6 +111,8 @@ PairingRequestMessage.prototype.getAuthenticationToken = function() {
 };
 
 PairingRequestMessage._meta_ =  {fields:  {}};
+PairingRequestMessage._meta_._class_ =  PairingRequestMessage;
+PairingRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 PairingRequestMessage._meta_.fields["name"] = {};
 PairingRequestMessage._meta_.fields["name"].type = String;
 PairingRequestMessage._meta_.fields["serialNumber"] = {};

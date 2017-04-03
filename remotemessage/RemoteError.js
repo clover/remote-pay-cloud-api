@@ -90,6 +90,8 @@ RemoteError.prototype.getErrorCode = function() {
 };
 
 RemoteError._meta_ =  {fields:  {}};
+RemoteError._meta_._class_ =  RemoteError;
+RemoteError._meta_._superMeta_ = remotemessage_Message._meta_;
 RemoteError._meta_.fields["errorDetail"] = {};
 RemoteError._meta_.fields["errorDetail"].type = String;
 RemoteError._meta_.fields["errorMessage"] = {};

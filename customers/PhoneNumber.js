@@ -86,7 +86,11 @@ PhoneNumber.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -96,6 +100,7 @@ PhoneNumber.prototype.toString = function() {
 };
 
 PhoneNumber._meta_ =  {fields:  {}};
+PhoneNumber._meta_._class_ =  PhoneNumber;
 PhoneNumber._meta_.fields["id"] = {};
 PhoneNumber._meta_.fields["id"].type = String;
 PhoneNumber._meta_.fields["phoneNumber"] = {};

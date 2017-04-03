@@ -70,7 +70,11 @@ InputOption.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -80,6 +84,7 @@ InputOption.prototype.toString = function() {
 };
 
 InputOption._meta_ =  {fields:  {}};
+InputOption._meta_._class_ =  InputOption;
 InputOption._meta_.fields["keyPress"] = {};
 InputOption._meta_.fields["keyPress"].type = remotepay_KeyPress;
 InputOption._meta_.fields["description"] = {};

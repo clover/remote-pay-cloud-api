@@ -721,7 +721,11 @@ Order.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -731,6 +735,7 @@ Order.prototype.toString = function() {
 };
 
 Order._meta_ =  {fields:  {}};
+Order._meta_._class_ =  Order;
 Order._meta_.fields["id"] = {};
 Order._meta_.fields["id"].type = String;
 Order._meta_.fields["currency"] = {};

@@ -91,6 +91,8 @@ CloseoutResponseMessage.prototype.getBatch = function() {
 };
 
 CloseoutResponseMessage._meta_ =  {fields:  {}};
+CloseoutResponseMessage._meta_._class_ =  CloseoutResponseMessage;
+CloseoutResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 CloseoutResponseMessage._meta_.fields["reason"] = {};
 CloseoutResponseMessage._meta_.fields["reason"].type = String;
 CloseoutResponseMessage._meta_.fields["status"] = {};

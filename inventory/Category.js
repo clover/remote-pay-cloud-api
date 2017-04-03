@@ -114,7 +114,11 @@ Category.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -124,6 +128,7 @@ Category.prototype.toString = function() {
 };
 
 Category._meta_ =  {fields:  {}};
+Category._meta_._class_ =  Category;
 Category._meta_.fields["id"] = {};
 Category._meta_.fields["id"].type = String;
 Category._meta_.fields["name"] = {};

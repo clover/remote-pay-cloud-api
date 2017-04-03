@@ -45,7 +45,11 @@ KeyPressEnum.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -55,6 +59,7 @@ KeyPressEnum.prototype.toString = function() {
 };
 
 KeyPressEnum._meta_ =  {fields:  {}};
+KeyPressEnum._meta_._class_ =  KeyPressEnum;
 KeyPressEnum._meta_.fields["status"] = {};
 KeyPressEnum._meta_.fields["status"].type = remotepay_KeyPress;
 

@@ -333,7 +333,11 @@ CardData.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -343,6 +347,7 @@ CardData.prototype.toString = function() {
 };
 
 CardData._meta_ =  {fields:  {}};
+CardData._meta_._class_ =  CardData;
 CardData._meta_.fields["track1"] = {};
 CardData._meta_.fields["track1"].type = String;
 CardData._meta_.fields["track2"] = {};

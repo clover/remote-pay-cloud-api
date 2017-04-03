@@ -69,7 +69,11 @@ DisplayReceiptOptionsRequest.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -79,6 +83,7 @@ DisplayReceiptOptionsRequest.prototype.toString = function() {
 };
 
 DisplayReceiptOptionsRequest._meta_ =  {fields:  {}};
+DisplayReceiptOptionsRequest._meta_._class_ =  DisplayReceiptOptionsRequest;
 DisplayReceiptOptionsRequest._meta_.fields["orderId"] = {};
 DisplayReceiptOptionsRequest._meta_.fields["orderId"].type = String;
 DisplayReceiptOptionsRequest._meta_.fields["paymentId"] = {};

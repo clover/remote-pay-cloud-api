@@ -5,24 +5,24 @@
  */
 
 var remotemessage_Method = require("../remotemessage/Method");
-var remotemessage_Message = require("../remotemessage/Message");
+var remotemessage_PairingRequestMessage = require("../remotemessage/PairingRequestMessage");
 var remotemessage_PairingState = require("../remotemessage/PairingState");
 
 /**
 * @constructor
-* @augments remotemessage.Message
+* @augments remotemessage.PairingRequestMessage
 * @memberof remotemessage
 */
 var PairingResponseMessage = function() {
-  remotemessage_Message.call(this);
-  this._superClass_ = remotemessage_Message;
+  remotemessage_PairingRequestMessage.call(this);
+  this._superClass_ = remotemessage_PairingRequestMessage;
   this._class_ = PairingResponseMessage;
   this.setMethod(remotemessage_Method["PAIRING_RESPONSE"]);
   this.pairingState = undefined;
   this.millis = undefined;
 };
 
-PairingResponseMessage.prototype = Object.create(remotemessage_Message.prototype);
+PairingResponseMessage.prototype = Object.create(remotemessage_PairingRequestMessage.prototype);
 PairingResponseMessage.prototype.constructor = PairingResponseMessage;
 
 /**
@@ -68,6 +68,8 @@ PairingResponseMessage.prototype.getMillis = function() {
 };
 
 PairingResponseMessage._meta_ =  {fields:  {}};
+PairingResponseMessage._meta_._class_ =  PairingResponseMessage;
+PairingResponseMessage._meta_._superMeta_ = remotemessage_PairingRequestMessage._meta_;
 PairingResponseMessage._meta_.fields["pairingState"] = {};
 PairingResponseMessage._meta_.fields["pairingState"].type = remotemessage_PairingState;
 PairingResponseMessage._meta_.fields["millis"] = {};

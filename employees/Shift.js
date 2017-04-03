@@ -246,7 +246,11 @@ Shift.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -256,6 +260,7 @@ Shift.prototype.toString = function() {
 };
 
 Shift._meta_ =  {fields:  {}};
+Shift._meta_._class_ =  Shift;
 Shift._meta_.fields["id"] = {};
 Shift._meta_.fields["id"].type = String;
 Shift._meta_.fields["employee"] = {};

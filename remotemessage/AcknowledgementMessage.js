@@ -45,6 +45,8 @@ AcknowledgementMessage.prototype.getSourceMessageId = function() {
 };
 
 AcknowledgementMessage._meta_ =  {fields:  {}};
+AcknowledgementMessage._meta_._class_ =  AcknowledgementMessage;
+AcknowledgementMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 AcknowledgementMessage._meta_.fields["sourceMessageId"] = {};
 AcknowledgementMessage._meta_.fields["sourceMessageId"].type = String;
 

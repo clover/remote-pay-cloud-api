@@ -63,7 +63,11 @@ HourRange.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -73,6 +77,7 @@ HourRange.prototype.toString = function() {
 };
 
 HourRange._meta_ =  {fields:  {}};
+HourRange._meta_._class_ =  HourRange;
 HourRange._meta_.fields["start"] = {};
 HourRange._meta_.fields["start"].type = Number;
 HourRange._meta_.fields["end"] = {};

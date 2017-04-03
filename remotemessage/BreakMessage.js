@@ -23,6 +23,8 @@ BreakMessage.prototype = Object.create(remotemessage_Message.prototype);
 BreakMessage.prototype.constructor = BreakMessage;
 
 BreakMessage._meta_ =  {fields:  {}};
+BreakMessage._meta_._class_ =  BreakMessage;
+BreakMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 
 //
 // Expose the module.

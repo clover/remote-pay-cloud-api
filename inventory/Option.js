@@ -111,7 +111,11 @@ Option.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -121,6 +125,7 @@ Option.prototype.toString = function() {
 };
 
 Option._meta_ =  {fields:  {}};
+Option._meta_._class_ =  Option;
 Option._meta_.fields["id"] = {};
 Option._meta_.fields["id"].type = String;
 Option._meta_.fields["name"] = {};

@@ -45,7 +45,11 @@ ChallengeTypeEnum.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -55,6 +59,7 @@ ChallengeTypeEnum.prototype.toString = function() {
 };
 
 ChallengeTypeEnum._meta_ =  {fields:  {}};
+ChallengeTypeEnum._meta_._class_ =  ChallengeTypeEnum;
 ChallengeTypeEnum._meta_.fields["challengeType"] = {};
 ChallengeTypeEnum._meta_.fields["challengeType"].type = base_ChallengeType;
 

@@ -43,6 +43,8 @@ OrderActionResponseMessage.prototype.getOrderActionResponse = function() {
 };
 
 OrderActionResponseMessage._meta_ =  {fields:  {}};
+OrderActionResponseMessage._meta_._class_ =  OrderActionResponseMessage;
+OrderActionResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 OrderActionResponseMessage._meta_.fields["orderActionResponse"] = {};
 OrderActionResponseMessage._meta_.fields["orderActionResponse"].type = remotemessage_OrderActionResponse;
 

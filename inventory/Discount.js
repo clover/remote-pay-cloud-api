@@ -113,7 +113,11 @@ Discount.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -123,6 +127,7 @@ Discount.prototype.toString = function() {
 };
 
 Discount._meta_ =  {fields:  {}};
+Discount._meta_._class_ =  Discount;
 Discount._meta_.fields["id"] = {};
 Discount._meta_.fields["id"].type = String;
 Discount._meta_.fields["name"] = {};

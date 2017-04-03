@@ -23,6 +23,8 @@ ManualRefundRequest.prototype = Object.create(remotepay_TransactionRequest.proto
 ManualRefundRequest.prototype.constructor = ManualRefundRequest;
 
 ManualRefundRequest._meta_ =  {fields:  {}};
+ManualRefundRequest._meta_._class_ =  ManualRefundRequest;
+ManualRefundRequest._meta_._superMeta_ = remotepay_TransactionRequest._meta_;
 
 //
 // Expose the module.

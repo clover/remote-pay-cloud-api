@@ -43,6 +43,8 @@ VaultCardRequest.prototype.getCardEntryMethods = function() {
 };
 
 VaultCardRequest._meta_ =  {fields:  {}};
+VaultCardRequest._meta_._class_ =  VaultCardRequest;
+VaultCardRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 VaultCardRequest._meta_.fields["cardEntryMethods"] = {};
 VaultCardRequest._meta_.fields["cardEntryMethods"].type = Number;
 

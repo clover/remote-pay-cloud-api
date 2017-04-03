@@ -45,7 +45,11 @@ ErrorCodeEnum.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -55,6 +59,7 @@ ErrorCodeEnum.prototype.toString = function() {
 };
 
 ErrorCodeEnum._meta_ =  {fields:  {}};
+ErrorCodeEnum._meta_._class_ =  ErrorCodeEnum;
 ErrorCodeEnum._meta_.fields["errorCode"] = {};
 ErrorCodeEnum._meta_.fields["errorCode"].type = remotemessage_ErrorCode;
 

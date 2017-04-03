@@ -64,7 +64,11 @@ AddLineItemAction.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -74,6 +78,7 @@ AddLineItemAction.prototype.toString = function() {
 };
 
 AddLineItemAction._meta_ =  {fields:  {}};
+AddLineItemAction._meta_._class_ =  AddLineItemAction;
 AddLineItemAction._meta_.fields["discount"] = {};
 AddLineItemAction._meta_.fields["discount"].type = order_DisplayLineItem;
 AddLineItemAction._meta_.fields["taxable"] = {};

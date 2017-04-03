@@ -43,6 +43,8 @@ OrderActionRemoveLineItemMessage.prototype.getRemoveLineItemAction = function() 
 };
 
 OrderActionRemoveLineItemMessage._meta_ =  {fields:  {}};
+OrderActionRemoveLineItemMessage._meta_._class_ =  OrderActionRemoveLineItemMessage;
+OrderActionRemoveLineItemMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 OrderActionRemoveLineItemMessage._meta_.fields["removeLineItemAction"] = {};
 OrderActionRemoveLineItemMessage._meta_.fields["removeLineItemAction"].type = remotemessage_RemoveLineItemAction;
 

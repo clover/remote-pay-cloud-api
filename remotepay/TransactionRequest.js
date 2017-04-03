@@ -354,6 +354,8 @@ TransactionRequest.prototype.getAutoAcceptSignature = function() {
 };
 
 TransactionRequest._meta_ =  {fields:  {}};
+TransactionRequest._meta_._class_ =  TransactionRequest;
+TransactionRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 TransactionRequest._meta_.fields["orderId"] = {};
 TransactionRequest._meta_.fields["orderId"].type = String;
 TransactionRequest._meta_.fields["signatureThreshold"] = {};

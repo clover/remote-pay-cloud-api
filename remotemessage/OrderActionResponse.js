@@ -63,7 +63,11 @@ OrderActionResponse.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -73,6 +77,7 @@ OrderActionResponse.prototype.toString = function() {
 };
 
 OrderActionResponse._meta_ =  {fields:  {}};
+OrderActionResponse._meta_._class_ =  OrderActionResponse;
 OrderActionResponse._meta_.fields["accepted"] = {};
 OrderActionResponse._meta_.fields["accepted"].type = Boolean;
 OrderActionResponse._meta_.fields["id"] = {};

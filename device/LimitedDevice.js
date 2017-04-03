@@ -91,7 +91,11 @@ LimitedDevice.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -101,6 +105,7 @@ LimitedDevice.prototype.toString = function() {
 };
 
 LimitedDevice._meta_ =  {fields:  {}};
+LimitedDevice._meta_._class_ =  LimitedDevice;
 LimitedDevice._meta_.fields["id"] = {};
 LimitedDevice._meta_.fields["id"].type = String;
 LimitedDevice._meta_.fields["name"] = {};

@@ -222,7 +222,11 @@ MerchantInfo.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -232,6 +236,7 @@ MerchantInfo.prototype.toString = function() {
 };
 
 MerchantInfo._meta_ =  {fields:  {}};
+MerchantInfo._meta_._class_ =  MerchantInfo;
 MerchantInfo._meta_.fields["merchantID"] = {};
 MerchantInfo._meta_.fields["merchantID"].type = String;
 MerchantInfo._meta_.fields["merchantMID"] = {};

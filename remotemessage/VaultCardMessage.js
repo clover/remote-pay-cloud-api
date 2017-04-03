@@ -45,6 +45,8 @@ VaultCardMessage.prototype.getCardEntryMethods = function() {
 };
 
 VaultCardMessage._meta_ =  {fields:  {}};
+VaultCardMessage._meta_._class_ =  VaultCardMessage;
+VaultCardMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 VaultCardMessage._meta_.fields["cardEntryMethods"] = {};
 VaultCardMessage._meta_.fields["cardEntryMethods"].type = Number;
 

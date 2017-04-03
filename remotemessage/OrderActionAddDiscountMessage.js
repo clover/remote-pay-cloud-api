@@ -43,6 +43,8 @@ OrderActionAddDiscountMessage.prototype.getAddDiscountAction = function() {
 };
 
 OrderActionAddDiscountMessage._meta_ =  {fields:  {}};
+OrderActionAddDiscountMessage._meta_._class_ =  OrderActionAddDiscountMessage;
+OrderActionAddDiscountMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 OrderActionAddDiscountMessage._meta_.fields["addDiscountAction"] = {};
 OrderActionAddDiscountMessage._meta_.fields["addDiscountAction"].type = remotemessage_AddDiscountAction;
 

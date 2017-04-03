@@ -43,6 +43,8 @@ OrderActionRemoveDiscountMessage.prototype.getRemoveDiscountAction = function() 
 };
 
 OrderActionRemoveDiscountMessage._meta_ =  {fields:  {}};
+OrderActionRemoveDiscountMessage._meta_._class_ =  OrderActionRemoveDiscountMessage;
+OrderActionRemoveDiscountMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 OrderActionRemoveDiscountMessage._meta_.fields["removeDiscountAction"] = {};
 OrderActionRemoveDiscountMessage._meta_.fields["removeDiscountAction"].type = remotemessage_RemoveDiscountAction;
 

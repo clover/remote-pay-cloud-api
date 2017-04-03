@@ -83,7 +83,11 @@ DisplayModification.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -93,6 +97,7 @@ DisplayModification.prototype.toString = function() {
 };
 
 DisplayModification._meta_ =  {fields:  {}};
+DisplayModification._meta_._class_ =  DisplayModification;
 DisplayModification._meta_.fields["id"] = {};
 DisplayModification._meta_.fields["id"].type = String;
 DisplayModification._meta_.fields["name"] = {};

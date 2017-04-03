@@ -134,6 +134,8 @@ CapturePreAuthResponseMessage.prototype.getTipAmount = function() {
 };
 
 CapturePreAuthResponseMessage._meta_ =  {fields:  {}};
+CapturePreAuthResponseMessage._meta_._class_ =  CapturePreAuthResponseMessage;
+CapturePreAuthResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 CapturePreAuthResponseMessage._meta_.fields["status"] = {};
 CapturePreAuthResponseMessage._meta_.fields["status"].type = remotemessage_ResultStatus;
 CapturePreAuthResponseMessage._meta_.fields["reason"] = {};

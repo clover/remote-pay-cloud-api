@@ -129,7 +129,11 @@ BatchDetail.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -139,6 +143,7 @@ BatchDetail.prototype.toString = function() {
 };
 
 BatchDetail._meta_ =  {fields:  {}};
+BatchDetail._meta_._class_ =  BatchDetail;
 BatchDetail._meta_.fields["batchTotals"] = {};
 BatchDetail._meta_.fields["batchTotals"].type = payments_BatchTotalStats;
 BatchDetail._meta_.fields["serverTotals"] = {};

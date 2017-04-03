@@ -419,7 +419,11 @@ OrderType.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -429,6 +433,7 @@ OrderType.prototype.toString = function() {
 };
 
 OrderType._meta_ =  {fields:  {}};
+OrderType._meta_._class_ =  OrderType;
 OrderType._meta_.fields["id"] = {};
 OrderType._meta_.fields["id"].type = String;
 OrderType._meta_.fields["labelKey"] = {};

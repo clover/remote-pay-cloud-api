@@ -67,6 +67,8 @@ ShowPaymentReceiptOptionsMessage.prototype.getPaymentId = function() {
 };
 
 ShowPaymentReceiptOptionsMessage._meta_ =  {fields:  {}};
+ShowPaymentReceiptOptionsMessage._meta_._class_ =  ShowPaymentReceiptOptionsMessage;
+ShowPaymentReceiptOptionsMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 ShowPaymentReceiptOptionsMessage._meta_.fields["orderId"] = {};
 ShowPaymentReceiptOptionsMessage._meta_.fields["orderId"].type = String;
 ShowPaymentReceiptOptionsMessage._meta_.fields["paymentId"] = {};

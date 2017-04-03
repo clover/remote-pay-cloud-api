@@ -43,6 +43,8 @@ VoidPaymentResponse.prototype.getPaymentId = function() {
 };
 
 VoidPaymentResponse._meta_ =  {fields:  {}};
+VoidPaymentResponse._meta_._class_ =  VoidPaymentResponse;
+VoidPaymentResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 VoidPaymentResponse._meta_.fields["paymentId"] = {};
 VoidPaymentResponse._meta_.fields["paymentId"].type = String;
 

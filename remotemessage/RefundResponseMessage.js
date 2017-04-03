@@ -158,6 +158,8 @@ RefundResponseMessage.prototype.getCode = function() {
 };
 
 RefundResponseMessage._meta_ =  {fields:  {}};
+RefundResponseMessage._meta_._class_ =  RefundResponseMessage;
+RefundResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 RefundResponseMessage._meta_.fields["orderId"] = {};
 RefundResponseMessage._meta_.fields["orderId"].type = String;
 RefundResponseMessage._meta_.fields["paymentId"] = {};

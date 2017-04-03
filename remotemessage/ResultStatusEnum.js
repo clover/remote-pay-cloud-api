@@ -45,7 +45,11 @@ ResultStatusEnum.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -55,6 +59,7 @@ ResultStatusEnum.prototype.toString = function() {
 };
 
 ResultStatusEnum._meta_ =  {fields:  {}};
+ResultStatusEnum._meta_._class_ =  ResultStatusEnum;
 ResultStatusEnum._meta_.fields["status"] = {};
 ResultStatusEnum._meta_.fields["status"].type = remotemessage_ResultStatus;
 

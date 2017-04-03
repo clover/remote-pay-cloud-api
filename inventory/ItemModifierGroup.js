@@ -65,7 +65,11 @@ ItemModifierGroup.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -75,6 +79,7 @@ ItemModifierGroup.prototype.toString = function() {
 };
 
 ItemModifierGroup._meta_ =  {fields:  {}};
+ItemModifierGroup._meta_._class_ =  ItemModifierGroup;
 ItemModifierGroup._meta_.fields["item"] = {};
 ItemModifierGroup._meta_.fields["item"].type = inventory_Item;
 ItemModifierGroup._meta_.fields["modifierGroup"] = {};

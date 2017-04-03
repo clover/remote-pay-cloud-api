@@ -23,6 +23,8 @@ PreAuthRequest.prototype = Object.create(remotepay_TransactionRequest.prototype)
 PreAuthRequest.prototype.constructor = PreAuthRequest;
 
 PreAuthRequest._meta_ =  {fields:  {}};
+PreAuthRequest._meta_._class_ =  PreAuthRequest;
+PreAuthRequest._meta_._superMeta_ = remotepay_TransactionRequest._meta_;
 
 //
 // Expose the module.

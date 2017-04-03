@@ -100,7 +100,10 @@ ICloverConnector.prototype.closeout = function(closeoutRequest) {
 };
 
 /**
-* Show the customer facing receipt option screen for the specified payment
+* Incompatibility between sdks!  Old cloud had this.
+  * Show the customer facing receipt option screen for the specified payment
+  *
+  * @deprecated - use #displayPaymentReceiptOptions(string orderId, string paymentId)
 * @memberof remotepay.ICloverConnector
 *
 * @param {String} orderId 
@@ -108,6 +111,17 @@ ICloverConnector.prototype.closeout = function(closeoutRequest) {
 * @return void
 */
 ICloverConnector.prototype.showPaymentReceiptOptions = function(orderId, paymentId) {
+};
+
+/**
+* Show the customer facing receipt option screen for the specified payment
+* @memberof remotepay.ICloverConnector
+*
+* @param {String} orderId 
+* @param {String} paymentId 
+* @return void
+*/
+ICloverConnector.prototype.displayPaymentReceiptOptions = function(orderId, paymentId) {
 };
 
 /**

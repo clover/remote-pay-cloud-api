@@ -46,6 +46,8 @@ PaymentConfirmedMessage.prototype.getPayment = function() {
 };
 
 PaymentConfirmedMessage._meta_ =  {fields:  {}};
+PaymentConfirmedMessage._meta_._class_ =  PaymentConfirmedMessage;
+PaymentConfirmedMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 PaymentConfirmedMessage._meta_.fields["payment"] = {};
 PaymentConfirmedMessage._meta_.fields["payment"].type = payments_Payment;
 

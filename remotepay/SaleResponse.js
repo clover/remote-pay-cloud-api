@@ -21,6 +21,8 @@ SaleResponse.prototype = Object.create(remotepay_PaymentResponse.prototype);
 SaleResponse.prototype.constructor = SaleResponse;
 
 SaleResponse._meta_ =  {fields:  {}};
+SaleResponse._meta_._class_ =  SaleResponse;
+SaleResponse._meta_._superMeta_ = remotepay_PaymentResponse._meta_;
 
 //
 // Expose the module.

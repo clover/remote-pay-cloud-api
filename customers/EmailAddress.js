@@ -105,7 +105,11 @@ EmailAddress.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -115,6 +119,7 @@ EmailAddress.prototype.toString = function() {
 };
 
 EmailAddress._meta_ =  {fields:  {}};
+EmailAddress._meta_._class_ =  EmailAddress;
 EmailAddress._meta_.fields["id"] = {};
 EmailAddress._meta_.fields["id"].type = String;
 EmailAddress._meta_.fields["emailAddress"] = {};

@@ -43,6 +43,8 @@ OrderActionAddLineItemMessage.prototype.getAddLineItemAction = function() {
 };
 
 OrderActionAddLineItemMessage._meta_ =  {fields:  {}};
+OrderActionAddLineItemMessage._meta_._class_ =  OrderActionAddLineItemMessage;
+OrderActionAddLineItemMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 OrderActionAddLineItemMessage._meta_.fields["addLineItemAction"] = {};
 OrderActionAddLineItemMessage._meta_.fields["addLineItemAction"].type = remotemessage_AddLineItemAction;
 

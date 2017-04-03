@@ -89,6 +89,8 @@ TipAdjustMessage.prototype.getPaymentId = function() {
 };
 
 TipAdjustMessage._meta_ =  {fields:  {}};
+TipAdjustMessage._meta_._class_ =  TipAdjustMessage;
+TipAdjustMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 TipAdjustMessage._meta_.fields["tipAmount"] = {};
 TipAdjustMessage._meta_.fields["tipAmount"].type = Number;
 TipAdjustMessage._meta_.fields["orderId"] = {};

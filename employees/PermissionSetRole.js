@@ -130,7 +130,11 @@ PermissionSetRole.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -140,6 +144,7 @@ PermissionSetRole.prototype.toString = function() {
 };
 
 PermissionSetRole._meta_ =  {fields:  {}};
+PermissionSetRole._meta_._class_ =  PermissionSetRole;
 PermissionSetRole._meta_.fields["id"] = {};
 PermissionSetRole._meta_.fields["id"].type = String;
 PermissionSetRole._meta_.fields["role"] = {};

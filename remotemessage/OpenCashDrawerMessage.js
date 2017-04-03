@@ -45,6 +45,8 @@ OpenCashDrawerMessage.prototype.getReason = function() {
 };
 
 OpenCashDrawerMessage._meta_ =  {fields:  {}};
+OpenCashDrawerMessage._meta_._class_ =  OpenCashDrawerMessage;
+OpenCashDrawerMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 OpenCashDrawerMessage._meta_.fields["reason"] = {};
 OpenCashDrawerMessage._meta_.fields["reason"].type = String;
 

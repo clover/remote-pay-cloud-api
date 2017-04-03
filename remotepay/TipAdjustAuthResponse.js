@@ -65,6 +65,8 @@ TipAdjustAuthResponse.prototype.getPaymentId = function() {
 };
 
 TipAdjustAuthResponse._meta_ =  {fields:  {}};
+TipAdjustAuthResponse._meta_._class_ =  TipAdjustAuthResponse;
+TipAdjustAuthResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 TipAdjustAuthResponse._meta_.fields["tipAmount"] = {};
 TipAdjustAuthResponse._meta_.fields["tipAmount"].type = Number;
 TipAdjustAuthResponse._meta_.fields["paymentId"] = {};

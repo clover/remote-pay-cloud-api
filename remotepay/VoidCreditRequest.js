@@ -91,7 +91,11 @@ VoidCreditRequest.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -101,6 +105,7 @@ VoidCreditRequest.prototype.toString = function() {
 };
 
 VoidCreditRequest._meta_ =  {fields:  {}};
+VoidCreditRequest._meta_._class_ =  VoidCreditRequest;
 VoidCreditRequest._meta_.fields["requestId"] = {};
 VoidCreditRequest._meta_.fields["requestId"].type = String;
 VoidCreditRequest._meta_.fields["orderId"] = {};

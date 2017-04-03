@@ -112,7 +112,11 @@ CloverDeviceEvent.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -122,6 +126,7 @@ CloverDeviceEvent.prototype.toString = function() {
 };
 
 CloverDeviceEvent._meta_ =  {fields:  {}};
+CloverDeviceEvent._meta_._class_ =  CloverDeviceEvent;
 CloverDeviceEvent._meta_.fields["message"] = {};
 CloverDeviceEvent._meta_.fields["message"].type = String;
 CloverDeviceEvent._meta_.fields["code"] = {};

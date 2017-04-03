@@ -45,6 +45,8 @@ CloseoutResponse.prototype.getBatch = function() {
 };
 
 CloseoutResponse._meta_ =  {fields:  {}};
+CloseoutResponse._meta_._class_ =  CloseoutResponse;
+CloseoutResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 CloseoutResponse._meta_.fields["batch"] = {};
 CloseoutResponse._meta_.fields["batch"].type = payments_Batch;
 

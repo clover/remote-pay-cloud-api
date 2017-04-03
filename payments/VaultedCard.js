@@ -120,7 +120,11 @@ VaultedCard.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -130,6 +134,7 @@ VaultedCard.prototype.toString = function() {
 };
 
 VaultedCard._meta_ =  {fields:  {}};
+VaultedCard._meta_._class_ =  VaultedCard;
 VaultedCard._meta_.fields["first6"] = {};
 VaultedCard._meta_.fields["first6"].type = String;
 VaultedCard._meta_.fields["last4"] = {};

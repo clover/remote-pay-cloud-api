@@ -109,6 +109,8 @@ VoidPaymentRequest.prototype.getVoidReason = function() {
 };
 
 VoidPaymentRequest._meta_ =  {fields:  {}};
+VoidPaymentRequest._meta_._class_ =  VoidPaymentRequest;
+VoidPaymentRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
 VoidPaymentRequest._meta_.fields["orderId"] = {};
 VoidPaymentRequest._meta_.fields["orderId"].type = String;
 VoidPaymentRequest._meta_.fields["paymentId"] = {};

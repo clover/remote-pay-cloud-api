@@ -105,6 +105,8 @@ UiStateMessage.prototype.getUiState = function() {
 };
 
 UiStateMessage._meta_ =  {fields:  {}};
+UiStateMessage._meta_._class_ =  UiStateMessage;
+UiStateMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 UiStateMessage._meta_.fields["uiText"] = {};
 UiStateMessage._meta_.fields["uiText"].type = String;
 UiStateMessage._meta_.fields["uiDirection"] = {};

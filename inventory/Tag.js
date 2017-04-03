@@ -114,7 +114,11 @@ Tag.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -124,6 +128,7 @@ Tag.prototype.toString = function() {
 };
 
 Tag._meta_ =  {fields:  {}};
+Tag._meta_._class_ =  Tag;
 Tag._meta_.fields["id"] = {};
 Tag._meta_.fields["id"].type = String;
 Tag._meta_.fields["name"] = {};

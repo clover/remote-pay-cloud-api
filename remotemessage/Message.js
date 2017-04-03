@@ -70,7 +70,11 @@ Message.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -80,6 +84,7 @@ Message.prototype.toString = function() {
 };
 
 Message._meta_ =  {fields:  {}};
+Message._meta_._class_ =  Message;
 Message._meta_.fields["method"] = {};
 Message._meta_.fields["method"].type = remotemessage_Method;
 Message._meta_.fields["version"] = {};

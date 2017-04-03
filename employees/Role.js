@@ -115,7 +115,11 @@ Role.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -125,6 +129,7 @@ Role.prototype.toString = function() {
 };
 
 Role._meta_ =  {fields:  {}};
+Role._meta_._class_ =  Role;
 Role._meta_.fields["id"] = {};
 Role._meta_.fields["id"].type = String;
 Role._meta_.fields["name"] = {};

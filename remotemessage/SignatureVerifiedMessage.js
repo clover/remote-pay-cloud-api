@@ -68,6 +68,8 @@ SignatureVerifiedMessage.prototype.getVerified = function() {
 };
 
 SignatureVerifiedMessage._meta_ =  {fields:  {}};
+SignatureVerifiedMessage._meta_._class_ =  SignatureVerifiedMessage;
+SignatureVerifiedMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 SignatureVerifiedMessage._meta_.fields["payment"] = {};
 SignatureVerifiedMessage._meta_.fields["payment"].type = payments_Payment;
 SignatureVerifiedMessage._meta_.fields["verified"] = {};

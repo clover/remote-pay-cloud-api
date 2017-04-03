@@ -43,6 +43,8 @@ KeyPressMessage.prototype.getKeyPress = function() {
 };
 
 KeyPressMessage._meta_ =  {fields:  {}};
+KeyPressMessage._meta_._class_ =  KeyPressMessage;
+KeyPressMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 KeyPressMessage._meta_.fields["keyPress"] = {};
 KeyPressMessage._meta_.fields["keyPress"].type = remotemessage_KeyPress;
 

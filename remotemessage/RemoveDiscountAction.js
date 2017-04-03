@@ -63,7 +63,11 @@ RemoveDiscountAction.prototype.getMetaInfo = function(fieldName) {
     if(fieldMetaInfo) {
       return fieldMetaInfo;
     }
-    curclass = curclass.superclass;
+    if(curclass._meta_._superMeta_) {
+      curclass = curclass._meta_._superMeta_._class_;
+    } else {
+      curclass = null;
+    }
   } while(curclass);
   return null;
 };
@@ -73,6 +77,7 @@ RemoveDiscountAction.prototype.toString = function() {
 };
 
 RemoveDiscountAction._meta_ =  {fields:  {}};
+RemoveDiscountAction._meta_._class_ =  RemoveDiscountAction;
 RemoveDiscountAction._meta_.fields["discountId"] = {};
 RemoveDiscountAction._meta_.fields["discountId"].type = String;
 RemoveDiscountAction._meta_.fields["lineItemId"] = {};
