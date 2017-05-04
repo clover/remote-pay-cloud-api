@@ -15,11 +15,12 @@ var TransactionSettings = function() {
   this._class_ = TransactionSettings;
   this.cardEntryMethods = undefined;
   this.disableCashBack = false;
-  this.cloverShouldHandleReceipts = false;
+  this.cloverShouldHandleReceipts = true;
   this.forcePinEntryOnSwipe = false;
   this.disableRestartTransactionOnFailure = false;
   this.allowOfflinePayment = false;
   this.approveOfflinePaymentWithoutPrompt = false;
+  this.forceOfflinePayment = false;
   this.signatureThreshold = undefined;
   this.signatureEntryLocation = undefined;
   this.tipMode = undefined;
@@ -155,6 +156,24 @@ TransactionSettings.prototype.setApproveOfflinePaymentWithoutPrompt = function(a
 */
 TransactionSettings.prototype.getApproveOfflinePaymentWithoutPrompt = function() {
   return this.approveOfflinePaymentWithoutPrompt;
+};
+
+/**
+* Set the field value
+* @memberof payments.TransactionSettings
+* @param {Boolean} forceOfflinePayment 
+*/
+TransactionSettings.prototype.setForceOfflinePayment = function(forceOfflinePayment) {
+  this.forceOfflinePayment = forceOfflinePayment;
+};
+
+/**
+* Get the field value
+* @memberof payments.TransactionSettings
+* @return {Boolean} 
+*/
+TransactionSettings.prototype.getForceOfflinePayment = function() {
+  return this.forceOfflinePayment;
 };
 
 /**
@@ -341,6 +360,8 @@ TransactionSettings._meta_.fields["allowOfflinePayment"] = {};
 TransactionSettings._meta_.fields["allowOfflinePayment"].type = Boolean;
 TransactionSettings._meta_.fields["approveOfflinePaymentWithoutPrompt"] = {};
 TransactionSettings._meta_.fields["approveOfflinePaymentWithoutPrompt"].type = Boolean;
+TransactionSettings._meta_.fields["forceOfflinePayment"] = {};
+TransactionSettings._meta_.fields["forceOfflinePayment"].type = Boolean;
 TransactionSettings._meta_.fields["signatureThreshold"] = {};
 TransactionSettings._meta_.fields["signatureThreshold"].type = Number;
 TransactionSettings._meta_.fields["signatureEntryLocation"] = {};

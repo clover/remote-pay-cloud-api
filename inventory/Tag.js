@@ -14,6 +14,7 @@ var Tag = function() {
   this._class_ = Tag;
   this.id = undefined;
   this.name = undefined;
+  this.showInReporting = false;
   this.items = undefined;
   this.printers = undefined;
 };
@@ -59,6 +60,27 @@ Tag.prototype.setName = function(name) {
 */
 Tag.prototype.getName = function() {
   return this.name;
+};
+
+/**
+* Set the field value
+* True if tag is a summary label in the reporting app
+*
+* @memberof inventory.Tag
+* @param {Boolean} showInReporting 
+*/
+Tag.prototype.setShowInReporting = function(showInReporting) {
+  this.showInReporting = showInReporting;
+};
+
+/**
+* Get the field value
+* True if tag is a summary label in the reporting app
+* @memberof inventory.Tag
+* @return {Boolean} 
+*/
+Tag.prototype.getShowInReporting = function() {
+  return this.showInReporting;
 };
 
 /**
@@ -133,6 +155,8 @@ Tag._meta_.fields["id"] = {};
 Tag._meta_.fields["id"].type = String;
 Tag._meta_.fields["name"] = {};
 Tag._meta_.fields["name"].type = String;
+Tag._meta_.fields["showInReporting"] = {};
+Tag._meta_.fields["showInReporting"].type = Boolean;
 Tag._meta_.fields["items"] = {};
 Tag._meta_.fields["items"].type = Array;
 Tag._meta_.fields["items"].elementType = base_Reference;

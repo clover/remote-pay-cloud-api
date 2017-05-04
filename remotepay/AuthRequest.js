@@ -22,6 +22,7 @@ var AuthRequest = function() {
   this.disableCashback = undefined;
   this.taxAmount = undefined;
   this.allowOfflinePayment = undefined;
+  this.forceOfflinePayment = undefined;
   this.approveOfflinePaymentWithoutPrompt = undefined;
 };
 
@@ -114,6 +115,27 @@ AuthRequest.prototype.getAllowOfflinePayment = function() {
 
 /**
 * Set the field value
+* If true then payment will be taken offline, regardless of connection status
+*
+* @memberof remotepay.AuthRequest
+* @param {Boolean|Null} forceOfflinePayment 
+*/
+AuthRequest.prototype.setForceOfflinePayment = function(forceOfflinePayment) {
+  this.forceOfflinePayment = forceOfflinePayment;
+};
+
+/**
+* Get the field value
+* If true then payment will be taken offline, regardless of connection status
+* @memberof remotepay.AuthRequest
+* @return {Boolean|Null} 
+*/
+AuthRequest.prototype.getForceOfflinePayment = function() {
+  return this.forceOfflinePayment;
+};
+
+/**
+* Set the field value
 * If true then offline payments will be approved without a prompt.  Currently must be true.
 *
 * @memberof remotepay.AuthRequest
@@ -144,6 +166,8 @@ AuthRequest._meta_.fields["taxAmount"] = {};
 AuthRequest._meta_.fields["taxAmount"].type = Number;
 AuthRequest._meta_.fields["allowOfflinePayment"] = {};
 AuthRequest._meta_.fields["allowOfflinePayment"].type = Boolean;
+AuthRequest._meta_.fields["forceOfflinePayment"] = {};
+AuthRequest._meta_.fields["forceOfflinePayment"].type = Boolean;
 AuthRequest._meta_.fields["approveOfflinePaymentWithoutPrompt"] = {};
 AuthRequest._meta_.fields["approveOfflinePaymentWithoutPrompt"].type = Boolean;
 
