@@ -19,6 +19,7 @@ order.HoursAvailable = require("./HoursAvailable");
 order.LineItem = require("./LineItem");
 order.Modification = require("./Modification");
 order.Order = require("./Order");
+order.OrderExpansion = require("./OrderExpansion");
 order.OrderTaxRate = require("./OrderTaxRate");
 order.OrderType = require("./OrderType");
 order.OrderTypeCategory = require("./OrderTypeCategory");

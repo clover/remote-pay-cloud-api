@@ -16,6 +16,7 @@ var CreditRefund = function() {
   this._class_ = CreditRefund;
   this.id = undefined;
   this.orderRef = undefined;
+  this.device = undefined;
   this.createdTime = undefined;
   this.clientCreatedTime = undefined;
   this.credit = undefined;
@@ -65,6 +66,27 @@ CreditRefund.prototype.setOrderRef = function(orderRef) {
 */
 CreditRefund.prototype.getOrderRef = function() {
   return this.orderRef;
+};
+
+/**
+* Set the field value
+* Device which processed the transaction for this refund
+*
+* @memberof payments.CreditRefund
+* @param {base.Reference|Null} device 
+*/
+CreditRefund.prototype.setDevice = function(device) {
+  this.device = device;
+};
+
+/**
+* Get the field value
+* Device which processed the transaction for this refund
+* @memberof payments.CreditRefund
+* @return {base.Reference|Null} 
+*/
+CreditRefund.prototype.getDevice = function() {
+  return this.device;
 };
 
 /**
@@ -220,6 +242,8 @@ CreditRefund._meta_.fields["id"] = {};
 CreditRefund._meta_.fields["id"].type = String;
 CreditRefund._meta_.fields["orderRef"] = {};
 CreditRefund._meta_.fields["orderRef"].type = base_Reference;
+CreditRefund._meta_.fields["device"] = {};
+CreditRefund._meta_.fields["device"].type = base_Reference;
 CreditRefund._meta_.fields["createdTime"] = {};
 CreditRefund._meta_.fields["createdTime"].type = Number;
 CreditRefund._meta_.fields["clientCreatedTime"] = {};

@@ -15,6 +15,8 @@ var GiftCard = function() {
   this.cardNumber = undefined;
   this.isManuallyEntered = false;
   this.deviceSerial = undefined;
+  this.virtual = false;
+  this.promoCode = undefined;
 };
 
 
@@ -100,6 +102,48 @@ GiftCard.prototype.getDeviceSerial = function() {
 };
 
 /**
+* Set the field value
+* Is this a virtual gift card
+*
+* @memberof payments.GiftCard
+* @param {Boolean} virtual 
+*/
+GiftCard.prototype.setVirtual = function(virtual) {
+  this.virtual = virtual;
+};
+
+/**
+* Get the field value
+* Is this a virtual gift card
+* @memberof payments.GiftCard
+* @return {Boolean} 
+*/
+GiftCard.prototype.getVirtual = function() {
+  return this.virtual;
+};
+
+/**
+* Set the field value
+* Virtual Promo Code
+*
+* @memberof payments.GiftCard
+* @param {String} promoCode 
+*/
+GiftCard.prototype.setPromoCode = function(promoCode) {
+  this.promoCode = promoCode;
+};
+
+/**
+* Get the field value
+* Virtual Promo Code
+* @memberof payments.GiftCard
+* @return {String} 
+*/
+GiftCard.prototype.getPromoCode = function() {
+  return this.promoCode;
+};
+
+/**
 * @memberof payments.GiftCard
 * @private
 */
@@ -133,6 +177,10 @@ GiftCard._meta_.fields["isManuallyEntered"] = {};
 GiftCard._meta_.fields["isManuallyEntered"].type = Boolean;
 GiftCard._meta_.fields["deviceSerial"] = {};
 GiftCard._meta_.fields["deviceSerial"].type = String;
+GiftCard._meta_.fields["virtual"] = {};
+GiftCard._meta_.fields["virtual"].type = Boolean;
+GiftCard._meta_.fields["promoCode"] = {};
+GiftCard._meta_.fields["promoCode"].type = String;
 
 //
 // Expose the module.

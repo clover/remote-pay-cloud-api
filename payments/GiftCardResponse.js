@@ -21,6 +21,7 @@ var GiftCardResponse = function() {
   this.responseMessage = undefined;
   this.requestSuccessful = false;
   this.accountNumber = undefined;
+  this.scv = undefined;
   this.giftCardTxUuid = undefined;
   this.transactionId = undefined;
   this.referenceUuid = undefined;
@@ -158,6 +159,24 @@ GiftCardResponse.prototype.setAccountNumber = function(accountNumber) {
 */
 GiftCardResponse.prototype.getAccountNumber = function() {
   return this.accountNumber;
+};
+
+/**
+* Set the field value
+* @memberof payments.GiftCardResponse
+* @param {String} scv 
+*/
+GiftCardResponse.prototype.setScv = function(scv) {
+  this.scv = scv;
+};
+
+/**
+* Get the field value
+* @memberof payments.GiftCardResponse
+* @return {String} 
+*/
+GiftCardResponse.prototype.getScv = function() {
+  return this.scv;
 };
 
 /**
@@ -326,6 +345,8 @@ GiftCardResponse._meta_.fields["requestSuccessful"] = {};
 GiftCardResponse._meta_.fields["requestSuccessful"].type = Boolean;
 GiftCardResponse._meta_.fields["accountNumber"] = {};
 GiftCardResponse._meta_.fields["accountNumber"].type = String;
+GiftCardResponse._meta_.fields["scv"] = {};
+GiftCardResponse._meta_.fields["scv"].type = String;
 GiftCardResponse._meta_.fields["giftCardTxUuid"] = {};
 GiftCardResponse._meta_.fields["giftCardTxUuid"].type = String;
 GiftCardResponse._meta_.fields["transactionId"] = {};

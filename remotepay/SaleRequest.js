@@ -24,6 +24,7 @@ var SaleRequest = function() {
   this.disableTipOnScreen = undefined;
   this.taxAmount = undefined;
   this.allowOfflinePayment = undefined;
+  this.forceOfflinePayment = undefined;
   this.approveOfflinePaymentWithoutPrompt = undefined;
   this.tipMode = undefined;
 };
@@ -159,6 +160,27 @@ SaleRequest.prototype.getAllowOfflinePayment = function() {
 
 /**
 * Set the field value
+* If true then payment will be taken offline, regardless of connection status
+*
+* @memberof remotepay.SaleRequest
+* @param {Boolean|Null} forceOfflinePayment 
+*/
+SaleRequest.prototype.setForceOfflinePayment = function(forceOfflinePayment) {
+  this.forceOfflinePayment = forceOfflinePayment;
+};
+
+/**
+* Get the field value
+* If true then payment will be taken offline, regardless of connection status
+* @memberof remotepay.SaleRequest
+* @return {Boolean|Null} 
+*/
+SaleRequest.prototype.getForceOfflinePayment = function() {
+  return this.forceOfflinePayment;
+};
+
+/**
+* Set the field value
 * If true then offline payments will be approved without a prompt
 *
 * @memberof remotepay.SaleRequest
@@ -211,6 +233,8 @@ SaleRequest._meta_.fields["taxAmount"] = {};
 SaleRequest._meta_.fields["taxAmount"].type = Number;
 SaleRequest._meta_.fields["allowOfflinePayment"] = {};
 SaleRequest._meta_.fields["allowOfflinePayment"].type = Boolean;
+SaleRequest._meta_.fields["forceOfflinePayment"] = {};
+SaleRequest._meta_.fields["forceOfflinePayment"].type = Boolean;
 SaleRequest._meta_.fields["approveOfflinePaymentWithoutPrompt"] = {};
 SaleRequest._meta_.fields["approveOfflinePaymentWithoutPrompt"].type = Boolean;
 SaleRequest._meta_.fields["tipMode"] = {};

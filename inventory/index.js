@@ -16,6 +16,7 @@ inventory.ItemModifierGroup = require("./ItemModifierGroup");
 inventory.ItemStock = require("./ItemStock");
 inventory.Modifier = require("./Modifier");
 inventory.ModifierGroup = require("./ModifierGroup");
+inventory.ModifierGroupArray = require("./ModifierGroupArray");
 inventory.Option = require("./Option");
 inventory.OptionItem = require("./OptionItem");
 inventory.PriceType = require("./PriceType");

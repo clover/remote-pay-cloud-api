@@ -18,6 +18,7 @@ var PaymentTaxRate = function() {
   this.rate = undefined;
   this.isDefault = undefined;
   this.taxableAmount = undefined;
+  this.isVat = undefined;
 };
 
 
@@ -133,6 +134,27 @@ PaymentTaxRate.prototype.getTaxableAmount = function() {
 };
 
 /**
+* Set the field value
+* Whether merchant is configured as VAT
+*
+* @memberof payments.PaymentTaxRate
+* @param {Boolean} isVat 
+*/
+PaymentTaxRate.prototype.setIsVat = function(isVat) {
+  this.isVat = isVat;
+};
+
+/**
+* Get the field value
+* Whether merchant is configured as VAT
+* @memberof payments.PaymentTaxRate
+* @return {Boolean} 
+*/
+PaymentTaxRate.prototype.getIsVat = function() {
+  return this.isVat;
+};
+
+/**
 * @memberof payments.PaymentTaxRate
 * @private
 */
@@ -170,6 +192,8 @@ PaymentTaxRate._meta_.fields["isDefault"] = {};
 PaymentTaxRate._meta_.fields["isDefault"].type = Boolean;
 PaymentTaxRate._meta_.fields["taxableAmount"] = {};
 PaymentTaxRate._meta_.fields["taxableAmount"].type = Number;
+PaymentTaxRate._meta_.fields["isVat"] = {};
+PaymentTaxRate._meta_.fields["isVat"].type = Boolean;
 
 //
 // Expose the module.
