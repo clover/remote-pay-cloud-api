@@ -287,7 +287,7 @@ ICloverConnector.prototype.rejectSignature = function(request) {
 
 /**
 * Send a message to the device to reset back to the welcome screen.  Can be used when the device is in
-  * an unknown state.
+  * an unknown state. Will trigger an onResetDevice callback
 * @memberof remotepay.ICloverConnector
 *
 * @return void

@@ -231,6 +231,17 @@ ICloverConnectorListener.prototype.onReadCardDataResponse = function(response) {
   return null;
 };
 
+/**
+* Called in response to a resetDevice(...) request
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.ResetDeviceResponse} response 
+* @return {Null} 
+*/
+ICloverConnectorListener.prototype.onResetDeviceResponse = function(response) {
+  return null;
+};
+
 
 //
 // Expose the module.

@@ -22,7 +22,7 @@ var ModifierGroup = function() {
   this.modifiers = undefined;
   this.modifierIds = undefined;
   this.items = undefined;
-  this.priority = undefined;
+  this.sortOrder = undefined;
 };
 
 
@@ -208,23 +208,23 @@ ModifierGroup.prototype.getItems = function() {
 
 /**
 * Set the field value
-* The relative order that this modifier group should appear in the list of modifier groups. Lower values will appear first and modifier groups without a priority assigned will appear in alphabetical order after those with one.
+* The ordinal value used to determine where in an ordered list this modifier group should appear relative to others.
 *
 * @memberof inventory.ModifierGroup
-* @param {String} priority 
+* @param {Number} sortOrder must be an integer
 */
-ModifierGroup.prototype.setPriority = function(priority) {
-  this.priority = priority;
+ModifierGroup.prototype.setSortOrder = function(sortOrder) {
+  this.sortOrder = sortOrder;
 };
 
 /**
 * Get the field value
-* The relative order that this modifier group should appear in the list of modifier groups. Lower values will appear first and modifier groups without a priority assigned will appear in alphabetical order after those with one.
+* The ordinal value used to determine where in an ordered list this modifier group should appear relative to others.
 * @memberof inventory.ModifierGroup
-* @return {String} 
+* @return {Number} must be an integer
 */
-ModifierGroup.prototype.getPriority = function() {
-  return this.priority;
+ModifierGroup.prototype.getSortOrder = function() {
+  return this.sortOrder;
 };
 
 /**
@@ -273,8 +273,8 @@ ModifierGroup._meta_.fields["modifierIds"].type = String;
 ModifierGroup._meta_.fields["items"] = {};
 ModifierGroup._meta_.fields["items"].type = Array;
 ModifierGroup._meta_.fields["items"].elementType = base_Reference;
-ModifierGroup._meta_.fields["priority"] = {};
-ModifierGroup._meta_.fields["priority"].type = String;
+ModifierGroup._meta_.fields["sortOrder"] = {};
+ModifierGroup._meta_.fields["sortOrder"].type = Number;
 
 //
 // Expose the module.

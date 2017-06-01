@@ -18,6 +18,7 @@ var GiftCardTransaction = function() {
   this.id = undefined;
   this.amount = undefined;
   this.taxAmount = undefined;
+  this.tipAmount = undefined;
   this.orderId = undefined;
   this.card = undefined;
   this.paymentIds = undefined;
@@ -91,6 +92,27 @@ GiftCardTransaction.prototype.setTaxAmount = function(taxAmount) {
 */
 GiftCardTransaction.prototype.getTaxAmount = function() {
   return this.taxAmount;
+};
+
+/**
+* Set the field value
+* Tip Amount
+*
+* @memberof payments.GiftCardTransaction
+* @param {Number} tipAmount must be a long integer
+*/
+GiftCardTransaction.prototype.setTipAmount = function(tipAmount) {
+  this.tipAmount = tipAmount;
+};
+
+/**
+* Get the field value
+* Tip Amount
+* @memberof payments.GiftCardTransaction
+* @return {Number} must be a long integer
+*/
+GiftCardTransaction.prototype.getTipAmount = function() {
+  return this.tipAmount;
 };
 
 /**
@@ -293,6 +315,8 @@ GiftCardTransaction._meta_.fields["amount"] = {};
 GiftCardTransaction._meta_.fields["amount"].type = Number;
 GiftCardTransaction._meta_.fields["taxAmount"] = {};
 GiftCardTransaction._meta_.fields["taxAmount"].type = Number;
+GiftCardTransaction._meta_.fields["tipAmount"] = {};
+GiftCardTransaction._meta_.fields["tipAmount"].type = Number;
 GiftCardTransaction._meta_.fields["orderId"] = {};
 GiftCardTransaction._meta_.fields["orderId"].type = String;
 GiftCardTransaction._meta_.fields["card"] = {};

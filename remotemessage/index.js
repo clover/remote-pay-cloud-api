@@ -7,6 +7,8 @@ function remotemessage() {}
 
 
 remotemessage.AcknowledgementMessage = require("./AcknowledgementMessage");
+remotemessage.ActivityMessageFromActivity = require("./ActivityMessageFromActivity");
+remotemessage.ActivityMessageToActivity = require("./ActivityMessageToActivity");
 remotemessage.ActivityRequest = require("./ActivityRequest");
 remotemessage.ActivityResponseMessage = require("./ActivityResponseMessage");
 remotemessage.AddDiscountAction = require("./AddDiscountAction");
@@ -24,6 +26,10 @@ remotemessage.DiscoveryRequestMessage = require("./DiscoveryRequestMessage");
 remotemessage.DiscoveryResponseMessage = require("./DiscoveryResponseMessage");
 remotemessage.ErrorCode = require("./ErrorCode");
 remotemessage.ErrorCodeEnum = require("./ErrorCodeEnum");
+remotemessage.ExternalDeviceState = require("./ExternalDeviceState");
+remotemessage.ExternalDeviceStateData = require("./ExternalDeviceStateData");
+remotemessage.ExternalDeviceStateEnum = require("./ExternalDeviceStateEnum");
+remotemessage.ExternalDeviceSubState = require("./ExternalDeviceSubState");
 remotemessage.FinishCancelMessage = require("./FinishCancelMessage");
 remotemessage.FinishOkMessage = require("./FinishOkMessage");
 remotemessage.ForceConnectMessage = require("./ForceConnectMessage");
@@ -61,9 +67,13 @@ remotemessage.RemoteMessage = require("./RemoteMessage");
 remotemessage.RemoteMessageType = require("./RemoteMessageType");
 remotemessage.RemoveDiscountAction = require("./RemoveDiscountAction");
 remotemessage.RemoveLineItemAction = require("./RemoveLineItemAction");
+remotemessage.ResetDeviceResponseMessage = require("./ResetDeviceResponseMessage");
 remotemessage.ResetMessage = require("./ResetMessage");
 remotemessage.ResultStatus = require("./ResultStatus");
 remotemessage.ResultStatusEnum = require("./ResultStatusEnum");
+remotemessage.RetrieveDeviceStatusOptions = require("./RetrieveDeviceStatusOptions");
+remotemessage.RetrieveDeviceStatusRequestMessage = require("./RetrieveDeviceStatusRequestMessage");
+remotemessage.RetrieveDeviceStatusResponseMessage = require("./RetrieveDeviceStatusResponseMessage");
 remotemessage.RetrievePendingPaymentsMessage = require("./RetrievePendingPaymentsMessage");
 remotemessage.RetrievePendingPaymentsResponseMessage = require("./RetrievePendingPaymentsResponseMessage");
 remotemessage.ShowPaymentReceiptOptionsMessage = require("./ShowPaymentReceiptOptionsMessage");
