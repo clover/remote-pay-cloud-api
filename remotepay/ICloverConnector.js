@@ -393,6 +393,49 @@ ICloverConnector.prototype.retrievePendingPayments = function() {
 ICloverConnector.prototype.readCardData = function(request) {
 };
 
+/**
+* @param request a message that is sent to an existing running custom activity
+  * @see ICloverConnectorListener.onMessageFromActivity(MessageFromActivity)
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.MessageToActivity} request 
+* @return void
+*/
+ICloverConnector.prototype.sendMessageToActivity = function(request) {
+};
+
+/**
+*  Start a custom activity on a device
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.CustomActivityRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.startCustomActivity = function(request) {
+};
+
+/**
+* retrieve the status of the device, and conditionally re-send the last response
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.RetrieveDeviceStatusRequest} request 
+* @return {Null} 
+*/
+ICloverConnector.prototype.retrieveDeviceStatus = function(request) {
+  return null;
+};
+
+/**
+* Sends a request to get a payment.  Only valid for payments made in the past 24 hours on the device queried
+  * @see ICloverConnectorListener.onGetPaymentResponse(GetPaymentResponse)
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.GetPaymentRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.getPayment = function(request) {
+};
+
 
 //
 // Expose the module.

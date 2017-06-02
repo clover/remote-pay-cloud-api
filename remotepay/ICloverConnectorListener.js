@@ -225,10 +225,39 @@ ICloverConnectorListener.prototype.onRetrievePendingPaymentsResponse = function(
 * @memberof remotepay.ICloverConnectorListener
 *
 * @param {remotepay.ReadCardDataResponse} response 
-* @return {Null} 
+* @return void
 */
 ICloverConnectorListener.prototype.onReadCardDataResponse = function(response) {
-  return null;
+};
+
+/**
+* Called when a message is sent from a custom activity
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.MessageFromActivity} message 
+* @return void
+*/
+ICloverConnectorListener.prototype.onMessageFromActivity = function(message) {
+};
+
+/**
+* Called in response to a customactivity(...) request
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.CustomActivityResponse} response 
+* @return void
+*/
+ICloverConnectorListener.prototype.onCustomActivityResponse = function(response) {
+};
+
+/**
+* Called in response to a RetrieveDeviceState request
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.RetrieveDeviceStatusResponse} response 
+* @return void
+*/
+ICloverConnectorListener.prototype.onRetrieveDeviceStatusResponse = function(response) {
 };
 
 /**
@@ -236,10 +265,19 @@ ICloverConnectorListener.prototype.onReadCardDataResponse = function(response) {
 * @memberof remotepay.ICloverConnectorListener
 *
 * @param {remotepay.ResetDeviceResponse} response 
-* @return {Null} 
+* @return void
 */
 ICloverConnectorListener.prototype.onResetDeviceResponse = function(response) {
-  return null;
+};
+
+/**
+* Called in response to a getPayment(...) request
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.GetPaymentResponse} response 
+* @return void
+*/
+ICloverConnectorListener.prototype.onGetPaymentResponse = function(response) {
 };
 
 
