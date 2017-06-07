@@ -58,7 +58,6 @@ remotepay.ResponseCode = require("./ResponseCode");
 remotepay.ResponseCodeEnum = require("./ResponseCodeEnum");
 remotepay.ResultStatus = require("./ResultStatus");
 remotepay.ResultStatusEnum = require("./ResultStatusEnum");
-remotepay.RetrieveDeviceStatusOptions = require("./RetrieveDeviceStatusOptions");
 remotepay.RetrieveDeviceStatusRequest = require("./RetrieveDeviceStatusRequest");
 remotepay.RetrieveDeviceStatusResponse = require("./RetrieveDeviceStatusResponse");
 remotepay.RetrievePendingPaymentsResponse = require("./RetrievePendingPaymentsResponse");

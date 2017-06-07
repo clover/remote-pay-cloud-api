@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var remotepay_RetrieveDeviceStatusOptions = require("../remotepay/RetrieveDeviceStatusOptions");
 var remotepay_BaseRequest = require("../remotepay/BaseRequest");
 
 /**
@@ -16,7 +15,7 @@ var RetrieveDeviceStatusRequest = function() {
   remotepay_BaseRequest.call(this);
   this._superClass_ = remotepay_BaseRequest;
   this._class_ = RetrieveDeviceStatusRequest;
-  this.options = undefined;
+  this.sendLastMessage = false;
 };
 
 RetrieveDeviceStatusRequest.prototype = Object.create(remotepay_BaseRequest.prototype);
@@ -24,30 +23,30 @@ RetrieveDeviceStatusRequest.prototype.constructor = RetrieveDeviceStatusRequest;
 
 /**
 * Set the field value
-* options for the request
+* Send last message, if true
 *
 * @memberof remotepay.RetrieveDeviceStatusRequest
-* @param {remotepay.RetrieveDeviceStatusOptions} options 
+* @param {Boolean} sendLastMessage 
 */
-RetrieveDeviceStatusRequest.prototype.setOptions = function(options) {
-  this.options = options;
+RetrieveDeviceStatusRequest.prototype.setSendLastMessage = function(sendLastMessage) {
+  this.sendLastMessage = sendLastMessage;
 };
 
 /**
 * Get the field value
-* options for the request
+* Send last message, if true
 * @memberof remotepay.RetrieveDeviceStatusRequest
-* @return {remotepay.RetrieveDeviceStatusOptions} 
+* @return {Boolean} 
 */
-RetrieveDeviceStatusRequest.prototype.getOptions = function() {
-  return this.options;
+RetrieveDeviceStatusRequest.prototype.getSendLastMessage = function() {
+  return this.sendLastMessage;
 };
 
 RetrieveDeviceStatusRequest._meta_ =  {fields:  {}};
 RetrieveDeviceStatusRequest._meta_._class_ =  RetrieveDeviceStatusRequest;
 RetrieveDeviceStatusRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
-RetrieveDeviceStatusRequest._meta_.fields["options"] = {};
-RetrieveDeviceStatusRequest._meta_.fields["options"].type = remotepay_RetrieveDeviceStatusOptions;
+RetrieveDeviceStatusRequest._meta_.fields["sendLastMessage"] = {};
+RetrieveDeviceStatusRequest._meta_.fields["sendLastMessage"].type = Boolean;
 
 //
 // Expose the module.

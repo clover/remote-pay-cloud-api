@@ -75,7 +75,6 @@ remotemessage.ResetDeviceResponseMessage = require("./ResetDeviceResponseMessage
 remotemessage.ResetMessage = require("./ResetMessage");
 remotemessage.ResultStatus = require("./ResultStatus");
 remotemessage.ResultStatusEnum = require("./ResultStatusEnum");
-remotemessage.RetrieveDeviceStatusOptions = require("./RetrieveDeviceStatusOptions");
 remotemessage.RetrieveDeviceStatusRequestMessage = require("./RetrieveDeviceStatusRequestMessage");
 remotemessage.RetrieveDeviceStatusResponseMessage = require("./RetrieveDeviceStatusResponseMessage");
 remotemessage.RetrievePendingPaymentsMessage = require("./RetrievePendingPaymentsMessage");

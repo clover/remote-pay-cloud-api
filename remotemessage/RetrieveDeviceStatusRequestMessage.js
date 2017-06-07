@@ -6,7 +6,6 @@
 
 var remotemessage_Method = require("../remotemessage/Method");
 var remotemessage_Message = require("../remotemessage/Message");
-var remotemessage_RetrieveDeviceStatusOptions = require("../remotemessage/RetrieveDeviceStatusOptions");
 
 /**
 * @constructor
@@ -18,7 +17,7 @@ var RetrieveDeviceStatusRequestMessage = function() {
   this._superClass_ = remotemessage_Message;
   this._class_ = RetrieveDeviceStatusRequestMessage;
   this.setMethod(remotemessage_Method["RETRIEVE_DEVICE_STATUS_REQUEST"]);
-  this.options = undefined;
+  this.sendLastMessage = false;
 };
 
 RetrieveDeviceStatusRequestMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -26,30 +25,30 @@ RetrieveDeviceStatusRequestMessage.prototype.constructor = RetrieveDeviceStatusR
 
 /**
 * Set the field value
-* options for the request
+* Send last message, if true
 *
 * @memberof remotemessage.RetrieveDeviceStatusRequestMessage
-* @param {remotemessage.RetrieveDeviceStatusOptions} options 
+* @param {Boolean} sendLastMessage 
 */
-RetrieveDeviceStatusRequestMessage.prototype.setOptions = function(options) {
-  this.options = options;
+RetrieveDeviceStatusRequestMessage.prototype.setSendLastMessage = function(sendLastMessage) {
+  this.sendLastMessage = sendLastMessage;
 };
 
 /**
 * Get the field value
-* options for the request
+* Send last message, if true
 * @memberof remotemessage.RetrieveDeviceStatusRequestMessage
-* @return {remotemessage.RetrieveDeviceStatusOptions} 
+* @return {Boolean} 
 */
-RetrieveDeviceStatusRequestMessage.prototype.getOptions = function() {
-  return this.options;
+RetrieveDeviceStatusRequestMessage.prototype.getSendLastMessage = function() {
+  return this.sendLastMessage;
 };
 
 RetrieveDeviceStatusRequestMessage._meta_ =  {fields:  {}};
 RetrieveDeviceStatusRequestMessage._meta_._class_ =  RetrieveDeviceStatusRequestMessage;
 RetrieveDeviceStatusRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
-RetrieveDeviceStatusRequestMessage._meta_.fields["options"] = {};
-RetrieveDeviceStatusRequestMessage._meta_.fields["options"].type = remotemessage_RetrieveDeviceStatusOptions;
+RetrieveDeviceStatusRequestMessage._meta_.fields["sendLastMessage"] = {};
+RetrieveDeviceStatusRequestMessage._meta_.fields["sendLastMessage"].type = Boolean;
 
 //
 // Expose the module.

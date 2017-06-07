@@ -16,11 +16,14 @@ var TaxableAmountRate = function() {
   this.taxableAmount = undefined;
   this.rate = undefined;
   this.isVat = undefined;
+  this.taxAmount = undefined;
 };
 
 
 /**
 * Set the field value
+* Tax rate id.
+*
 * @memberof payments.TaxableAmountRate
 * @param {String} id 
 */
@@ -30,6 +33,7 @@ TaxableAmountRate.prototype.setId = function(id) {
 
 /**
 * Get the field value
+* Tax rate id.
 * @memberof payments.TaxableAmountRate
 * @return {String} 
 */
@@ -39,6 +43,8 @@ TaxableAmountRate.prototype.getId = function() {
 
 /**
 * Set the field value
+* Tax rate name. This field is optional.
+*
 * @memberof payments.TaxableAmountRate
 * @param {String} name 
 */
@@ -48,6 +54,7 @@ TaxableAmountRate.prototype.setName = function(name) {
 
 /**
 * Get the field value
+* Tax rate name. This field is optional.
 * @memberof payments.TaxableAmountRate
 * @return {String} 
 */
@@ -57,6 +64,8 @@ TaxableAmountRate.prototype.getName = function() {
 
 /**
 * Set the field value
+* The sub-total of line items that the tax was based on. For VAT, this amount includes tax. For all others, this amount does not include tax.
+*
 * @memberof payments.TaxableAmountRate
 * @param {Number} taxableAmount must be a long integer
 */
@@ -66,6 +75,7 @@ TaxableAmountRate.prototype.setTaxableAmount = function(taxableAmount) {
 
 /**
 * Get the field value
+* The sub-total of line items that the tax was based on. For VAT, this amount includes tax. For all others, this amount does not include tax.
 * @memberof payments.TaxableAmountRate
 * @return {Number} must be a long integer
 */
@@ -75,6 +85,8 @@ TaxableAmountRate.prototype.getTaxableAmount = function() {
 
 /**
 * Set the field value
+* The tax rate. 100% = 1e7.
+*
 * @memberof payments.TaxableAmountRate
 * @param {Number} rate must be a long integer
 */
@@ -84,6 +96,7 @@ TaxableAmountRate.prototype.setRate = function(rate) {
 
 /**
 * Get the field value
+* The tax rate. 100% = 1e7.
 * @memberof payments.TaxableAmountRate
 * @return {Number} must be a long integer
 */
@@ -93,6 +106,8 @@ TaxableAmountRate.prototype.getRate = function() {
 
 /**
 * Set the field value
+* Whether the taxable amount includes tax.
+*
 * @memberof payments.TaxableAmountRate
 * @param {Boolean} isVat 
 */
@@ -102,11 +117,33 @@ TaxableAmountRate.prototype.setIsVat = function(isVat) {
 
 /**
 * Get the field value
+* Whether the taxable amount includes tax.
 * @memberof payments.TaxableAmountRate
 * @return {Boolean} 
 */
 TaxableAmountRate.prototype.getIsVat = function() {
   return this.isVat;
+};
+
+/**
+* Set the field value
+* The amount of tax collected. In cases where there are multiple payments for an order then it may be necessary to add an extra cent of tax to the last payment.
+*
+* @memberof payments.TaxableAmountRate
+* @param {Number} taxAmount must be a long integer
+*/
+TaxableAmountRate.prototype.setTaxAmount = function(taxAmount) {
+  this.taxAmount = taxAmount;
+};
+
+/**
+* Get the field value
+* The amount of tax collected. In cases where there are multiple payments for an order then it may be necessary to add an extra cent of tax to the last payment.
+* @memberof payments.TaxableAmountRate
+* @return {Number} must be a long integer
+*/
+TaxableAmountRate.prototype.getTaxAmount = function() {
+  return this.taxAmount;
 };
 
 /**
@@ -145,6 +182,8 @@ TaxableAmountRate._meta_.fields["rate"] = {};
 TaxableAmountRate._meta_.fields["rate"].type = Number;
 TaxableAmountRate._meta_.fields["isVat"] = {};
 TaxableAmountRate._meta_.fields["isVat"].type = Boolean;
+TaxableAmountRate._meta_.fields["taxAmount"] = {};
+TaxableAmountRate._meta_.fields["taxAmount"].type = Number;
 
 //
 // Expose the module.

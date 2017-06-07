@@ -415,7 +415,7 @@ ICloverConnector.prototype.startCustomActivity = function(request) {
 };
 
 /**
-* retrieve the status of the device, and conditionally re-send the last response
+* retrieve the status of the device, and conditionally re-send the last message
 * @memberof remotepay.ICloverConnector
 *
 * @param {remotepay.RetrieveDeviceStatusRequest} request 

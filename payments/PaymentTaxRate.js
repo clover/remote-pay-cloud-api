@@ -19,11 +19,14 @@ var PaymentTaxRate = function() {
   this.isDefault = undefined;
   this.taxableAmount = undefined;
   this.isVat = undefined;
+  this.taxAmount = undefined;
 };
 
 
 /**
 * Set the field value
+* Tax rate id.
+*
 * @memberof payments.PaymentTaxRate
 * @param {String} id 
 */
@@ -33,6 +36,7 @@ PaymentTaxRate.prototype.setId = function(id) {
 
 /**
 * Get the field value
+* Tax rate id.
 * @memberof payments.PaymentTaxRate
 * @return {String} 
 */
@@ -63,6 +67,8 @@ PaymentTaxRate.prototype.getPaymentRef = function() {
 
 /**
 * Set the field value
+* Tax rate name. This field is optional.
+*
 * @memberof payments.PaymentTaxRate
 * @param {String} name 
 */
@@ -72,6 +78,7 @@ PaymentTaxRate.prototype.setName = function(name) {
 
 /**
 * Get the field value
+* Tax rate name. This field is optional.
 * @memberof payments.PaymentTaxRate
 * @return {String} 
 */
@@ -81,6 +88,8 @@ PaymentTaxRate.prototype.getName = function() {
 
 /**
 * Set the field value
+* The tax rate. 100% = 1e7.
+*
 * @memberof payments.PaymentTaxRate
 * @param {Number} rate must be a long integer
 */
@@ -90,6 +99,7 @@ PaymentTaxRate.prototype.setRate = function(rate) {
 
 /**
 * Get the field value
+* The tax rate. 100% = 1e7.
 * @memberof payments.PaymentTaxRate
 * @return {Number} must be a long integer
 */
@@ -99,6 +109,8 @@ PaymentTaxRate.prototype.getRate = function() {
 
 /**
 * Set the field value
+* Whether the tax rate was configued as a default tax rate at the time that the payment was created.
+*
 * @memberof payments.PaymentTaxRate
 * @param {Boolean} isDefault 
 */
@@ -108,6 +120,7 @@ PaymentTaxRate.prototype.setIsDefault = function(isDefault) {
 
 /**
 * Get the field value
+* Whether the tax rate was configued as a default tax rate at the time that the payment was created.
 * @memberof payments.PaymentTaxRate
 * @return {Boolean} 
 */
@@ -117,6 +130,8 @@ PaymentTaxRate.prototype.getIsDefault = function() {
 
 /**
 * Set the field value
+* The sub-total of line items that the tax was based on. For VAT, this amount includes tax. For all others, this amount does not include tax.
+*
 * @memberof payments.PaymentTaxRate
 * @param {Number} taxableAmount must be a long integer
 */
@@ -126,6 +141,7 @@ PaymentTaxRate.prototype.setTaxableAmount = function(taxableAmount) {
 
 /**
 * Get the field value
+* The sub-total of line items that the tax was based on. For VAT, this amount includes tax. For all others, this amount does not include tax.
 * @memberof payments.PaymentTaxRate
 * @return {Number} must be a long integer
 */
@@ -152,6 +168,27 @@ PaymentTaxRate.prototype.setIsVat = function(isVat) {
 */
 PaymentTaxRate.prototype.getIsVat = function() {
   return this.isVat;
+};
+
+/**
+* Set the field value
+* The amount of tax collected. In cases where there are multiple payments for an order then it may be necessary to add an extra cent of tax to the last payment.
+*
+* @memberof payments.PaymentTaxRate
+* @param {Number} taxAmount must be a long integer
+*/
+PaymentTaxRate.prototype.setTaxAmount = function(taxAmount) {
+  this.taxAmount = taxAmount;
+};
+
+/**
+* Get the field value
+* The amount of tax collected. In cases where there are multiple payments for an order then it may be necessary to add an extra cent of tax to the last payment.
+* @memberof payments.PaymentTaxRate
+* @return {Number} must be a long integer
+*/
+PaymentTaxRate.prototype.getTaxAmount = function() {
+  return this.taxAmount;
 };
 
 /**
@@ -194,6 +231,8 @@ PaymentTaxRate._meta_.fields["taxableAmount"] = {};
 PaymentTaxRate._meta_.fields["taxableAmount"].type = Number;
 PaymentTaxRate._meta_.fields["isVat"] = {};
 PaymentTaxRate._meta_.fields["isVat"].type = Boolean;
+PaymentTaxRate._meta_.fields["taxAmount"] = {};
+PaymentTaxRate._meta_.fields["taxAmount"].type = Number;
 
 //
 // Expose the module.
