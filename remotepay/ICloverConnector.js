@@ -427,13 +427,13 @@ ICloverConnector.prototype.retrieveDeviceStatus = function(request) {
 
 /**
 * Sends a request to get a payment.  Only valid for payments made in the past 24 hours on the device queried
-  * @see ICloverConnectorListener.onGetPaymentResponse(GetPaymentResponse)
+  * @see ICloverConnectorListener.onRetrievePaymentResponse(RetrievePaymentResponse)
 * @memberof remotepay.ICloverConnector
 *
-* @param {remotepay.GetPaymentRequest} request 
+* @param {remotepay.RetrievePaymentRequest} request 
 * @return void
 */
-ICloverConnector.prototype.getPayment = function(request) {
+ICloverConnector.prototype.retrievePayment = function(request) {
 };
 
 

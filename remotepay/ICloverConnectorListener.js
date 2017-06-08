@@ -271,13 +271,14 @@ ICloverConnectorListener.prototype.onResetDeviceResponse = function(response) {
 };
 
 /**
-* Called in response to a getPayment(...) request
+* Called in response to a retrievePayment(...) request
 * @memberof remotepay.ICloverConnectorListener
 *
-* @param {remotepay.GetPaymentResponse} response 
-* @return void
+* @param {remotepay.RetrievePaymentResponse} response 
+* @return {Null} 
 */
-ICloverConnectorListener.prototype.onGetPaymentResponse = function(response) {
+ICloverConnectorListener.prototype.onRetrievePaymentResponse = function(response) {
+  return null;
 };
 
 
