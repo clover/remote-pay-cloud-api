@@ -287,7 +287,7 @@ ICloverConnector.prototype.rejectSignature = function(request) {
 
 /**
 * Send a message to the device to reset back to the welcome screen.  Can be used when the device is in
-  * an unknown state.
+  * an unknown state. Will trigger an onResetDevice callback
 * @memberof remotepay.ICloverConnector
 *
 * @return void
@@ -391,6 +391,49 @@ ICloverConnector.prototype.retrievePendingPayments = function() {
 * @return void
 */
 ICloverConnector.prototype.readCardData = function(request) {
+};
+
+/**
+* @param request a message that is sent to an existing running custom activity
+  * @see ICloverConnectorListener.onMessageFromActivity(MessageFromActivity)
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.MessageToActivity} request 
+* @return void
+*/
+ICloverConnector.prototype.sendMessageToActivity = function(request) {
+};
+
+/**
+*  Start a custom activity on a device
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.CustomActivityRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.startCustomActivity = function(request) {
+};
+
+/**
+* retrieve the status of the device, and conditionally re-send the last message
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.RetrieveDeviceStatusRequest} request 
+* @return {Null} 
+*/
+ICloverConnector.prototype.retrieveDeviceStatus = function(request) {
+  return null;
+};
+
+/**
+* Sends a request to get a payment.  Only valid for payments made in the past 24 hours on the device queried
+  * @see ICloverConnectorListener.onRetrievePaymentResponse(RetrievePaymentResponse)
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.RetrievePaymentRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.retrievePayment = function(request) {
 };
 
 

@@ -9,6 +9,7 @@ function inventory() {}
 inventory.Attribute = require("./Attribute");
 inventory.Category = require("./Category");
 inventory.CategoryItem = require("./CategoryItem");
+inventory.DataAssociation = require("./DataAssociation");
 inventory.Discount = require("./Discount");
 inventory.Item = require("./Item");
 inventory.ItemGroup = require("./ItemGroup");
