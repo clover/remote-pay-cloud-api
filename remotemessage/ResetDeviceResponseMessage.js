@@ -18,7 +18,7 @@ var ResetDeviceResponseMessage = function() {
   remotemessage_Message.call(this);
   this._superClass_ = remotemessage_Message;
   this._class_ = ResetDeviceResponseMessage;
-  this.setMethod(remotemessage_Method["RESET_RESPONSE"]);
+  this.setMethod(remotemessage_Method["RESET_DEVICE_RESPONSE"]);
   this.reason = undefined;
   this.status = undefined;
   this.state = undefined;
