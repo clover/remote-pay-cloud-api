@@ -25,6 +25,7 @@ var FinishOkMessage = function() {
   this.payment = undefined;
   this.refund = undefined;
   this.signature = undefined;
+  this.requestInfo = undefined;
 };
 
 FinishOkMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -114,6 +115,27 @@ FinishOkMessage.prototype.getSignature = function() {
   return this.signature;
 };
 
+/**
+* Set the field value
+* Extra information to include with the request, like type of request
+*
+* @memberof remotemessage.FinishOkMessage
+* @param {String} requestInfo 
+*/
+FinishOkMessage.prototype.setRequestInfo = function(requestInfo) {
+  this.requestInfo = requestInfo;
+};
+
+/**
+* Get the field value
+* Extra information to include with the request, like type of request
+* @memberof remotemessage.FinishOkMessage
+* @return {String} 
+*/
+FinishOkMessage.prototype.getRequestInfo = function() {
+  return this.requestInfo;
+};
+
 FinishOkMessage._meta_ =  {fields:  {}};
 FinishOkMessage._meta_._class_ =  FinishOkMessage;
 FinishOkMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -125,6 +147,8 @@ FinishOkMessage._meta_.fields["refund"] = {};
 FinishOkMessage._meta_.fields["refund"].type = payments_Refund;
 FinishOkMessage._meta_.fields["signature"] = {};
 FinishOkMessage._meta_.fields["signature"].type = base_Signature;
+FinishOkMessage._meta_.fields["requestInfo"] = {};
+FinishOkMessage._meta_.fields["requestInfo"].type = String;
 
 //
 // Expose the module.

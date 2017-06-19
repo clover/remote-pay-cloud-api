@@ -22,6 +22,7 @@ var TxStartRequestMessage = function() {
   this.suppressOnScreenTips = undefined;
   this.order = undefined;
   this.payIntent = undefined;
+  this.requestInfo = undefined;
 };
 
 TxStartRequestMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -90,6 +91,27 @@ TxStartRequestMessage.prototype.getPayIntent = function() {
   return this.payIntent;
 };
 
+/**
+* Set the field value
+* Extra information to include with the request, like type of request
+*
+* @memberof remotemessage.TxStartRequestMessage
+* @param {String} requestInfo 
+*/
+TxStartRequestMessage.prototype.setRequestInfo = function(requestInfo) {
+  this.requestInfo = requestInfo;
+};
+
+/**
+* Get the field value
+* Extra information to include with the request, like type of request
+* @memberof remotemessage.TxStartRequestMessage
+* @return {String} 
+*/
+TxStartRequestMessage.prototype.getRequestInfo = function() {
+  return this.requestInfo;
+};
+
 TxStartRequestMessage._meta_ =  {fields:  {}};
 TxStartRequestMessage._meta_._class_ =  TxStartRequestMessage;
 TxStartRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -99,6 +121,8 @@ TxStartRequestMessage._meta_.fields["order"] = {};
 TxStartRequestMessage._meta_.fields["order"].type = order_Order;
 TxStartRequestMessage._meta_.fields["payIntent"] = {};
 TxStartRequestMessage._meta_.fields["payIntent"].type = remotemessage_PayIntent;
+TxStartRequestMessage._meta_.fields["requestInfo"] = {};
+TxStartRequestMessage._meta_.fields["requestInfo"].type = String;
 
 //
 // Expose the module.
