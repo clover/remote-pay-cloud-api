@@ -17,14 +17,38 @@ var FinishCancelMessage = function() {
   this._superClass_ = remotemessage_Message;
   this._class_ = FinishCancelMessage;
   this.setMethod(remotemessage_Method["FINISH_CANCEL"]);
+  this.requestInfo = undefined;
 };
 
 FinishCancelMessage.prototype = Object.create(remotemessage_Message.prototype);
 FinishCancelMessage.prototype.constructor = FinishCancelMessage;
 
+/**
+* Set the field value
+* Extra information to include with the request, like type of request
+*
+* @memberof remotemessage.FinishCancelMessage
+* @param {String} requestInfo 
+*/
+FinishCancelMessage.prototype.setRequestInfo = function(requestInfo) {
+  this.requestInfo = requestInfo;
+};
+
+/**
+* Get the field value
+* Extra information to include with the request, like type of request
+* @memberof remotemessage.FinishCancelMessage
+* @return {String} 
+*/
+FinishCancelMessage.prototype.getRequestInfo = function() {
+  return this.requestInfo;
+};
+
 FinishCancelMessage._meta_ =  {fields:  {}};
 FinishCancelMessage._meta_._class_ =  FinishCancelMessage;
 FinishCancelMessage._meta_._superMeta_ = remotemessage_Message._meta_;
+FinishCancelMessage._meta_.fields["requestInfo"] = {};
+FinishCancelMessage._meta_.fields["requestInfo"].type = String;
 
 //
 // Expose the module.

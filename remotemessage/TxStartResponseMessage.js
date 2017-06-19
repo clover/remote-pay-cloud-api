@@ -23,6 +23,7 @@ var TxStartResponseMessage = function() {
   this.order = undefined;
   this.externalPaymentId = undefined;
   this.result = undefined;
+  this.requestInfo = undefined;
 };
 
 TxStartResponseMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -109,6 +110,27 @@ TxStartResponseMessage.prototype.getResult = function() {
   return this.result;
 };
 
+/**
+* Set the field value
+* Extra information to include with the request, like type of request
+*
+* @memberof remotemessage.TxStartResponseMessage
+* @param {String} requestInfo 
+*/
+TxStartResponseMessage.prototype.setRequestInfo = function(requestInfo) {
+  this.requestInfo = requestInfo;
+};
+
+/**
+* Get the field value
+* Extra information to include with the request, like type of request
+* @memberof remotemessage.TxStartResponseMessage
+* @return {String} 
+*/
+TxStartResponseMessage.prototype.getRequestInfo = function() {
+  return this.requestInfo;
+};
+
 TxStartResponseMessage._meta_ =  {fields:  {}};
 TxStartResponseMessage._meta_._class_ =  TxStartResponseMessage;
 TxStartResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -120,6 +142,8 @@ TxStartResponseMessage._meta_.fields["externalPaymentId"] = {};
 TxStartResponseMessage._meta_.fields["externalPaymentId"].type = String;
 TxStartResponseMessage._meta_.fields["result"] = {};
 TxStartResponseMessage._meta_.fields["result"].type = remotemessage_TxStartResponseResult;
+TxStartResponseMessage._meta_.fields["requestInfo"] = {};
+TxStartResponseMessage._meta_.fields["requestInfo"].type = String;
 
 //
 // Expose the module.
