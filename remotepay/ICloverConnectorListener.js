@@ -21,6 +21,7 @@ var ICloverConnectorListener = function() {
 
 /**
 * Called when the device disconnects
+  * @deprecated - use {@link #onDeviceDisconnected()}
 * @memberof remotepay.ICloverConnectorListener
 *
 * @return void
@@ -29,12 +30,42 @@ ICloverConnectorListener.prototype.onDisconnected = function() {
 };
 
 /**
+* Called when the device disconnects
+* @memberof remotepay.ICloverConnectorListener
+*
+* @return void
+*/
+ICloverConnectorListener.prototype.onDeviceDisconnected = function() {
+};
+
+/**
 * Called when the device connects
+  * @deprecated - use {@link #onDeviceConnected()}
 * @memberof remotepay.ICloverConnectorListener
 *
 * @return void
 */
 ICloverConnectorListener.prototype.onConnected = function() {
+};
+
+/**
+* Called when the device connects
+* @memberof remotepay.ICloverConnectorListener
+*
+* @return void
+*/
+ICloverConnectorListener.prototype.onDeviceConnected = function() {
+};
+
+/**
+* Called when the device is ready to respond to requests.
+  * @deprecated - use {@link #onDeviceReady()}
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.MerchantInfo} merchantInfo 
+* @return void
+*/
+ICloverConnectorListener.prototype.onReady = function(merchantInfo) {
 };
 
 /**
@@ -44,7 +75,7 @@ ICloverConnectorListener.prototype.onConnected = function() {
 * @param {remotepay.MerchantInfo} merchantInfo 
 * @return void
 */
-ICloverConnectorListener.prototype.onReady = function(merchantInfo) {
+ICloverConnectorListener.prototype.onDeviceReady = function(merchantInfo) {
 };
 
 /**
