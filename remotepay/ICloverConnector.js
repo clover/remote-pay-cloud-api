@@ -72,7 +72,6 @@ ICloverConnector.prototype.preAuth = function(preAuthRequest) {
 
 /**
 * Request a cancel be sent to the device.
-  * @deprecated - use {@link #invokeInputOption(InputOption)}, or {@link #resetDevice()}.  The cancel() functionality is dependant upon the presence of a 'cancel' input option being present on the screen, and the terminology is confusing.  A call to this function sends a 'cancel' button press, but the device may not be in a state where it can respond to the button press.
 * @memberof remotepay.ICloverConnector
 *
 * @return void
@@ -248,7 +247,6 @@ ICloverConnector.prototype.openCashDrawer = function(reason) {
 
 /**
 * Print the passed image. bitmap is a language specific object that represents an image.
-  * @deprecated - use {@link #printImageFromURL()}.  This functionality is severely limited because of transport limitations.
 * @memberof remotepay.ICloverConnector
 *
 * @param {remotepay.Img} bitmap 
