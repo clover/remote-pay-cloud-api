@@ -8,6 +8,8 @@ function employees() {}
 
 employees.AccountRole = require("./AccountRole");
 employees.Employee = require("./Employee");
+employees.EmployeeCard = require("./EmployeeCard");
+employees.EmployeeCardStatus = require("./EmployeeCardStatus");
 employees.Permission = require("./Permission");
 employees.PermissionSet = require("./PermissionSet");
 employees.PermissionSetRole = require("./PermissionSetRole");
