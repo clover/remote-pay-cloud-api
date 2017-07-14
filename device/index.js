@@ -8,6 +8,8 @@ function device() {}
 
 device.BuildType = require("./BuildType");
 device.Device = require("./Device");
+device.DeviceAccessory = require("./DeviceAccessory");
+device.DeviceAccessoryBuildType = require("./DeviceAccessoryBuildType");
 device.DeviceProvision = require("./DeviceProvision");
 device.DeviceProvisionState = require("./DeviceProvisionState");
 device.DeviceRequests = require("./DeviceRequests");
