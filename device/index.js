@@ -6,6 +6,7 @@ module.exports.device = device;
 function device() {}
 
 
+device.AccessoryRomMetadataUpdateRequest = require("./AccessoryRomMetadataUpdateRequest");
 device.BuildType = require("./BuildType");
 device.Device = require("./Device");
 device.DeviceAccessory = require("./DeviceAccessory");
