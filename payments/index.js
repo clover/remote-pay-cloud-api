@@ -34,6 +34,7 @@ payments.CvmResult = require("./CvmResult");
 payments.DCCInfo = require("./DCCInfo");
 payments.DataEntryLocation = require("./DataEntryLocation");
 payments.DiscountApprover = require("./DiscountApprover");
+payments.FailedBatchSettlement = require("./FailedBatchSettlement");
 payments.GatewayTxState = require("./GatewayTxState");
 payments.GatewayTxType = require("./GatewayTxType");
 payments.GatewayTxs = require("./GatewayTxs");

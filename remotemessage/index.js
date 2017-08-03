@@ -51,6 +51,7 @@ remotemessage.OrderActionRemoveDiscountMessage = require("./OrderActionRemoveDis
 remotemessage.OrderActionRemoveLineItemMessage = require("./OrderActionRemoveLineItemMessage");
 remotemessage.OrderActionResponse = require("./OrderActionResponse");
 remotemessage.OrderActionResponseMessage = require("./OrderActionResponseMessage");
+remotemessage.OrderUpdateMessage = require("./OrderUpdateMessage");
 remotemessage.PairingCodeMessage = require("./PairingCodeMessage");
 remotemessage.PairingRequestMessage = require("./PairingRequestMessage");
 remotemessage.PairingResponseMessage = require("./PairingResponseMessage");
