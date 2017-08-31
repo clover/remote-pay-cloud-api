@@ -21,6 +21,7 @@ var FailedBatchSettlement = function() {
   this.state = undefined;
   this.batchType = undefined;
   this.createdTime = undefined;
+  this.retries = undefined;
 };
 
 
@@ -169,6 +170,24 @@ FailedBatchSettlement.prototype.getCreatedTime = function() {
 };
 
 /**
+* Set the field value
+* @memberof payments.FailedBatchSettlement
+* @param {Number} retries must be an integer
+*/
+FailedBatchSettlement.prototype.setRetries = function(retries) {
+  this.retries = retries;
+};
+
+/**
+* Get the field value
+* @memberof payments.FailedBatchSettlement
+* @return {Number} must be an integer
+*/
+FailedBatchSettlement.prototype.getRetries = function() {
+  return this.retries;
+};
+
+/**
 * @memberof payments.FailedBatchSettlement
 * @private
 */
@@ -210,6 +229,8 @@ FailedBatchSettlement._meta_.fields["batchType"] = {};
 FailedBatchSettlement._meta_.fields["batchType"].type = payments_BatchType;
 FailedBatchSettlement._meta_.fields["createdTime"] = {};
 FailedBatchSettlement._meta_.fields["createdTime"].type = Number;
+FailedBatchSettlement._meta_.fields["retries"] = {};
+FailedBatchSettlement._meta_.fields["retries"].type = Number;
 
 //
 // Expose the module.

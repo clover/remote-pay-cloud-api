@@ -6,14 +6,14 @@
 
 var device_DeviceAccessoryBuildType = require("../device/DeviceAccessoryBuildType");
 
-/** Request used to update the ROM metadata for a device accessory. */
+/** Request to update the ROM metadata for a device accessory. */
 /**
 * @constructor
 * @memberof device
 */
 var AccessoryRomMetadataUpdateRequest = function() {
   this._class_ = AccessoryRomMetadataUpdateRequest;
-  this.serial = undefined;
+  this.cpuId = undefined;
   this.version = undefined;
   this.buildType = undefined;
 };
@@ -22,10 +22,10 @@ var AccessoryRomMetadataUpdateRequest = function() {
 /**
 * Set the field value
 * @memberof device.AccessoryRomMetadataUpdateRequest
-* @param {String} serial 
+* @param {String} cpuId 
 */
-AccessoryRomMetadataUpdateRequest.prototype.setSerial = function(serial) {
-  this.serial = serial;
+AccessoryRomMetadataUpdateRequest.prototype.setCpuId = function(cpuId) {
+  this.cpuId = cpuId;
 };
 
 /**
@@ -33,8 +33,8 @@ AccessoryRomMetadataUpdateRequest.prototype.setSerial = function(serial) {
 * @memberof device.AccessoryRomMetadataUpdateRequest
 * @return {String} 
 */
-AccessoryRomMetadataUpdateRequest.prototype.getSerial = function() {
-  return this.serial;
+AccessoryRomMetadataUpdateRequest.prototype.getCpuId = function() {
+  return this.cpuId;
 };
 
 /**
@@ -99,8 +99,8 @@ AccessoryRomMetadataUpdateRequest.prototype.toString = function() {
 
 AccessoryRomMetadataUpdateRequest._meta_ =  {fields:  {}};
 AccessoryRomMetadataUpdateRequest._meta_._class_ =  AccessoryRomMetadataUpdateRequest;
-AccessoryRomMetadataUpdateRequest._meta_.fields["serial"] = {};
-AccessoryRomMetadataUpdateRequest._meta_.fields["serial"].type = String;
+AccessoryRomMetadataUpdateRequest._meta_.fields["cpuId"] = {};
+AccessoryRomMetadataUpdateRequest._meta_.fields["cpuId"].type = String;
 AccessoryRomMetadataUpdateRequest._meta_.fields["version"] = {};
 AccessoryRomMetadataUpdateRequest._meta_.fields["version"].type = Number;
 AccessoryRomMetadataUpdateRequest._meta_.fields["buildType"] = {};
