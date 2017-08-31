@@ -16,6 +16,7 @@ var DeviceAccessory = function() {
   this.id = undefined;
   this.model = undefined;
   this.serial = undefined;
+  this.associatedDevice = undefined;
   this.cpuId = undefined;
   this.pedCertificate = undefined;
   this.buildType = undefined;
@@ -69,7 +70,7 @@ DeviceAccessory.prototype.getModel = function() {
 
 /**
 * Set the field value
-* The acessories' serial number.
+* The accessories' serial number.
 *
 * @memberof device.DeviceAccessory
 * @param {String} serial 
@@ -80,12 +81,33 @@ DeviceAccessory.prototype.setSerial = function(serial) {
 
 /**
 * Get the field value
-* The acessories' serial number.
+* The accessories' serial number.
 * @memberof device.DeviceAccessory
 * @return {String} 
 */
 DeviceAccessory.prototype.getSerial = function() {
   return this.serial;
+};
+
+/**
+* Set the field value
+* The device that this accessory is currently connected to.
+*
+* @memberof device.DeviceAccessory
+* @param {base.Reference} associatedDevice 
+*/
+DeviceAccessory.prototype.setAssociatedDevice = function(associatedDevice) {
+  this.associatedDevice = associatedDevice;
+};
+
+/**
+* Get the field value
+* The device that this accessory is currently connected to.
+* @memberof device.DeviceAccessory
+* @return {base.Reference} 
+*/
+DeviceAccessory.prototype.getAssociatedDevice = function() {
+  return this.associatedDevice;
 };
 
 /**
@@ -282,6 +304,8 @@ DeviceAccessory._meta_.fields["model"] = {};
 DeviceAccessory._meta_.fields["model"].type = String;
 DeviceAccessory._meta_.fields["serial"] = {};
 DeviceAccessory._meta_.fields["serial"].type = String;
+DeviceAccessory._meta_.fields["associatedDevice"] = {};
+DeviceAccessory._meta_.fields["associatedDevice"].type = base_Reference;
 DeviceAccessory._meta_.fields["cpuId"] = {};
 DeviceAccessory._meta_.fields["cpuId"].type = String;
 DeviceAccessory._meta_.fields["pedCertificate"] = {};

@@ -6,6 +6,8 @@ module.exports.printer = printer;
 function printer() {}
 
 
+printer.PrintCategory = require("./PrintCategory");
+printer.PrintJobStatus = require("./PrintJobStatus");
 printer.Printer = require("./Printer");
 printer.PrinterType = require("./PrinterType.js");
 

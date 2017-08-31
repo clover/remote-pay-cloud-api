@@ -5,6 +5,7 @@
  */
 
 var remotemessage_Method = require("../remotemessage/Method");
+var printer_Printer = require("../printer/Printer");
 var remotemessage_Message = require("../remotemessage/Message");
 
 /**
@@ -19,6 +20,8 @@ var ImagePrintMessage = function() {
   this.setMethod(remotemessage_Method["PRINT_IMAGE"]);
   this.png = undefined;
   this.urlString = undefined;
+  this.externalPrintJobId = undefined;
+  this.printer = undefined;
 };
 
 ImagePrintMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -66,6 +69,48 @@ ImagePrintMessage.prototype.getUrlString = function() {
   return this.urlString;
 };
 
+/**
+* Set the field value
+* External print job ID assigned to this request
+*
+* @memberof remotemessage.ImagePrintMessage
+* @param {String} externalPrintJobId 
+*/
+ImagePrintMessage.prototype.setExternalPrintJobId = function(externalPrintJobId) {
+  this.externalPrintJobId = externalPrintJobId;
+};
+
+/**
+* Get the field value
+* External print job ID assigned to this request
+* @memberof remotemessage.ImagePrintMessage
+* @return {String} 
+*/
+ImagePrintMessage.prototype.getExternalPrintJobId = function() {
+  return this.externalPrintJobId;
+};
+
+/**
+* Set the field value
+* Printer to which the print job should be routed.
+*
+* @memberof remotemessage.ImagePrintMessage
+* @param {printer.Printer} printer 
+*/
+ImagePrintMessage.prototype.setPrinter = function(printer) {
+  this.printer = printer;
+};
+
+/**
+* Get the field value
+* Printer to which the print job should be routed.
+* @memberof remotemessage.ImagePrintMessage
+* @return {printer.Printer} 
+*/
+ImagePrintMessage.prototype.getPrinter = function() {
+  return this.printer;
+};
+
 ImagePrintMessage._meta_ =  {fields:  {}};
 ImagePrintMessage._meta_._class_ =  ImagePrintMessage;
 ImagePrintMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -73,6 +118,10 @@ ImagePrintMessage._meta_.fields["png"] = {};
 ImagePrintMessage._meta_.fields["png"].type = Object;
 ImagePrintMessage._meta_.fields["urlString"] = {};
 ImagePrintMessage._meta_.fields["urlString"].type = String;
+ImagePrintMessage._meta_.fields["externalPrintJobId"] = {};
+ImagePrintMessage._meta_.fields["externalPrintJobId"].type = String;
+ImagePrintMessage._meta_.fields["printer"] = {};
+ImagePrintMessage._meta_.fields["printer"].type = printer_Printer;
 
 //
 // Expose the module.
