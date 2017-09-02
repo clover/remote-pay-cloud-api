@@ -18,6 +18,7 @@ var PrintJobStatusResponse = function() {
   this._superClass_ = remotepay_BaseResponse;
   this._class_ = PrintJobStatusResponse;
   this.status = undefined;
+  this.printRequestId = undefined;
 };
 
 PrintJobStatusResponse.prototype = Object.create(remotepay_BaseResponse.prototype);
@@ -44,11 +45,34 @@ PrintJobStatusResponse.prototype.getStatus = function() {
   return this.status;
 };
 
+/**
+* Set the field value
+* The ID of the print job
+*
+* @memberof remotepay.PrintJobStatusResponse
+* @param {String} printRequestId 
+*/
+PrintJobStatusResponse.prototype.setPrintRequestId = function(printRequestId) {
+  this.printRequestId = printRequestId;
+};
+
+/**
+* Get the field value
+* The ID of the print job
+* @memberof remotepay.PrintJobStatusResponse
+* @return {String} 
+*/
+PrintJobStatusResponse.prototype.getPrintRequestId = function() {
+  return this.printRequestId;
+};
+
 PrintJobStatusResponse._meta_ =  {fields:  {}};
 PrintJobStatusResponse._meta_._class_ =  PrintJobStatusResponse;
 PrintJobStatusResponse._meta_._superMeta_ = remotepay_BaseResponse._meta_;
 PrintJobStatusResponse._meta_.fields["status"] = {};
 PrintJobStatusResponse._meta_.fields["status"].type = printer_PrintJobStatus;
+PrintJobStatusResponse._meta_.fields["printRequestId"] = {};
+PrintJobStatusResponse._meta_.fields["printRequestId"].type = String;
 
 //
 // Expose the module.
