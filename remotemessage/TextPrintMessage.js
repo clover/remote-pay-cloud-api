@@ -5,6 +5,7 @@
  */
 
 var remotemessage_Method = require("../remotemessage/Method");
+var printer_Printer = require("../printer/Printer");
 var remotemessage_Message = require("../remotemessage/Message");
 
 /**
@@ -18,6 +19,8 @@ var TextPrintMessage = function() {
   this._class_ = TextPrintMessage;
   this.setMethod(remotemessage_Method["PRINT_TEXT"]);
   this.textLines = undefined;
+  this.externalPrintJobId = undefined;
+  this.printer = undefined;
 };
 
 TextPrintMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -41,11 +44,57 @@ TextPrintMessage.prototype.getTextLines = function() {
   return this.textLines;
 };
 
+/**
+* Set the field value
+* External print job ID assigned to this request
+*
+* @memberof remotemessage.TextPrintMessage
+* @param {String} externalPrintJobId 
+*/
+TextPrintMessage.prototype.setExternalPrintJobId = function(externalPrintJobId) {
+  this.externalPrintJobId = externalPrintJobId;
+};
+
+/**
+* Get the field value
+* External print job ID assigned to this request
+* @memberof remotemessage.TextPrintMessage
+* @return {String} 
+*/
+TextPrintMessage.prototype.getExternalPrintJobId = function() {
+  return this.externalPrintJobId;
+};
+
+/**
+* Set the field value
+* Printer to which the print job should be routed.
+*
+* @memberof remotemessage.TextPrintMessage
+* @param {printer.Printer} printer 
+*/
+TextPrintMessage.prototype.setPrinter = function(printer) {
+  this.printer = printer;
+};
+
+/**
+* Get the field value
+* Printer to which the print job should be routed.
+* @memberof remotemessage.TextPrintMessage
+* @return {printer.Printer} 
+*/
+TextPrintMessage.prototype.getPrinter = function() {
+  return this.printer;
+};
+
 TextPrintMessage._meta_ =  {fields:  {}};
 TextPrintMessage._meta_._class_ =  TextPrintMessage;
 TextPrintMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 TextPrintMessage._meta_.fields["textLines"] = {};
 TextPrintMessage._meta_.fields["textLines"].type = Array;
+TextPrintMessage._meta_.fields["externalPrintJobId"] = {};
+TextPrintMessage._meta_.fields["externalPrintJobId"].type = String;
+TextPrintMessage._meta_.fields["printer"] = {};
+TextPrintMessage._meta_.fields["printer"].type = printer_Printer;
 
 //
 // Expose the module.

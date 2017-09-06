@@ -240,10 +240,10 @@ ICloverConnector.prototype.refundPayment = function(request) {
 * Open the first cash drawer that is found connected to the clover device.
 * @memberof remotepay.ICloverConnector
 *
-* @param {String} reason 
+* @param {remotepay.OpenCashDrawerRequest} request 
 * @return void
 */
-ICloverConnector.prototype.openCashDrawer = function(reason) {
+ICloverConnector.prototype.openCashDrawer = function(request) {
 };
 
 /**
@@ -275,6 +275,16 @@ ICloverConnector.prototype.printImageFromURL = function(imgUrl) {
 * @return void
 */
 ICloverConnector.prototype.printText = function(messages) {
+};
+
+/**
+* Print text or an image on the clover device printer.
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.PrintRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.print = function(request) {
 };
 
 /**
@@ -436,6 +446,28 @@ ICloverConnector.prototype.retrieveDeviceStatus = function(request) {
 * @return void
 */
 ICloverConnector.prototype.retrievePayment = function(request) {
+};
+
+/**
+* Sends a request to get printers attached to the device.
+  * @see ICloverConnectorListener.onRetrievePrintersResponse(RetrievePrintersResponse)
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.RetrievePrintersRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.retrievePrinters = function(request) {
+};
+
+/**
+* Sends a request to get the current status of a print job.
+  * @see ICloverConnectorListener.onPrintJobStatusResponse(PrintJobStatusResponse)
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.PrintJobStatusRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.retrievePrintJobStatus = function(request) {
 };
 
 

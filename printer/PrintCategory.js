@@ -6,13 +6,12 @@
 
 
 /**
-* @memberof device
+* @memberof printer
 * @enum {string}
 */
-BuildType = {
-  ENG : "ENG",
-  USER : "USER",
-  USERDEBUG : "USERDEBUG"
+PrintCategory = {
+  ORDER : "ORDER",
+  RECEIPT : "RECEIPT"
 };
 
 
@@ -20,6 +19,6 @@ BuildType = {
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
-module.exports = BuildType;
+module.exports = PrintCategory;
 }
 

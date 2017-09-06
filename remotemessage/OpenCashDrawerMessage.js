@@ -5,6 +5,7 @@
  */
 
 var remotemessage_Method = require("../remotemessage/Method");
+var printer_Printer = require("../printer/Printer");
 var remotemessage_Message = require("../remotemessage/Message");
 
 /**
@@ -18,6 +19,7 @@ var OpenCashDrawerMessage = function() {
   this._class_ = OpenCashDrawerMessage;
   this.setMethod(remotemessage_Method["OPEN_CASH_DRAWER"]);
   this.reason = undefined;
+  this.printer = undefined;
 };
 
 OpenCashDrawerMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -44,11 +46,34 @@ OpenCashDrawerMessage.prototype.getReason = function() {
   return this.reason;
 };
 
+/**
+* Set the field value
+* The ID of the specific drawer to open.
+*
+* @memberof remotemessage.OpenCashDrawerMessage
+* @param {printer.Printer} printer 
+*/
+OpenCashDrawerMessage.prototype.setPrinter = function(printer) {
+  this.printer = printer;
+};
+
+/**
+* Get the field value
+* The ID of the specific drawer to open.
+* @memberof remotemessage.OpenCashDrawerMessage
+* @return {printer.Printer} 
+*/
+OpenCashDrawerMessage.prototype.getPrinter = function() {
+  return this.printer;
+};
+
 OpenCashDrawerMessage._meta_ =  {fields:  {}};
 OpenCashDrawerMessage._meta_._class_ =  OpenCashDrawerMessage;
 OpenCashDrawerMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 OpenCashDrawerMessage._meta_.fields["reason"] = {};
 OpenCashDrawerMessage._meta_.fields["reason"].type = String;
+OpenCashDrawerMessage._meta_.fields["printer"] = {};
+OpenCashDrawerMessage._meta_.fields["printer"].type = printer_Printer;
 
 //
 // Expose the module.

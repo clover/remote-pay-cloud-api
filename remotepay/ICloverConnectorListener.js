@@ -306,10 +306,29 @@ ICloverConnectorListener.prototype.onResetDeviceResponse = function(response) {
 * @memberof remotepay.ICloverConnectorListener
 *
 * @param {remotepay.RetrievePaymentResponse} response 
-* @return {Null} 
+* @return void
 */
 ICloverConnectorListener.prototype.onRetrievePaymentResponse = function(response) {
-  return null;
+};
+
+/**
+* Called in response to a retrievePrinters(...) request
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.RetrievePrintersResponse} response 
+* @return void
+*/
+ICloverConnectorListener.prototype.onRetrievePrintersResponse = function(response) {
+};
+
+/**
+* Called in response to a retrievePrintJobStatus(...) request
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.PrintJobStatusResponse} response 
+* @return void
+*/
+ICloverConnectorListener.prototype.onPrintJobStatusResponse = function(response) {
 };
 
 

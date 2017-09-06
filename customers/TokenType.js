@@ -6,13 +6,12 @@
 
 
 /**
-* @memberof device
+* @memberof customers
 * @enum {string}
 */
-BuildType = {
-  ENG : "ENG",
-  USER : "USER",
-  USERDEBUG : "USERDEBUG"
+TokenType = {
+  MULTIPAY : "MULTIPAY",
+  FINANCIAL : "FINANCIAL"
 };
 
 
@@ -20,6 +19,6 @@ BuildType = {
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
-module.exports = BuildType;
+module.exports = TokenType;
 }
 
