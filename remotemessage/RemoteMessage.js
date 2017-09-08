@@ -20,6 +20,11 @@ var RemoteMessage = function() {
   this.payload = undefined;
   this.remoteSourceSDK = undefined;
   this.remoteApplicationID = undefined;
+  this.version = undefined;
+  this.fragmentIndex = undefined;
+  this.lastFragment = undefined;
+  this.attachmentEncoding = undefined;
+  this.attachment = undefined;
 };
 
 
@@ -168,6 +173,111 @@ RemoteMessage.prototype.getRemoteApplicationID = function() {
 };
 
 /**
+* Set the field value
+* The Remote Message version.
+*
+* @memberof remotemessage.RemoteMessage
+* @param {Number} version must be an integer
+*/
+RemoteMessage.prototype.setVersion = function(version) {
+  this.version = version;
+};
+
+/**
+* Get the field value
+* The Remote Message version.
+* @memberof remotemessage.RemoteMessage
+* @return {Number} must be an integer
+*/
+RemoteMessage.prototype.getVersion = function() {
+  return this.version;
+};
+
+/**
+* Set the field value
+* The order of fragments when message is split for large attachments.
+*
+* @memberof remotemessage.RemoteMessage
+* @param {Number} fragmentIndex must be an integer
+*/
+RemoteMessage.prototype.setFragmentIndex = function(fragmentIndex) {
+  this.fragmentIndex = fragmentIndex;
+};
+
+/**
+* Get the field value
+* The order of fragments when message is split for large attachments.
+* @memberof remotemessage.RemoteMessage
+* @return {Number} must be an integer
+*/
+RemoteMessage.prototype.getFragmentIndex = function() {
+  return this.fragmentIndex;
+};
+
+/**
+* Set the field value
+* If this is the final fragment in a series.
+*
+* @memberof remotemessage.RemoteMessage
+* @param {Boolean} lastFragment 
+*/
+RemoteMessage.prototype.setLastFragment = function(lastFragment) {
+  this.lastFragment = lastFragment;
+};
+
+/**
+* Get the field value
+* If this is the final fragment in a series.
+* @memberof remotemessage.RemoteMessage
+* @return {Boolean} 
+*/
+RemoteMessage.prototype.getLastFragment = function() {
+  return this.lastFragment;
+};
+
+/**
+* Set the field value
+* The type of encoding used for the attachment, typically BASE64.
+*
+* @memberof remotemessage.RemoteMessage
+* @param {String} attachmentEncoding 
+*/
+RemoteMessage.prototype.setAttachmentEncoding = function(attachmentEncoding) {
+  this.attachmentEncoding = attachmentEncoding;
+};
+
+/**
+* Get the field value
+* The type of encoding used for the attachment, typically BASE64.
+* @memberof remotemessage.RemoteMessage
+* @return {String} 
+*/
+RemoteMessage.prototype.getAttachmentEncoding = function() {
+  return this.attachmentEncoding;
+};
+
+/**
+* Set the field value
+* The encoded attachment.
+*
+* @memberof remotemessage.RemoteMessage
+* @param {String} attachment 
+*/
+RemoteMessage.prototype.setAttachment = function(attachment) {
+  this.attachment = attachment;
+};
+
+/**
+* Get the field value
+* The encoded attachment.
+* @memberof remotemessage.RemoteMessage
+* @return {String} 
+*/
+RemoteMessage.prototype.getAttachment = function() {
+  return this.attachment;
+};
+
+/**
 * @memberof remotemessage.RemoteMessage
 * @private
 */
@@ -207,6 +317,16 @@ RemoteMessage._meta_.fields["remoteSourceSDK"] = {};
 RemoteMessage._meta_.fields["remoteSourceSDK"].type = String;
 RemoteMessage._meta_.fields["remoteApplicationID"] = {};
 RemoteMessage._meta_.fields["remoteApplicationID"].type = String;
+RemoteMessage._meta_.fields["version"] = {};
+RemoteMessage._meta_.fields["version"].type = Number;
+RemoteMessage._meta_.fields["fragmentIndex"] = {};
+RemoteMessage._meta_.fields["fragmentIndex"].type = Number;
+RemoteMessage._meta_.fields["lastFragment"] = {};
+RemoteMessage._meta_.fields["lastFragment"].type = Boolean;
+RemoteMessage._meta_.fields["attachmentEncoding"] = {};
+RemoteMessage._meta_.fields["attachmentEncoding"].type = String;
+RemoteMessage._meta_.fields["attachment"] = {};
+RemoteMessage._meta_.fields["attachment"].type = String;
 
 //
 // Expose the module.
