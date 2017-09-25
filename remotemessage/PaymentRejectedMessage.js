@@ -20,7 +20,7 @@ var PaymentRejectedMessage = function() {
   this._class_ = PaymentRejectedMessage;
   this.setMethod(remotemessage_Method["PAYMENT_REJECTED"]);
   this.payment = undefined;
-  this.voidReason = undefined;
+  this.reason = undefined;
 };
 
 PaymentRejectedMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -52,10 +52,10 @@ PaymentRejectedMessage.prototype.getPayment = function() {
 * The reason the payment is being rejected
 *
 * @memberof remotemessage.PaymentRejectedMessage
-* @param {order.VoidReason} voidReason 
+* @param {order.VoidReason} reason 
 */
-PaymentRejectedMessage.prototype.setVoidReason = function(voidReason) {
-  this.voidReason = voidReason;
+PaymentRejectedMessage.prototype.setReason = function(reason) {
+  this.reason = reason;
 };
 
 /**
@@ -64,8 +64,8 @@ PaymentRejectedMessage.prototype.setVoidReason = function(voidReason) {
 * @memberof remotemessage.PaymentRejectedMessage
 * @return {order.VoidReason} 
 */
-PaymentRejectedMessage.prototype.getVoidReason = function() {
-  return this.voidReason;
+PaymentRejectedMessage.prototype.getReason = function() {
+  return this.reason;
 };
 
 PaymentRejectedMessage._meta_ =  {fields:  {}};
@@ -73,8 +73,8 @@ PaymentRejectedMessage._meta_._class_ =  PaymentRejectedMessage;
 PaymentRejectedMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 PaymentRejectedMessage._meta_.fields["payment"] = {};
 PaymentRejectedMessage._meta_.fields["payment"].type = payments_Payment;
-PaymentRejectedMessage._meta_.fields["voidReason"] = {};
-PaymentRejectedMessage._meta_.fields["voidReason"].type = order_VoidReason;
+PaymentRejectedMessage._meta_.fields["reason"] = {};
+PaymentRejectedMessage._meta_.fields["reason"].type = order_VoidReason;
 
 //
 // Expose the module.
