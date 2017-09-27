@@ -44,6 +44,7 @@ remotepay.MessageFromActivity = require("./MessageFromActivity");
 remotepay.MessageToActivity = require("./MessageToActivity");
 remotepay.OpenCashDrawerRequest = require("./OpenCashDrawerRequest");
 remotepay.PaymentResponse = require("./PaymentResponse");
+remotepay.PlatformError = require("./PlatformError");
 remotepay.PreAuthRequest = require("./PreAuthRequest");
 remotepay.PreAuthResponse = require("./PreAuthResponse");
 remotepay.PrintJobStatusRequest = require("./PrintJobStatusRequest");

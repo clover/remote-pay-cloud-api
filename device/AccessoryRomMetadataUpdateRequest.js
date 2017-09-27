@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var device_DeviceAccessoryBuildType = require("../device/DeviceAccessoryBuildType");
 
 /** Request to update the ROM metadata for a device accessory. */
 /**
@@ -58,7 +57,7 @@ AccessoryRomMetadataUpdateRequest.prototype.getVersion = function() {
 /**
 * Set the field value
 * @memberof device.AccessoryRomMetadataUpdateRequest
-* @param {device.DeviceAccessoryBuildType} buildType 
+* @param {String} buildType 
 */
 AccessoryRomMetadataUpdateRequest.prototype.setBuildType = function(buildType) {
   this.buildType = buildType;
@@ -67,7 +66,7 @@ AccessoryRomMetadataUpdateRequest.prototype.setBuildType = function(buildType) {
 /**
 * Get the field value
 * @memberof device.AccessoryRomMetadataUpdateRequest
-* @return {device.DeviceAccessoryBuildType} 
+* @return {String} 
 */
 AccessoryRomMetadataUpdateRequest.prototype.getBuildType = function() {
   return this.buildType;
@@ -104,7 +103,7 @@ AccessoryRomMetadataUpdateRequest._meta_.fields["cpuId"].type = String;
 AccessoryRomMetadataUpdateRequest._meta_.fields["version"] = {};
 AccessoryRomMetadataUpdateRequest._meta_.fields["version"].type = Number;
 AccessoryRomMetadataUpdateRequest._meta_.fields["buildType"] = {};
-AccessoryRomMetadataUpdateRequest._meta_.fields["buildType"].type = device_DeviceAccessoryBuildType;
+AccessoryRomMetadataUpdateRequest._meta_.fields["buildType"].type = String;
 
 //
 // Expose the module.

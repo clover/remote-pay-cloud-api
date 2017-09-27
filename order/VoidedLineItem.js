@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var order_ClientEventType = require("../order/ClientEventType");
 var order_LineItem = require("../order/LineItem");
 var base_Reference = require("../base/Reference");
 
@@ -21,6 +22,7 @@ var VoidedLineItem = function() {
   this.createdBy = undefined;
   this.deletedTime = undefined;
   this.environment = undefined;
+  this.clientEventType = undefined;
 };
 
 
@@ -169,6 +171,27 @@ VoidedLineItem.prototype.getEnvironment = function() {
 };
 
 /**
+* Set the field value
+* What event on the client removed this? Was it because of moving a table? Or was it plain old deleting a line item?
+*
+* @memberof order.VoidedLineItem
+* @param {order.ClientEventType} clientEventType 
+*/
+VoidedLineItem.prototype.setClientEventType = function(clientEventType) {
+  this.clientEventType = clientEventType;
+};
+
+/**
+* Get the field value
+* What event on the client removed this? Was it because of moving a table? Or was it plain old deleting a line item?
+* @memberof order.VoidedLineItem
+* @return {order.ClientEventType} 
+*/
+VoidedLineItem.prototype.getClientEventType = function() {
+  return this.clientEventType;
+};
+
+/**
 * @memberof order.VoidedLineItem
 * @private
 */
@@ -208,6 +231,8 @@ VoidedLineItem._meta_.fields["deletedTime"] = {};
 VoidedLineItem._meta_.fields["deletedTime"].type = Number;
 VoidedLineItem._meta_.fields["environment"] = {};
 VoidedLineItem._meta_.fields["environment"].type = String;
+VoidedLineItem._meta_.fields["clientEventType"] = {};
+VoidedLineItem._meta_.fields["clientEventType"].type = order_ClientEventType;
 
 //
 // Expose the module.

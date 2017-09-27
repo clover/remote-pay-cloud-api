@@ -54,6 +54,7 @@ var Order = function() {
   this.refunds = undefined;
   this.credits = undefined;
   this.voids = undefined;
+  this.preAuths = undefined;
   this.device = undefined;
   this.authorizations = undefined;
 };
@@ -670,6 +671,27 @@ Order.prototype.getVoids = function() {
 
 /**
 * Set the field value
+* Pre-authorizations associated with this order
+*
+* @memberof order.Order
+* @param {Array.<payments.Payment>} preAuths An array of 
+*/
+Order.prototype.setPreAuths = function(preAuths) {
+  this.preAuths = preAuths;
+};
+
+/**
+* Get the field value
+* Pre-authorizations associated with this order
+* @memberof order.Order
+* @return {Array.<payments.Payment>} An array of 
+*/
+Order.prototype.getPreAuths = function() {
+  return this.preAuths;
+};
+
+/**
+* Set the field value
 * Device which created the order
 *
 * @memberof order.Order
@@ -804,6 +826,9 @@ Order._meta_.fields["credits"].elementType = payments_Credit;
 Order._meta_.fields["voids"] = {};
 Order._meta_.fields["voids"].type = Array;
 Order._meta_.fields["voids"].elementType = payments_Payment;
+Order._meta_.fields["preAuths"] = {};
+Order._meta_.fields["preAuths"].type = Array;
+Order._meta_.fields["preAuths"].elementType = payments_Payment;
 Order._meta_.fields["device"] = {};
 Order._meta_.fields["device"].type = base_Reference;
 Order._meta_.fields["authorizations"] = {};
