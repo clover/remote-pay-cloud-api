@@ -118,7 +118,7 @@ SaleRequest.prototype.getDisableTipOnScreen = function() {
 
 /**
 * Set the field value
-* Amount paid in tips
+* Amount paid in tax
 *
 * @memberof remotepay.SaleRequest
 * @param {Number|Null} taxAmount must be a long integer, 
@@ -129,7 +129,7 @@ SaleRequest.prototype.setTaxAmount = function(taxAmount) {
 
 /**
 * Get the field value
-* Amount paid in tips
+* Amount paid in tax
 * @memberof remotepay.SaleRequest
 * @return {Number|Null} must be a long integer, 
 */
