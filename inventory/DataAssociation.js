@@ -14,6 +14,7 @@ var DataAssociation = function() {
   this._class_ = DataAssociation;
   this.primary = undefined;
   this.secondary = undefined;
+  this.payload = undefined;
 };
 
 
@@ -60,6 +61,27 @@ DataAssociation.prototype.getSecondary = function() {
 };
 
 /**
+* Set the field value
+* Serialized data related to the propagation, e.g. an update map.
+*
+* @memberof inventory.DataAssociation
+* @param {String} payload 
+*/
+DataAssociation.prototype.setPayload = function(payload) {
+  this.payload = payload;
+};
+
+/**
+* Get the field value
+* Serialized data related to the propagation, e.g. an update map.
+* @memberof inventory.DataAssociation
+* @return {String} 
+*/
+DataAssociation.prototype.getPayload = function() {
+  return this.payload;
+};
+
+/**
 * @memberof inventory.DataAssociation
 * @private
 */
@@ -89,6 +111,8 @@ DataAssociation._meta_.fields["primary"] = {};
 DataAssociation._meta_.fields["primary"].type = base_Reference;
 DataAssociation._meta_.fields["secondary"] = {};
 DataAssociation._meta_.fields["secondary"].type = base_Reference;
+DataAssociation._meta_.fields["payload"] = {};
+DataAssociation._meta_.fields["payload"].type = String;
 
 //
 // Expose the module.

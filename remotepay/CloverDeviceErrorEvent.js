@@ -5,6 +5,7 @@
  */
 
 var remotepay_DeviceErrorEventCode = require("../remotepay/DeviceErrorEventCode");
+var remotepay_PlatformError = require("../remotepay/PlatformError");
 var remotepay_ErrorType = require("../remotepay/ErrorType");
 
 /**
@@ -15,6 +16,7 @@ var CloverDeviceErrorEvent = function() {
   this._class_ = CloverDeviceErrorEvent;
   this.message = undefined;
   this.code = undefined;
+  this.cause = undefined;
   this.type = undefined;
 };
 
@@ -56,6 +58,24 @@ CloverDeviceErrorEvent.prototype.setCode = function(code) {
 */
 CloverDeviceErrorEvent.prototype.getCode = function() {
   return this.code;
+};
+
+/**
+* Set the field value
+* @memberof remotepay.CloverDeviceErrorEvent
+* @param {remotepay.PlatformError} cause 
+*/
+CloverDeviceErrorEvent.prototype.setCause = function(cause) {
+  this.cause = cause;
+};
+
+/**
+* Get the field value
+* @memberof remotepay.CloverDeviceErrorEvent
+* @return {remotepay.PlatformError} 
+*/
+CloverDeviceErrorEvent.prototype.getCause = function() {
+  return this.cause;
 };
 
 /**
@@ -106,6 +126,8 @@ CloverDeviceErrorEvent._meta_.fields["message"] = {};
 CloverDeviceErrorEvent._meta_.fields["message"].type = String;
 CloverDeviceErrorEvent._meta_.fields["code"] = {};
 CloverDeviceErrorEvent._meta_.fields["code"].type = remotepay_DeviceErrorEventCode;
+CloverDeviceErrorEvent._meta_.fields["cause"] = {};
+CloverDeviceErrorEvent._meta_.fields["cause"].type = remotepay_PlatformError;
 CloverDeviceErrorEvent._meta_.fields["type"] = {};
 CloverDeviceErrorEvent._meta_.fields["type"].type = remotepay_ErrorType;
 
