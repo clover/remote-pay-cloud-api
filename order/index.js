@@ -7,6 +7,7 @@ function order() {}
 order.operation = {}
 
 
+order.ClientEventType = require("./ClientEventType");
 order.CreateLineItemsRequest = require("./CreateLineItemsRequest");
 order.CustomerIdMethod = require("./CustomerIdMethod");
 order.Discount = require("./Discount");
