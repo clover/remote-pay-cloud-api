@@ -17,6 +17,7 @@ var CustomerMetadata = function() {
   this.dobYear = undefined;
   this.dobMonth = undefined;
   this.dobDay = undefined;
+  this.modifiedTime = undefined;
   this.customer = undefined;
 };
 
@@ -128,6 +129,27 @@ CustomerMetadata.prototype.getDobDay = function() {
 
 /**
 * Set the field value
+* The timestamp from when this customer's data was last updated.
+*
+* @memberof customers.CustomerMetadata
+* @param {Number} modifiedTime must be a long integer
+*/
+CustomerMetadata.prototype.setModifiedTime = function(modifiedTime) {
+  this.modifiedTime = modifiedTime;
+};
+
+/**
+* Get the field value
+* The timestamp from when this customer's data was last updated.
+* @memberof customers.CustomerMetadata
+* @return {Number} must be a long integer
+*/
+CustomerMetadata.prototype.getModifiedTime = function() {
+  return this.modifiedTime;
+};
+
+/**
+* Set the field value
 * Customer who this metadata belongs to.
 *
 * @memberof customers.CustomerMetadata
@@ -183,6 +205,8 @@ CustomerMetadata._meta_.fields["dobMonth"] = {};
 CustomerMetadata._meta_.fields["dobMonth"].type = Number;
 CustomerMetadata._meta_.fields["dobDay"] = {};
 CustomerMetadata._meta_.fields["dobDay"].type = Number;
+CustomerMetadata._meta_.fields["modifiedTime"] = {};
+CustomerMetadata._meta_.fields["modifiedTime"].type = Number;
 CustomerMetadata._meta_.fields["customer"] = {};
 CustomerMetadata._meta_.fields["customer"].type = base_Reference;
 

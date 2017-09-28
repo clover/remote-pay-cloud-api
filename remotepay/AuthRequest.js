@@ -73,7 +73,7 @@ AuthRequest.prototype.getDisableCashback = function() {
 
 /**
 * Set the field value
-* Amount paid in tax
+* Amount paid in tips
 *
 * @memberof remotepay.AuthRequest
 * @param {Number|Null} taxAmount must be a long integer, 
@@ -84,7 +84,7 @@ AuthRequest.prototype.setTaxAmount = function(taxAmount) {
 
 /**
 * Get the field value
-* Amount paid in tax
+* Amount paid in tips
 * @memberof remotepay.AuthRequest
 * @return {Number|Null} must be a long integer, 
 */
