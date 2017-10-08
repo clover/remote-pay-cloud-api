@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified, \"$npm_package_version && exit 1",
     "postversion": "scripts/postversion.sh \"$npm_package_version\"",
-    "preinstall": "scripts/generateDocs.sh"
+    "generate-docs": "scripts/generateDocs.sh",
+    "build": "npm run generate-docs"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/clover/remote-pay-cloud-api/issues"
   },
-  "dependencies": {
+  "devDependencies": {
     "jsdoc": "*"
   },
   "homepage": "https://github.com/clover/remote-pay-cloud-api#readme"

@@ -1,8 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
-/docs/
-/*.js-e
-/*.md-e
-/.idea/
-/node_modules/
-/remote-pay-cloud-api.iml
+docs/
+*.js-e
+*.md-e
+.idea/
+node_modules/
+remote-pay-cloud-api.iml
 npm-debug.log
