@@ -5,7 +5,7 @@
 See the package.json postversion script, which maps to scripts/postversion.sh
 Do not change this or the versioning may not reflect the npm version correctly.
 --->
-Current version: 1.3.2
+Current version: .env.npm_package_version
 
 ## Overview
 

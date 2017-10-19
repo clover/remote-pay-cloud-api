@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "scripts/generateDocs.sh",
-    "updateversion": "scripts/postversion.sh \"$npm_package_version\""
+    "updateVersion":  "scripts/postversion.sh \"$npm_package_version\""
   },
   "repository": {
     "type": "git",
