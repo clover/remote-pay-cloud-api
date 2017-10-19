@@ -4,7 +4,7 @@
   "description": "API objects for the remote-pay cloud only. Includes objects used in serialization, and the ICloverConnector and ICloverConnectorListener",
   "main": "index.js",
   "scripts": {
-    "build": "scripts/generateDocs.sh && scripts/postversion.sh $npm_package_version"
+    "build": "scripts/generateDocs.sh && scripts/postversion.sh \"$npm_package_version\""
   },
   "repository": {
     "type": "git",
