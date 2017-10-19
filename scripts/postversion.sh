@@ -9,4 +9,5 @@ echo "-- Running Versioning Script --"
 echo "--   Replacing versioning information on README.md, attempting to change it to '$1'..."
 sed -i -e 's/Current version.*$/Current version: '$1'/g' README.md
 echo "- Committing changes to versions..."
+echo $?
 echo "exit status is `git add -A && git commit -m "$1"`"
