@@ -14,7 +14,7 @@ exit_status=$?
 if [ ! $exit_status -eq 0 ]; then
     echo "Version Was NOT updated!"
 else
-    echo "Version was updated to '$1'"
+    echo "Commit succeeded. Version is '$1'"
 fi
 echo "The commit attempt returned '$exit_string'"
 
