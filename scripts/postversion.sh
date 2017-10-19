@@ -9,6 +9,12 @@ echo "-- Running Versioning Script --"
 echo "--   Replacing versioning information on README.md, attempting to change it to '$1'..."
 sed -i -e 's/Current version.*$/Current version: '$1'/g' README.md
 echo "- Committing changes to versions..."
-git add -A && git commit -m "$1"
-# echo "exit status is `git add -A && git commit -m "$1"`"
-echo $?
+exit_string=`git add -A && git commit -m "$1"`
+exit_status=$?
+if [ ! $exit_status -eq 0 ]; then
+    echo "Version Was NOT updated!"
+else
+    echo "Version was updated to '$1'"
+fi
+echo "The commit attempt returned '$exit_string'"
+
