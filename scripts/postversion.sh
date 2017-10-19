@@ -6,7 +6,7 @@ echo "-- Running Versioning Script --"
 #echo '* the "npm version *" command is run against this repo in preparation to publish the'
 #echo '* module to npm.'
 #echo "-  Replacing versioning information on files.  Version is now" $1
-echo "--   Replacing versioning information on README.md..."
+echo "--   Replacing versioning information on README.md, attempting to change it to '$1'..."
 sed -i -e 's/Current version.*$/Current version: '$1'/g' README.md
 echo "- Committing changes to versions..."
 echo "exit status is `git add -A && git commit -m "$1"`"
