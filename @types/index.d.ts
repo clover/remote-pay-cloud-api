@@ -3186,9 +3186,9 @@ export namespace remotepay {
     }
 
     export class VerifySignatureRequest extends BaseRequest {
-        getPayment(): base.Reference
+        getPayment(): payments.Payment
 
-        setPayment(payment: base.Reference): void
+        setPayment(payment: payments.Payment): void
 
         getSignature(): base.Signature
 
