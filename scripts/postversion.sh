@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "-- Running Versioning Script --"
 #echo '* NPM Post version script that replaces version information'
 #echo '* in library files, and in documentation.'
 #echo '* This script will run after the the version of the library is changed via'
