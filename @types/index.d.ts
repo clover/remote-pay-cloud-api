@@ -2071,7 +2071,7 @@ export namespace remotemessage {
     }
 
     export class TipAdjustResponseMessage extends Message {
-        getSuccess: boolean
+        getSuccess(): boolean
 
         setSuccess(success: boolean)
 
