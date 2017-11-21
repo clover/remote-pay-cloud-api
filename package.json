@@ -1,9 +1,9 @@
 {
   "name": "remote-pay-cloud-api",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "API objects for the remote-pay cloud only. Includes objects used in serialization, and the ICloverConnector and ICloverConnectorListener",
   "main": "index.js",
-  "types": "./@types/index.d.ts",
+  "types": "./types/index.d.ts",
   "scripts": {
     "build": "gulp",
     "doc": "scripts/generateDocs.sh",
