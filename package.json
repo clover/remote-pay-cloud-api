@@ -1,13 +1,14 @@
 {
   "name": "remote-pay-cloud-api",
-  "version": "1.4.2",
+  "version": "1.4.2-alpha.2",
   "description": "API objects for the remote-pay cloud only. Includes objects used in serialization, and the ICloverConnector and ICloverConnectorListener",
   "main": "index.js",
   "types": "./types/index.d.ts",
   "scripts": {
     "build": "gulp",
     "doc": "scripts/generateDocs.sh",
-    "updateVersion": "scripts/postversion.sh \"$npm_package_version\""
+    "updateVersion": "scripts/postversion.sh \"$npm_package_version\"",
+    "dev-publish": "npm version prerelease --no-git-tag-version && npm publish --tag dev"
   },
   "repository": {
     "type": "git",
