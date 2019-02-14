@@ -40,6 +40,8 @@ var Item = function() {
   this.tags = undefined;
   this.itemStock = undefined;
   this.modifiedTime = undefined;
+  this.deletedTime = undefined;
+  this.priceWithoutVat = undefined;
 };
 
 
@@ -69,7 +71,7 @@ Item.prototype.getId = function() {
 * True if this item is hidden from Clover Register App
 *
 * @memberof inventory.Item
-* @param {Boolean} hidden 
+* @param {Boolean|Null} hidden 
 */
 Item.prototype.setHidden = function(hidden) {
   this.hidden = hidden;
@@ -79,7 +81,7 @@ Item.prototype.setHidden = function(hidden) {
 * Get the field value
 * True if this item is hidden from Clover Register App
 * @memberof inventory.Item
-* @return {Boolean} 
+* @return {Boolean|Null} 
 */
 Item.prototype.getHidden = function() {
   return this.hidden;
@@ -111,7 +113,7 @@ Item.prototype.getItemGroup = function() {
 * List of options pertaining to this item's attribute variation
 *
 * @memberof inventory.Item
-* @param {Array.<inventory.Option>} options An array of 
+* @param {Null|Array.<inventory.Option>} options An array of 
 */
 Item.prototype.setOptions = function(options) {
   this.options = options;
@@ -121,7 +123,7 @@ Item.prototype.setOptions = function(options) {
 * Get the field value
 * List of options pertaining to this item's attribute variation
 * @memberof inventory.Item
-* @return {Array.<inventory.Option>} An array of 
+* @return {Null|Array.<inventory.Option>} An array of 
 */
 Item.prototype.getOptions = function() {
   return this.options;
@@ -213,7 +215,7 @@ Item.prototype.getSku = function() {
 
 /**
 * Set the field value
-* Price of the item, typically in cents; use priceType and merchant currency to determine actual item price
+* Price of the item, typically in cents; use priceType and merchant currency to determine actual item price. For non-VAT merchants, this field is exclusive of tax. For VAT merchants, this field is inclusive of tax.
 *
 * @memberof inventory.Item
 * @param {Number} price must be a long integer
@@ -224,7 +226,7 @@ Item.prototype.setPrice = function(price) {
 
 /**
 * Get the field value
-* Price of the item, typically in cents; use priceType and merchant currency to determine actual item price
+* Price of the item, typically in cents; use priceType and merchant currency to determine actual item price. For non-VAT merchants, this field is exclusive of tax. For VAT merchants, this field is inclusive of tax.
 * @memberof inventory.Item
 * @return {Number} must be a long integer
 */
@@ -255,7 +257,7 @@ Item.prototype.getPriceType = function() {
 * Flag to indicate whether or not to use default tax rates
 *
 * @memberof inventory.Item
-* @param {Boolean} defaultTaxRates 
+* @param {Boolean|Null} defaultTaxRates 
 */
 Item.prototype.setDefaultTaxRates = function(defaultTaxRates) {
   this.defaultTaxRates = defaultTaxRates;
@@ -265,7 +267,7 @@ Item.prototype.setDefaultTaxRates = function(defaultTaxRates) {
 * Get the field value
 * Flag to indicate whether or not to use default tax rates
 * @memberof inventory.Item
-* @return {Boolean} 
+* @return {Boolean|Null} 
 */
 Item.prototype.getDefaultTaxRates = function() {
   return this.defaultTaxRates;
@@ -318,7 +320,7 @@ Item.prototype.getCost = function() {
 * True if this item should be counted as revenue, for example gift cards and donations would not
 *
 * @memberof inventory.Item
-* @param {Boolean} isRevenue 
+* @param {Boolean|Null} isRevenue 
 */
 Item.prototype.setIsRevenue = function(isRevenue) {
   this.isRevenue = isRevenue;
@@ -328,7 +330,7 @@ Item.prototype.setIsRevenue = function(isRevenue) {
 * Get the field value
 * True if this item should be counted as revenue, for example gift cards and donations would not
 * @memberof inventory.Item
-* @return {Boolean} 
+* @return {Boolean|Null} 
 */
 Item.prototype.getIsRevenue = function() {
   return this.isRevenue;
@@ -358,7 +360,7 @@ Item.prototype.getStockCount = function() {
 /**
 * Set the field value
 * @memberof inventory.Item
-* @param {Array.<inventory.TaxRate>} taxRates An array of 
+* @param {Null|Array.<inventory.TaxRate>} taxRates An array of 
 */
 Item.prototype.setTaxRates = function(taxRates) {
   this.taxRates = taxRates;
@@ -367,7 +369,7 @@ Item.prototype.setTaxRates = function(taxRates) {
 /**
 * Get the field value
 * @memberof inventory.Item
-* @return {Array.<inventory.TaxRate>} An array of 
+* @return {Null|Array.<inventory.TaxRate>} An array of 
 */
 Item.prototype.getTaxRates = function() {
   return this.taxRates;
@@ -376,7 +378,7 @@ Item.prototype.getTaxRates = function() {
 /**
 * Set the field value
 * @memberof inventory.Item
-* @param {Array.<inventory.ModifierGroup>} modifierGroups An array of 
+* @param {Null|Array.<inventory.ModifierGroup>} modifierGroups An array of 
 */
 Item.prototype.setModifierGroups = function(modifierGroups) {
   this.modifierGroups = modifierGroups;
@@ -385,7 +387,7 @@ Item.prototype.setModifierGroups = function(modifierGroups) {
 /**
 * Get the field value
 * @memberof inventory.Item
-* @return {Array.<inventory.ModifierGroup>} An array of 
+* @return {Null|Array.<inventory.ModifierGroup>} An array of 
 */
 Item.prototype.getModifierGroups = function() {
   return this.modifierGroups;
@@ -396,7 +398,7 @@ Item.prototype.getModifierGroups = function() {
 * Categories associated with this item
 *
 * @memberof inventory.Item
-* @param {Array.<inventory.Category>} categories An array of 
+* @param {Null|Array.<inventory.Category>} categories An array of 
 */
 Item.prototype.setCategories = function(categories) {
   this.categories = categories;
@@ -406,7 +408,7 @@ Item.prototype.setCategories = function(categories) {
 * Get the field value
 * Categories associated with this item
 * @memberof inventory.Item
-* @return {Array.<inventory.Category>} An array of 
+* @return {Null|Array.<inventory.Category>} An array of 
 */
 Item.prototype.getCategories = function() {
   return this.categories;
@@ -417,7 +419,7 @@ Item.prototype.getCategories = function() {
 * Tags associated with this item
 *
 * @memberof inventory.Item
-* @param {Array.<inventory.Tag>} tags An array of 
+* @param {Null|Array.<inventory.Tag>} tags An array of 
 */
 Item.prototype.setTags = function(tags) {
   this.tags = tags;
@@ -427,7 +429,7 @@ Item.prototype.setTags = function(tags) {
 * Get the field value
 * Tags associated with this item
 * @memberof inventory.Item
-* @return {Array.<inventory.Tag>} An array of 
+* @return {Null|Array.<inventory.Tag>} An array of 
 */
 Item.prototype.getTags = function() {
   return this.tags;
@@ -457,7 +459,7 @@ Item.prototype.getItemStock = function() {
 /**
 * Set the field value
 * @memberof inventory.Item
-* @param {Number} modifiedTime must be a long integer
+* @param {Null|Number} modifiedTime must be a long integer
 */
 Item.prototype.setModifiedTime = function(modifiedTime) {
   this.modifiedTime = modifiedTime;
@@ -466,10 +468,52 @@ Item.prototype.setModifiedTime = function(modifiedTime) {
 /**
 * Get the field value
 * @memberof inventory.Item
-* @return {Number} must be a long integer
+* @return {Null|Number} must be a long integer
 */
 Item.prototype.getModifiedTime = function() {
   return this.modifiedTime;
+};
+
+/**
+* Set the field value
+* Timestamp when item was last deleted
+*
+* @memberof inventory.Item
+* @param {Null|Number} deletedTime must be a long integer
+*/
+Item.prototype.setDeletedTime = function(deletedTime) {
+  this.deletedTime = deletedTime;
+};
+
+/**
+* Get the field value
+* Timestamp when item was last deleted
+* @memberof inventory.Item
+* @return {Null|Number} must be a long integer
+*/
+Item.prototype.getDeletedTime = function() {
+  return this.deletedTime;
+};
+
+/**
+* Set the field value
+* The price without value-added tax (VAT). For non-VAT merchants, this field is ignored. For VAT merchants, this field is the base price of an item.
+*
+* @memberof inventory.Item
+* @param {Null|Number} priceWithoutVat must be a long integer
+*/
+Item.prototype.setPriceWithoutVat = function(priceWithoutVat) {
+  this.priceWithoutVat = priceWithoutVat;
+};
+
+/**
+* Get the field value
+* The price without value-added tax (VAT). For non-VAT merchants, this field is ignored. For VAT merchants, this field is the base price of an item.
+* @memberof inventory.Item
+* @return {Null|Number} must be a long integer
+*/
+Item.prototype.getPriceWithoutVat = function() {
+  return this.priceWithoutVat;
 };
 
 /**
@@ -545,6 +589,10 @@ Item._meta_.fields["itemStock"] = {};
 Item._meta_.fields["itemStock"].type = inventory_ItemStock;
 Item._meta_.fields["modifiedTime"] = {};
 Item._meta_.fields["modifiedTime"].type = Number;
+Item._meta_.fields["deletedTime"] = {};
+Item._meta_.fields["deletedTime"].type = Number;
+Item._meta_.fields["priceWithoutVat"] = {};
+Item._meta_.fields["priceWithoutVat"].type = Number;
 
 //
 // Expose the module.

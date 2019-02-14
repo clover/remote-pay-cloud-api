@@ -21,6 +21,7 @@ var Authorization = function() {
   this.cardType = undefined;
   this.last4 = undefined;
   this.authcode = undefined;
+  this.token = undefined;
   this.type = undefined;
   this.note = undefined;
   this.closingPayment = undefined;
@@ -177,6 +178,27 @@ Authorization.prototype.getAuthcode = function() {
 
 /**
 * Set the field value
+* Token used for the authorization
+*
+* @memberof payments.Authorization
+* @param {String} token 
+*/
+Authorization.prototype.setToken = function(token) {
+  this.token = token;
+};
+
+/**
+* Get the field value
+* Token used for the authorization
+* @memberof payments.Authorization
+* @return {String} 
+*/
+Authorization.prototype.getToken = function() {
+  return this.token;
+};
+
+/**
+* Set the field value
 * @memberof payments.Authorization
 * @param {payments.Type} type 
 */
@@ -293,6 +315,8 @@ Authorization._meta_.fields["last4"] = {};
 Authorization._meta_.fields["last4"].type = String;
 Authorization._meta_.fields["authcode"] = {};
 Authorization._meta_.fields["authcode"].type = String;
+Authorization._meta_.fields["token"] = {};
+Authorization._meta_.fields["token"].type = String;
 Authorization._meta_.fields["type"] = {};
 Authorization._meta_.fields["type"].type = payments_Type;
 Authorization._meta_.fields["note"] = {};

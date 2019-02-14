@@ -44,6 +44,9 @@ var GatewayTxs = function() {
   this.modifiedTime = undefined;
   this.refundId = undefined;
   this.paymentRefundId = undefined;
+  this.extraGatewayInfo = undefined;
+  this.refundDeviceId = undefined;
+  this.paymentDeviceId = undefined;
 };
 
 
@@ -552,6 +555,60 @@ GatewayTxs.prototype.getPaymentRefundId = function() {
 };
 
 /**
+* Set the field value
+* @memberof payments.GatewayTxs
+* @param {Object.<String,String>} extraGatewayInfo A map of <String> to <>
+*/
+GatewayTxs.prototype.setExtraGatewayInfo = function(extraGatewayInfo) {
+  this.extraGatewayInfo = extraGatewayInfo;
+};
+
+/**
+* Get the field value
+* @memberof payments.GatewayTxs
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+GatewayTxs.prototype.getExtraGatewayInfo = function() {
+  return this.extraGatewayInfo;
+};
+
+/**
+* Set the field value
+* @memberof payments.GatewayTxs
+* @param {Number|Null} refundDeviceId must be a long integer, 
+*/
+GatewayTxs.prototype.setRefundDeviceId = function(refundDeviceId) {
+  this.refundDeviceId = refundDeviceId;
+};
+
+/**
+* Get the field value
+* @memberof payments.GatewayTxs
+* @return {Number|Null} must be a long integer, 
+*/
+GatewayTxs.prototype.getRefundDeviceId = function() {
+  return this.refundDeviceId;
+};
+
+/**
+* Set the field value
+* @memberof payments.GatewayTxs
+* @param {Number|Null} paymentDeviceId must be a long integer, 
+*/
+GatewayTxs.prototype.setPaymentDeviceId = function(paymentDeviceId) {
+  this.paymentDeviceId = paymentDeviceId;
+};
+
+/**
+* Get the field value
+* @memberof payments.GatewayTxs
+* @return {Number|Null} must be a long integer, 
+*/
+GatewayTxs.prototype.getPaymentDeviceId = function() {
+  return this.paymentDeviceId;
+};
+
+/**
 * @memberof payments.GatewayTxs
 * @private
 */
@@ -633,6 +690,12 @@ GatewayTxs._meta_.fields["refundId"] = {};
 GatewayTxs._meta_.fields["refundId"].type = Number;
 GatewayTxs._meta_.fields["paymentRefundId"] = {};
 GatewayTxs._meta_.fields["paymentRefundId"].type = Number;
+GatewayTxs._meta_.fields["extraGatewayInfo"] = {};
+GatewayTxs._meta_.fields["extraGatewayInfo"].type = Object;
+GatewayTxs._meta_.fields["refundDeviceId"] = {};
+GatewayTxs._meta_.fields["refundDeviceId"].type = Number;
+GatewayTxs._meta_.fields["paymentDeviceId"] = {};
+GatewayTxs._meta_.fields["paymentDeviceId"].type = Number;
 
 //
 // Expose the module.

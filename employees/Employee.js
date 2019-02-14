@@ -30,6 +30,7 @@ var Employee = function() {
   this.payments = undefined;
   this.orders = undefined;
   this.employeeCards = undefined;
+  this.merchant = undefined;
 };
 
 
@@ -388,6 +389,27 @@ Employee.prototype.getEmployeeCards = function() {
 };
 
 /**
+* Set the field value
+* The merchant employing this employee
+*
+* @memberof employees.Employee
+* @param {base.Reference} merchant 
+*/
+Employee.prototype.setMerchant = function(merchant) {
+  this.merchant = merchant;
+};
+
+/**
+* Get the field value
+* The merchant employing this employee
+* @memberof employees.Employee
+* @return {base.Reference} 
+*/
+Employee.prototype.getMerchant = function() {
+  return this.merchant;
+};
+
+/**
 * @memberof employees.Employee
 * @private
 */
@@ -452,6 +474,8 @@ Employee._meta_.fields["orders"].elementType = base_Reference;
 Employee._meta_.fields["employeeCards"] = {};
 Employee._meta_.fields["employeeCards"].type = Array;
 Employee._meta_.fields["employeeCards"].elementType = base_Reference;
+Employee._meta_.fields["merchant"] = {};
+Employee._meta_.fields["merchant"].type = base_Reference;
 
 //
 // Expose the module.

@@ -17,7 +17,6 @@ var DeviceInfo = function() {
   this.supportsAcks = undefined;
 };
 
-
 /**
 * Set the field value
 * Name of the device (if entered)

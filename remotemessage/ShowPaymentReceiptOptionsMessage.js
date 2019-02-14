@@ -19,6 +19,7 @@ var ShowPaymentReceiptOptionsMessage = function() {
   this.setMethod(remotemessage_Method["SHOW_PAYMENT_RECEIPT_OPTIONS"]);
   this.orderId = undefined;
   this.paymentId = undefined;
+  this.disableCloverPrinting = false;
 };
 
 ShowPaymentReceiptOptionsMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -66,6 +67,24 @@ ShowPaymentReceiptOptionsMessage.prototype.getPaymentId = function() {
   return this.paymentId;
 };
 
+/**
+* Set the field value
+* @memberof remotemessage.ShowPaymentReceiptOptionsMessage
+* @param {Boolean} disableCloverPrinting 
+*/
+ShowPaymentReceiptOptionsMessage.prototype.setDisableCloverPrinting = function(disableCloverPrinting) {
+  this.disableCloverPrinting = disableCloverPrinting;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.ShowPaymentReceiptOptionsMessage
+* @return {Boolean} 
+*/
+ShowPaymentReceiptOptionsMessage.prototype.getDisableCloverPrinting = function() {
+  return this.disableCloverPrinting;
+};
+
 ShowPaymentReceiptOptionsMessage._meta_ =  {fields:  {}};
 ShowPaymentReceiptOptionsMessage._meta_._class_ =  ShowPaymentReceiptOptionsMessage;
 ShowPaymentReceiptOptionsMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -73,6 +92,8 @@ ShowPaymentReceiptOptionsMessage._meta_.fields["orderId"] = {};
 ShowPaymentReceiptOptionsMessage._meta_.fields["orderId"].type = String;
 ShowPaymentReceiptOptionsMessage._meta_.fields["paymentId"] = {};
 ShowPaymentReceiptOptionsMessage._meta_.fields["paymentId"].type = String;
+ShowPaymentReceiptOptionsMessage._meta_.fields["disableCloverPrinting"] = {};
+ShowPaymentReceiptOptionsMessage._meta_.fields["disableCloverPrinting"].type = Boolean;
 
 //
 // Expose the module.

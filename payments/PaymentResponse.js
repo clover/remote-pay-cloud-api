@@ -16,6 +16,7 @@ var PaymentResponse = function() {
   this.responseErrorMessage = undefined;
   this.payment = undefined;
   this.clientData = undefined;
+  this.syncPaymentObject = undefined;
 };
 
 
@@ -95,6 +96,24 @@ PaymentResponse.prototype.getClientData = function() {
 };
 
 /**
+* Set the field value
+* @memberof payments.PaymentResponse
+* @param {Boolean} syncPaymentObject 
+*/
+PaymentResponse.prototype.setSyncPaymentObject = function(syncPaymentObject) {
+  this.syncPaymentObject = syncPaymentObject;
+};
+
+/**
+* Get the field value
+* @memberof payments.PaymentResponse
+* @return {Boolean} 
+*/
+PaymentResponse.prototype.getSyncPaymentObject = function() {
+  return this.syncPaymentObject;
+};
+
+/**
 * @memberof payments.PaymentResponse
 * @private
 */
@@ -128,6 +147,8 @@ PaymentResponse._meta_.fields["payment"] = {};
 PaymentResponse._meta_.fields["payment"].type = payments_Payment;
 PaymentResponse._meta_.fields["clientData"] = {};
 PaymentResponse._meta_.fields["clientData"].type = Object;
+PaymentResponse._meta_.fields["syncPaymentObject"] = {};
+PaymentResponse._meta_.fields["syncPaymentObject"].type = Boolean;
 
 //
 // Expose the module.

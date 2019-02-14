@@ -20,14 +20,22 @@ var DeviceProvision = function() {
   this.activationCode = undefined;
   this.emailSent = undefined;
   this.hasShipment = undefined;
+  this.shipment = undefined;
   this.serialNumber = undefined;
+  this.chip_uid = undefined;
+  this.imei = undefined;
   this.merchant = undefined;
   this.deviceType = undefined;
   this.provisionedTime = undefined;
   this.activatedTime = undefined;
+  this.activationCodeCreatedTime = undefined;
+  this.terminalId = undefined;
   this.reseller = undefined;
   this.currentRom = undefined;
   this.currentSecureBoardRom = undefined;
+  this.bundleIndicator = undefined;
+  this.modifiedTime = undefined;
+  this.deletedTime = undefined;
 };
 
 
@@ -163,6 +171,24 @@ DeviceProvision.prototype.getHasShipment = function() {
 /**
 * Set the field value
 * @memberof device.DeviceProvision
+* @param {base.Reference} shipment 
+*/
+DeviceProvision.prototype.setShipment = function(shipment) {
+  this.shipment = shipment;
+};
+
+/**
+* Get the field value
+* @memberof device.DeviceProvision
+* @return {base.Reference} 
+*/
+DeviceProvision.prototype.getShipment = function() {
+  return this.shipment;
+};
+
+/**
+* Set the field value
+* @memberof device.DeviceProvision
 * @param {String} serialNumber 
 */
 DeviceProvision.prototype.setSerialNumber = function(serialNumber) {
@@ -176,6 +202,48 @@ DeviceProvision.prototype.setSerialNumber = function(serialNumber) {
 */
 DeviceProvision.prototype.getSerialNumber = function() {
   return this.serialNumber;
+};
+
+/**
+* Set the field value
+* chip uid associated with the device provisioned.
+*
+* @memberof device.DeviceProvision
+* @param {String} chip_uid 
+*/
+DeviceProvision.prototype.setChipUid = function(chip_uid) {
+  this.chip_uid = chip_uid;
+};
+
+/**
+* Get the field value
+* chip uid associated with the device provisioned.
+* @memberof device.DeviceProvision
+* @return {String} 
+*/
+DeviceProvision.prototype.getChipUid = function() {
+  return this.chip_uid;
+};
+
+/**
+* Set the field value
+* imei associated with the device provisioned.
+*
+* @memberof device.DeviceProvision
+* @param {String} imei 
+*/
+DeviceProvision.prototype.setImei = function(imei) {
+  this.imei = imei;
+};
+
+/**
+* Get the field value
+* imei associated with the device provisioned.
+* @memberof device.DeviceProvision
+* @return {String} 
+*/
+DeviceProvision.prototype.getImei = function() {
+  return this.imei;
 };
 
 /**
@@ -252,6 +320,45 @@ DeviceProvision.prototype.getActivatedTime = function() {
 
 /**
 * Set the field value
+* Date/time the activation code was created.
+*
+* @memberof device.DeviceProvision
+* @param {Number} activationCodeCreatedTime must be a long integer
+*/
+DeviceProvision.prototype.setActivationCodeCreatedTime = function(activationCodeCreatedTime) {
+  this.activationCodeCreatedTime = activationCodeCreatedTime;
+};
+
+/**
+* Get the field value
+* Date/time the activation code was created.
+* @memberof device.DeviceProvision
+* @return {Number} must be a long integer
+*/
+DeviceProvision.prototype.getActivationCodeCreatedTime = function() {
+  return this.activationCodeCreatedTime;
+};
+
+/**
+* Set the field value
+* @memberof device.DeviceProvision
+* @param {String} terminalId 
+*/
+DeviceProvision.prototype.setTerminalId = function(terminalId) {
+  this.terminalId = terminalId;
+};
+
+/**
+* Get the field value
+* @memberof device.DeviceProvision
+* @return {String} 
+*/
+DeviceProvision.prototype.getTerminalId = function() {
+  return this.terminalId;
+};
+
+/**
+* Set the field value
 * @memberof device.DeviceProvision
 * @param {base.Reference} reseller 
 */
@@ -305,6 +412,63 @@ DeviceProvision.prototype.getCurrentSecureBoardRom = function() {
 };
 
 /**
+* Set the field value
+* @memberof device.DeviceProvision
+* @param {String} bundleIndicator 
+*/
+DeviceProvision.prototype.setBundleIndicator = function(bundleIndicator) {
+  this.bundleIndicator = bundleIndicator;
+};
+
+/**
+* Get the field value
+* @memberof device.DeviceProvision
+* @return {String} 
+*/
+DeviceProvision.prototype.getBundleIndicator = function() {
+  return this.bundleIndicator;
+};
+
+/**
+* Set the field value
+* @memberof device.DeviceProvision
+* @param {Number} modifiedTime must be a long integer
+*/
+DeviceProvision.prototype.setModifiedTime = function(modifiedTime) {
+  this.modifiedTime = modifiedTime;
+};
+
+/**
+* Get the field value
+* @memberof device.DeviceProvision
+* @return {Number} must be a long integer
+*/
+DeviceProvision.prototype.getModifiedTime = function() {
+  return this.modifiedTime;
+};
+
+/**
+* Set the field value
+* Date/time this Device Provision was deleted.
+*
+* @memberof device.DeviceProvision
+* @param {Number} deletedTime must be a long integer
+*/
+DeviceProvision.prototype.setDeletedTime = function(deletedTime) {
+  this.deletedTime = deletedTime;
+};
+
+/**
+* Get the field value
+* Date/time this Device Provision was deleted.
+* @memberof device.DeviceProvision
+* @return {Number} must be a long integer
+*/
+DeviceProvision.prototype.getDeletedTime = function() {
+  return this.deletedTime;
+};
+
+/**
 * @memberof device.DeviceProvision
 * @private
 */
@@ -344,8 +508,14 @@ DeviceProvision._meta_.fields["emailSent"] = {};
 DeviceProvision._meta_.fields["emailSent"].type = Boolean;
 DeviceProvision._meta_.fields["hasShipment"] = {};
 DeviceProvision._meta_.fields["hasShipment"].type = Boolean;
+DeviceProvision._meta_.fields["shipment"] = {};
+DeviceProvision._meta_.fields["shipment"].type = base_Reference;
 DeviceProvision._meta_.fields["serialNumber"] = {};
 DeviceProvision._meta_.fields["serialNumber"].type = String;
+DeviceProvision._meta_.fields["chip_uid"] = {};
+DeviceProvision._meta_.fields["chip_uid"].type = String;
+DeviceProvision._meta_.fields["imei"] = {};
+DeviceProvision._meta_.fields["imei"].type = String;
 DeviceProvision._meta_.fields["merchant"] = {};
 DeviceProvision._meta_.fields["merchant"].type = base_Reference;
 DeviceProvision._meta_.fields["deviceType"] = {};
@@ -354,12 +524,22 @@ DeviceProvision._meta_.fields["provisionedTime"] = {};
 DeviceProvision._meta_.fields["provisionedTime"].type = Number;
 DeviceProvision._meta_.fields["activatedTime"] = {};
 DeviceProvision._meta_.fields["activatedTime"].type = Number;
+DeviceProvision._meta_.fields["activationCodeCreatedTime"] = {};
+DeviceProvision._meta_.fields["activationCodeCreatedTime"].type = Number;
+DeviceProvision._meta_.fields["terminalId"] = {};
+DeviceProvision._meta_.fields["terminalId"].type = String;
 DeviceProvision._meta_.fields["reseller"] = {};
 DeviceProvision._meta_.fields["reseller"].type = base_Reference;
 DeviceProvision._meta_.fields["currentRom"] = {};
 DeviceProvision._meta_.fields["currentRom"].type = base_Reference;
 DeviceProvision._meta_.fields["currentSecureBoardRom"] = {};
 DeviceProvision._meta_.fields["currentSecureBoardRom"].type = base_Reference;
+DeviceProvision._meta_.fields["bundleIndicator"] = {};
+DeviceProvision._meta_.fields["bundleIndicator"].type = String;
+DeviceProvision._meta_.fields["modifiedTime"] = {};
+DeviceProvision._meta_.fields["modifiedTime"].type = Number;
+DeviceProvision._meta_.fields["deletedTime"] = {};
+DeviceProvision._meta_.fields["deletedTime"].type = Number;
 
 //
 // Expose the module.

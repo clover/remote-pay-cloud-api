@@ -6,3 +6,5 @@ docs
 node_modules
 remote-pay-cloud-api.iml
 npm-debug.log
+# gradle
+.gradle

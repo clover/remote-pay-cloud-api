@@ -182,6 +182,242 @@ export namespace base {
 
 }
 
+export namespace customers {
+
+    export class Address {
+
+        setId(id: string): void
+
+        getId(): string
+
+        setAddress1(address1: string): void
+
+        getAddress1(): string
+
+        setAddress2(address2: string): void
+
+        getAddress2(): string
+
+        setAddress3(address3: string): void
+
+        getAddress3(): string
+
+        setCity(city: string): void
+
+        getCity(): string
+
+        setCountry(country: string): void
+
+        getCountry(): string
+
+        setState(state: string): void
+
+        getState(): string
+
+        setZip(zip: string): void
+
+        getZip(): string
+
+        setCustomer(customer: base.Reference): void
+
+        getCustomer(): base.Reference
+
+    }
+
+    export class Card {
+
+        setId(id: string): void
+
+        getId(): string
+
+        setFirst6(first6: string): void
+
+        getFirst6(): string
+
+        setLast4(last4: string): void
+
+        getLast4(): string
+
+        setFirstName(firstName: string): void
+
+        getFirstName(): string
+
+        setLastName(lastName: string): void
+
+        getLastName(): string
+
+        setExpirationDate(expirationDate: string): void
+
+        getExpirationDate(): string
+
+        setCardType(cardType: string): void
+
+        getCardType(): string
+
+        setToken(token: string): void
+
+        getToken(): string
+
+        setTokenType(tokenType: customers.TokenType): void
+
+        getTokenType(): customers.TokenType
+
+        setCustomer(customer: base.Reference): void
+
+        getCustomer(): base.Reference
+
+    }
+
+    export class Customer {
+        setId(id: string): void
+
+        getId(): string
+
+        setOrderRef(orderRef: base.Reference): void
+
+        getOrderRef(): base.Reference
+
+        setMerchant(merchant: base.Reference): void
+
+        getMerchant(): base.Reference
+
+        setFirstName(firstName: string): void
+
+        getFirstName(): string
+
+        setLastName(lastName: string): void
+
+        getLastName(): string
+
+        setMarketingAllowed(marketingAllowed: boolean): void
+
+        getMarketingAllowed(): boolean
+
+        setCustomerSince(customerSince: number): void
+
+        getCustomerSince(): number
+
+        setOrders(orders: Array<base.Reference>): void
+
+        getOrders(): Array<base.Reference>
+
+        setAddresses(addresses: Array<customers.Address>): void
+
+        getAddresses(): Array<customers.Address>
+
+        setEmailAddresses(emailAddresses: Array<customers.EmailAddress>): void
+
+        getEmailAddresses(): Array<customers.EmailAddress>
+
+        setPhoneNumbers(phoneNumbers: Array<customers.PhoneNumber>): void
+
+        getPhoneNumbers(): Array<customers.PhoneNumber>
+
+        setCards(cards: Array<customers.Card>): void
+
+        getCards(): Array<customers.Card>
+    }
+
+    export class EmailAddress {
+
+        setId(id: string): void
+
+        getId(): string
+
+        setEmailAddress(emailAddress: string): void
+
+        getEmailAddress(): string
+
+        setVerifiedTime(verifiedTime: number): void
+
+        getVerifiedTime(): number
+
+        setCustomer(customer: base.Reference): void
+
+        getCustomer(): base.Reference
+
+    }
+
+    export class PhoneNumber {
+
+        setId(id: string): void
+
+        getId(): string
+
+        setPhoneNumber(phoneNumber: string): void
+
+        getPhoneNumber(): string
+
+        setCustomer(customer: base.Reference): void
+
+        getCustomer(): base.Reference
+    }
+
+    export class RemoteCustomer {
+        setCustomer(customer: customers.Customer): void
+
+        getCustomer(): customers.Customer
+
+        setDisplayString(displayString: string): void
+
+        getDisplayString(): string
+
+        setExternalId(externalId: string): void
+
+        getExternalId(): string
+
+        setExternalSystemName(externalSystemName: string): void
+
+        getExternalSystemName(): string
+
+        setExtras(extras: any): void
+
+        getExtras(): any
+    }
+
+    export enum TokenType {
+        MULTIPAY = "MULTIPAY",
+        FINANCIAL = "FINANCIAL"
+    }
+}
+
+export namespace loyalty {
+
+    export class LoyaltyDataConfig {
+
+        setType(type: string): void
+
+        getType(): string
+
+        setConfiguration(configuration: any): void
+
+        getConfiguration(): any
+
+    }
+}
+
+export namespace merchant {
+
+    export class TipSuggestion {
+
+        getId(): string
+
+        setId(id: string): void
+
+        getName(): string
+
+        setName(name: string): void
+
+        getPercentage(): string
+
+        setPercentage(percentage: string): void
+
+        getIsEnabled(): boolean
+
+        setIsEbabled(isEnabled: boolean): void
+    }
+}
+
 export namespace order {
 
     export class DisplayDiscount {
@@ -408,6 +644,13 @@ export namespace payments {
         ADDRESS_NOT_MATCHED_ZIP_CODE_NOT_CHECKED = "ADDRESS_NOT_MATCHED_ZIP_CODE_NOT_CHECKED"
     }
 
+    export enum AccountType {
+        CREDIT = "CREDIT",
+        DEBIT = "DEBIT",
+        CHECKING = "CHECKING",
+        SAVINGS = "SAVINGS"
+    }
+
     export class Batch {
         getId(): string
 
@@ -460,6 +703,13 @@ export namespace payments {
         getBatchDetails(): BatchDetail
 
         setBatchDetails(state: BatchDetail): void
+
+        getBatchTransactions(): payments.BatchTransactions
+
+        setBatchTransactions(state: payments.BatchTransactions): void
+    }
+
+    export class BatchTransactions {
     }
 
     export class BatchDetail {
@@ -475,6 +725,10 @@ export namespace payments {
         getPaymentRef(): base.Reference
 
         setPaymentRef(paymentRef: base.Reference): void
+
+        getGatewayTxState(): payments.GatewayTxState
+
+        setGatewayTxState(): void
 
         getCreditRef(): base.Reference
 
@@ -543,6 +797,10 @@ export namespace payments {
         getVaultedCard(): VaultedCard
 
         setVaultedCard(vaultedCard: VaultedCard): void
+
+        getCurrency(): String
+
+        setCurrency(currency: String): void
     }
 
     export enum CardTransactionState {
@@ -605,7 +863,9 @@ export namespace payments {
         CARTE_BLANCHE = "CARTE_BLANCHE",
         UNKNOWN = "UNKNOWN",
         GIFT_CARD = "GIFT_CARD",
-        EBT = "EBT"
+        EBT = "EBT",
+        GIROCARD = "GIROCARD",
+        INTERAC = "INTERAC"
     }
 
     export class CashAdvanceCustomerIdentification {
@@ -806,6 +1066,10 @@ export namespace payments {
 
         setTransactionSettings(transactionSettings: TransactionSettings): void
 
+        getTransactionInfo(): payments.TransactionInfo
+
+        setTransactionInfo(transactionInfo: payments.TransactionInfo): void
+
         getGermanInfo(): GermanInfo
 
         setGermanInfo(germanInfo: GermanInfo): void
@@ -817,6 +1081,14 @@ export namespace payments {
         getCashAdvanceExtra(): CashAdvanceExtra
 
         setCashAdvanceExtra(cashAdvanceExtra: CashAdvanceExtra): void
+
+        getExternalReferenceId(): String
+
+        setExternalReferenceId(externalReferenceId: String): void
+
+        getMerchant(): base.Reference
+
+        setMerchant(merchant: base.Reference): void
     }
 
     export class PaymentTaxRate {
@@ -917,7 +1189,128 @@ export namespace payments {
         getAppTracking(): apps.AppTracking
 
         setAppTracking(appTracking: apps.AppTracking): void
+
+        getCardTransaction(): payments.CardTransaction
+
+        setCardTransaction(cardTransaction: payments.CardTransaction): void
+
+        getTransactionInfo(): payments.TransactionInfo
+
+        setTransactionInfo(transactionInfo: payments.TransactionInfo): void
+
+        getMerchant(): base.Reference
+
+        setMerchant(merchant: base.Reference): void
     }
+
+    export enum GatewayTxState {
+        INITIATED = "INITIATED",
+        INITIATED_ON_AUTH = "INITIATED_ON_AUTH",
+        ACKNOWLEDGED = "ACKNOWLEDGED",
+        CONNECT_FAILED = "CONNECT_FAILED",
+        TIMEOUT = "TIMEOUT",
+        FAILED = "FAILED",
+        REVERSE_INITIATED = "REVERSE_INITIATED",
+        REVERSE_INITIATED_ON_AUTH = "REVERSE_INITIATED_ON_AUTH",
+        REVERSED = "REVERSED",
+        REVERSAL_FAILED = "REVERSAL_FAILED",
+        EXTERNAL = "EXTERNAL"
+    }
+
+    export class TransactionInfo {
+        getLanguageIndicator(): string
+
+        setLanguageIndicator(languageIndicator: string): void
+
+        getAccountSelection(): payments.AccountType
+
+        setAccountSelection(accountSelection: payments.AccountType): void
+
+        getPaymentRef(): base.Reference
+
+        setPaymentRef(paymentRef: base.Reference): void
+
+        getCreditRef(): base.Reference
+
+        setCreditRef(creditRef: base.Reference): void
+
+        getRefundRef(): base.Reference
+
+        setRefundRef(refundRef: base.Reference): void
+
+        getCreditRefundRef(): base.Reference
+
+        setCreditRefundRef(creditRefundRef: base.Reference): void
+
+        getTerminalIdentification(): string
+
+        setTerminalIdentification(terminalIdentification: string): void
+
+        getMerchantIdentifier(): string
+
+        setMerchantIdentifier(merchantIdentifier: string): void
+
+        getMerchantNameLocation(): string
+
+        setMerchantNameLocation(merchantNameLocation: string): void
+
+        getMaskedTrack2(): string
+
+        setMaskedTrack2(maskedTrack2: string): void
+
+        getReceiptExtraData(): string
+
+        setReceiptExtraData(receiptExtraData: string): void
+
+        getSelectedService(): SelectedService
+
+        setSelectedService(selectedService: SelectedService): void
+
+        getTransactionResult(): TransactionResult
+
+        setTransactionResult(transactionResult: TransactionResult): void
+
+        getTransactionTags(): string
+
+        setTransactionTags(receiptExtraData: string): void
+
+        getTxFormat(): TxFormat
+
+        setTxFormat(txFormat: TxFormat): void
+
+        getPanMask(): string
+
+        setPanMask(panMask: string): void
+
+        getTransactionSequenceCounter(): string
+
+        setTransactionSequenceCounter(transactionSequenceNumber: string): void
+
+        getApplicationPanSequenceNumber(): string
+
+        setApplicationPanSequenceNumber(applicationPanSequenceNumber: string): void
+
+        getReversalReason(): ReversalReason
+
+        setReversalReason(reversalReason: ReversalReason): void
+
+        getIsTokenBasedTx(): boolean
+
+        setIsTokenBasedTx(isTokenBasedTx: boolean): void
+
+        getOrigTransactionSequenceCounter(): string
+
+        setOrigTransactionSequenceCounter(origTransactionSequenceCounter: string): void
+
+        getTransactionSequenceCounterUpdate(): string
+
+        setTransactionSequenceCounterUpdate(transactionSequenceCounterUpdate: string): void
+    }
+
+    export class SelectedService {}
+    export class TransactionResult {}
+    export class TxFormat {}
+    export class ReversalReason {}
 
     export enum Result {
         SUCCESS = "SUCCESS",
@@ -946,6 +1339,10 @@ export namespace payments {
         getPaymentRef(): base.Reference
 
         setPaymentRef(paymentRef: base.Reference): void
+
+        getRefundRef(): base.Reference
+
+        setRefundRef(refundRef: base.Reference): void
     }
 
     export class TaxableAmountRate {
@@ -1008,6 +1405,10 @@ export namespace payments {
 
         setTippableAmount(tippableAmount: number): void
 
+        getTipSuggestions(): Array<merchant.TipSuggestion>
+
+        setTipSuggestions(tipSuggestions: Array<merchant.TipSuggestion>): void
+
         getDisableReceiptSelection(): boolean
 
         setDisableReceiptSelection(disableReceiptSelection: boolean): void
@@ -1023,6 +1424,25 @@ export namespace payments {
         getAutoAcceptSignature(): boolean
 
         setAutoAcceptSignature(autoAcceptSignature: boolean): void
+
+        getRegionalExtras(): object
+
+        setRegionalExtras(regionalExtras: object): void
+    }
+
+    export enum VasDataTypeType {
+        ALL = "ALL",
+        LOYALTY = "LOYALTY",
+        OFFER = "OFFER",
+        GIFT_CARD = "GIFT_CARD",
+        PRIVATE_LABEL_CARD = "PRIVATE_LABEL_CARD",
+        CUSTOMER = "CUSTOMER",
+        VAS_DATA = "VAS_DATA"
+    }
+
+    export enum VasProtocol {
+         ST = "ST",
+         PK = "PK"
     }
 
     export class VaultedCard {
@@ -1178,6 +1598,10 @@ export namespace remotemessage {
     }
 
     export class CapturePreAuthResponseMessage extends Message {
+        getMessage(): string
+
+        setMessage(message: string): void
+
         getStatus(): ResultStatus
 
         setStatus(status: ResultStatus)
@@ -1259,6 +1683,26 @@ export namespace remotemessage {
         setChallenges(payment: Array<base.Challenge>): void
     }
 
+    export class CustomerProvidedDataMessage extends Message {
+        setEventId(eventId: string): void
+
+        getEventId(): string
+
+        setConfig(config: loyalty.LoyaltyDataConfig): void
+
+        getConfig(): loyalty.LoyaltyDataConfig
+
+        setData(data: string): void
+
+        getData(): string
+    }
+
+    export class CustomerInfoMessage extends Message {
+        setCustomer(customerInfo: remotepay.CustomerInfo): void
+
+        getCustomer(): remotepay.CustomerInfo
+    }
+
     export class DiscoveryRequestMessage extends Message {
         getSupportsOrderModification(): boolean
 
@@ -1309,6 +1753,22 @@ export namespace remotemessage {
         getSupportsAcknowledgement(): boolean
 
         setSupportsAcknowledgement(supportsAcknowledgement: boolean): void
+
+        getSupportsPreAuth(): boolean
+
+        setSupportsPreAuth(supportsPreAuth: boolean): void
+
+        getSupportsAuth(): boolean
+
+        setSupportsAuth(supportsAuth: boolean): void
+
+        getSupportsVaultCard(): boolean
+
+        setSupportsVaultCard(supportsVaultCard: boolean): void
+
+        getSupportsVoidPaymentResponse(): boolean
+
+        setSupportsVoidPaymentResponse(supportsVoidPaymentResponse: boolean): void
     }
 
     export enum ErrorCode {
@@ -1332,7 +1792,7 @@ export namespace remotemessage {
     }
 
     export class FinishOkMessage extends Message {
-        getCredit(): payments.Credit;
+        getCredit(): payments.Credit
 
         setCredit(credit: payments.Credit): void
 
@@ -1402,6 +1862,32 @@ export namespace remotemessage {
         setDescription(description: string): void
     }
 
+    export class InvalidStateTransitionMessage extends Message {
+        getRequestedTransition(): string
+
+        setRequestedTransition(requestedTransition: string): void
+
+        getReason(): string
+
+        setReason(reason: string): void
+
+        getResultStatus(): string
+
+        setResultStatus(reason: ResultStatus): void
+
+        getState(): remotemessage.ExternalDeviceState
+
+        setState(state: remotemessage.ExternalDeviceState): void
+
+        getSubState(): remotemessage.ExternalDeviceSubState
+
+        setSubState(state: remotemessage.ExternalDeviceSubState): void
+
+        getData(): remotemessage.ExternalDeviceStateData
+
+        setData(data: remotemessage.ExternalDeviceStateData): void
+    }
+
     export enum KeyPress {
         NONE = "NONE",
         ENTER = "ENTER",
@@ -1462,7 +1948,11 @@ export namespace remotemessage {
         CLOSEOUT_REQUEST = "CLOSEOUT_REQUEST",
         CAPTURE_PREAUTH_RESPONSE = "CAPTURE_PREAUTH_RESPONSE",
         CAPTURE_PREAUTH = "CAPTURE_PREAUTH",
+        CLOVER_DEVICE_LOG_REQUEST = "CLOVER_DEVICE_LOG_REQUEST",
+        CONFIGURATION_CHANGE = "CONFIGURATION_CHANGE",
         CONFIRM_PAYMENT_MESSAGE = "CONFIRM_PAYMENT_MESSAGE",
+        CUSTOMER_INFO_MESSAGE = "CUSTOMER_INFO_MESSAGE",
+        CUSTOMER_PROVIDED_DATA_MESSAGE = "CUSTOMER_PROVIDED_DATA_MESSAGE",
         LAST_MSG_REQUEST = "LAST_MSG_REQUEST",
         LAST_MSG_RESPONSE = "LAST_MSG_RESPONSE",
         TIP_ADJUST = "TIP_ADJUST",
@@ -1535,7 +2025,13 @@ export namespace remotemessage {
         GET_PRINTERS_REQUEST = "GET_PRINTERS_REQUEST",
         GET_PRINTERS_RESPONSE = "GET_PRINTERS_RESPONSE",
         RETRIEVE_CUSTOM_ACTIVITIES_REQUEST = "RETRIEVE_CUSTOM_ACTIVITIES_REQUEST",
-        RETRIEVE_CUSTOM_ACTIVITIES_RESPONSE = "RETRIEVE_CUSTOM_ACTIVITIES_RESPONSE"
+        RETRIEVE_CUSTOM_ACTIVITIES_RESPONSE = "RETRIEVE_CUSTOM_ACTIVITIES_RESPONSE",
+        VOID_PAYMENT_REFUND_RESPONSE = "VOID_PAYMENT_REFUND_RESPONSE",
+        VOID_PAYMENT_RESPONSE = "VOID_PAYMENT_RESPONSE",
+        INVALID_STATE_TRANSITION = "INVALID_STATE_TRANSITION",
+        SHOW_RECEIPT_OPTIONS = "SHOW_RECEIPT_OPTIONS",
+        SHOW_RECEIPT_OPTIONS_RESPONSE = "SHOW_RECEIPT_OPTIONS_RESPONSE",
+        REGISTER_FOR_CUST_DATA = "REGISTER_FOR_CUST_DATA"
     }
 
     export class OpenCashDrawerMessage extends Message {
@@ -1811,6 +2307,69 @@ export namespace remotemessage {
         IN_PROGRESS = "IN_PROGRESS"
     }
 
+
+    export class CreditPrintMessage extends Message {
+        getCredit(): payments.Credit
+
+        setCredit(credit: payments.Credit): void
+    }
+
+    export class DeclineCreditPrintMessage extends Message {
+        getCredit(): payments.Credit
+
+        setCredit(credit: payments.Credit): void
+
+        getReason(): string
+
+        setReason(reason: string): void
+    }
+
+    export class DeclinePaymentPrintMessage extends Message {
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+
+        getReason(): string
+
+        setReason(reason: string): void
+    }
+
+    export class PaymentPrintMerchantCopyMessage extends Message {
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+    }
+
+    export class PaymentPrintMessage extends Message {
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+
+        getOrder(): order.Order
+
+        setOrder(order: order.Order): void
+    }
+
+    export class CloverDeviceLogMessage extends Message {
+        getMessage(): string
+
+        setMessage(message: string): void
+    }
+
+    export class RefundPaymentPrintMessage extends Message {
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+
+        getRefund(): payments.Refund
+
+        setRefund(refund: payments.Refund): void
+
+        getOrder(): order.Order
+
+        setOrder(order: order.Order): void
+    }
+
     export class RefundRequestMessage extends Message {
         getOrderId(): string
 
@@ -1822,11 +2381,19 @@ export namespace remotemessage {
 
         getFullRefund(): boolean
 
-        setFullRefund(fullRefund: boolean): void;
+        setFullRefund(fullRefund: boolean): void
 
         getAmount(): number
 
         setAmount(amount: number): void
+
+        getDisableCloverPrinting(): boolean
+
+        setDisableCloverPrinting(disablePrinting: boolean): void
+
+        getDisableReceiptSelection(): boolean
+
+        setDisableReceiptSelection(disableReceiptSelection: boolean): void
     }
 
     export class RefundResponseMessage extends Message {
@@ -1853,6 +2420,14 @@ export namespace remotemessage {
         getCode(): TxState
 
         setCode(message: TxState): void
+    }
+
+    export class RegisterForCustomerProvidedDataMessage extends Message {
+
+        setConfigurations(configurations: Array<loyalty.LoyaltyDataConfig>): void
+
+        getConfigurations(): Array<loyalty.LoyaltyDataConfig>
+
     }
 
     export class RemoteError {
@@ -1978,6 +2553,10 @@ export namespace remotemessage {
 
         setReason(reason: string): void
 
+        getMessage(): string
+
+        setMessage(message: string): void
+
         getExternalPaymentId(): string
 
         setExternalPaymentId(externalPaymentId: string): void
@@ -1989,6 +2568,10 @@ export namespace remotemessage {
         getPayment(): payments.Payment
 
         setPayment(payment: payments.Payment): void
+
+        getStatus(): ResultStatus
+
+        setStatus(reason: ResultStatus): any
     }
 
     export class RetrievePendingPaymentsMessage extends Message {
@@ -2012,6 +2595,58 @@ export namespace remotemessage {
         getPaymentId(): string
 
         setPaymentId(orderId: string)
+
+        setDisableCloverPrinting(disableCloverPrinting: boolean): void
+
+        getDisableCloverPrinting(disableCloverPrinting: boolean)
+    }
+
+    export class ShowReceiptOptionsMessage extends Message {
+        getOrderId(): string
+
+        setOrderId(orderId: string)
+
+        getPaymentId(): string
+
+        setPaymentId(paymentId: string)
+
+        getRefundId(): string
+
+        setRefundId(refundId: string)
+
+        getCreditId(): string
+
+        setCreditId(creditId: string)
+
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment)
+
+        getRefund(): payments.Refund
+
+        setRefund(refund: payments.Refund)
+
+        getCredit(): payments.Credit
+
+        setCredit(orderId: payments.Credit)
+
+        getDisableCloverPrinting(): boolean
+
+        setDisableCloverPrinting(disableCloverPrinting: boolean): void
+
+        getIsReprint(): boolean
+
+        setIsReprint(isReprint: boolean): void
+    }
+
+    export class ShowReceiptOptionsResponseMessage extends Message {
+        getStatus(): ResultStatus
+
+        setStatus(status: ResultStatus): void
+
+        getReason(): string
+
+        setReason(reason: string)
     }
 
     export class ShutDownMessage extends Message {
@@ -2075,6 +2710,10 @@ export namespace remotemessage {
 
         setSuccess(success: boolean)
 
+        getMessage(): string
+
+        setMessage(message: string): void
+
         getAmount(): number
 
         setAmount(amount: number)
@@ -2087,6 +2726,9 @@ export namespace remotemessage {
 
         setPaymentId(orderId: string)
 
+        getReason(): string
+
+        setReason(reason: string): any
     }
 
     export class TransactionType {
@@ -2123,6 +2765,10 @@ export namespace remotemessage {
 
         setExternalPaymentId(externalPaymentId: string): void
 
+        getMessage(): string
+
+        setMessage(message: string): void
+
         getResult(): TxStartResponseResult
 
         setResult(result: TxStartResponseResult): void
@@ -2130,6 +2776,10 @@ export namespace remotemessage {
         getRequestInfo(): string
 
         setRequestInfo(requestInfo: string)
+
+        getReason(): string
+
+        setReason(reason: string): any
     }
 
     export enum TxStartResponseResult {
@@ -2158,54 +2808,80 @@ export namespace remotemessage {
     }
 
     export enum UiState {
-        START = "START",
+        ADD_SIGNATURE = "ADD_SIGNATURE",
+        ADD_SIGNATURE_CANCEL_CONFIRM = "ADD_SIGNATURE_CANCEL_CONFIRM",
+        ADD_TIP = "ADD_TIP",
+        APPROVE_ELV_LIMIT_OVERRIDE = "APPROVE_ELV_LIMIT_OVERRIDE",
+        APPROVED = "APPROVED",
+        CANCELED = "CANCELED",
+        CASHBACK_CONFIRM = "CASHBACK_CONFIRM",
+        CASHBACK_SELECT = "CASHBACK_SELECT",
+        CONFIGURING = "CONFIGURING",
+        CONFIRM_AMOUNT = "CONFIRM_AMOUNT",
+        CONFIRM_DUPLICATE_CHECK = "CONFIRM_DUPLICATE_CHECK",
+        CONFIRM_PARTIAL_AUTH = "CONFIRM_PARTIAL_AUTH",
+        CONTACTLESS_TAP_REQUIRED = "CONTACTLESS_TAP_REQUIRED",
+        CUSTOM_ACTIVITY = "CUSTOM_ACTIVITY",
+        CUSTOM_TIP_AMOUNT = "CUSTOM_TIP_AMOUNT",
+        DCC_HOST_REQUEST = "DCC_HOST_REQUEST",
+        DECLINED = "DECLINED",
+        DISPLAY_MESSAGE = "DISPLAY_MESSAGE",
+        DISPLAY_ORDER = "DISPLAY_ORDER",
+        ENTER_INSTALLMENT_CODE = "ENTER_INSTALLMENT_CODE",
+        ENTER_INSTALLMENTS = "ENTER_INSTALLMENTS",
+        ENTER_PAN_LAST_FOUR = "ENTER_PAN_LAST_FOUR",
+        ERROR_SCREEN = "ERROR_SCREEN",
         FAILED = "FAILED",
         FATAL = "FATAL",
-        TRY_AGAIN = "TRY_AGAIN",
+        FISCAL_INVOICE_NUMBER = "FISCAL_INVOICE_NUMBER",
+        FORCE_ACCEPTANCE = "FORCE_ACCEPTANCE",
+        HANDLE_TENDER = "HANDLE_TENDER",
         INPUT_ERROR = "INPUT_ERROR",
-        PIN_BYPASS_CONFIRM = "PIN_BYPASS_CONFIRM",
-        CANCELED = "CANCELED",
-        TIMED_OUT = "TIMED_OUT",
-        DECLINED = "DECLINED",
-        VOIDED = "VOIDED",
-        CONFIGURING = "CONFIGURING",
-        PROCESSING = "PROCESSING",
-        REMOVE_CARD = "REMOVE_CARD",
-        PROCESSING_GO_ONLINE = "PROCESSING_GO_ONLINE",
-        PROCESSING_CREDIT = "PROCESSING_CREDIT",
-        PROCESSING_SWIPE = "PROCESSING_SWIPE",
-        SELECT_APPLICATION = "SELECT_APPLICATION",
-        PIN_PAD = "PIN_PAD",
-        MANUAL_CARD_NUMBER = "MANUAL_CARD_NUMBER",
         MANUAL_CARD_CVV = "MANUAL_CARD_CVV",
         MANUAL_CARD_CVV_UNREADABLE = "MANUAL_CARD_CVV_UNREADABLE",
         MANUAL_CARD_EXPIRATION = "MANUAL_CARD_EXPIRATION",
-        SELECT_ACCOUNT = "SELECT_ACCOUNT",
-        CASHBACK_CONFIRM = "CASHBACK_CONFIRM",
-        CASHBACK_SELECT = "CASHBACK_SELECT",
-        CONTACTLESS_TAP_REQUIRED = "CONTACTLESS_TAP_REQUIRED",
-        VOICE_REFERRAL_RESULT = "VOICE_REFERRAL_RESULT",
-        CONFIRM_PARTIAL_AUTH = "CONFIRM_PARTIAL_AUTH",
+        MANUAL_CARD_NUMBER = "MANUAL_CARD_NUMBER",
+        MANUAL_ENTRY_FALLBACK = "MANUAL_ENTRY_FALLBACK",
+        OFFLINE_PAYMENT_CONFIRM = "OFFLINE_PAYMENT_CONFIRM",
         PACKET_EXCEPTION = "PACKET_EXCEPTION",
-        CONFIRM_DUPLICATE_CHECK = "CONFIRM_DUPLICATE_CHECK",
-        FORCE_ACCEPTANCE = "FORCE_ACCEPTANCE",
+        PERSONAL_ID_ENTRY = "PERSONAL_ID_ENTRY",
+        PERSONAL_ID_ENTRY_PAS = "PERSONAL_ID_ENTRY_PAS",
+        PIN_BYPASS_CONFIRM = "PIN_BYPASS_CONFIRM",
+        PIN_PAD = "PIN_PAD",
+        PROCESSING = "PROCESSING",
+        PROCESSING_CREDIT = "PROCESSING_CREDIT",
+        PROCESSING_GO_ONLINE = "PROCESSING_GO_ONLINE",
+        PROCESSING_SWIPE = "PROCESSING_SWIPE",
+        RECEIPT_OPTIONS = "RECEIPT_OPTIONS",
+        REMOVE_CARD = "REMOVE_CARD",
+        RETURN_TO_MERCHANT = "RETURN_TO_MERCHANT",
+        SELECT_ACCOUNT = "SELECT_ACCOUNT",
+        SELECT_APPLICATION = "SELECT_APPLICATION",
+        SELECT_DCC = "SELECT_DCC",
+        SELECT_INSTALLMENT_PLAN = "SELECT_INSTALLMENT_PLAN",
+        SELECT_LANGUAGE = "SELECT_LANGUAGE",
+        SELECT_MULTI_MID = "SELECT_MULTI_MID",
+        SELECT_TIP = "SELECT_TIP",
+        SELECT_WITHDRAW_FROM_ACCOUNT = "SELECT_WITHDRAW_FROM_ACCOUNT",
+        SHOW_SEPA_MANDAT = "SHOW_SEPA_MANDAT",
+        SIGNATURE_CUSTOMER_MODE = "SIGNATURE_CUSTOMER_MODE",
+        SIGNATURE_ON_SCREEN_FALLBACK = "SIGNATURE_ON_SCREEN_FALLBACK",
+        SIGNATURE_REJECT = "SIGNATURE_REJECT",
+        START = "START",
+        STARTING_CUSTOM_ACTIVITY = "STARTING_CUSTOM_ACTIVITY",
+        SWIPE_CVV_ENTRY = "SWIPE_CVV_ENTRY",
+        THANKYOU_SCREEN = "THANKYOU_SCREEN",
+        TIMED_OUT = "TIMED_OUT",
+        TRY_AGAIN = "TRY_AGAIN",
         VERIFY_SIGNATURE_ON_PAPER = "VERIFY_SIGNATURE_ON_PAPER",
         VERIFY_SIGNATURE_ON_PAPER_CONFIRM_VOID = "VERIFY_SIGNATURE_ON_PAPER_CONFIRM_VOID",
         VERIFY_SIGNATURE_ON_SCREEN = "VERIFY_SIGNATURE_ON_SCREEN",
         VERIFY_SIGNATURE_ON_SCREEN_CONFIRM_VOID = "VERIFY_SIGNATURE_ON_SCREEN_CONFIRM_VOID",
-        ADD_SIGNATURE = "ADD_SIGNATURE",
-        SIGNATURE_ON_SCREEN_FALLBACK = "SIGNATURE_ON_SCREEN_FALLBACK",
-        RETURN_TO_MERCHANT = "RETURN_TO_MERCHANT",
-        SIGNATURE_REJECT = "SIGNATURE_REJECT",
-        ADD_SIGNATURE_CANCEL_CONFIRM = "ADD_SIGNATURE_CANCEL_CONFIRM",
-        ADD_TIP = "ADD_TIP",
-        RECEIPT_OPTIONS = "RECEIPT_OPTIONS",
-        HANDLE_TENDER = "HANDLE_TENDER",
-        SELECT_LANGUAGE = "SELECT_LANGUAGE",
-        APPROVED = "APPROVED",
-        OFFLINE_PAYMENT_CONFIRM = "OFFLINE_PAYMENT_CONFIRM",
-        CUSTOM_ACTIVITY = "CUSTOM_ACTIVITY",
-        STARTING_CUSTOM_ACTIVITY = "STARTING_CUSTOM_ACTIVITY"
+        VERIFY_SURCHARGES = "VERIFY_SURCHARGES",
+        VOICE_REFERRAL_RESULT = "VOICE_REFERRAL_RESULT",
+        VOID_CONFIRM = "VOID_CONFIRM",
+        VOIDED = "VOIDED",
+        WELCOME_SCREEN = "WELCOME_SCREEN"
     }
 
     export class UiStateMessage extends Message {
@@ -2264,6 +2940,81 @@ export namespace remotemessage {
         getVoidReason(): order.VoidReason
 
         setVoidReason(voidReason: order.VoidReason): void
+
+        getDisableCloverPrinting(): boolean
+
+        setDisableCloverPrinting(disableCloverPrinting: boolean): void
+
+        getDisableReceiptSelection(): boolean
+
+        setDisableReceiptSelection(disableReceiptSelection: boolean): void
+    }
+
+    export class VoidPaymentRefundMessage extends Message {
+        getOrderId(): string
+
+        setOrderId(orderId: string): void
+
+        getRefundId(): string
+
+        setRefundId(refundId: string): void
+
+        getDisableCloverPrinting(): boolean
+
+        setDisableCloverPrinting(disableCloverPrinting: boolean): void
+        
+        getDisableReceiptSelection(): boolean
+
+        setDisableReceiptSelection(disableReceiptSelection: boolean): void
+    }
+
+    export class VoidPaymentRefundResponseMessage extends Message {
+        getSuccess(): boolean
+
+        setSuccess(success: boolean): void
+
+        getRefund(): payments.Refund
+
+        setRefund(refund: payments.Refund): void
+        setRefund(refund: payments.Refund): void
+
+        getStatus(): ResultStatus
+
+        setStatus(reason: ResultStatus): any
+
+        getReason(): string
+
+        setReason(reason: string): void
+
+        getMessage(): string
+
+        setMessage(message: string): void
+    }
+
+    export class VoidPaymentResponseMessage extends Message {
+        getSuccess(): boolean
+
+        setSuccess(success: boolean): void
+
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+
+        getVoidReason(): order.VoidReason
+
+        setVoidReason(voidReason: order.VoidReason): void
+
+        getStatus(): ResultStatus
+
+        setStatus(reason: ResultStatus): any
+
+        getReason(): string
+
+        setReason(reason: string): void
+
+        getMessage(): string
+
+        setMessage(message: string): void
     }
 
     export class WelcomeMessage extends Message {
@@ -2283,6 +3034,10 @@ export namespace remotepay {
     }
 
     export class AuthRequest extends TransactionRequest {
+        getTipMode(): payments.TipMode
+
+        setTipMode(tipMode: payments.TipMode): void
+
         getTippableAmount(): number
 
         setTippableAmount(tippableAmount: number): void
@@ -2429,7 +3184,7 @@ export namespace remotepay {
     export class Credit {
     }
 
-    export class CustomActivityRequest extends BaseRequest {
+    export class CustomActivityRequest {
         getAction(): string
 
         setAction(action: string): void
@@ -2443,6 +3198,48 @@ export namespace remotepay {
         setNonBlocking(nonBlocking: boolean): void
     }
 
+    export class DisplayReceiptOptionsRequest extends BaseRequest {
+        getOrderId(): string
+
+        setOrderId(orderId: string): void
+
+        getPaymentId(): string
+
+        setPaymentId(paymentId: string): void
+
+        getRefundId(): string
+
+        setRefundId(refundId): string
+
+        getCreditId(): string
+
+        setCreditId(creditId: string)
+
+        getDisablePrinting(): boolean
+
+        setDisablePrinting(disablePrinting: boolean): void
+    }
+
+    export class DisplayReceiptOptionsResponse extends BaseResponse {
+        getResultStatus(): remotemessage.ResultStatus
+
+        setResultStatus(resultStatus: remotemessage.ResultStatus): void
+    }
+
+    export class InvalidStateTransitionResponse extends BaseResponse {
+        getRequestedTransition(): string
+
+        setRequestedTransition(requestedTransition: string): void
+
+        getState(): remotemessage.ExternalDeviceState
+
+        setState(state: remotemessage.ExternalDeviceState): void
+
+        getData(): remotemessage.ExternalDeviceStateData
+
+        setData(data: remotemessage.ExternalDeviceStateData): void
+    }
+
     export class CustomActivityResponse extends BaseResponse {
         getAction(): string
 
@@ -2451,6 +3248,52 @@ export namespace remotepay {
         getPayload(): string
 
         setPayload(payload: string): void
+    }
+
+    export class CustomerInfo {
+        setCustomer(customer: customers.Customer): void
+
+        getCustomer(): customers.Customer
+
+        setDisplayString(displayString: string): void
+
+        getDisplayString(): string
+
+        setExternalId(externalId: string): void
+
+        getExternalId(): string
+
+        setExternalSystemName(externalSystemName: string): void
+
+        getExternalSystemName(): string
+
+        setExtras(extras: any): void
+
+        getExtras(): any
+    }
+
+    export class CustomerProvidedDataEvent extends BaseResponse {
+        setEventId(eventId: string): void
+
+        getEventId(): string
+
+        setConfig(config: remotepay.DataProviderConfig): void
+
+        getConfig(): remotepay.DataProviderConfig
+
+        setData(data: string): void
+
+        getData(): string
+    }
+
+    export class DataProviderConfig{
+        setType(type: string): void
+
+        getType(): string
+
+        setConfiguration(configuration: any): void
+
+        getConfiguration(): any
     }
 
     export enum DeviceErrorEventCode {
@@ -2548,6 +3391,8 @@ export namespace remotepay {
         VERIFY_SIGNATURE_ON_SCREEN_CONFIRM_VOID = "VERIFY_SIGNATURE_ON_SCREEN_CONFIRM_VOID",
         ADD_SIGNATURE = "ADD_SIGNATURE",
         SIGNATURE_ON_SCREEN_FALLBACK = "SIGNATURE_ON_SCREEN_FALLBACK",
+        STARTING_CUSTOM_ACTIVITY = "STARTING_CUSTOM_ACTIVITY",
+        CUSTOM_ACTIVITY  = "CUSTOM_ACTIVITY",
         RETURN_TO_MERCHANT = "RETURN_TO_MERCHANT",
         SIGNATURE_REJECT = "SIGNATURE_REJECT",
         ADD_SIGNATURE_CANCEL_CONFIRM = "ADD_SIGNATURE_CANCEL_CONFIRM",
@@ -2581,15 +3426,11 @@ export namespace remotepay {
 
         preAuth(authRequest: PreAuthRequest)
 
-        cancel()
-
         capturePreAuth(capturePreAuthRequest: CapturePreAuthRequest)
 
-        closeout(closeoutRequest: CloseoutRequest);
+        closeout(closeoutRequest: CloseoutRequest)
 
-        showPaymentReceiptOptions(orderId: string, paymentId: string)
-
-        displayPaymentReceiptOptions(orderId: string, paymentId: string)
+        displayReceiptOptions(displayReceiptOptionsRequest: DisplayReceiptOptionsRequest)
 
         showDisplayOrder(order: order.DisplayOrder)
 
@@ -2610,14 +3451,6 @@ export namespace remotepay {
         manualRefund(request: ManualRefundRequest)
 
         refundPayment(request: RefundPaymentRequest)
-
-        openCashDrawer(request: OpenCashDrawerRequest)
-
-        printImage(bitmap: Img)
-
-        printImageFromURL(imgUrl: string)
-
-        printText(messages: Array<string>)
 
         print(request: PrintRequest)
 
@@ -2659,67 +3492,143 @@ export namespace remotepay {
     }
 
     export class ICloverConnectorListener {
-        onDisconnected();
-
-        onDeviceDisconnected();
-
-        onConnected();
-
-        onDeviceConnected()
-
-        onReady(merchantInfo: MerchantInfo)
-
-        onDeviceReady(merchantInfo: MerchantInfo)
-
-        onDeviceActivityStart(deviceEvent: CloverDeviceEvent)
-
-        onDeviceActivityEnd(deviceEvent: CloverDeviceEvent)
-
-        onDeviceError(deviceErrorEvent: CloverDeviceErrorEvent)
-
         onAuthResponse(response: AuthResponse)
 
-        onTipAdjustAuthResponse(response: TipAdjustAuthResponse)
-
-        onCapturePreAuthResponse(reponse: CapturePreAuthResponse)
-
-        onVerifySignatureRequest(request: VerifySignatureRequest)
-
-        onConfirmPaymentRequest(request: ConfirmPaymentRequest)
+        onCapturePreAuthResponse(response: CapturePreAuthResponse)
 
         onCloseoutResponse(response: CloseoutResponse)
 
-        onSaleResponse(response: SaleResponse)
-
-        onManualRefundResponse(response: ManualRefundResponse)
-
-        onRefundPaymentResponse(response: RefundPaymentResponse)
-
-        onTipAdded(tipAdded: TipAdded)
-
-        onVoidPaymentResponse(response: VoidPaymentResponse)
-
-        onVaultCardResponse(response: VaultCardResponse)
-
-        onPreAuthResponse(response: PreAuthResponse)
-
-        onRetrievePendingPaymentsResponse(response: RetrievePendingPaymentsResponse)
-
-        onReadCardDataResponse(response: ReadCardDataResponse)
-
-        onMessageFromActivity(message: MessageFromActivity)
+        onConfirmPaymentRequest(request: ConfirmPaymentRequest)
 
         onCustomActivityResponse(response: CustomActivityResponse)
 
-        onRetrieveDeviceStatusResponse(response: RetrieveDeviceStatusResponse)
+        onDeviceActivityEnd(deviceEvent: CloverDeviceEvent)
+
+        onDeviceActivityStart(deviceEvent: CloverDeviceEvent)
+
+        onDeviceConnected()
+
+        onDeviceDisconnected()
+
+        onDeviceError(deviceErrorEvent: CloverDeviceErrorEvent)
+
+        onDeviceReady(merchantInfo: MerchantInfo)
+
+        onDisconnected()
+
+        onManualRefundResponse(response: ManualRefundResponse)
+
+        onMessageFromActivity(message: MessageFromActivity)
+
+        onPreAuthResponse(response: PreAuthResponse)
+
+        onPrintJobStatusResponse(response: PrintJobStatusResponse)
+
+        onCustomerProvidedData(event: CustomerProvidedDataEvent);
+
+        onPrintRefundPaymentReceipt(response: PrintRefundPaymentReceiptResponse)
+
+        onPrintManualRefundReceipt(message: PrintManualRefundReceiptMessage)
+
+        onPrintManualRefundDeclineReceipt(message: PrintManualRefundDeclineReceiptMessage)
+
+        onPrintPaymentReceipt(message: PrintPaymentReceiptMessage)
+
+        onPrintPaymentDeclineReceipt(message: PrintPaymentDeclineReceiptMessage)
+
+        onPrintPaymentMerchantCopyReceipt(message: PrintPaymentMerchantCopyReceiptMessage)
+
+        onPrintRefundPaymentReceipt(message: PrintRefundPaymentReceiptMessage)
+
+        onReadCardDataResponse(response: ReadCardDataResponse)
+
+        onReady(merchantInfo: MerchantInfo)
+
+        onRefundPaymentResponse(response: RefundPaymentResponse)
 
         onResetDeviceResponse(response: ResetDeviceResponse)
 
+        onRetrieveDeviceStatusResponse(response: RetrieveDeviceStatusResponse)
+
         onRetrievePaymentResponse(response: RetrievePaymentResponse)
+
+        onRetrievePendingPaymentsResponse(response: RetrievePendingPaymentsResponse)
 
         onRetrievePrintersResponse(response: RetrievePrintersResponse)
 
-        onPrintJobStatusResponse(response: PrintJobStatusResponse)
+        onSaleResponse(response: SaleResponse)
+
+        onTipAdded(tipAdded: TipAdded)
+
+        onTipAdjustAuthResponse(response: TipAdjustAuthResponse)
+
+        onVaultCardResponse(response: VaultCardResponse)
+
+        onVerifySignatureRequest(request: VerifySignatureRequest)
+
+        onVoidPaymentResponse(response: VoidPaymentResponse)
+
+        onVoidPaymentRefundResponse(response: VoidPaymentRefundResponse)
+
+        onDisplayReceiptOptionsResponse(response: DisplayReceiptOptionsResponse)
+
+        onInvalidStateTransitionResponse(response: InvalidStateTransitionResponse)
+    }
+
+    export class PrintManualRefundReceiptMessage {
+        getCredit(): payments.Credit
+
+        setCredit(credit: payments.Credit): void
+    }
+
+    export class PrintManualRefundDeclineReceiptMessage {
+        getCredit(): payments.Credit
+
+        setCredit(credit: payments.Credit): void
+
+        getReason(): string
+
+        setReason(reason: string): void
+    }
+
+    export class PrintPaymentReceiptMessage {
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+
+        getOrder(): order.Order
+
+        setOrder(order: order.Order): void
+    }
+
+    export class PrintPaymentDeclineReceiptMessage {
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+
+        getReason(): string
+
+        setReason(reason: string): void
+    }
+
+    export class PrintPaymentMerchantCopyReceiptMessage {
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+    }
+
+    export class PrintRefundPaymentReceiptMessage {
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+
+        getOrder(): order.Order
+
+        setOrder(order: order.Order): void
+
+        getRefund(): payments.Refund
+
+        setRefund(refund: payments.Refund): void
     }
 
     export class Img {
@@ -2773,11 +3682,11 @@ export namespace remotepay {
         DIGIT_0 = "DIGIT_0"
     }
 
-    export class ManualRefundRequest extends TransactionRequest {
+    export class ManualRefundRequest extends BaseTransactionRequest {
     }
 
     export class ManualRefundResponse extends PaymentResponse {
-        getCredit(): payments.Credit;
+        getCredit(): payments.Credit
 
         setCredit(credit: payments.Credit): void
     }
@@ -2871,7 +3780,7 @@ export namespace remotepay {
     export class PlatformError {
     }
 
-    export class PreAuthRequest extends TransactionRequest {
+    export class PreAuthRequest extends BaseTransactionRequest {
     }
 
     export class PreAuthResponse extends PaymentResponse {
@@ -2891,6 +3800,20 @@ export namespace remotepay {
         setPrintRequestId(printRequestId: string): void
 
         getPrintRequestId(): string
+    }
+
+    export class PrintRefundPaymentReceiptResponse extends BaseResponse {
+        getPayment(): payments.Payment
+
+        setPayment(payment: payments.Payment): void
+
+        getRefund(): payments.Refund
+
+        setRefund(refund: payments.Refund): void
+
+        getOrder(): order.Order
+
+        setOrder(order: order.Order): void
     }
 
     export class PrintRequest extends BaseRequest {
@@ -2949,7 +3872,7 @@ export namespace remotepay {
     export class RefundPaymentRequest extends BaseRequest {
         getFullRefund(): boolean
 
-        setFullRefund(fullRefund: boolean): void;
+        setFullRefund(fullRefund: boolean): void
 
         getAmount(): number
 
@@ -2962,6 +3885,18 @@ export namespace remotepay {
         getPaymentId(): string
 
         setPaymentId(paymentId): string
+
+        getDisablePrinting(): boolean
+
+        setDisablePrinting(disablePrinting: boolean): void
+
+        getDisableReceiptSelection(): boolean
+
+        setDisableReceiptSelection(disableReceiptSelection: boolean): void
+
+        getExtras(): object
+
+        setExtras(extras: object): void
     }
 
     export class RefundPaymentResponse extends BaseResponse {
@@ -2976,6 +3911,12 @@ export namespace remotepay {
         getRefund(): payments.Refund
 
         setRefund(refund: payments.Refund): void
+    }
+
+    export class RegisterForCustomerProvidedDataRequest extends BaseRequest{
+        setConfigurations(configurations: any): void
+
+        getConfigurations(): any
     }
 
     export class ResetDeviceResponse extends BaseResponse {
@@ -3051,10 +3992,6 @@ export namespace remotepay {
 
         setDisableCashback(disableCashback: boolean): void
 
-        getDisableTipOnScreen(): boolean
-
-        setDisableTipOnScreen(disableTipOnScreen: boolean): void
-
         getTaxAmount(): number
 
         setTaxAmount(taxAmount: number): void
@@ -3077,6 +4014,12 @@ export namespace remotepay {
     }
 
     export class SaleResponse extends PaymentResponse {
+    }
+
+    export class SetCustomerInfoRequest extends BaseRequest {
+        setCustomerInfo(customerInfo: remotepay.CustomerInfo): void
+
+        getCustomerInfo(): remotepay.CustomerInfo
     }
 
     export class TipAdded extends BaseResponse {
@@ -3109,14 +4052,10 @@ export namespace remotepay {
         setPaymentId(paymentId): string
     }
 
-    export class TransactionRequest {
+    export class BaseTransactionRequest {
         getOrderId(): string
 
         setOrderId(orderId: string): void
-
-        getSignatureThreshold(): number
-
-        setSignatureThreshold(signatureThreshold: number)
 
         getDisablePrinting(): boolean
 
@@ -3129,10 +4068,6 @@ export namespace remotepay {
         getDisableDuplicateChecking(): boolean
 
         setDisableDuplicateChecking(disableDuplicateChecking: boolean): void
-
-        getSignatureEntryLocation(): payments.DataEntryLocation
-
-        setSignatureEntryLocation(signatureEntryLocation: payments.DataEntryLocation)
 
         getCardNotPresent(): boolean
 
@@ -3166,9 +4101,56 @@ export namespace remotepay {
 
         setAutoAcceptPaymentConfirmations(autoAcceptPaymentConfirmations: boolean): void
 
+        getExtras(): object
+
+        setExtras(extras: object): void
+
+        getRegionalExtras(): object
+
+        setRegionalExtras(regionalExtras: object): void
+    }
+
+
+    export class TransactionRequest extends BaseTransactionRequest {
+        getSignatureThreshold(): number
+
+        setSignatureThreshold(signatureThreshold: number)
+
+        getSignatureEntryLocation(): payments.DataEntryLocation
+
+        setSignatureEntryLocation(signatureEntryLocation: payments.DataEntryLocation)
+
         getAutoAcceptSignature(): boolean
 
         setAutoAcceptSignature(autoAcceptSignature: boolean): void
+
+        getTipSuggestions(): Array<merchant.TipSuggestion>
+
+        setTipSuggestions(tipSuggestions: Array<merchant.TipSuggestion>): void
+
+        getAllowOfflinePayment(): boolean
+
+        setAllowOfflinePayment(allowOfflinePayment: boolean): void
+
+        getForceOfflinePayment(): boolean
+
+        setForceOfflinePayment(forceOfflinePayment: boolean): void
+
+        getDisableCashback(): boolean
+
+        setDisableCashback(disableCashback: boolean): void
+
+        getApproveOfflinePaymentWithoutPrompt(): boolean
+
+        setApproveOfflinePaymentWithoutPrompt(approveOfflinePaymentWithoutPrompt: boolean): void
+
+        getTaxAmount(): number
+
+        setTaxAmount(taxAmount: number): void
+
+        getTippableAmount(): number
+
+        setTippableAmount(tippableAmount: number): void
     }
 
     export enum TransactionType {
@@ -3176,7 +4158,14 @@ export namespace remotepay {
         CREDIT = "CREDIT",
         AUTH = "AUTH",
         DATA = "DATA",
-        BALANCE_INQUIRY = "BALANCE_INQUIRY"
+        BALANCE_INQUIRY = "BALANCE_INQUIRY",
+        PAYMENT_REVERSAL = "PAYMENT_REVERSAL",
+        PAYMENT_ADJUSTMENT = "PAYMENT_ADJUSTMENT",
+        CREDIT_REVERSAL = "CREDIT_REVERSAL",
+        REFUND_ADJUSTMENT = "REFUND_ADJUSTMENT",
+        CASH_ADVANCE = "CASH_ADVANCE",
+        CAPTURE_PREAUTH = "CAPTURE_PREAUTH",
+        VAS_DATA = "VAS_DATA"
     }
 
     export class VaultCardResponse extends BaseResponse {
@@ -3211,11 +4200,55 @@ export namespace remotepay {
         getVoidReason(): string
 
         setVoidReason(voidReason): string
+
+        getDisablePrinting(): boolean
+
+        setDisablePrinting(disablePrinting: boolean): void
+
+        getDisableReceiptSelection(): boolean
+
+        setDisableReceiptSelection(disableReceiptSelection: boolean): void
+
+        getExtras(): object
+
+        setExtras(extras: object): void
     }
 
-    export class VoidPaymentResponse extends BaseResponse {
+    export class VoidPaymentRefundRequest extends BaseRequest {
+        getRefundId(): string
+
+        setRefundId(refundId): string
+
+        getOrderId(): string
+
+        setOrderId(orderId): string
+
+        getEmployeeId(): string
+
+        setEmployeeId(employeeId): string
+
+        getDisablePrinting(): boolean
+
+        setDisablePrinting(disablePrinting: boolean): void
+
+        getDisableReceiptSelection(): boolean
+
+        setDisableReceiptSelection(disableReceiptSelection: boolean): void
+
+        getExtras(): object
+
+        setExtras(extras: object): void
+    }
+
+    export class VoidPaymentResponse extends PaymentResponse {
         getPaymentId(): string
 
         setPaymentId(paymentId): string
+    }
+
+    export class VoidPaymentRefundResponse extends RefundPaymentResponse {
+        getRefundId(): string
+
+        setRefundId(refundId): string
     }
 }

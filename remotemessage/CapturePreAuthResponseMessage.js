@@ -20,6 +20,7 @@ var CapturePreAuthResponseMessage = function() {
   this.setMethod(remotemessage_Method["CAPTURE_PREAUTH_RESPONSE"]);
   this.status = undefined;
   this.reason = undefined;
+  this.message = undefined;
   this.paymentId = undefined;
   this.amount = undefined;
   this.tipAmount = undefined;
@@ -68,6 +69,24 @@ CapturePreAuthResponseMessage.prototype.setReason = function(reason) {
 */
 CapturePreAuthResponseMessage.prototype.getReason = function() {
   return this.reason;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.CapturePreAuthResponseMessage
+* @param {String} message 
+*/
+CapturePreAuthResponseMessage.prototype.setMessage = function(message) {
+  this.message = message;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.CapturePreAuthResponseMessage
+* @return {String} 
+*/
+CapturePreAuthResponseMessage.prototype.getMessage = function() {
+  return this.message;
 };
 
 /**
@@ -140,6 +159,8 @@ CapturePreAuthResponseMessage._meta_.fields["status"] = {};
 CapturePreAuthResponseMessage._meta_.fields["status"].type = remotemessage_ResultStatus;
 CapturePreAuthResponseMessage._meta_.fields["reason"] = {};
 CapturePreAuthResponseMessage._meta_.fields["reason"].type = String;
+CapturePreAuthResponseMessage._meta_.fields["message"] = {};
+CapturePreAuthResponseMessage._meta_.fields["message"].type = String;
 CapturePreAuthResponseMessage._meta_.fields["paymentId"] = {};
 CapturePreAuthResponseMessage._meta_.fields["paymentId"].type = String;
 CapturePreAuthResponseMessage._meta_.fields["amount"] = {};

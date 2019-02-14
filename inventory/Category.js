@@ -16,6 +16,8 @@ var Category = function() {
   this.name = undefined;
   this.sortOrder = undefined;
   this.items = undefined;
+  this.deleted = undefined;
+  this.modifiedTime = undefined;
 };
 
 
@@ -104,6 +106,48 @@ Category.prototype.getItems = function() {
 };
 
 /**
+* Set the field value
+* Whether the category has been deleted.
+*
+* @memberof inventory.Category
+* @param {Boolean} deleted 
+*/
+Category.prototype.setDeleted = function(deleted) {
+  this.deleted = deleted;
+};
+
+/**
+* Get the field value
+* Whether the category has been deleted.
+* @memberof inventory.Category
+* @return {Boolean} 
+*/
+Category.prototype.getDeleted = function() {
+  return this.deleted;
+};
+
+/**
+* Set the field value
+* The time this category was last modified
+*
+* @memberof inventory.Category
+* @param {Number} modifiedTime must be a long integer
+*/
+Category.prototype.setModifiedTime = function(modifiedTime) {
+  this.modifiedTime = modifiedTime;
+};
+
+/**
+* Get the field value
+* The time this category was last modified
+* @memberof inventory.Category
+* @return {Number} must be a long integer
+*/
+Category.prototype.getModifiedTime = function() {
+  return this.modifiedTime;
+};
+
+/**
 * @memberof inventory.Category
 * @private
 */
@@ -138,6 +182,10 @@ Category._meta_.fields["sortOrder"].type = Number;
 Category._meta_.fields["items"] = {};
 Category._meta_.fields["items"].type = Array;
 Category._meta_.fields["items"].elementType = base_Reference;
+Category._meta_.fields["deleted"] = {};
+Category._meta_.fields["deleted"].type = Boolean;
+Category._meta_.fields["modifiedTime"] = {};
+Category._meta_.fields["modifiedTime"].type = Number;
 
 //
 // Expose the module.

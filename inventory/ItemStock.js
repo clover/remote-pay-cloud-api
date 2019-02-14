@@ -16,6 +16,7 @@ var ItemStock = function() {
   this.item = undefined;
   this.stockCount = undefined;
   this.quantity = undefined;
+  this.modifiedTime = undefined;
 };
 
 
@@ -83,6 +84,24 @@ ItemStock.prototype.getQuantity = function() {
 };
 
 /**
+* Set the field value
+* @memberof inventory.ItemStock
+* @param {Null|Number} modifiedTime must be a long integer
+*/
+ItemStock.prototype.setModifiedTime = function(modifiedTime) {
+  this.modifiedTime = modifiedTime;
+};
+
+/**
+* Get the field value
+* @memberof inventory.ItemStock
+* @return {Null|Number} must be a long integer
+*/
+ItemStock.prototype.getModifiedTime = function() {
+  return this.modifiedTime;
+};
+
+/**
 * @memberof inventory.ItemStock
 * @private
 */
@@ -114,6 +133,8 @@ ItemStock._meta_.fields["stockCount"] = {};
 ItemStock._meta_.fields["stockCount"].type = Number;
 ItemStock._meta_.fields["quantity"] = {};
 ItemStock._meta_.fields["quantity"].type = Number;
+ItemStock._meta_.fields["modifiedTime"] = {};
+ItemStock._meta_.fields["modifiedTime"].type = Number;
 
 //
 // Expose the module.

@@ -32,6 +32,13 @@ var GermanInfo = function() {
   this.configProductLabel = undefined;
   this.hostResponseAidParBMP53 = undefined;
   this.hostResponsePrintDataBM60 = undefined;
+  this.sepaElvReceiptFormat = undefined;
+  this.sepaElvExtAppLabel = undefined;
+  this.sepaElvPreNotification = undefined;
+  this.sepaElvMandate = undefined;
+  this.sepaElvCreditorId = undefined;
+  this.sepaElvMandateId = undefined;
+  this.sepaElvIban = undefined;
   this.paymentRef = undefined;
   this.creditRef = undefined;
   this.refundRef = undefined;
@@ -401,6 +408,132 @@ GermanInfo.prototype.getHostResponsePrintDataBM60 = function() {
 
 /**
 * Set the field value
+* @memberof payments.GermanInfo
+* @param {String} sepaElvReceiptFormat 
+*/
+GermanInfo.prototype.setSepaElvReceiptFormat = function(sepaElvReceiptFormat) {
+  this.sepaElvReceiptFormat = sepaElvReceiptFormat;
+};
+
+/**
+* Get the field value
+* @memberof payments.GermanInfo
+* @return {String} 
+*/
+GermanInfo.prototype.getSepaElvReceiptFormat = function() {
+  return this.sepaElvReceiptFormat;
+};
+
+/**
+* Set the field value
+* @memberof payments.GermanInfo
+* @param {String} sepaElvExtAppLabel 
+*/
+GermanInfo.prototype.setSepaElvExtAppLabel = function(sepaElvExtAppLabel) {
+  this.sepaElvExtAppLabel = sepaElvExtAppLabel;
+};
+
+/**
+* Get the field value
+* @memberof payments.GermanInfo
+* @return {String} 
+*/
+GermanInfo.prototype.getSepaElvExtAppLabel = function() {
+  return this.sepaElvExtAppLabel;
+};
+
+/**
+* Set the field value
+* @memberof payments.GermanInfo
+* @param {String} sepaElvPreNotification 
+*/
+GermanInfo.prototype.setSepaElvPreNotification = function(sepaElvPreNotification) {
+  this.sepaElvPreNotification = sepaElvPreNotification;
+};
+
+/**
+* Get the field value
+* @memberof payments.GermanInfo
+* @return {String} 
+*/
+GermanInfo.prototype.getSepaElvPreNotification = function() {
+  return this.sepaElvPreNotification;
+};
+
+/**
+* Set the field value
+* @memberof payments.GermanInfo
+* @param {String} sepaElvMandate 
+*/
+GermanInfo.prototype.setSepaElvMandate = function(sepaElvMandate) {
+  this.sepaElvMandate = sepaElvMandate;
+};
+
+/**
+* Get the field value
+* @memberof payments.GermanInfo
+* @return {String} 
+*/
+GermanInfo.prototype.getSepaElvMandate = function() {
+  return this.sepaElvMandate;
+};
+
+/**
+* Set the field value
+* @memberof payments.GermanInfo
+* @param {String} sepaElvCreditorId 
+*/
+GermanInfo.prototype.setSepaElvCreditorId = function(sepaElvCreditorId) {
+  this.sepaElvCreditorId = sepaElvCreditorId;
+};
+
+/**
+* Get the field value
+* @memberof payments.GermanInfo
+* @return {String} 
+*/
+GermanInfo.prototype.getSepaElvCreditorId = function() {
+  return this.sepaElvCreditorId;
+};
+
+/**
+* Set the field value
+* @memberof payments.GermanInfo
+* @param {String} sepaElvMandateId 
+*/
+GermanInfo.prototype.setSepaElvMandateId = function(sepaElvMandateId) {
+  this.sepaElvMandateId = sepaElvMandateId;
+};
+
+/**
+* Get the field value
+* @memberof payments.GermanInfo
+* @return {String} 
+*/
+GermanInfo.prototype.getSepaElvMandateId = function() {
+  return this.sepaElvMandateId;
+};
+
+/**
+* Set the field value
+* @memberof payments.GermanInfo
+* @param {String} sepaElvIban 
+*/
+GermanInfo.prototype.setSepaElvIban = function(sepaElvIban) {
+  this.sepaElvIban = sepaElvIban;
+};
+
+/**
+* Get the field value
+* @memberof payments.GermanInfo
+* @return {String} 
+*/
+GermanInfo.prototype.getSepaElvIban = function() {
+  return this.sepaElvIban;
+};
+
+/**
+* Set the field value
 * The payment with which this German info is associated
 *
 * @memberof payments.GermanInfo
@@ -549,6 +682,20 @@ GermanInfo._meta_.fields["hostResponseAidParBMP53"] = {};
 GermanInfo._meta_.fields["hostResponseAidParBMP53"].type = String;
 GermanInfo._meta_.fields["hostResponsePrintDataBM60"] = {};
 GermanInfo._meta_.fields["hostResponsePrintDataBM60"].type = String;
+GermanInfo._meta_.fields["sepaElvReceiptFormat"] = {};
+GermanInfo._meta_.fields["sepaElvReceiptFormat"].type = String;
+GermanInfo._meta_.fields["sepaElvExtAppLabel"] = {};
+GermanInfo._meta_.fields["sepaElvExtAppLabel"].type = String;
+GermanInfo._meta_.fields["sepaElvPreNotification"] = {};
+GermanInfo._meta_.fields["sepaElvPreNotification"].type = String;
+GermanInfo._meta_.fields["sepaElvMandate"] = {};
+GermanInfo._meta_.fields["sepaElvMandate"].type = String;
+GermanInfo._meta_.fields["sepaElvCreditorId"] = {};
+GermanInfo._meta_.fields["sepaElvCreditorId"].type = String;
+GermanInfo._meta_.fields["sepaElvMandateId"] = {};
+GermanInfo._meta_.fields["sepaElvMandateId"].type = String;
+GermanInfo._meta_.fields["sepaElvIban"] = {};
+GermanInfo._meta_.fields["sepaElvIban"].type = String;
 GermanInfo._meta_.fields["paymentRef"] = {};
 GermanInfo._meta_.fields["paymentRef"].type = base_Reference;
 GermanInfo._meta_.fields["creditRef"] = {};

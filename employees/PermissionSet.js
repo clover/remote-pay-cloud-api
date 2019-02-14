@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var employees_EmployeePermission = require("../employees/EmployeePermission");
 var base_Reference = require("../base/Reference");
 var employees_Permissions = require("../employees/Permissions");
 
@@ -20,6 +21,7 @@ var PermissionSet = function() {
   this.employeeDefault = undefined;
   this.managerDefault = undefined;
   this.permissions = undefined;
+  this.employeePermissions = undefined;
   this.roles = undefined;
   this.module = undefined;
 };
@@ -165,6 +167,24 @@ PermissionSet.prototype.getPermissions = function() {
 
 /**
 * Set the field value
+* @memberof employees.PermissionSet
+* @param {Array.<employees.EmployeePermission>} employeePermissions An array of 
+*/
+PermissionSet.prototype.setEmployeePermissions = function(employeePermissions) {
+  this.employeePermissions = employeePermissions;
+};
+
+/**
+* Get the field value
+* @memberof employees.PermissionSet
+* @return {Array.<employees.EmployeePermission>} An array of 
+*/
+PermissionSet.prototype.getEmployeePermissions = function() {
+  return this.employeePermissions;
+};
+
+/**
+* Set the field value
 * roles enabled for this merchant
 *
 * @memberof employees.PermissionSet
@@ -245,6 +265,9 @@ PermissionSet._meta_.fields["managerDefault"] = {};
 PermissionSet._meta_.fields["managerDefault"].type = Boolean;
 PermissionSet._meta_.fields["permissions"] = {};
 PermissionSet._meta_.fields["permissions"].type = employees_Permissions;
+PermissionSet._meta_.fields["employeePermissions"] = {};
+PermissionSet._meta_.fields["employeePermissions"].type = Array;
+PermissionSet._meta_.fields["employeePermissions"].elementType = employees_EmployeePermission;
 PermissionSet._meta_.fields["roles"] = {};
 PermissionSet._meta_.fields["roles"].type = Array;
 PermissionSet._meta_.fields["roles"].elementType = base_Reference;

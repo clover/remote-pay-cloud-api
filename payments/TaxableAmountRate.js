@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -17,6 +18,7 @@ var TaxableAmountRate = function() {
   this.rate = undefined;
   this.isVat = undefined;
   this.taxAmount = undefined;
+  this.transactionRef = undefined;
 };
 
 
@@ -147,6 +149,27 @@ TaxableAmountRate.prototype.getTaxAmount = function() {
 };
 
 /**
+* Set the field value
+* The refund with which the tax rate is associated
+*
+* @memberof payments.TaxableAmountRate
+* @param {base.Reference} transactionRef 
+*/
+TaxableAmountRate.prototype.setTransactionRef = function(transactionRef) {
+  this.transactionRef = transactionRef;
+};
+
+/**
+* Get the field value
+* The refund with which the tax rate is associated
+* @memberof payments.TaxableAmountRate
+* @return {base.Reference} 
+*/
+TaxableAmountRate.prototype.getTransactionRef = function() {
+  return this.transactionRef;
+};
+
+/**
 * @memberof payments.TaxableAmountRate
 * @private
 */
@@ -184,6 +207,8 @@ TaxableAmountRate._meta_.fields["isVat"] = {};
 TaxableAmountRate._meta_.fields["isVat"].type = Boolean;
 TaxableAmountRate._meta_.fields["taxAmount"] = {};
 TaxableAmountRate._meta_.fields["taxAmount"].type = Number;
+TaxableAmountRate._meta_.fields["transactionRef"] = {};
+TaxableAmountRate._meta_.fields["transactionRef"].type = base_Reference;
 
 //
 // Expose the module.

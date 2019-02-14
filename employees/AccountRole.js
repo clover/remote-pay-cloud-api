@@ -10,6 +10,7 @@
 * @enum {string}
 */
 AccountRole = {
+  OWNER : "OWNER",
   ADMIN : "ADMIN",
   MANAGER : "MANAGER",
   EMPLOYEE : "EMPLOYEE"

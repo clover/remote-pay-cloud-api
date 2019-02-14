@@ -6,6 +6,7 @@
 
 var payments_TipMode = require("../payments/TipMode");
 var payments_DataEntryLocation = require("../payments/DataEntryLocation");
+var merchant_TipSuggestion = require("../merchant/TipSuggestion");
 
 /**
 * @constructor
@@ -29,6 +30,9 @@ var TransactionSettings = function() {
   this.disableDuplicateCheck = false;
   this.autoAcceptPaymentConfirmations = false;
   this.autoAcceptSignature = false;
+  this.returnResultOnTransactionComplete = false;
+  this.tipSuggestions = undefined;
+  this.regionalExtras = undefined;
 };
 
 
@@ -286,6 +290,8 @@ TransactionSettings.prototype.getDisableDuplicateCheck = function() {
 
 /**
 * Set the field value
+* If set to true, confirmation requests triggered by a challenge at the payment gateway are automatically accepted, and confirmation requests are not transmitted back to the calling program. Be sure you are willing to accept the risk associated with accepting offline or duplicate payment challenges. See https://docs.clover.com/build/working-with-challenges for more information.
+*
 * @memberof payments.TransactionSettings
 * @param {Boolean} autoAcceptPaymentConfirmations 
 */
@@ -295,6 +301,7 @@ TransactionSettings.prototype.setAutoAcceptPaymentConfirmations = function(autoA
 
 /**
 * Get the field value
+* If set to true, confirmation requests triggered by a challenge at the payment gateway are automatically accepted, and confirmation requests are not transmitted back to the calling program. Be sure you are willing to accept the risk associated with accepting offline or duplicate payment challenges. See https://docs.clover.com/build/working-with-challenges for more information.
 * @memberof payments.TransactionSettings
 * @return {Boolean} 
 */
@@ -318,6 +325,60 @@ TransactionSettings.prototype.setAutoAcceptSignature = function(autoAcceptSignat
 */
 TransactionSettings.prototype.getAutoAcceptSignature = function() {
   return this.autoAcceptSignature;
+};
+
+/**
+* Set the field value
+* @memberof payments.TransactionSettings
+* @param {Boolean} returnResultOnTransactionComplete 
+*/
+TransactionSettings.prototype.setReturnResultOnTransactionComplete = function(returnResultOnTransactionComplete) {
+  this.returnResultOnTransactionComplete = returnResultOnTransactionComplete;
+};
+
+/**
+* Get the field value
+* @memberof payments.TransactionSettings
+* @return {Boolean} 
+*/
+TransactionSettings.prototype.getReturnResultOnTransactionComplete = function() {
+  return this.returnResultOnTransactionComplete;
+};
+
+/**
+* Set the field value
+* @memberof payments.TransactionSettings
+* @param {Array.<merchant.TipSuggestion>} tipSuggestions An array of 
+*/
+TransactionSettings.prototype.setTipSuggestions = function(tipSuggestions) {
+  this.tipSuggestions = tipSuggestions;
+};
+
+/**
+* Get the field value
+* @memberof payments.TransactionSettings
+* @return {Array.<merchant.TipSuggestion>} An array of 
+*/
+TransactionSettings.prototype.getTipSuggestions = function() {
+  return this.tipSuggestions;
+};
+
+/**
+* Set the field value
+* @memberof payments.TransactionSettings
+* @param {Object.<String,String>} regionalExtras A map of <String> to <>
+*/
+TransactionSettings.prototype.setRegionalExtras = function(regionalExtras) {
+  this.regionalExtras = regionalExtras;
+};
+
+/**
+* Get the field value
+* @memberof payments.TransactionSettings
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+TransactionSettings.prototype.getRegionalExtras = function() {
+  return this.regionalExtras;
 };
 
 /**
@@ -378,6 +439,13 @@ TransactionSettings._meta_.fields["autoAcceptPaymentConfirmations"] = {};
 TransactionSettings._meta_.fields["autoAcceptPaymentConfirmations"].type = Boolean;
 TransactionSettings._meta_.fields["autoAcceptSignature"] = {};
 TransactionSettings._meta_.fields["autoAcceptSignature"].type = Boolean;
+TransactionSettings._meta_.fields["returnResultOnTransactionComplete"] = {};
+TransactionSettings._meta_.fields["returnResultOnTransactionComplete"].type = Boolean;
+TransactionSettings._meta_.fields["tipSuggestions"] = {};
+TransactionSettings._meta_.fields["tipSuggestions"].type = Array;
+TransactionSettings._meta_.fields["tipSuggestions"].elementType = merchant_TipSuggestion;
+TransactionSettings._meta_.fields["regionalExtras"] = {};
+TransactionSettings._meta_.fields["regionalExtras"].type = Object;
 
 //
 // Expose the module.

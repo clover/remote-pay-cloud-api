@@ -20,6 +20,8 @@ var TipAdjustResponseMessage = function() {
   this.success = undefined;
   this.amount = undefined;
   this.orderId = undefined;
+  this.message = undefined;
+  this.reason = undefined;
   this.paymentId = undefined;
 };
 
@@ -91,6 +93,42 @@ TipAdjustResponseMessage.prototype.getOrderId = function() {
 
 /**
 * Set the field value
+* @memberof remotemessage.TipAdjustResponseMessage
+* @param {String} message 
+*/
+TipAdjustResponseMessage.prototype.setMessage = function(message) {
+  this.message = message;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.TipAdjustResponseMessage
+* @return {String} 
+*/
+TipAdjustResponseMessage.prototype.getMessage = function() {
+  return this.message;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.TipAdjustResponseMessage
+* @param {String} reason 
+*/
+TipAdjustResponseMessage.prototype.setReason = function(reason) {
+  this.reason = reason;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.TipAdjustResponseMessage
+* @return {String} 
+*/
+TipAdjustResponseMessage.prototype.getReason = function() {
+  return this.reason;
+};
+
+/**
+* Set the field value
 * Unique identifier for a payment
 *
 * @memberof remotemessage.TipAdjustResponseMessage
@@ -119,6 +157,10 @@ TipAdjustResponseMessage._meta_.fields["amount"] = {};
 TipAdjustResponseMessage._meta_.fields["amount"].type = Number;
 TipAdjustResponseMessage._meta_.fields["orderId"] = {};
 TipAdjustResponseMessage._meta_.fields["orderId"].type = String;
+TipAdjustResponseMessage._meta_.fields["message"] = {};
+TipAdjustResponseMessage._meta_.fields["message"].type = String;
+TipAdjustResponseMessage._meta_.fields["reason"] = {};
+TipAdjustResponseMessage._meta_.fields["reason"].type = String;
 TipAdjustResponseMessage._meta_.fields["paymentId"] = {};
 TipAdjustResponseMessage._meta_.fields["paymentId"].type = String;
 

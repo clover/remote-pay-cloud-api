@@ -18,6 +18,7 @@ var Device = function() {
   this.model = undefined;
   this.merchant = undefined;
   this.orderPrefix = undefined;
+  this.terminalId = undefined;
   this.terminalPrefix = undefined;
   this.serial = undefined;
   this.buildNumber = undefined;
@@ -45,6 +46,7 @@ var Device = function() {
   this.maxOfflineDays = undefined;
   this.allowStoreAndForward = undefined;
   this.secureReports = undefined;
+  this.bundleIndicator = undefined;
 };
 
 
@@ -145,6 +147,27 @@ Device.prototype.setOrderPrefix = function(orderPrefix) {
 */
 Device.prototype.getOrderPrefix = function() {
   return this.orderPrefix;
+};
+
+/**
+* Set the field value
+* The merchant device's terminal Id. FD-IPG sets the merchant_device terminal Id for LATAM devices
+*
+* @memberof device.Device
+* @param {String} terminalId 
+*/
+Device.prototype.setTerminalId = function(terminalId) {
+  this.terminalId = terminalId;
+};
+
+/**
+* Get the field value
+* The merchant device's terminal Id. FD-IPG sets the merchant_device terminal Id for LATAM devices
+* @memberof device.Device
+* @return {String} 
+*/
+Device.prototype.getTerminalId = function() {
+  return this.terminalId;
 };
 
 /**
@@ -652,6 +675,24 @@ Device.prototype.getSecureReports = function() {
 };
 
 /**
+* Set the field value
+* @memberof device.Device
+* @param {String} bundleIndicator 
+*/
+Device.prototype.setBundleIndicator = function(bundleIndicator) {
+  this.bundleIndicator = bundleIndicator;
+};
+
+/**
+* Get the field value
+* @memberof device.Device
+* @return {String} 
+*/
+Device.prototype.getBundleIndicator = function() {
+  return this.bundleIndicator;
+};
+
+/**
 * @memberof device.Device
 * @private
 */
@@ -687,6 +728,8 @@ Device._meta_.fields["merchant"] = {};
 Device._meta_.fields["merchant"].type = base_Reference;
 Device._meta_.fields["orderPrefix"] = {};
 Device._meta_.fields["orderPrefix"].type = String;
+Device._meta_.fields["terminalId"] = {};
+Device._meta_.fields["terminalId"].type = String;
 Device._meta_.fields["terminalPrefix"] = {};
 Device._meta_.fields["terminalPrefix"].type = Number;
 Device._meta_.fields["serial"] = {};
@@ -742,6 +785,8 @@ Device._meta_.fields["allowStoreAndForward"].type = Boolean;
 Device._meta_.fields["secureReports"] = {};
 Device._meta_.fields["secureReports"].type = Array;
 Device._meta_.fields["secureReports"].elementType = base_Reference;
+Device._meta_.fields["bundleIndicator"] = {};
+Device._meta_.fields["bundleIndicator"].type = String;
 
 //
 // Expose the module.
