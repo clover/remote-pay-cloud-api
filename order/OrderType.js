@@ -31,6 +31,7 @@ var OrderType = function() {
   this.customerIdMethod = undefined;
   this.isDeleted = false;
   this.systemOrderTypeId = undefined;
+  this.systemOrderTypeDatabaseId = undefined;
   this.hours = undefined;
   this.categories = undefined;
 };
@@ -368,6 +369,27 @@ OrderType.prototype.getSystemOrderTypeId = function() {
 
 /**
 * Set the field value
+* The system_order_type table's database ID. Internal only. The ID mentioned above is the UUID.
+*
+* @memberof order.OrderType
+* @param {Number} systemOrderTypeDatabaseId must be a long integer
+*/
+OrderType.prototype.setSystemOrderTypeDatabaseId = function(systemOrderTypeDatabaseId) {
+  this.systemOrderTypeDatabaseId = systemOrderTypeDatabaseId;
+};
+
+/**
+* Get the field value
+* The system_order_type table's database ID. Internal only. The ID mentioned above is the UUID.
+* @memberof order.OrderType
+* @return {Number} must be a long integer
+*/
+OrderType.prototype.getSystemOrderTypeDatabaseId = function() {
+  return this.systemOrderTypeDatabaseId;
+};
+
+/**
+* Set the field value
 * The hours this order type is available (if they differ from normal merchant hours)
 *
 * @memberof order.OrderType
@@ -466,6 +488,8 @@ OrderType._meta_.fields["isDeleted"] = {};
 OrderType._meta_.fields["isDeleted"].type = Boolean;
 OrderType._meta_.fields["systemOrderTypeId"] = {};
 OrderType._meta_.fields["systemOrderTypeId"].type = String;
+OrderType._meta_.fields["systemOrderTypeDatabaseId"] = {};
+OrderType._meta_.fields["systemOrderTypeDatabaseId"].type = Number;
 OrderType._meta_.fields["hours"] = {};
 OrderType._meta_.fields["hours"].type = hours_HoursSet;
 OrderType._meta_.fields["categories"] = {};

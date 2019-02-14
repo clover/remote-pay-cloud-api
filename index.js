@@ -12,11 +12,13 @@ sdk.employees = require("./employees");
 sdk.hours = require("./hours");
 sdk.inventory = require("./inventory");
 sdk.order = require("./order");
+sdk.pay = require("./pay");
 sdk.payments = require("./payments");
 sdk.printer = require("./printer");
 sdk.remotemessage = require("./remotemessage");
 sdk.remotepay = require("./remotepay");
-
+sdk.merchant = require("./merchant");
+sdk.loyalty = require("./loyalty");
 //
 // Expose the module.
 //

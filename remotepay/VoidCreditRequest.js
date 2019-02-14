@@ -14,6 +14,7 @@ var VoidCreditRequest = function() {
   this.requestId = undefined;
   this.orderId = undefined;
   this.creditId = undefined;
+  this.extras = undefined;
 };
 
 
@@ -81,6 +82,27 @@ VoidCreditRequest.prototype.getCreditId = function() {
 };
 
 /**
+* Set the field value
+* Extra pass-through data used by external systems.
+*
+* @memberof remotepay.VoidCreditRequest
+* @param {Object.<String,String>} extras A map of <String> to <>
+*/
+VoidCreditRequest.prototype.setExtras = function(extras) {
+  this.extras = extras;
+};
+
+/**
+* Get the field value
+* Extra pass-through data used by external systems.
+* @memberof remotepay.VoidCreditRequest
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+VoidCreditRequest.prototype.getExtras = function() {
+  return this.extras;
+};
+
+/**
 * @memberof remotepay.VoidCreditRequest
 * @private
 */
@@ -112,6 +134,8 @@ VoidCreditRequest._meta_.fields["orderId"] = {};
 VoidCreditRequest._meta_.fields["orderId"].type = String;
 VoidCreditRequest._meta_.fields["creditId"] = {};
 VoidCreditRequest._meta_.fields["creditId"].type = String;
+VoidCreditRequest._meta_.fields["extras"] = {};
+VoidCreditRequest._meta_.fields["extras"].type = Object;
 
 //
 // Expose the module.

@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -12,6 +13,7 @@
 var Discount = function() {
   this._class_ = Discount;
   this.id = undefined;
+  this.merchantRef = undefined;
   this.name = undefined;
   this.amount = undefined;
   this.percentage = undefined;
@@ -37,6 +39,24 @@ Discount.prototype.setId = function(id) {
 */
 Discount.prototype.getId = function() {
   return this.id;
+};
+
+/**
+* Set the field value
+* @memberof inventory.Discount
+* @param {base.Reference} merchantRef 
+*/
+Discount.prototype.setMerchantRef = function(merchantRef) {
+  this.merchantRef = merchantRef;
+};
+
+/**
+* Get the field value
+* @memberof inventory.Discount
+* @return {base.Reference} 
+*/
+Discount.prototype.getMerchantRef = function() {
+  return this.merchantRef;
 };
 
 /**
@@ -130,6 +150,8 @@ Discount._meta_ =  {fields:  {}};
 Discount._meta_._class_ =  Discount;
 Discount._meta_.fields["id"] = {};
 Discount._meta_.fields["id"].type = String;
+Discount._meta_.fields["merchantRef"] = {};
+Discount._meta_.fields["merchantRef"].type = base_Reference;
 Discount._meta_.fields["name"] = {};
 Discount._meta_.fields["name"].type = String;
 Discount._meta_.fields["amount"] = {};

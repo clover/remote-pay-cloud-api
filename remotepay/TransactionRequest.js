@@ -4,60 +4,33 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var remotepay_BaseRequest = require("../remotepay/BaseRequest");
-var remotepay_TransactionType = require("../remotepay/TransactionType");
 var payments_DataEntryLocation = require("../payments/DataEntryLocation");
-var payments_VaultedCard = require("../payments/VaultedCard");
+var merchant_TipSuggestion = require("../merchant/TipSuggestion");
+var remotepay_BaseTransactionRequest = require("../remotepay/BaseTransactionRequest");
 
 /**
 * @constructor
-* @augments remotepay.BaseRequest
+* @augments remotepay.BaseTransactionRequest
 * @memberof remotepay
 */
 var TransactionRequest = function() {
-  remotepay_BaseRequest.call(this);
-  this._superClass_ = remotepay_BaseRequest;
+  remotepay_BaseTransactionRequest.call(this);
+  this._superClass_ = remotepay_BaseTransactionRequest;
   this._class_ = TransactionRequest;
-  this.orderId = undefined;
   this.signatureThreshold = undefined;
-  this.disablePrinting = undefined;
-  this.disableReceiptSelection = undefined;
-  this.disableDuplicateChecking = undefined;
   this.signatureEntryLocation = undefined;
-  this.cardNotPresent = undefined;
-  this.disableRestartTransactionOnFail = undefined;
-  this.amount = undefined;
-  this.cardEntryMethods = undefined;
-  this.vaultedCard = undefined;
-  this.externalId = undefined;
-  this.type = undefined;
-  this.autoAcceptPaymentConfirmations = undefined;
   this.autoAcceptSignature = undefined;
+  this.allowOfflinePayment = undefined;
+  this.forceOfflinePayment = undefined;
+  this.disableCashback = undefined;
+  this.approveOfflinePaymentWithoutPrompt = undefined;
+  this.taxAmount = undefined;
+  this.tippableAmount = undefined;
+  this.tipSuggestions = undefined;
 };
 
-TransactionRequest.prototype = Object.create(remotepay_BaseRequest.prototype);
+TransactionRequest.prototype = Object.create(remotepay_BaseTransactionRequest.prototype);
 TransactionRequest.prototype.constructor = TransactionRequest;
-
-/**
-* Set the field value
-* Identifier for the order to apply this to.  The order must exist in the clover system.
-*
-* @memberof remotepay.TransactionRequest
-* @param {String} orderId 
-*/
-TransactionRequest.prototype.setOrderId = function(orderId) {
-  this.orderId = orderId;
-};
-
-/**
-* Get the field value
-* Identifier for the order to apply this to.  The order must exist in the clover system.
-* @memberof remotepay.TransactionRequest
-* @return {String} 
-*/
-TransactionRequest.prototype.getOrderId = function() {
-  return this.orderId;
-};
 
 /**
 * Set the field value
@@ -82,70 +55,7 @@ TransactionRequest.prototype.getSignatureThreshold = function() {
 
 /**
 * Set the field value
-* If true, then do not print using the clover printer.  Return print information.
-*
-* @memberof remotepay.TransactionRequest
-* @param {Boolean|Null} disablePrinting 
-*/
-TransactionRequest.prototype.setDisablePrinting = function(disablePrinting) {
-  this.disablePrinting = disablePrinting;
-};
-
-/**
-* Get the field value
-* If true, then do not print using the clover printer.  Return print information.
-* @memberof remotepay.TransactionRequest
-* @return {Boolean|Null} 
-*/
-TransactionRequest.prototype.getDisablePrinting = function() {
-  return this.disablePrinting;
-};
-
-/**
-* Set the field value
-* Do not show the receipt options screen
-*
-* @memberof remotepay.TransactionRequest
-* @param {Boolean|Null} disableReceiptSelection 
-*/
-TransactionRequest.prototype.setDisableReceiptSelection = function(disableReceiptSelection) {
-  this.disableReceiptSelection = disableReceiptSelection;
-};
-
-/**
-* Get the field value
-* Do not show the receipt options screen
-* @memberof remotepay.TransactionRequest
-* @return {Boolean|Null} 
-*/
-TransactionRequest.prototype.getDisableReceiptSelection = function() {
-  return this.disableReceiptSelection;
-};
-
-/**
-* Set the field value
-* Do not do heuristic duplicate checking
-*
-* @memberof remotepay.TransactionRequest
-* @param {Boolean|Null} disableDuplicateChecking 
-*/
-TransactionRequest.prototype.setDisableDuplicateChecking = function(disableDuplicateChecking) {
-  this.disableDuplicateChecking = disableDuplicateChecking;
-};
-
-/**
-* Get the field value
-* Do not do heuristic duplicate checking
-* @memberof remotepay.TransactionRequest
-* @return {Boolean|Null} 
-*/
-TransactionRequest.prototype.getDisableDuplicateChecking = function() {
-  return this.disableDuplicateChecking;
-};
-
-/**
-* Set the field value
-* Where the signature should be obtined from (paper, screen...etc)
+* Where the signature should be obtained from (paper, screen...etc)
 *
 * @memberof remotepay.TransactionRequest
 * @param {payments.DataEntryLocation|Null} signatureEntryLocation 
@@ -156,180 +66,12 @@ TransactionRequest.prototype.setSignatureEntryLocation = function(signatureEntry
 
 /**
 * Get the field value
-* Where the signature should be obtined from (paper, screen...etc)
+* Where the signature should be obtained from (paper, screen...etc)
 * @memberof remotepay.TransactionRequest
 * @return {payments.DataEntryLocation|Null} 
 */
 TransactionRequest.prototype.getSignatureEntryLocation = function() {
   return this.signatureEntryLocation;
-};
-
-/**
-* Set the field value
-* If true then card not present is accepted
-*
-* @memberof remotepay.TransactionRequest
-* @param {Boolean|Null} cardNotPresent 
-*/
-TransactionRequest.prototype.setCardNotPresent = function(cardNotPresent) {
-  this.cardNotPresent = cardNotPresent;
-};
-
-/**
-* Get the field value
-* If true then card not present is accepted
-* @memberof remotepay.TransactionRequest
-* @return {Boolean|Null} 
-*/
-TransactionRequest.prototype.getCardNotPresent = function() {
-  return this.cardNotPresent;
-};
-
-/**
-* Set the field value
-* If the transaction times out or fails because of decline, do not restart it
-*
-* @memberof remotepay.TransactionRequest
-* @param {Boolean|Null} disableRestartTransactionOnFail 
-*/
-TransactionRequest.prototype.setDisableRestartTransactionOnFail = function(disableRestartTransactionOnFail) {
-  this.disableRestartTransactionOnFail = disableRestartTransactionOnFail;
-};
-
-/**
-* Get the field value
-* If the transaction times out or fails because of decline, do not restart it
-* @memberof remotepay.TransactionRequest
-* @return {Boolean|Null} 
-*/
-TransactionRequest.prototype.getDisableRestartTransactionOnFail = function() {
-  return this.disableRestartTransactionOnFail;
-};
-
-/**
-* Set the field value
-* Total amount paid
-*
-* @memberof remotepay.TransactionRequest
-* @param {Number} amount must be a long integer
-*/
-TransactionRequest.prototype.setAmount = function(amount) {
-  this.amount = amount;
-};
-
-/**
-* Get the field value
-* Total amount paid
-* @memberof remotepay.TransactionRequest
-* @return {Number} must be a long integer
-*/
-TransactionRequest.prototype.getAmount = function() {
-  return this.amount;
-};
-
-/**
-* Set the field value
-* Allowed entry methods
-*
-* @memberof remotepay.TransactionRequest
-* @param {Number|Null} cardEntryMethods must be an integer, 
-*/
-TransactionRequest.prototype.setCardEntryMethods = function(cardEntryMethods) {
-  this.cardEntryMethods = cardEntryMethods;
-};
-
-/**
-* Get the field value
-* Allowed entry methods
-* @memberof remotepay.TransactionRequest
-* @return {Number|Null} must be an integer, 
-*/
-TransactionRequest.prototype.getCardEntryMethods = function() {
-  return this.cardEntryMethods;
-};
-
-/**
-* Set the field value
-* A saved card
-*
-* @memberof remotepay.TransactionRequest
-* @param {payments.VaultedCard|Null} vaultedCard 
-*/
-TransactionRequest.prototype.setVaultedCard = function(vaultedCard) {
-  this.vaultedCard = vaultedCard;
-};
-
-/**
-* Get the field value
-* A saved card
-* @memberof remotepay.TransactionRequest
-* @return {payments.VaultedCard|Null} 
-*/
-TransactionRequest.prototype.getVaultedCard = function() {
-  return this.vaultedCard;
-};
-
-/**
-* Set the field value
-* An id that will be persisted with transactions.
-*
-* @memberof remotepay.TransactionRequest
-* @param {String} externalId 
-*/
-TransactionRequest.prototype.setExternalId = function(externalId) {
-  this.externalId = externalId;
-};
-
-/**
-* Get the field value
-* An id that will be persisted with transactions.
-* @memberof remotepay.TransactionRequest
-* @return {String} 
-*/
-TransactionRequest.prototype.getExternalId = function() {
-  return this.externalId;
-};
-
-/**
-* Set the field value
-* The type of the transaction.
-*
-* @memberof remotepay.TransactionRequest
-* @param {remotepay.TransactionType} type 
-*/
-TransactionRequest.prototype.setType = function(type) {
-  this.type = type;
-};
-
-/**
-* Get the field value
-* The type of the transaction.
-* @memberof remotepay.TransactionRequest
-* @return {remotepay.TransactionType} 
-*/
-TransactionRequest.prototype.getType = function() {
-  return this.type;
-};
-
-/**
-* Set the field value
-* Do not show/send potential duplicate challenges
-*
-* @memberof remotepay.TransactionRequest
-* @param {Boolean|Null} autoAcceptPaymentConfirmations 
-*/
-TransactionRequest.prototype.setAutoAcceptPaymentConfirmations = function(autoAcceptPaymentConfirmations) {
-  this.autoAcceptPaymentConfirmations = autoAcceptPaymentConfirmations;
-};
-
-/**
-* Get the field value
-* Do not show/send potential duplicate challenges
-* @memberof remotepay.TransactionRequest
-* @return {Boolean|Null} 
-*/
-TransactionRequest.prototype.getAutoAcceptPaymentConfirmations = function() {
-  return this.autoAcceptPaymentConfirmations;
 };
 
 /**
@@ -353,39 +95,177 @@ TransactionRequest.prototype.getAutoAcceptSignature = function() {
   return this.autoAcceptSignature;
 };
 
+/**
+* Set the field value
+* If true then offline payments can be accepted
+*
+* @memberof remotepay.TransactionRequest
+* @param {Boolean|Null} allowOfflinePayment 
+*/
+TransactionRequest.prototype.setAllowOfflinePayment = function(allowOfflinePayment) {
+  this.allowOfflinePayment = allowOfflinePayment;
+};
+
+/**
+* Get the field value
+* If true then offline payments can be accepted
+* @memberof remotepay.TransactionRequest
+* @return {Boolean|Null} 
+*/
+TransactionRequest.prototype.getAllowOfflinePayment = function() {
+  return this.allowOfflinePayment;
+};
+
+/**
+* Set the field value
+* If true then the payment will be taken offline
+*
+* @memberof remotepay.TransactionRequest
+* @param {Boolean|Null} forceOfflinePayment 
+*/
+TransactionRequest.prototype.setForceOfflinePayment = function(forceOfflinePayment) {
+  this.forceOfflinePayment = forceOfflinePayment;
+};
+
+/**
+* Get the field value
+* If true then the payment will be taken offline
+* @memberof remotepay.TransactionRequest
+* @return {Boolean|Null} 
+*/
+TransactionRequest.prototype.getForceOfflinePayment = function() {
+  return this.forceOfflinePayment;
+};
+
+/**
+* Set the field value
+* If true, do not allow cash back
+*
+* @memberof remotepay.TransactionRequest
+* @param {Boolean|Null} disableCashback 
+*/
+TransactionRequest.prototype.setDisableCashback = function(disableCashback) {
+  this.disableCashback = disableCashback;
+};
+
+/**
+* Get the field value
+* If true, do not allow cash back
+* @memberof remotepay.TransactionRequest
+* @return {Boolean|Null} 
+*/
+TransactionRequest.prototype.getDisableCashback = function() {
+  return this.disableCashback;
+};
+
+/**
+* Set the field value
+* If true then offline payments will be approved without a prompt
+*
+* @memberof remotepay.TransactionRequest
+* @param {Boolean|Null} approveOfflinePaymentWithoutPrompt 
+*/
+TransactionRequest.prototype.setApproveOfflinePaymentWithoutPrompt = function(approveOfflinePaymentWithoutPrompt) {
+  this.approveOfflinePaymentWithoutPrompt = approveOfflinePaymentWithoutPrompt;
+};
+
+/**
+* Get the field value
+* If true then offline payments will be approved without a prompt
+* @memberof remotepay.TransactionRequest
+* @return {Boolean|Null} 
+*/
+TransactionRequest.prototype.getApproveOfflinePaymentWithoutPrompt = function() {
+  return this.approveOfflinePaymentWithoutPrompt;
+};
+
+/**
+* Set the field value
+* Amount paid in taxes
+*
+* @memberof remotepay.TransactionRequest
+* @param {Number} taxAmount must be a long integer
+*/
+TransactionRequest.prototype.setTaxAmount = function(taxAmount) {
+  this.taxAmount = taxAmount;
+};
+
+/**
+* Get the field value
+* Amount paid in taxes
+* @memberof remotepay.TransactionRequest
+* @return {Number} must be a long integer
+*/
+TransactionRequest.prototype.getTaxAmount = function() {
+  return this.taxAmount;
+};
+
+/**
+* Set the field value
+* The total amount used when calculating tips
+*
+* @memberof remotepay.TransactionRequest
+* @param {Number} tippableAmount must be a long integer
+*/
+TransactionRequest.prototype.setTippableAmount = function(tippableAmount) {
+  this.tippableAmount = tippableAmount;
+};
+
+/**
+* Get the field value
+* The total amount used when calculating tips
+* @memberof remotepay.TransactionRequest
+* @return {Number} must be a long integer
+*/
+TransactionRequest.prototype.getTippableAmount = function() {
+  return this.tippableAmount;
+};
+
+/**
+* Set the field value
+* Custom Tip Suggestions that can be set per transaction
+*
+* @memberof remotepay.TransactionRequest
+* @param {Array.<merchant.TipSuggestion>} tipSuggestions An array of 
+*/
+TransactionRequest.prototype.setTipSuggestions = function(tipSuggestions) {
+  this.tipSuggestions = tipSuggestions;
+};
+
+/**
+* Get the field value
+* Custom Tip Suggestions that can be set per transaction
+* @memberof remotepay.TransactionRequest
+* @return {Array.<merchant.TipSuggestion>} An array of 
+*/
+TransactionRequest.prototype.getTipSuggestions = function() {
+  return this.tipSuggestions;
+};
+
 TransactionRequest._meta_ =  {fields:  {}};
 TransactionRequest._meta_._class_ =  TransactionRequest;
-TransactionRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
-TransactionRequest._meta_.fields["orderId"] = {};
-TransactionRequest._meta_.fields["orderId"].type = String;
+TransactionRequest._meta_._superMeta_ = remotepay_BaseTransactionRequest._meta_;
 TransactionRequest._meta_.fields["signatureThreshold"] = {};
 TransactionRequest._meta_.fields["signatureThreshold"].type = Number;
-TransactionRequest._meta_.fields["disablePrinting"] = {};
-TransactionRequest._meta_.fields["disablePrinting"].type = Boolean;
-TransactionRequest._meta_.fields["disableReceiptSelection"] = {};
-TransactionRequest._meta_.fields["disableReceiptSelection"].type = Boolean;
-TransactionRequest._meta_.fields["disableDuplicateChecking"] = {};
-TransactionRequest._meta_.fields["disableDuplicateChecking"].type = Boolean;
 TransactionRequest._meta_.fields["signatureEntryLocation"] = {};
 TransactionRequest._meta_.fields["signatureEntryLocation"].type = payments_DataEntryLocation;
-TransactionRequest._meta_.fields["cardNotPresent"] = {};
-TransactionRequest._meta_.fields["cardNotPresent"].type = Boolean;
-TransactionRequest._meta_.fields["disableRestartTransactionOnFail"] = {};
-TransactionRequest._meta_.fields["disableRestartTransactionOnFail"].type = Boolean;
-TransactionRequest._meta_.fields["amount"] = {};
-TransactionRequest._meta_.fields["amount"].type = Number;
-TransactionRequest._meta_.fields["cardEntryMethods"] = {};
-TransactionRequest._meta_.fields["cardEntryMethods"].type = Number;
-TransactionRequest._meta_.fields["vaultedCard"] = {};
-TransactionRequest._meta_.fields["vaultedCard"].type = payments_VaultedCard;
-TransactionRequest._meta_.fields["externalId"] = {};
-TransactionRequest._meta_.fields["externalId"].type = String;
-TransactionRequest._meta_.fields["type"] = {};
-TransactionRequest._meta_.fields["type"].type = remotepay_TransactionType;
-TransactionRequest._meta_.fields["autoAcceptPaymentConfirmations"] = {};
-TransactionRequest._meta_.fields["autoAcceptPaymentConfirmations"].type = Boolean;
 TransactionRequest._meta_.fields["autoAcceptSignature"] = {};
 TransactionRequest._meta_.fields["autoAcceptSignature"].type = Boolean;
+TransactionRequest._meta_.fields["allowOfflinePayment"] = {};
+TransactionRequest._meta_.fields["allowOfflinePayment"].type = Boolean;
+TransactionRequest._meta_.fields["forceOfflinePayment"] = {};
+TransactionRequest._meta_.fields["forceOfflinePayment"].type = Boolean;
+TransactionRequest._meta_.fields["disableCashback"] = {};
+TransactionRequest._meta_.fields["disableCashback"].type = Boolean;
+TransactionRequest._meta_.fields["approveOfflinePaymentWithoutPrompt"] = {};
+TransactionRequest._meta_.fields["approveOfflinePaymentWithoutPrompt"].type = Boolean;
+TransactionRequest._meta_.fields["taxAmount"] = {};
+TransactionRequest._meta_.fields["taxAmount"].type = Number;
+TransactionRequest._meta_.fields["tippableAmount"] = {};
+TransactionRequest._meta_.fields["tippableAmount"].type = Number;
+TransactionRequest._meta_.fields["tipSuggestions"] = {};
+TransactionRequest._meta_.fields["tipSuggestions"].type = Array;
+TransactionRequest._meta_.fields["tipSuggestions"].elementType = merchant_TipSuggestion;
 
 //
 // Expose the module.

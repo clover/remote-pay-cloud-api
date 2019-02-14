@@ -29,6 +29,7 @@ var GiftCardResponse = function() {
   this.begBal = undefined;
   this.endBal = undefined;
   this.holdBal = undefined;
+  this.syncPaymentObject = undefined;
 };
 
 
@@ -306,6 +307,24 @@ GiftCardResponse.prototype.getHoldBal = function() {
 };
 
 /**
+* Set the field value
+* @memberof payments.GiftCardResponse
+* @param {Boolean} syncPaymentObject 
+*/
+GiftCardResponse.prototype.setSyncPaymentObject = function(syncPaymentObject) {
+  this.syncPaymentObject = syncPaymentObject;
+};
+
+/**
+* Get the field value
+* @memberof payments.GiftCardResponse
+* @return {Boolean} 
+*/
+GiftCardResponse.prototype.getSyncPaymentObject = function() {
+  return this.syncPaymentObject;
+};
+
+/**
 * @memberof payments.GiftCardResponse
 * @private
 */
@@ -361,6 +380,8 @@ GiftCardResponse._meta_.fields["endBal"] = {};
 GiftCardResponse._meta_.fields["endBal"].type = Number;
 GiftCardResponse._meta_.fields["holdBal"] = {};
 GiftCardResponse._meta_.fields["holdBal"].type = Number;
+GiftCardResponse._meta_.fields["syncPaymentObject"] = {};
+GiftCardResponse._meta_.fields["syncPaymentObject"].type = Boolean;
 
 //
 // Expose the module.

@@ -4,18 +4,19 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var customers_Customer = require("../customers/Customer");
 var payments_Authorization = require("../payments/Authorization");
 var order_Discount = require("../order/Discount");
+var order_PaymentState = require("../order/PaymentState");
+var base_ServiceCharge = require("../base/ServiceCharge");
+var order_OrderTaxRate = require("../order/OrderTaxRate");
+var payments_Refund = require("../payments/Refund");
+var payments_Credit = require("../payments/Credit");
+var customers_Customer = require("../customers/Customer");
 var order_PayType = require("../order/PayType");
 var order_LineItem = require("../order/LineItem");
 var order_OrderType = require("../order/OrderType");
 var payments_Payment = require("../payments/Payment");
 var base_Reference = require("../base/Reference");
-var base_ServiceCharge = require("../base/ServiceCharge");
-var order_OrderTaxRate = require("../order/OrderTaxRate");
-var payments_Refund = require("../payments/Refund");
-var payments_Credit = require("../payments/Credit");
 
 /** The Order object is at the core of Clover’s transaction data. Almost every transaction either creates or updates an Order. When an order is created or updated via one of the Clover SDKs, the order data is automatically synchronized between the Clover Server and the merchant’s Clover devices. */
 /**
@@ -32,6 +33,8 @@ var Order = function() {
   this.customers = undefined;
   this.employee = undefined;
   this.total = undefined;
+  this.unpaidBalance = undefined;
+  this.paymentState = undefined;
   this.title = undefined;
   this.note = undefined;
   this.orderType = undefined;
@@ -57,6 +60,7 @@ var Order = function() {
   this.preAuths = undefined;
   this.device = undefined;
   this.authorizations = undefined;
+  this.merchant = undefined;
 };
 
 
@@ -217,6 +221,48 @@ Order.prototype.setTotal = function(total) {
 */
 Order.prototype.getTotal = function() {
   return this.total;
+};
+
+/**
+* Set the field value
+* The net of orders with payment minus the amount collected. Includes refunds, manual refunds, tax, tip, service charge, non-revenue items, paid gift card activations and loads and discounts
+*
+* @memberof order.Order
+* @param {Null|Number} unpaidBalance must be a long integer
+*/
+Order.prototype.setUnpaidBalance = function(unpaidBalance) {
+  this.unpaidBalance = unpaidBalance;
+};
+
+/**
+* Get the field value
+* The net of orders with payment minus the amount collected. Includes refunds, manual refunds, tax, tip, service charge, non-revenue items, paid gift card activations and loads and discounts
+* @memberof order.Order
+* @return {Null|Number} must be a long integer
+*/
+Order.prototype.getUnpaidBalance = function() {
+  return this.unpaidBalance;
+};
+
+/**
+* Set the field value
+* Is this order paid or not?
+*
+* @memberof order.Order
+* @param {Null|order.PaymentState} paymentState 
+*/
+Order.prototype.setPaymentState = function(paymentState) {
+  this.paymentState = paymentState;
+};
+
+/**
+* Get the field value
+* Is this order paid or not?
+* @memberof order.Order
+* @return {Null|order.PaymentState} 
+*/
+Order.prototype.getPaymentState = function() {
+  return this.paymentState;
 };
 
 /**
@@ -527,7 +573,7 @@ Order.prototype.getServiceCharge = function() {
 
 /**
 * Set the field value
-* Discounts applied to this order
+* Amount or percentage discounts applied to the order subtotal. To retrieve discounts applied to individual items, use the Get all line items for an order endpoint with the discounts field expanded (v3/merchants/{mId}/orders/{orderId}/line_items?expand=discounts).
 *
 * @memberof order.Order
 * @param {Array.<order.Discount>} discounts An array of 
@@ -538,7 +584,7 @@ Order.prototype.setDiscounts = function(discounts) {
 
 /**
 * Get the field value
-* Discounts applied to this order
+* Amount or percentage discounts applied to the order subtotal. To retrieve discounts applied to individual items, use the Get all line items for an order endpoint with the discounts field expanded (v3/merchants/{mId}/orders/{orderId}/line_items?expand=discounts).
 * @memberof order.Order
 * @return {Array.<order.Discount>} An array of 
 */
@@ -733,6 +779,24 @@ Order.prototype.getAuthorizations = function() {
 };
 
 /**
+* Set the field value
+* @memberof order.Order
+* @param {base.Reference} merchant 
+*/
+Order.prototype.setMerchant = function(merchant) {
+  this.merchant = merchant;
+};
+
+/**
+* Get the field value
+* @memberof order.Order
+* @return {base.Reference} 
+*/
+Order.prototype.getMerchant = function() {
+  return this.merchant;
+};
+
+/**
 * @memberof order.Order
 * @private
 */
@@ -775,6 +839,10 @@ Order._meta_.fields["employee"] = {};
 Order._meta_.fields["employee"].type = base_Reference;
 Order._meta_.fields["total"] = {};
 Order._meta_.fields["total"].type = Number;
+Order._meta_.fields["unpaidBalance"] = {};
+Order._meta_.fields["unpaidBalance"].type = Number;
+Order._meta_.fields["paymentState"] = {};
+Order._meta_.fields["paymentState"].type = order_PaymentState;
 Order._meta_.fields["title"] = {};
 Order._meta_.fields["title"].type = String;
 Order._meta_.fields["note"] = {};
@@ -834,6 +902,8 @@ Order._meta_.fields["device"].type = base_Reference;
 Order._meta_.fields["authorizations"] = {};
 Order._meta_.fields["authorizations"].type = Array;
 Order._meta_.fields["authorizations"].elementType = payments_Authorization;
+Order._meta_.fields["merchant"] = {};
+Order._meta_.fields["merchant"].type = base_Reference;
 
 //
 // Expose the module.

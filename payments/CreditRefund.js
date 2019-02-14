@@ -5,6 +5,7 @@
  */
 
 var apps_AppTracking = require("../apps/AppTracking");
+var payments_TransactionInfo = require("../payments/TransactionInfo");
 var base_Reference = require("../base/Reference");
 var payments_GermanInfo = require("../payments/GermanInfo");
 
@@ -23,6 +24,7 @@ var CreditRefund = function() {
   this.employee = undefined;
   this.germanInfo = undefined;
   this.appTracking = undefined;
+  this.transactionInfo = undefined;
 };
 
 
@@ -213,6 +215,27 @@ CreditRefund.prototype.getAppTracking = function() {
 };
 
 /**
+* Set the field value
+* Transaction information
+*
+* @memberof payments.CreditRefund
+* @param {payments.TransactionInfo|Null} transactionInfo 
+*/
+CreditRefund.prototype.setTransactionInfo = function(transactionInfo) {
+  this.transactionInfo = transactionInfo;
+};
+
+/**
+* Get the field value
+* Transaction information
+* @memberof payments.CreditRefund
+* @return {payments.TransactionInfo|Null} 
+*/
+CreditRefund.prototype.getTransactionInfo = function() {
+  return this.transactionInfo;
+};
+
+/**
 * @memberof payments.CreditRefund
 * @private
 */
@@ -256,6 +279,8 @@ CreditRefund._meta_.fields["germanInfo"] = {};
 CreditRefund._meta_.fields["germanInfo"].type = payments_GermanInfo;
 CreditRefund._meta_.fields["appTracking"] = {};
 CreditRefund._meta_.fields["appTracking"].type = apps_AppTracking;
+CreditRefund._meta_.fields["transactionInfo"] = {};
+CreditRefund._meta_.fields["transactionInfo"].type = payments_TransactionInfo;
 
 //
 // Expose the module.

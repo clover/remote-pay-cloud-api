@@ -5,6 +5,7 @@
  */
 
 var payments_BatchCardTotal = require("../payments/BatchCardTotal");
+var payments_DeviceTotalStats = require("../payments/DeviceTotalStats");
 var payments_BatchTotalStats = require("../payments/BatchTotalStats");
 var payments_ServerTotalStats = require("../payments/ServerTotalStats");
 
@@ -17,6 +18,7 @@ var BatchDetail = function() {
   this.batchTotals = undefined;
   this.serverTotals = undefined;
   this.cardTotals = undefined;
+  this.deviceTotals = undefined;
   this.openTips = undefined;
   this.openTabs = undefined;
 };
@@ -74,6 +76,24 @@ BatchDetail.prototype.setCardTotals = function(cardTotals) {
 */
 BatchDetail.prototype.getCardTotals = function() {
   return this.cardTotals;
+};
+
+/**
+* Set the field value
+* @memberof payments.BatchDetail
+* @param {Array.<payments.DeviceTotalStats>} deviceTotals An array of 
+*/
+BatchDetail.prototype.setDeviceTotals = function(deviceTotals) {
+  this.deviceTotals = deviceTotals;
+};
+
+/**
+* Get the field value
+* @memberof payments.BatchDetail
+* @return {Array.<payments.DeviceTotalStats>} An array of 
+*/
+BatchDetail.prototype.getDeviceTotals = function() {
+  return this.deviceTotals;
 };
 
 /**
@@ -152,6 +172,9 @@ BatchDetail._meta_.fields["serverTotals"].elementType = payments_ServerTotalStat
 BatchDetail._meta_.fields["cardTotals"] = {};
 BatchDetail._meta_.fields["cardTotals"].type = Array;
 BatchDetail._meta_.fields["cardTotals"].elementType = payments_BatchCardTotal;
+BatchDetail._meta_.fields["deviceTotals"] = {};
+BatchDetail._meta_.fields["deviceTotals"].type = Array;
+BatchDetail._meta_.fields["deviceTotals"].elementType = payments_DeviceTotalStats;
 BatchDetail._meta_.fields["openTips"] = {};
 BatchDetail._meta_.fields["openTips"].type = Number;
 BatchDetail._meta_.fields["openTabs"] = {};

@@ -52,6 +52,9 @@ var PayIntent = function() {
   this.germanInfo = undefined;
   this.cashAdvanceCustomerIdentification = undefined;
   this.transactionSettings = undefined;
+
+  this.passThroughValues = undefined;
+  this.applicationSpecificValues = undefined;
 };
 
 

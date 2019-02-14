@@ -28,6 +28,10 @@ var DiscoveryResponseMessage = function() {
   this.supportsManualRefund = "false";
   this.supportsMultiPayToken = "false";
   this.supportsAcknowledgement = "false";
+  this.supportsPreAuth = "false";
+  this.supportsAuth = "false";
+  this.supportsVaultCard = "false";
+  this.supportsVoidPaymentResponse = "false";
 };
 
 DiscoveryResponseMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -231,6 +235,78 @@ DiscoveryResponseMessage.prototype.getSupportsAcknowledgement = function() {
   return this.supportsAcknowledgement;
 };
 
+/**
+* Set the field value
+* @memberof remotemessage.DiscoveryResponseMessage
+* @param {Boolean} supportsPreAuth 
+*/
+DiscoveryResponseMessage.prototype.setSupportsPreAuth = function(supportsPreAuth) {
+  this.supportsPreAuth = supportsPreAuth;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.DiscoveryResponseMessage
+* @return {Boolean} 
+*/
+DiscoveryResponseMessage.prototype.getSupportsPreAuth = function() {
+  return this.supportsPreAuth;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.DiscoveryResponseMessage
+* @param {Boolean} supportsAuth 
+*/
+DiscoveryResponseMessage.prototype.setSupportsAuth = function(supportsAuth) {
+  this.supportsAuth = supportsAuth;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.DiscoveryResponseMessage
+* @return {Boolean} 
+*/
+DiscoveryResponseMessage.prototype.getSupportsAuth = function() {
+  return this.supportsAuth;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.DiscoveryResponseMessage
+* @param {Boolean} supportsVaultCard 
+*/
+DiscoveryResponseMessage.prototype.setSupportsVaultCard = function(supportsVaultCard) {
+  this.supportsVaultCard = supportsVaultCard;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.DiscoveryResponseMessage
+* @return {Boolean} 
+*/
+DiscoveryResponseMessage.prototype.getSupportsVaultCard = function() {
+  return this.supportsVaultCard;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.DiscoveryResponseMessage
+* @param {Boolean} supportsVoidPaymentResponse 
+*/
+DiscoveryResponseMessage.prototype.setSupportsVoidPaymentResponse = function(supportsVoidPaymentResponse) {
+  this.supportsVoidPaymentResponse = supportsVoidPaymentResponse;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.DiscoveryResponseMessage
+* @return {Boolean} 
+*/
+DiscoveryResponseMessage.prototype.getSupportsVoidPaymentResponse = function() {
+  return this.supportsVoidPaymentResponse;
+};
+
 DiscoveryResponseMessage._meta_ =  {fields:  {}};
 DiscoveryResponseMessage._meta_._class_ =  DiscoveryResponseMessage;
 DiscoveryResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -256,6 +332,14 @@ DiscoveryResponseMessage._meta_.fields["supportsMultiPayToken"] = {};
 DiscoveryResponseMessage._meta_.fields["supportsMultiPayToken"].type = Boolean;
 DiscoveryResponseMessage._meta_.fields["supportsAcknowledgement"] = {};
 DiscoveryResponseMessage._meta_.fields["supportsAcknowledgement"].type = Boolean;
+DiscoveryResponseMessage._meta_.fields["supportsPreAuth"] = {};
+DiscoveryResponseMessage._meta_.fields["supportsPreAuth"].type = Boolean;
+DiscoveryResponseMessage._meta_.fields["supportsAuth"] = {};
+DiscoveryResponseMessage._meta_.fields["supportsAuth"].type = Boolean;
+DiscoveryResponseMessage._meta_.fields["supportsVaultCard"] = {};
+DiscoveryResponseMessage._meta_.fields["supportsVaultCard"].type = Boolean;
+DiscoveryResponseMessage._meta_.fields["supportsVoidPaymentResponse"] = {};
+DiscoveryResponseMessage._meta_.fields["supportsVoidPaymentResponse"].type = Boolean;
 
 //
 // Expose the module.

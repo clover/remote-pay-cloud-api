@@ -10,6 +10,7 @@ var payments_CreditRefund = require("../payments/CreditRefund");
 var payments_Result = require("../payments/Result");
 var payments_TaxableAmountRate = require("../payments/TaxableAmountRate");
 var apps_AppTracking = require("../apps/AppTracking");
+var payments_TransactionInfo = require("../payments/TransactionInfo");
 var payments_DCCInfo = require("../payments/DCCInfo");
 var base_Reference = require("../base/Reference");
 var base_Tender = require("../base/Tender");
@@ -42,6 +43,8 @@ var Credit = function() {
   this.germanInfo = undefined;
   this.appTracking = undefined;
   this.result = undefined;
+  this.transactionInfo = undefined;
+  this.merchant = undefined;
 };
 
 
@@ -448,6 +451,45 @@ Credit.prototype.getResult = function() {
 };
 
 /**
+* Set the field value
+* Transaction information
+*
+* @memberof payments.Credit
+* @param {payments.TransactionInfo|Null} transactionInfo 
+*/
+Credit.prototype.setTransactionInfo = function(transactionInfo) {
+  this.transactionInfo = transactionInfo;
+};
+
+/**
+* Get the field value
+* Transaction information
+* @memberof payments.Credit
+* @return {payments.TransactionInfo|Null} 
+*/
+Credit.prototype.getTransactionInfo = function() {
+  return this.transactionInfo;
+};
+
+/**
+* Set the field value
+* @memberof payments.Credit
+* @param {base.Reference} merchant 
+*/
+Credit.prototype.setMerchant = function(merchant) {
+  this.merchant = merchant;
+};
+
+/**
+* Get the field value
+* @memberof payments.Credit
+* @return {base.Reference} 
+*/
+Credit.prototype.getMerchant = function() {
+  return this.merchant;
+};
+
+/**
 * @memberof payments.Credit
 * @private
 */
@@ -515,6 +557,10 @@ Credit._meta_.fields["appTracking"] = {};
 Credit._meta_.fields["appTracking"].type = apps_AppTracking;
 Credit._meta_.fields["result"] = {};
 Credit._meta_.fields["result"].type = payments_Result;
+Credit._meta_.fields["transactionInfo"] = {};
+Credit._meta_.fields["transactionInfo"].type = payments_TransactionInfo;
+Credit._meta_.fields["merchant"] = {};
+Credit._meta_.fields["merchant"].type = base_Reference;
 
 //
 // Expose the module.

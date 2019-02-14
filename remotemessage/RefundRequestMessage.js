@@ -21,6 +21,8 @@ var RefundRequestMessage = function() {
   this.amount = undefined;
   this.orderId = undefined;
   this.paymentId = undefined;
+  this.disableCloverPrinting = false;
+  this.disableReceiptSelection = false;
 };
 
 RefundRequestMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -110,6 +112,42 @@ RefundRequestMessage.prototype.getPaymentId = function() {
   return this.paymentId;
 };
 
+/**
+* Set the field value
+* @memberof remotemessage.RefundRequestMessage
+* @param {Boolean} disableCloverPrinting 
+*/
+RefundRequestMessage.prototype.setDisableCloverPrinting = function(disableCloverPrinting) {
+  this.disableCloverPrinting = disableCloverPrinting;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.RefundRequestMessage
+* @return {Boolean} 
+*/
+RefundRequestMessage.prototype.getDisableCloverPrinting = function() {
+  return this.disableCloverPrinting;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.RefundRequestMessage
+* @param {Boolean} disableReceiptSelection 
+*/
+RefundRequestMessage.prototype.setDisableReceiptSelection = function(disableReceiptSelection) {
+  this.disableReceiptSelection = disableReceiptSelection;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.RefundRequestMessage
+* @return {Boolean} 
+*/
+RefundRequestMessage.prototype.getDisableReceiptSelection = function() {
+  return this.disableReceiptSelection;
+};
+
 RefundRequestMessage._meta_ =  {fields:  {}};
 RefundRequestMessage._meta_._class_ =  RefundRequestMessage;
 RefundRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -121,6 +159,10 @@ RefundRequestMessage._meta_.fields["orderId"] = {};
 RefundRequestMessage._meta_.fields["orderId"].type = String;
 RefundRequestMessage._meta_.fields["paymentId"] = {};
 RefundRequestMessage._meta_.fields["paymentId"].type = String;
+RefundRequestMessage._meta_.fields["disableCloverPrinting"] = {};
+RefundRequestMessage._meta_.fields["disableCloverPrinting"].type = Boolean;
+RefundRequestMessage._meta_.fields["disableReceiptSelection"] = {};
+RefundRequestMessage._meta_.fields["disableReceiptSelection"].type = Boolean;
 
 //
 // Expose the module.

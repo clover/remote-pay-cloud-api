@@ -13,7 +13,7 @@ var base_Reference = require("../base/Reference");
 var Tag = function() {
   this._class_ = Tag;
   this.id = undefined;
-  this.name = undefined;
+  this.name = "";
   this.showInReporting = false;
   this.items = undefined;
   this.printers = undefined;
@@ -46,7 +46,7 @@ Tag.prototype.getId = function() {
 * Tag name
 *
 * @memberof inventory.Tag
-* @param {String} name 
+* @param {String|Null} name 
 */
 Tag.prototype.setName = function(name) {
   this.name = name;
@@ -56,7 +56,7 @@ Tag.prototype.setName = function(name) {
 * Get the field value
 * Tag name
 * @memberof inventory.Tag
-* @return {String} 
+* @return {String|Null} 
 */
 Tag.prototype.getName = function() {
   return this.name;
@@ -67,7 +67,7 @@ Tag.prototype.getName = function() {
 * True if tag is a summary label in the reporting app
 *
 * @memberof inventory.Tag
-* @param {Boolean} showInReporting 
+* @param {Boolean|Null} showInReporting 
 */
 Tag.prototype.setShowInReporting = function(showInReporting) {
   this.showInReporting = showInReporting;
@@ -77,7 +77,7 @@ Tag.prototype.setShowInReporting = function(showInReporting) {
 * Get the field value
 * True if tag is a summary label in the reporting app
 * @memberof inventory.Tag
-* @return {Boolean} 
+* @return {Boolean|Null} 
 */
 Tag.prototype.getShowInReporting = function() {
   return this.showInReporting;
@@ -88,7 +88,7 @@ Tag.prototype.getShowInReporting = function() {
 * Items associated with this tag
 *
 * @memberof inventory.Tag
-* @param {Array.<base.Reference>} items An array of 
+* @param {Null|Array.<base.Reference>} items An array of 
 */
 Tag.prototype.setItems = function(items) {
   this.items = items;
@@ -98,7 +98,7 @@ Tag.prototype.setItems = function(items) {
 * Get the field value
 * Items associated with this tag
 * @memberof inventory.Tag
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 Tag.prototype.getItems = function() {
   return this.items;
@@ -109,7 +109,7 @@ Tag.prototype.getItems = function() {
 * Printers associated with this tag
 *
 * @memberof inventory.Tag
-* @param {Array.<base.Reference>} printers An array of 
+* @param {Null|Array.<base.Reference>} printers An array of 
 */
 Tag.prototype.setPrinters = function(printers) {
   this.printers = printers;
@@ -119,7 +119,7 @@ Tag.prototype.setPrinters = function(printers) {
 * Get the field value
 * Printers associated with this tag
 * @memberof inventory.Tag
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 Tag.prototype.getPrinters = function() {
   return this.printers;

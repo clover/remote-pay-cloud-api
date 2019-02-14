@@ -5,6 +5,7 @@
  */
 
 var payments_Result = require("../payments/Result");
+var payments_AdditionalChargeAmount = require("../payments/AdditionalChargeAmount");
 var payments_ServiceChargeAmount = require("../payments/ServiceChargeAmount");
 var payments_PaymentTaxRate = require("../payments/PaymentTaxRate");
 var payments_DCCInfo = require("../payments/DCCInfo");
@@ -15,9 +16,11 @@ var payments_CardTransaction = require("../payments/CardTransaction");
 var payments_LineItemPayment = require("../payments/LineItemPayment");
 var order_VoidReason = require("../order/VoidReason");
 var apps_AppTracking = require("../apps/AppTracking");
+var payments_TransactionInfo = require("../payments/TransactionInfo");
 var base_Reference = require("../base/Reference");
 var base_Tender = require("../base/Tender");
 var payments_TransactionSettings = require("../payments/TransactionSettings");
+var payments_SignatureDisclaimer = require("../payments/SignatureDisclaimer");
 
 /**
 * @constructor
@@ -43,6 +46,7 @@ var Payment = function() {
   this.result = undefined;
   this.cardTransaction = undefined;
   this.serviceCharge = undefined;
+  this.additionalCharges = undefined;
   this.taxRates = undefined;
   this.refunds = undefined;
   this.note = undefined;
@@ -53,6 +57,10 @@ var Payment = function() {
   this.germanInfo = undefined;
   this.appTracking = undefined;
   this.cashAdvanceExtra = undefined;
+  this.transactionInfo = undefined;
+  this.signatureDisclaimer = undefined;
+  this.externalReferenceId = undefined;
+  this.merchant = undefined;
 };
 
 
@@ -425,6 +433,24 @@ Payment.prototype.getServiceCharge = function() {
 /**
 * Set the field value
 * @memberof payments.Payment
+* @param {Array.<payments.AdditionalChargeAmount>} additionalCharges An array of 
+*/
+Payment.prototype.setAdditionalCharges = function(additionalCharges) {
+  this.additionalCharges = additionalCharges;
+};
+
+/**
+* Get the field value
+* @memberof payments.Payment
+* @return {Array.<payments.AdditionalChargeAmount>} An array of 
+*/
+Payment.prototype.getAdditionalCharges = function() {
+  return this.additionalCharges;
+};
+
+/**
+* Set the field value
+* @memberof payments.Payment
 * @param {Array.<payments.PaymentTaxRate>} taxRates An array of 
 */
 Payment.prototype.setTaxRates = function(taxRates) {
@@ -604,7 +630,7 @@ Payment.prototype.getAppTracking = function() {
 * Information specific to cash advance transactions.
 *
 * @memberof payments.Payment
-* @param {payments.CashAdvanceExtra} cashAdvanceExtra 
+* @param {payments.CashAdvanceExtra|Null} cashAdvanceExtra 
 */
 Payment.prototype.setCashAdvanceExtra = function(cashAdvanceExtra) {
   this.cashAdvanceExtra = cashAdvanceExtra;
@@ -614,10 +640,91 @@ Payment.prototype.setCashAdvanceExtra = function(cashAdvanceExtra) {
 * Get the field value
 * Information specific to cash advance transactions.
 * @memberof payments.Payment
-* @return {payments.CashAdvanceExtra} 
+* @return {payments.CashAdvanceExtra|Null} 
 */
 Payment.prototype.getCashAdvanceExtra = function() {
   return this.cashAdvanceExtra;
+};
+
+/**
+* Set the field value
+* Transaction information
+*
+* @memberof payments.Payment
+* @param {payments.TransactionInfo|Null} transactionInfo 
+*/
+Payment.prototype.setTransactionInfo = function(transactionInfo) {
+  this.transactionInfo = transactionInfo;
+};
+
+/**
+* Get the field value
+* Transaction information
+* @memberof payments.Payment
+* @return {payments.TransactionInfo|Null} 
+*/
+Payment.prototype.getTransactionInfo = function() {
+  return this.transactionInfo;
+};
+
+/**
+* Set the field value
+* Information displayed to customer for storing electronic signatures
+*
+* @memberof payments.Payment
+* @param {payments.SignatureDisclaimer|Null} signatureDisclaimer 
+*/
+Payment.prototype.setSignatureDisclaimer = function(signatureDisclaimer) {
+  this.signatureDisclaimer = signatureDisclaimer;
+};
+
+/**
+* Get the field value
+* Information displayed to customer for storing electronic signatures
+* @memberof payments.Payment
+* @return {payments.SignatureDisclaimer|Null} 
+*/
+Payment.prototype.getSignatureDisclaimer = function() {
+  return this.signatureDisclaimer;
+};
+
+/**
+* Set the field value
+* The external reference id if associated with the payment
+*
+* @memberof payments.Payment
+* @param {String|Null} externalReferenceId 
+*/
+Payment.prototype.setExternalReferenceId = function(externalReferenceId) {
+  this.externalReferenceId = externalReferenceId;
+};
+
+/**
+* Get the field value
+* The external reference id if associated with the payment
+* @memberof payments.Payment
+* @return {String|Null} 
+*/
+Payment.prototype.getExternalReferenceId = function() {
+  return this.externalReferenceId;
+};
+
+/**
+* Set the field value
+* @memberof payments.Payment
+* @param {base.Reference} merchant 
+*/
+Payment.prototype.setMerchant = function(merchant) {
+  this.merchant = merchant;
+};
+
+/**
+* Get the field value
+* @memberof payments.Payment
+* @return {base.Reference} 
+*/
+Payment.prototype.getMerchant = function() {
+  return this.merchant;
 };
 
 /**
@@ -682,6 +789,9 @@ Payment._meta_.fields["cardTransaction"] = {};
 Payment._meta_.fields["cardTransaction"].type = payments_CardTransaction;
 Payment._meta_.fields["serviceCharge"] = {};
 Payment._meta_.fields["serviceCharge"].type = payments_ServiceChargeAmount;
+Payment._meta_.fields["additionalCharges"] = {};
+Payment._meta_.fields["additionalCharges"].type = Array;
+Payment._meta_.fields["additionalCharges"].elementType = payments_AdditionalChargeAmount;
 Payment._meta_.fields["taxRates"] = {};
 Payment._meta_.fields["taxRates"].type = Array;
 Payment._meta_.fields["taxRates"].elementType = payments_PaymentTaxRate;
@@ -705,6 +815,14 @@ Payment._meta_.fields["appTracking"] = {};
 Payment._meta_.fields["appTracking"].type = apps_AppTracking;
 Payment._meta_.fields["cashAdvanceExtra"] = {};
 Payment._meta_.fields["cashAdvanceExtra"].type = payments_CashAdvanceExtra;
+Payment._meta_.fields["transactionInfo"] = {};
+Payment._meta_.fields["transactionInfo"].type = payments_TransactionInfo;
+Payment._meta_.fields["signatureDisclaimer"] = {};
+Payment._meta_.fields["signatureDisclaimer"].type = payments_SignatureDisclaimer;
+Payment._meta_.fields["externalReferenceId"] = {};
+Payment._meta_.fields["externalReferenceId"].type = String;
+Payment._meta_.fields["merchant"] = {};
+Payment._meta_.fields["merchant"].type = base_Reference;
 
 //
 // Expose the module.

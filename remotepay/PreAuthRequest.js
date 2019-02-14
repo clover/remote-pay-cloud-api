@@ -5,26 +5,26 @@
  */
 
 var remotepay_TransactionType = require("../remotepay/TransactionType");
-var remotepay_TransactionRequest = require("../remotepay/TransactionRequest");
+var remotepay_BaseTransactionRequest = require("../remotepay/BaseTransactionRequest");
 
 /**
 * @constructor
-* @augments remotepay.TransactionRequest
+* @augments remotepay.BaseTransactionRequest
 * @memberof remotepay
 */
 var PreAuthRequest = function() {
-  remotepay_TransactionRequest.call(this);
-  this._superClass_ = remotepay_TransactionRequest;
+  remotepay_BaseTransactionRequest.call(this);
+  this._superClass_ = remotepay_BaseTransactionRequest;
   this._class_ = PreAuthRequest;
   this.setType(remotepay_TransactionType["AUTH"]);
 };
 
-PreAuthRequest.prototype = Object.create(remotepay_TransactionRequest.prototype);
+PreAuthRequest.prototype = Object.create(remotepay_BaseTransactionRequest.prototype);
 PreAuthRequest.prototype.constructor = PreAuthRequest;
 
 PreAuthRequest._meta_ =  {fields:  {}};
 PreAuthRequest._meta_._class_ =  PreAuthRequest;
-PreAuthRequest._meta_._superMeta_ = remotepay_TransactionRequest._meta_;
+PreAuthRequest._meta_._superMeta_ = remotepay_BaseTransactionRequest._meta_;
 
 //
 // Expose the module.

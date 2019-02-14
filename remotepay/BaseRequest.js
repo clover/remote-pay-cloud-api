@@ -13,6 +13,7 @@
 var BaseRequest = function() {
   this._class_ = BaseRequest;
   this.requestId = undefined;
+  this.version = undefined;
 };
 
 
@@ -35,6 +36,27 @@ BaseRequest.prototype.setRequestId = function(requestId) {
 */
 BaseRequest.prototype.getRequestId = function() {
   return this.requestId;
+};
+
+/**
+* Set the field value
+* Identifier for the version
+*
+* @memberof remotepay.BaseRequest
+* @param {Number|Null} version must be an integer, 
+*/
+BaseRequest.prototype.setVersion = function(version) {
+  this.version = version;
+};
+
+/**
+* Get the field value
+* Identifier for the version
+* @memberof remotepay.BaseRequest
+* @return {Number|Null} must be an integer, 
+*/
+BaseRequest.prototype.getVersion = function() {
+  return this.version;
 };
 
 /**
@@ -65,6 +87,8 @@ BaseRequest._meta_ =  {fields:  {}};
 BaseRequest._meta_._class_ =  BaseRequest;
 BaseRequest._meta_.fields["requestId"] = {};
 BaseRequest._meta_.fields["requestId"].type = String;
+BaseRequest._meta_.fields["version"] = {};
+BaseRequest._meta_.fields["version"].type = Number;
 
 //
 // Expose the module.

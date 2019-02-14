@@ -4,9 +4,12 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var payments_CardTransaction = require("../payments/CardTransaction");
+var payments_AdditionalChargeAmount = require("../payments/AdditionalChargeAmount");
 var payments_TaxableAmountRate = require("../payments/TaxableAmountRate");
 var apps_AppTracking = require("../apps/AppTracking");
 var payments_ServiceChargeAmount = require("../payments/ServiceChargeAmount");
+var payments_TransactionInfo = require("../payments/TransactionInfo");
 var base_Reference = require("../base/Reference");
 var base_Tender = require("../base/Tender");
 var payments_GermanInfo = require("../payments/GermanInfo");
@@ -31,8 +34,14 @@ var Refund = function() {
   this.overrideMerchantTender = undefined;
   this.taxableAmountRates = undefined;
   this.serviceChargeAmount = undefined;
+  this.additionalCharges = undefined;
   this.germanInfo = undefined;
   this.appTracking = undefined;
+  this.voided = undefined;
+  this.voidReason = undefined;
+  this.cardTransaction = undefined;
+  this.transactionInfo = undefined;
+  this.merchant = undefined;
 };
 
 
@@ -320,6 +329,24 @@ Refund.prototype.getServiceChargeAmount = function() {
 
 /**
 * Set the field value
+* @memberof payments.Refund
+* @param {Array.<payments.AdditionalChargeAmount>} additionalCharges An array of 
+*/
+Refund.prototype.setAdditionalCharges = function(additionalCharges) {
+  this.additionalCharges = additionalCharges;
+};
+
+/**
+* Get the field value
+* @memberof payments.Refund
+* @return {Array.<payments.AdditionalChargeAmount>} An array of 
+*/
+Refund.prototype.getAdditionalCharges = function() {
+  return this.additionalCharges;
+};
+
+/**
+* Set the field value
 * German region-specific information
 *
 * @memberof payments.Refund
@@ -358,6 +385,102 @@ Refund.prototype.setAppTracking = function(appTracking) {
 */
 Refund.prototype.getAppTracking = function() {
   return this.appTracking;
+};
+
+/**
+* Set the field value
+* @memberof payments.Refund
+* @param {Boolean} voided 
+*/
+Refund.prototype.setVoided = function(voided) {
+  this.voided = voided;
+};
+
+/**
+* Get the field value
+* @memberof payments.Refund
+* @return {Boolean} 
+*/
+Refund.prototype.getVoided = function() {
+  return this.voided;
+};
+
+/**
+* Set the field value
+* @memberof payments.Refund
+* @param {String} voidReason 
+*/
+Refund.prototype.setVoidReason = function(voidReason) {
+  this.voidReason = voidReason;
+};
+
+/**
+* Get the field value
+* @memberof payments.Refund
+* @return {String} 
+*/
+Refund.prototype.getVoidReason = function() {
+  return this.voidReason;
+};
+
+/**
+* Set the field value
+* Information about the card used for credit or debit card refunds
+*
+* @memberof payments.Refund
+* @param {payments.CardTransaction} cardTransaction 
+*/
+Refund.prototype.setCardTransaction = function(cardTransaction) {
+  this.cardTransaction = cardTransaction;
+};
+
+/**
+* Get the field value
+* Information about the card used for credit or debit card refunds
+* @memberof payments.Refund
+* @return {payments.CardTransaction} 
+*/
+Refund.prototype.getCardTransaction = function() {
+  return this.cardTransaction;
+};
+
+/**
+* Set the field value
+* Transaction information
+*
+* @memberof payments.Refund
+* @param {payments.TransactionInfo|Null} transactionInfo 
+*/
+Refund.prototype.setTransactionInfo = function(transactionInfo) {
+  this.transactionInfo = transactionInfo;
+};
+
+/**
+* Get the field value
+* Transaction information
+* @memberof payments.Refund
+* @return {payments.TransactionInfo|Null} 
+*/
+Refund.prototype.getTransactionInfo = function() {
+  return this.transactionInfo;
+};
+
+/**
+* Set the field value
+* @memberof payments.Refund
+* @param {base.Reference} merchant 
+*/
+Refund.prototype.setMerchant = function(merchant) {
+  this.merchant = merchant;
+};
+
+/**
+* Get the field value
+* @memberof payments.Refund
+* @return {base.Reference} 
+*/
+Refund.prototype.getMerchant = function() {
+  return this.merchant;
 };
 
 /**
@@ -416,10 +539,23 @@ Refund._meta_.fields["taxableAmountRates"].type = Array;
 Refund._meta_.fields["taxableAmountRates"].elementType = payments_TaxableAmountRate;
 Refund._meta_.fields["serviceChargeAmount"] = {};
 Refund._meta_.fields["serviceChargeAmount"].type = payments_ServiceChargeAmount;
+Refund._meta_.fields["additionalCharges"] = {};
+Refund._meta_.fields["additionalCharges"].type = Array;
+Refund._meta_.fields["additionalCharges"].elementType = payments_AdditionalChargeAmount;
 Refund._meta_.fields["germanInfo"] = {};
 Refund._meta_.fields["germanInfo"].type = payments_GermanInfo;
 Refund._meta_.fields["appTracking"] = {};
 Refund._meta_.fields["appTracking"].type = apps_AppTracking;
+Refund._meta_.fields["voided"] = {};
+Refund._meta_.fields["voided"].type = Boolean;
+Refund._meta_.fields["voidReason"] = {};
+Refund._meta_.fields["voidReason"].type = String;
+Refund._meta_.fields["cardTransaction"] = {};
+Refund._meta_.fields["cardTransaction"].type = payments_CardTransaction;
+Refund._meta_.fields["transactionInfo"] = {};
+Refund._meta_.fields["transactionInfo"].type = payments_TransactionInfo;
+Refund._meta_.fields["merchant"] = {};
+Refund._meta_.fields["merchant"].type = base_Reference;
 
 //
 // Expose the module.

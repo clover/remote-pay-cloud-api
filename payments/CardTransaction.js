@@ -10,6 +10,7 @@ var base_Reference = require("../base/Reference");
 var payments_CardEntryType = require("../payments/CardEntryType");
 var payments_VaultedCard = require("../payments/VaultedCard");
 var payments_CardTransactionType = require("../payments/CardTransactionType");
+var payments_GatewayTxState = require("../payments/GatewayTxState");
 var payments_AVSResult = require("../payments/AVSResult");
 
 /**
@@ -36,6 +37,8 @@ var CardTransaction = function() {
   this.cardholderName = undefined;
   this.token = undefined;
   this.vaultedCard = undefined;
+  this.gatewayTxState = undefined;
+  this.currency = undefined;
 };
 
 
@@ -236,6 +239,8 @@ CardTransaction.prototype.getTransactionNo = function() {
 
 /**
 * Set the field value
+* A state inferred from transaction type and whether the gateway captured the transaction
+*
 * @memberof payments.CardTransaction
 * @param {payments.CardTransactionState} state 
 */
@@ -245,6 +250,7 @@ CardTransaction.prototype.setState = function(state) {
 
 /**
 * Get the field value
+* A state inferred from transaction type and whether the gateway captured the transaction
 * @memberof payments.CardTransaction
 * @return {payments.CardTransactionState} 
 */
@@ -385,6 +391,48 @@ CardTransaction.prototype.getVaultedCard = function() {
 };
 
 /**
+* Set the field value
+* The state as currently recorded. This differs from the legacy 'state' field. The legacy 'state' field is calculated from the 'type' field and whether the transaction was captured.
+*
+* @memberof payments.CardTransaction
+* @param {payments.GatewayTxState} gatewayTxState 
+*/
+CardTransaction.prototype.setGatewayTxState = function(gatewayTxState) {
+  this.gatewayTxState = gatewayTxState;
+};
+
+/**
+* Get the field value
+* The state as currently recorded. This differs from the legacy 'state' field. The legacy 'state' field is calculated from the 'type' field and whether the transaction was captured.
+* @memberof payments.CardTransaction
+* @return {payments.GatewayTxState} 
+*/
+CardTransaction.prototype.getGatewayTxState = function() {
+  return this.gatewayTxState;
+};
+
+/**
+* Set the field value
+* Currency code
+*
+* @memberof payments.CardTransaction
+* @param {String} currency 
+*/
+CardTransaction.prototype.setCurrency = function(currency) {
+  this.currency = currency;
+};
+
+/**
+* Get the field value
+* Currency code
+* @memberof payments.CardTransaction
+* @return {String} 
+*/
+CardTransaction.prototype.getCurrency = function() {
+  return this.currency;
+};
+
+/**
 * @memberof payments.CardTransaction
 * @private
 */
@@ -446,6 +494,10 @@ CardTransaction._meta_.fields["token"] = {};
 CardTransaction._meta_.fields["token"].type = String;
 CardTransaction._meta_.fields["vaultedCard"] = {};
 CardTransaction._meta_.fields["vaultedCard"].type = payments_VaultedCard;
+CardTransaction._meta_.fields["gatewayTxState"] = {};
+CardTransaction._meta_.fields["gatewayTxState"].type = payments_GatewayTxState;
+CardTransaction._meta_.fields["currency"] = {};
+CardTransaction._meta_.fields["currency"].type = String;
 
 //
 // Expose the module.

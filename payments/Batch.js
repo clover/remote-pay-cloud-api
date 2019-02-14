@@ -5,6 +5,7 @@
  */
 
 var payments_BatchType = require("../payments/BatchType");
+var payments_BatchTransactions = require("../payments/BatchTransactions");
 var payments_BatchDetail = require("../payments/BatchDetail");
 var payments_BatchState = require("../payments/BatchState");
 
@@ -27,6 +28,7 @@ var Batch = function() {
   this.createdTime = undefined;
   this.modifiedTime = undefined;
   this.batchDetails = undefined;
+  this.batchTransactions = undefined;
 };
 
 
@@ -286,6 +288,27 @@ Batch.prototype.getBatchDetails = function() {
 };
 
 /**
+* Set the field value
+* List of payments, refunds, and gift card transaction reference objects in the batch
+*
+* @memberof payments.Batch
+* @param {payments.BatchTransactions} batchTransactions 
+*/
+Batch.prototype.setBatchTransactions = function(batchTransactions) {
+  this.batchTransactions = batchTransactions;
+};
+
+/**
+* Get the field value
+* List of payments, refunds, and gift card transaction reference objects in the batch
+* @memberof payments.Batch
+* @return {payments.BatchTransactions} 
+*/
+Batch.prototype.getBatchTransactions = function() {
+  return this.batchTransactions;
+};
+
+/**
 * @memberof payments.Batch
 * @private
 */
@@ -337,6 +360,8 @@ Batch._meta_.fields["modifiedTime"] = {};
 Batch._meta_.fields["modifiedTime"].type = Number;
 Batch._meta_.fields["batchDetails"] = {};
 Batch._meta_.fields["batchDetails"].type = payments_BatchDetail;
+Batch._meta_.fields["batchTransactions"] = {};
+Batch._meta_.fields["batchTransactions"].type = payments_BatchTransactions;
 
 //
 // Expose the module.

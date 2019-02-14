@@ -19,6 +19,9 @@ var VoidPaymentRequest = function() {
   this.paymentId = undefined;
   this.employeeId = undefined;
   this.voidReason = undefined;
+  this.disablePrinting = undefined;
+  this.disableReceiptSelection = undefined;
+  this.extras = undefined;
 };
 
 VoidPaymentRequest.prototype = Object.create(remotepay_BaseRequest.prototype);
@@ -108,6 +111,69 @@ VoidPaymentRequest.prototype.getVoidReason = function() {
   return this.voidReason;
 };
 
+/**
+* Set the field value
+* If true, then do not print using the clover printer.  Return print information.
+*
+* @memberof remotepay.VoidPaymentRequest
+* @param {Boolean|Null} disablePrinting 
+*/
+VoidPaymentRequest.prototype.setDisablePrinting = function(disablePrinting) {
+  this.disablePrinting = disablePrinting;
+};
+
+/**
+* Get the field value
+* If true, then do not print using the clover printer.  Return print information.
+* @memberof remotepay.VoidPaymentRequest
+* @return {Boolean|Null} 
+*/
+VoidPaymentRequest.prototype.getDisablePrinting = function() {
+  return this.disablePrinting;
+};
+
+/**
+* Set the field value
+* Do not show the receipt options screen
+*
+* @memberof remotepay.VoidPaymentRequest
+* @param {Boolean|Null} disableReceiptSelection 
+*/
+VoidPaymentRequest.prototype.setDisableReceiptSelection = function(disableReceiptSelection) {
+  this.disableReceiptSelection = disableReceiptSelection;
+};
+
+/**
+* Get the field value
+* Do not show the receipt options screen
+* @memberof remotepay.VoidPaymentRequest
+* @return {Boolean|Null} 
+*/
+VoidPaymentRequest.prototype.getDisableReceiptSelection = function() {
+  return this.disableReceiptSelection;
+};
+
+/**
+* Set the field value
+* Extra pass-through data used by external systems.
+*
+* @memberof remotepay.VoidPaymentRequest
+* @param {Object.<String,String>} extras A map of <String> to <>
+*/
+VoidPaymentRequest.prototype.setExtras = function(extras) {
+  this.extras = extras;
+};
+
+/**
+* Get the field value
+* Extra pass-through data used by external systems.
+* @memberof remotepay.VoidPaymentRequest
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+VoidPaymentRequest.prototype.getExtras = function() {
+  return this.extras;
+};
+
 VoidPaymentRequest._meta_ =  {fields:  {}};
 VoidPaymentRequest._meta_._class_ =  VoidPaymentRequest;
 VoidPaymentRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
@@ -119,6 +185,12 @@ VoidPaymentRequest._meta_.fields["employeeId"] = {};
 VoidPaymentRequest._meta_.fields["employeeId"].type = String;
 VoidPaymentRequest._meta_.fields["voidReason"] = {};
 VoidPaymentRequest._meta_.fields["voidReason"].type = String;
+VoidPaymentRequest._meta_.fields["disablePrinting"] = {};
+VoidPaymentRequest._meta_.fields["disablePrinting"].type = Boolean;
+VoidPaymentRequest._meta_.fields["disableReceiptSelection"] = {};
+VoidPaymentRequest._meta_.fields["disableReceiptSelection"].type = Boolean;
+VoidPaymentRequest._meta_.fields["extras"] = {};
+VoidPaymentRequest._meta_.fields["extras"].type = Object;
 
 //
 // Expose the module.

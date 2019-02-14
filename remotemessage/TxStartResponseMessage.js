@@ -22,6 +22,8 @@ var TxStartResponseMessage = function() {
   this.success = undefined;
   this.order = undefined;
   this.externalPaymentId = undefined;
+  this.message = undefined;
+  this.reason = undefined;
   this.result = undefined;
   this.requestInfo = undefined;
 };
@@ -95,6 +97,42 @@ TxStartResponseMessage.prototype.getExternalPaymentId = function() {
 /**
 * Set the field value
 * @memberof remotemessage.TxStartResponseMessage
+* @param {String} message 
+*/
+TxStartResponseMessage.prototype.setMessage = function(message) {
+  this.message = message;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.TxStartResponseMessage
+* @return {String} 
+*/
+TxStartResponseMessage.prototype.getMessage = function() {
+  return this.message;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.TxStartResponseMessage
+* @param {String} reason 
+*/
+TxStartResponseMessage.prototype.setReason = function(reason) {
+  this.reason = reason;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.TxStartResponseMessage
+* @return {String} 
+*/
+TxStartResponseMessage.prototype.getReason = function() {
+  return this.reason;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.TxStartResponseMessage
 * @param {remotemessage.TxStartResponseResult} result 
 */
 TxStartResponseMessage.prototype.setResult = function(result) {
@@ -140,6 +178,10 @@ TxStartResponseMessage._meta_.fields["order"] = {};
 TxStartResponseMessage._meta_.fields["order"].type = order_Order;
 TxStartResponseMessage._meta_.fields["externalPaymentId"] = {};
 TxStartResponseMessage._meta_.fields["externalPaymentId"].type = String;
+TxStartResponseMessage._meta_.fields["message"] = {};
+TxStartResponseMessage._meta_.fields["message"].type = String;
+TxStartResponseMessage._meta_.fields["reason"] = {};
+TxStartResponseMessage._meta_.fields["reason"].type = String;
 TxStartResponseMessage._meta_.fields["result"] = {};
 TxStartResponseMessage._meta_.fields["result"].type = remotemessage_TxStartResponseResult;
 TxStartResponseMessage._meta_.fields["requestInfo"] = {};

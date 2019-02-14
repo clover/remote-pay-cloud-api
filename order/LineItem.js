@@ -9,6 +9,7 @@ var inventory_TaxRate = require("../inventory/TaxRate");
 var payments_LineItemPayment = require("../payments/LineItemPayment");
 var order_Discount = require("../order/Discount");
 var base_Reference = require("../base/Reference");
+var payments_Refund = require("../payments/Refund");
 
 /**
 * @constructor
@@ -22,6 +23,8 @@ var LineItem = function() {
   this.name = undefined;
   this.alternateName = undefined;
   this.price = undefined;
+  this.priceWithModifiers = undefined;
+  this.priceWithModifiersAndItemAndOrderDiscounts = undefined;
   this.unitQty = undefined;
   this.unitName = undefined;
   this.itemCode = undefined;
@@ -33,10 +36,13 @@ var LineItem = function() {
   this.createdTime = undefined;
   this.orderClientCreatedTime = undefined;
   this.discounts = undefined;
+  this.orderLevelDiscounts = undefined;
   this.discountAmount = undefined;
+  this.orderLevelDiscountAmount = undefined;
   this.exchanged = false;
   this.modifications = undefined;
   this.refunded = false;
+  this.refund = undefined;
   this.isRevenue = false;
   this.taxRates = undefined;
   this.payments = undefined;
@@ -89,7 +95,7 @@ LineItem.prototype.getOrderRef = function() {
 
 /**
 * Set the field value
-* A reference to the inventory item that was used to create this line item.
+* A reference to the inventory item that was used to create this line item. Note that since this a reference the item can be changed and deleted any time such that it no longer matches this line item.
 *
 * @memberof order.LineItem
 * @param {Null|base.Reference} item 
@@ -100,7 +106,7 @@ LineItem.prototype.setItem = function(item) {
 
 /**
 * Get the field value
-* A reference to the inventory item that was used to create this line item.
+* A reference to the inventory item that was used to create this line item. Note that since this a reference the item can be changed and deleted any time such that it no longer matches this line item.
 * @memberof order.LineItem
 * @return {Null|base.Reference} 
 */
@@ -110,7 +116,7 @@ LineItem.prototype.getItem = function() {
 
 /**
 * Set the field value
-* Line item name
+* Line item name.
 *
 * @memberof order.LineItem
 * @param {Null|String} name 
@@ -121,7 +127,7 @@ LineItem.prototype.setName = function(name) {
 
 /**
 * Get the field value
-* Line item name
+* Line item name.
 * @memberof order.LineItem
 * @return {Null|String} 
 */
@@ -152,7 +158,7 @@ LineItem.prototype.getAlternateName = function() {
 
 /**
 * Set the field value
-* Price of the item, typically in cents; use priceType and merchant currency to determine actual item price.
+* Price of the item, typically in cents of merchant currency. When unit quantity is not null then this is the price for a single unit and is not the complete price.
 *
 * @memberof order.LineItem
 * @param {Number} price must be a long integer
@@ -163,7 +169,7 @@ LineItem.prototype.setPrice = function(price) {
 
 /**
 * Get the field value
-* Price of the item, typically in cents; use priceType and merchant currency to determine actual item price.
+* Price of the item, typically in cents of merchant currency. When unit quantity is not null then this is the price for a single unit and is not the complete price.
 * @memberof order.LineItem
 * @return {Number} must be a long integer
 */
@@ -173,7 +179,49 @@ LineItem.prototype.getPrice = function() {
 
 /**
 * Set the field value
-* Unit quantity if this line item is priced by quantity instead of having a fixed price.
+* Price of item after adding all modifications. This is used only for reporting.
+*
+* @memberof order.LineItem
+* @param {Number} priceWithModifiers must be a long integer
+*/
+LineItem.prototype.setPriceWithModifiers = function(priceWithModifiers) {
+  this.priceWithModifiers = priceWithModifiers;
+};
+
+/**
+* Get the field value
+* Price of item after adding all modifications. This is used only for reporting.
+* @memberof order.LineItem
+* @return {Number} must be a long integer
+*/
+LineItem.prototype.getPriceWithModifiers = function() {
+  return this.priceWithModifiers;
+};
+
+/**
+* Set the field value
+* Price of item after adding all modifications and subtracting all line item and order level discounts. This is used only for reporting.
+*
+* @memberof order.LineItem
+* @param {Number} priceWithModifiersAndItemAndOrderDiscounts must be a long integer
+*/
+LineItem.prototype.setPriceWithModifiersAndItemAndOrderDiscounts = function(priceWithModifiersAndItemAndOrderDiscounts) {
+  this.priceWithModifiersAndItemAndOrderDiscounts = priceWithModifiersAndItemAndOrderDiscounts;
+};
+
+/**
+* Get the field value
+* Price of item after adding all modifications and subtracting all line item and order level discounts. This is used only for reporting.
+* @memberof order.LineItem
+* @return {Number} must be a long integer
+*/
+LineItem.prototype.getPriceWithModifiersAndItemAndOrderDiscounts = function() {
+  return this.priceWithModifiersAndItemAndOrderDiscounts;
+};
+
+/**
+* Set the field value
+* Unit quantity if this line item is priced by quantity, or null if the item is not priced by quantity. The value is a fixed-point integer with scaling factor of 1000 (e.g. if charging by ounces then the value should be set to 2500 for 2.5 ounces). To compute the complete price perform the following calculation: PRICE * (UNIT QTY / 1000).
 *
 * @memberof order.LineItem
 * @param {Null|Number} unitQty must be an integer
@@ -184,7 +232,7 @@ LineItem.prototype.setUnitQty = function(unitQty) {
 
 /**
 * Get the field value
-* Unit quantity if this line item is priced by quantity instead of having a fixed price.
+* Unit quantity if this line item is priced by quantity, or null if the item is not priced by quantity. The value is a fixed-point integer with scaling factor of 1000 (e.g. if charging by ounces then the value should be set to 2500 for 2.5 ounces). To compute the complete price perform the following calculation: PRICE * (UNIT QTY / 1000).
 * @memberof order.LineItem
 * @return {Null|Number} must be an integer
 */
@@ -194,7 +242,7 @@ LineItem.prototype.getUnitQty = function() {
 
 /**
 * Set the field value
-* Unit name (e.g. oz, lb, etc.)
+* Unit name (e.g. oz, lb, etc) if priced by unit, otherwise null.
 *
 * @memberof order.LineItem
 * @param {Null|String} unitName 
@@ -205,7 +253,7 @@ LineItem.prototype.setUnitName = function(unitName) {
 
 /**
 * Get the field value
-* Unit name (e.g. oz, lb, etc.)
+* Unit name (e.g. oz, lb, etc) if priced by unit, otherwise null.
 * @memberof order.LineItem
 * @return {Null|String} 
 */
@@ -362,7 +410,7 @@ LineItem.prototype.getOrderClientCreatedTime = function() {
 
 /**
 * Set the field value
-* List of references to of Order discounts.
+* List of discounts applied to the line item. Each line item on an order may have zero or more percentage or amount discounts. Line item discounts are separate from order-level discounts (which are applied to the order subtotal).
 *
 * @memberof order.LineItem
 * @param {Array.<order.Discount>} discounts An array of 
@@ -373,7 +421,7 @@ LineItem.prototype.setDiscounts = function(discounts) {
 
 /**
 * Get the field value
-* List of references to of Order discounts.
+* List of discounts applied to the line item. Each line item on an order may have zero or more percentage or amount discounts. Line item discounts are separate from order-level discounts (which are applied to the order subtotal).
 * @memberof order.LineItem
 * @return {Array.<order.Discount>} An array of 
 */
@@ -383,7 +431,28 @@ LineItem.prototype.getDiscounts = function() {
 
 /**
 * Set the field value
-* Unnamed fixed discount amount in cents.
+* List of order level discounts attributed to this line item. Amounts are rounded to the nearest penny. This is for reporting purposes only. These rounding approximates are not used when calculating the transaction.
+*
+* @memberof order.LineItem
+* @param {Array.<order.Discount>} orderLevelDiscounts An array of 
+*/
+LineItem.prototype.setOrderLevelDiscounts = function(orderLevelDiscounts) {
+  this.orderLevelDiscounts = orderLevelDiscounts;
+};
+
+/**
+* Get the field value
+* List of order level discounts attributed to this line item. Amounts are rounded to the nearest penny. This is for reporting purposes only. These rounding approximates are not used when calculating the transaction.
+* @memberof order.LineItem
+* @return {Array.<order.Discount>} An array of 
+*/
+LineItem.prototype.getOrderLevelDiscounts = function() {
+  return this.orderLevelDiscounts;
+};
+
+/**
+* Set the field value
+* Unnamed fixed discount amount in cents. Or, in reporting, this may be the calculated sum of all the line item discounts.
 *
 * @memberof order.LineItem
 * @param {Null|Number} discountAmount must be a long integer
@@ -394,12 +463,33 @@ LineItem.prototype.setDiscountAmount = function(discountAmount) {
 
 /**
 * Get the field value
-* Unnamed fixed discount amount in cents.
+* Unnamed fixed discount amount in cents. Or, in reporting, this may be the calculated sum of all the line item discounts.
 * @memberof order.LineItem
 * @return {Null|Number} must be a long integer
 */
 LineItem.prototype.getDiscountAmount = function() {
   return this.discountAmount;
+};
+
+/**
+* Set the field value
+* The calculated sum of order level discounts attributed, approximately to the nearest cent, to this the line item. This is only used in reporting.
+*
+* @memberof order.LineItem
+* @param {Number} orderLevelDiscountAmount must be a long integer
+*/
+LineItem.prototype.setOrderLevelDiscountAmount = function(orderLevelDiscountAmount) {
+  this.orderLevelDiscountAmount = orderLevelDiscountAmount;
+};
+
+/**
+* Get the field value
+* The calculated sum of order level discounts attributed, approximately to the nearest cent, to this the line item. This is only used in reporting.
+* @memberof order.LineItem
+* @return {Number} must be a long integer
+*/
+LineItem.prototype.getOrderLevelDiscountAmount = function() {
+  return this.orderLevelDiscountAmount;
 };
 
 /**
@@ -460,6 +550,27 @@ LineItem.prototype.setRefunded = function(refunded) {
 */
 LineItem.prototype.getRefunded = function() {
   return this.refunded;
+};
+
+/**
+* Set the field value
+* direct item refund
+*
+* @memberof order.LineItem
+* @param {payments.Refund} refund 
+*/
+LineItem.prototype.setRefund = function(refund) {
+  this.refund = refund;
+};
+
+/**
+* Get the field value
+* direct item refund
+* @memberof order.LineItem
+* @return {payments.Refund} 
+*/
+LineItem.prototype.getRefund = function() {
+  return this.refund;
 };
 
 /**
@@ -605,6 +716,10 @@ LineItem._meta_.fields["alternateName"] = {};
 LineItem._meta_.fields["alternateName"].type = String;
 LineItem._meta_.fields["price"] = {};
 LineItem._meta_.fields["price"].type = Number;
+LineItem._meta_.fields["priceWithModifiers"] = {};
+LineItem._meta_.fields["priceWithModifiers"].type = Number;
+LineItem._meta_.fields["priceWithModifiersAndItemAndOrderDiscounts"] = {};
+LineItem._meta_.fields["priceWithModifiersAndItemAndOrderDiscounts"].type = Number;
 LineItem._meta_.fields["unitQty"] = {};
 LineItem._meta_.fields["unitQty"].type = Number;
 LineItem._meta_.fields["unitName"] = {};
@@ -628,8 +743,13 @@ LineItem._meta_.fields["orderClientCreatedTime"].type = Number;
 LineItem._meta_.fields["discounts"] = {};
 LineItem._meta_.fields["discounts"].type = Array;
 LineItem._meta_.fields["discounts"].elementType = order_Discount;
+LineItem._meta_.fields["orderLevelDiscounts"] = {};
+LineItem._meta_.fields["orderLevelDiscounts"].type = Array;
+LineItem._meta_.fields["orderLevelDiscounts"].elementType = order_Discount;
 LineItem._meta_.fields["discountAmount"] = {};
 LineItem._meta_.fields["discountAmount"].type = Number;
+LineItem._meta_.fields["orderLevelDiscountAmount"] = {};
+LineItem._meta_.fields["orderLevelDiscountAmount"].type = Number;
 LineItem._meta_.fields["exchanged"] = {};
 LineItem._meta_.fields["exchanged"].type = Boolean;
 LineItem._meta_.fields["modifications"] = {};
@@ -637,6 +757,8 @@ LineItem._meta_.fields["modifications"].type = Array;
 LineItem._meta_.fields["modifications"].elementType = order_Modification;
 LineItem._meta_.fields["refunded"] = {};
 LineItem._meta_.fields["refunded"].type = Boolean;
+LineItem._meta_.fields["refund"] = {};
+LineItem._meta_.fields["refund"].type = payments_Refund;
 LineItem._meta_.fields["isRevenue"] = {};
 LineItem._meta_.fields["isRevenue"].type = Boolean;
 LineItem._meta_.fields["taxRates"] = {};

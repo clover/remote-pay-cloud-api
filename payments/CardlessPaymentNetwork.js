@@ -10,7 +10,8 @@
 * @enum {string}
 */
 CardlessPaymentNetwork = {
-  ALIPAY : "ALIPAY"
+  ALIPAY : "ALIPAY",
+  WECHAT : "WECHAT"
 };
 
 

@@ -5,26 +5,26 @@
  */
 
 var remotepay_TransactionType = require("../remotepay/TransactionType");
-var remotepay_TransactionRequest = require("../remotepay/TransactionRequest");
+var remotepay_BaseTransactionRequest = require("../remotepay/BaseTransactionRequest");
 
 /**
 * @constructor
-* @augments remotepay.TransactionRequest
+* @augments remotepay.BaseTransactionRequest
 * @memberof remotepay
 */
 var ManualRefundRequest = function() {
-  remotepay_TransactionRequest.call(this);
-  this._superClass_ = remotepay_TransactionRequest;
+  remotepay_BaseTransactionRequest.call(this);
+  this._superClass_ = remotepay_BaseTransactionRequest;
   this._class_ = ManualRefundRequest;
   this.setType(remotepay_TransactionType["CREDIT"]);
 };
 
-ManualRefundRequest.prototype = Object.create(remotepay_TransactionRequest.prototype);
+ManualRefundRequest.prototype = Object.create(remotepay_BaseTransactionRequest.prototype);
 ManualRefundRequest.prototype.constructor = ManualRefundRequest;
 
 ManualRefundRequest._meta_ =  {fields:  {}};
 ManualRefundRequest._meta_._class_ =  ManualRefundRequest;
-ManualRefundRequest._meta_._superMeta_ = remotepay_TransactionRequest._meta_;
+ManualRefundRequest._meta_._superMeta_ = remotepay_BaseTransactionRequest._meta_;
 
 //
 // Expose the module.

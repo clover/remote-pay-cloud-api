@@ -5,6 +5,7 @@
  */
 
 var remotemessage_Method = require("../remotemessage/Method");
+var remotemessage_ResultStatus = require("../remotemessage/ResultStatus");
 var remotemessage_Message = require("../remotemessage/Message");
 var payments_Payment = require("../payments/Payment");
 var remotemessage_QueryStatus = require("../remotemessage/QueryStatus");
@@ -19,14 +20,37 @@ var RetrievePaymentResponseMessage = function() {
   this._superClass_ = remotemessage_Message;
   this._class_ = RetrievePaymentResponseMessage;
   this.setMethod(remotemessage_Method["RETRIEVE_PAYMENT_RESPONSE"]);
+  this.status = undefined;
   this.reason = undefined;
   this.externalPaymentId = undefined;
   this.queryStatus = undefined;
+  this.message = undefined;
   this.payment = undefined;
 };
 
 RetrievePaymentResponseMessage.prototype = Object.create(remotemessage_Message.prototype);
 RetrievePaymentResponseMessage.prototype.constructor = RetrievePaymentResponseMessage;
+
+/**
+* Set the field value
+* The status of the request.
+*
+* @memberof remotemessage.RetrievePaymentResponseMessage
+* @param {remotemessage.ResultStatus} status 
+*/
+RetrievePaymentResponseMessage.prototype.setStatus = function(status) {
+  this.status = status;
+};
+
+/**
+* Get the field value
+* The status of the request.
+* @memberof remotemessage.RetrievePaymentResponseMessage
+* @return {remotemessage.ResultStatus} 
+*/
+RetrievePaymentResponseMessage.prototype.getStatus = function() {
+  return this.status;
+};
 
 /**
 * Set the field value
@@ -93,6 +117,24 @@ RetrievePaymentResponseMessage.prototype.getQueryStatus = function() {
 
 /**
 * Set the field value
+* @memberof remotemessage.RetrievePaymentResponseMessage
+* @param {String} message 
+*/
+RetrievePaymentResponseMessage.prototype.setMessage = function(message) {
+  this.message = message;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.RetrievePaymentResponseMessage
+* @return {String} 
+*/
+RetrievePaymentResponseMessage.prototype.getMessage = function() {
+  return this.message;
+};
+
+/**
+* Set the field value
 * Payment information
 *
 * @memberof remotemessage.RetrievePaymentResponseMessage
@@ -115,12 +157,16 @@ RetrievePaymentResponseMessage.prototype.getPayment = function() {
 RetrievePaymentResponseMessage._meta_ =  {fields:  {}};
 RetrievePaymentResponseMessage._meta_._class_ =  RetrievePaymentResponseMessage;
 RetrievePaymentResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
+RetrievePaymentResponseMessage._meta_.fields["status"] = {};
+RetrievePaymentResponseMessage._meta_.fields["status"].type = remotemessage_ResultStatus;
 RetrievePaymentResponseMessage._meta_.fields["reason"] = {};
 RetrievePaymentResponseMessage._meta_.fields["reason"].type = String;
 RetrievePaymentResponseMessage._meta_.fields["externalPaymentId"] = {};
 RetrievePaymentResponseMessage._meta_.fields["externalPaymentId"].type = String;
 RetrievePaymentResponseMessage._meta_.fields["queryStatus"] = {};
 RetrievePaymentResponseMessage._meta_.fields["queryStatus"].type = remotemessage_QueryStatus;
+RetrievePaymentResponseMessage._meta_.fields["message"] = {};
+RetrievePaymentResponseMessage._meta_.fields["message"].type = String;
 RetrievePaymentResponseMessage._meta_.fields["payment"] = {};
 RetrievePaymentResponseMessage._meta_.fields["payment"].type = payments_Payment;
 

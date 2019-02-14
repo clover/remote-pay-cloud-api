@@ -21,6 +21,8 @@ var VoidPaymentMessage = function() {
   this.setMethod(remotemessage_Method["VOID_PAYMENT"]);
   this.payment = undefined;
   this.voidReason = undefined;
+  this.disableCloverPrinting = false;
+  this.disableReceiptSelection = false;
 };
 
 VoidPaymentMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -65,6 +67,42 @@ VoidPaymentMessage.prototype.getVoidReason = function() {
   return this.voidReason;
 };
 
+/**
+* Set the field value
+* @memberof remotemessage.VoidPaymentMessage
+* @param {Boolean} disableCloverPrinting 
+*/
+VoidPaymentMessage.prototype.setDisableCloverPrinting = function(disableCloverPrinting) {
+  this.disableCloverPrinting = disableCloverPrinting;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.VoidPaymentMessage
+* @return {Boolean} 
+*/
+VoidPaymentMessage.prototype.getDisableCloverPrinting = function() {
+  return this.disableCloverPrinting;
+};
+
+/**
+* Set the field value
+* @memberof remotemessage.VoidPaymentMessage
+* @param {Boolean} disableReceiptSelection 
+*/
+VoidPaymentMessage.prototype.setDisableReceiptSelection = function(disableReceiptSelection) {
+  this.disableReceiptSelection = disableReceiptSelection;
+};
+
+/**
+* Get the field value
+* @memberof remotemessage.VoidPaymentMessage
+* @return {Boolean} 
+*/
+VoidPaymentMessage.prototype.getDisableReceiptSelection = function() {
+  return this.disableReceiptSelection;
+};
+
 VoidPaymentMessage._meta_ =  {fields:  {}};
 VoidPaymentMessage._meta_._class_ =  VoidPaymentMessage;
 VoidPaymentMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -72,6 +110,10 @@ VoidPaymentMessage._meta_.fields["payment"] = {};
 VoidPaymentMessage._meta_.fields["payment"].type = payments_Payment;
 VoidPaymentMessage._meta_.fields["voidReason"] = {};
 VoidPaymentMessage._meta_.fields["voidReason"].type = order_VoidReason;
+VoidPaymentMessage._meta_.fields["disableCloverPrinting"] = {};
+VoidPaymentMessage._meta_.fields["disableCloverPrinting"].type = Boolean;
+VoidPaymentMessage._meta_.fields["disableReceiptSelection"] = {};
+VoidPaymentMessage._meta_.fields["disableReceiptSelection"].type = Boolean;
 
 //
 // Expose the module.

@@ -19,6 +19,9 @@ var RefundPaymentRequest = function() {
   this.amount = undefined;
   this.orderId = undefined;
   this.paymentId = undefined;
+  this.disablePrinting = undefined;
+  this.disableReceiptSelection = undefined;
+  this.extras = undefined;
 };
 
 RefundPaymentRequest.prototype = Object.create(remotepay_BaseRequest.prototype);
@@ -108,6 +111,69 @@ RefundPaymentRequest.prototype.getPaymentId = function() {
   return this.paymentId;
 };
 
+/**
+* Set the field value
+* If true, then do not print using the clover printer.  Return print information.
+*
+* @memberof remotepay.RefundPaymentRequest
+* @param {Boolean|Null} disablePrinting 
+*/
+RefundPaymentRequest.prototype.setDisablePrinting = function(disablePrinting) {
+  this.disablePrinting = disablePrinting;
+};
+
+/**
+* Get the field value
+* If true, then do not print using the clover printer.  Return print information.
+* @memberof remotepay.RefundPaymentRequest
+* @return {Boolean|Null} 
+*/
+RefundPaymentRequest.prototype.getDisablePrinting = function() {
+  return this.disablePrinting;
+};
+
+/**
+* Set the field value
+* Do not show the receipt options screen
+*
+* @memberof remotepay.RefundPaymentRequest
+* @param {Boolean|Null} disableReceiptSelection 
+*/
+RefundPaymentRequest.prototype.setDisableReceiptSelection = function(disableReceiptSelection) {
+  this.disableReceiptSelection = disableReceiptSelection;
+};
+
+/**
+* Get the field value
+* Do not show the receipt options screen
+* @memberof remotepay.RefundPaymentRequest
+* @return {Boolean|Null} 
+*/
+RefundPaymentRequest.prototype.getDisableReceiptSelection = function() {
+  return this.disableReceiptSelection;
+};
+
+/**
+* Set the field value
+* Extra pass-through data used by external systems.
+*
+* @memberof remotepay.RefundPaymentRequest
+* @param {Object.<String,String>} extras A map of <String> to <>
+*/
+RefundPaymentRequest.prototype.setExtras = function(extras) {
+  this.extras = extras;
+};
+
+/**
+* Get the field value
+* Extra pass-through data used by external systems.
+* @memberof remotepay.RefundPaymentRequest
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+RefundPaymentRequest.prototype.getExtras = function() {
+  return this.extras;
+};
+
 RefundPaymentRequest._meta_ =  {fields:  {}};
 RefundPaymentRequest._meta_._class_ =  RefundPaymentRequest;
 RefundPaymentRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
@@ -119,6 +185,12 @@ RefundPaymentRequest._meta_.fields["orderId"] = {};
 RefundPaymentRequest._meta_.fields["orderId"].type = String;
 RefundPaymentRequest._meta_.fields["paymentId"] = {};
 RefundPaymentRequest._meta_.fields["paymentId"].type = String;
+RefundPaymentRequest._meta_.fields["disablePrinting"] = {};
+RefundPaymentRequest._meta_.fields["disablePrinting"].type = Boolean;
+RefundPaymentRequest._meta_.fields["disableReceiptSelection"] = {};
+RefundPaymentRequest._meta_.fields["disableReceiptSelection"].type = Boolean;
+RefundPaymentRequest._meta_.fields["extras"] = {};
+RefundPaymentRequest._meta_.fields["extras"].type = Object;
 
 //
 // Expose the module.

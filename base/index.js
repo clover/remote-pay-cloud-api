@@ -7,6 +7,7 @@ function base() {}
 
 
 base.Address = require("./Address");
+base.AppExclusionType = require("./AppExclusionType");
 base.ApprovalStatus = require("./ApprovalStatus");
 base.BusinessTypeCode = require("./BusinessTypeCode");
 base.CardData = require("./CardData");
