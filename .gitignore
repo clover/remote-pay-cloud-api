@@ -2,3 +2,4 @@ bundle
 docs
 node_modules
 .idea
+.gradle
