@@ -14,4 +14,4 @@ gulp.task('bundle', () => {
         .pipe(gulp.dest('bundle/'));
 });
 
-gulp.task('default', ['clean', 'bundle']);
+gulp.task('default', gulp.series(['clean', 'bundle']));
