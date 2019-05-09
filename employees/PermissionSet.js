@@ -22,7 +22,6 @@ var PermissionSet = function() {
   this.managerDefault = undefined;
   this.permissions = undefined;
   this.employeePermissions = undefined;
-  this.roles = undefined;
   this.module = undefined;
 };
 
@@ -185,27 +184,6 @@ PermissionSet.prototype.getEmployeePermissions = function() {
 
 /**
 * Set the field value
-* roles enabled for this merchant
-*
-* @memberof employees.PermissionSet
-* @param {Array.<base.Reference>} roles An array of 
-*/
-PermissionSet.prototype.setRoles = function(roles) {
-  this.roles = roles;
-};
-
-/**
-* Get the field value
-* roles enabled for this merchant
-* @memberof employees.PermissionSet
-* @return {Array.<base.Reference>} An array of 
-*/
-PermissionSet.prototype.getRoles = function() {
-  return this.roles;
-};
-
-/**
-* Set the field value
 * The module associated with this permission set (if any)
 *
 * @memberof employees.PermissionSet
@@ -268,9 +246,6 @@ PermissionSet._meta_.fields["permissions"].type = employees_Permissions;
 PermissionSet._meta_.fields["employeePermissions"] = {};
 PermissionSet._meta_.fields["employeePermissions"].type = Array;
 PermissionSet._meta_.fields["employeePermissions"].elementType = employees_EmployeePermission;
-PermissionSet._meta_.fields["roles"] = {};
-PermissionSet._meta_.fields["roles"].type = Array;
-PermissionSet._meta_.fields["roles"].elementType = base_Reference;
 PermissionSet._meta_.fields["module"] = {};
 PermissionSet._meta_.fields["module"].type = base_Reference;
 

@@ -25,7 +25,7 @@ var Address = function() {
 /**
 * Set the field value
 * @memberof base.Address
-* @param {String} address1 
+* @param {Null|String} address1 
 */
 Address.prototype.setAddress1 = function(address1) {
   this.address1 = address1;
@@ -34,7 +34,7 @@ Address.prototype.setAddress1 = function(address1) {
 /**
 * Get the field value
 * @memberof base.Address
-* @return {String} 
+* @return {Null|String} 
 */
 Address.prototype.getAddress1 = function() {
   return this.address1;
@@ -43,7 +43,7 @@ Address.prototype.getAddress1 = function() {
 /**
 * Set the field value
 * @memberof base.Address
-* @param {String} address2 
+* @param {Null|String} address2 
 */
 Address.prototype.setAddress2 = function(address2) {
   this.address2 = address2;
@@ -52,7 +52,7 @@ Address.prototype.setAddress2 = function(address2) {
 /**
 * Get the field value
 * @memberof base.Address
-* @return {String} 
+* @return {Null|String} 
 */
 Address.prototype.getAddress2 = function() {
   return this.address2;
@@ -61,7 +61,7 @@ Address.prototype.getAddress2 = function() {
 /**
 * Set the field value
 * @memberof base.Address
-* @param {String} address3 
+* @param {Null|String} address3 
 */
 Address.prototype.setAddress3 = function(address3) {
   this.address3 = address3;
@@ -70,7 +70,7 @@ Address.prototype.setAddress3 = function(address3) {
 /**
 * Get the field value
 * @memberof base.Address
-* @return {String} 
+* @return {Null|String} 
 */
 Address.prototype.getAddress3 = function() {
   return this.address3;
@@ -79,7 +79,7 @@ Address.prototype.getAddress3 = function() {
 /**
 * Set the field value
 * @memberof base.Address
-* @param {String} city 
+* @param {Null|String} city 
 */
 Address.prototype.setCity = function(city) {
   this.city = city;
@@ -88,7 +88,7 @@ Address.prototype.setCity = function(city) {
 /**
 * Get the field value
 * @memberof base.Address
-* @return {String} 
+* @return {Null|String} 
 */
 Address.prototype.getCity = function() {
   return this.city;
@@ -97,7 +97,7 @@ Address.prototype.getCity = function() {
 /**
 * Set the field value
 * @memberof base.Address
-* @param {String} country 
+* @param {Null|String} country 
 */
 Address.prototype.setCountry = function(country) {
   this.country = country;
@@ -106,7 +106,7 @@ Address.prototype.setCountry = function(country) {
 /**
 * Get the field value
 * @memberof base.Address
-* @return {String} 
+* @return {Null|String} 
 */
 Address.prototype.getCountry = function() {
   return this.country;
@@ -115,7 +115,7 @@ Address.prototype.getCountry = function() {
 /**
 * Set the field value
 * @memberof base.Address
-* @param {String} phoneNumber 
+* @param {Null|String} phoneNumber 
 */
 Address.prototype.setPhoneNumber = function(phoneNumber) {
   this.phoneNumber = phoneNumber;
@@ -124,7 +124,7 @@ Address.prototype.setPhoneNumber = function(phoneNumber) {
 /**
 * Get the field value
 * @memberof base.Address
-* @return {String} 
+* @return {Null|String} 
 */
 Address.prototype.getPhoneNumber = function() {
   return this.phoneNumber;
@@ -133,7 +133,7 @@ Address.prototype.getPhoneNumber = function() {
 /**
 * Set the field value
 * @memberof base.Address
-* @param {String} state 
+* @param {Null|String} state 
 */
 Address.prototype.setState = function(state) {
   this.state = state;
@@ -142,7 +142,7 @@ Address.prototype.setState = function(state) {
 /**
 * Get the field value
 * @memberof base.Address
-* @return {String} 
+* @return {Null|String} 
 */
 Address.prototype.getState = function() {
   return this.state;
@@ -151,7 +151,7 @@ Address.prototype.getState = function() {
 /**
 * Set the field value
 * @memberof base.Address
-* @param {String} zip 
+* @param {Null|String} zip 
 */
 Address.prototype.setZip = function(zip) {
   this.zip = zip;
@@ -160,7 +160,7 @@ Address.prototype.setZip = function(zip) {
 /**
 * Get the field value
 * @memberof base.Address
-* @return {String} 
+* @return {Null|String} 
 */
 Address.prototype.getZip = function() {
   return this.zip;

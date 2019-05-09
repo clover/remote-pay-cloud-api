@@ -6,7 +6,6 @@
 
 var payments_CardType = require("../payments/CardType");
 var payments_CardTransactionState = require("../payments/CardTransactionState");
-var base_Reference = require("../base/Reference");
 var payments_CardEntryType = require("../payments/CardEntryType");
 var payments_VaultedCard = require("../payments/VaultedCard");
 var payments_CardTransactionType = require("../payments/CardTransactionType");
@@ -19,8 +18,6 @@ var payments_AVSResult = require("../payments/AVSResult");
 */
 var CardTransaction = function() {
   this._class_ = CardTransaction;
-  this.paymentRef = undefined;
-  this.creditRef = undefined;
   this.cardType = undefined;
   this.entryType = undefined;
   this.first6 = undefined;
@@ -39,50 +36,9 @@ var CardTransaction = function() {
   this.vaultedCard = undefined;
   this.gatewayTxState = undefined;
   this.currency = undefined;
+  this.captured = undefined;
 };
 
-
-/**
-* Set the field value
-* The payment with which the card transaction is associated
-*
-* @memberof payments.CardTransaction
-* @param {Null|base.Reference} paymentRef 
-*/
-CardTransaction.prototype.setPaymentRef = function(paymentRef) {
-  this.paymentRef = paymentRef;
-};
-
-/**
-* Get the field value
-* The payment with which the card transaction is associated
-* @memberof payments.CardTransaction
-* @return {Null|base.Reference} 
-*/
-CardTransaction.prototype.getPaymentRef = function() {
-  return this.paymentRef;
-};
-
-/**
-* Set the field value
-* The credit with which the card transaction is associated
-*
-* @memberof payments.CardTransaction
-* @param {Null|base.Reference} creditRef 
-*/
-CardTransaction.prototype.setCreditRef = function(creditRef) {
-  this.creditRef = creditRef;
-};
-
-/**
-* Get the field value
-* The credit with which the card transaction is associated
-* @memberof payments.CardTransaction
-* @return {Null|base.Reference} 
-*/
-CardTransaction.prototype.getCreditRef = function() {
-  return this.creditRef;
-};
 
 /**
 * Set the field value
@@ -433,6 +389,24 @@ CardTransaction.prototype.getCurrency = function() {
 };
 
 /**
+* Set the field value
+* @memberof payments.CardTransaction
+* @param {Boolean} captured 
+*/
+CardTransaction.prototype.setCaptured = function(captured) {
+  this.captured = captured;
+};
+
+/**
+* Get the field value
+* @memberof payments.CardTransaction
+* @return {Boolean} 
+*/
+CardTransaction.prototype.getCaptured = function() {
+  return this.captured;
+};
+
+/**
 * @memberof payments.CardTransaction
 * @private
 */
@@ -458,10 +432,6 @@ CardTransaction.prototype.toString = function() {
 
 CardTransaction._meta_ =  {fields:  {}};
 CardTransaction._meta_._class_ =  CardTransaction;
-CardTransaction._meta_.fields["paymentRef"] = {};
-CardTransaction._meta_.fields["paymentRef"].type = base_Reference;
-CardTransaction._meta_.fields["creditRef"] = {};
-CardTransaction._meta_.fields["creditRef"].type = base_Reference;
 CardTransaction._meta_.fields["cardType"] = {};
 CardTransaction._meta_.fields["cardType"].type = payments_CardType;
 CardTransaction._meta_.fields["entryType"] = {};
@@ -498,6 +468,8 @@ CardTransaction._meta_.fields["gatewayTxState"] = {};
 CardTransaction._meta_.fields["gatewayTxState"].type = payments_GatewayTxState;
 CardTransaction._meta_.fields["currency"] = {};
 CardTransaction._meta_.fields["currency"].type = String;
+CardTransaction._meta_.fields["captured"] = {};
+CardTransaction._meta_.fields["captured"].type = Boolean;
 
 //
 // Expose the module.

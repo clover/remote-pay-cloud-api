@@ -4,8 +4,8 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 var inventory_TaxType = require("../inventory/TaxType");
+var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -14,7 +14,6 @@ var inventory_TaxType = require("../inventory/TaxType");
 var TaxRate = function() {
   this._class_ = TaxRate;
   this.id = undefined;
-  this.lineItemRef = undefined;
   this.name = undefined;
   this.taxType = undefined;
   this.rate = undefined;
@@ -46,27 +45,6 @@ TaxRate.prototype.getId = function() {
 
 /**
 * Set the field value
-* The line item with which the tax rate is associated
-*
-* @memberof inventory.TaxRate
-* @param {base.Reference} lineItemRef 
-*/
-TaxRate.prototype.setLineItemRef = function(lineItemRef) {
-  this.lineItemRef = lineItemRef;
-};
-
-/**
-* Get the field value
-* The line item with which the tax rate is associated
-* @memberof inventory.TaxRate
-* @return {base.Reference} 
-*/
-TaxRate.prototype.getLineItemRef = function() {
-  return this.lineItemRef;
-};
-
-/**
-* Set the field value
 * @memberof inventory.TaxRate
 * @param {String} name 
 */
@@ -88,7 +66,7 @@ TaxRate.prototype.getName = function() {
 * to support Argentina's tax type
 *
 * @memberof inventory.TaxRate
-* @param {inventory.TaxType} taxType 
+* @param {Null|inventory.TaxType} taxType 
 */
 TaxRate.prototype.setTaxType = function(taxType) {
   this.taxType = taxType;
@@ -98,7 +76,7 @@ TaxRate.prototype.setTaxType = function(taxType) {
 * Get the field value
 * to support Argentina's tax type
 * @memberof inventory.TaxRate
-* @return {inventory.TaxType} 
+* @return {Null|inventory.TaxType} 
 */
 TaxRate.prototype.getTaxType = function() {
   return this.taxType;
@@ -128,7 +106,7 @@ TaxRate.prototype.getRate = function() {
 /**
 * Set the field value
 * @memberof inventory.TaxRate
-* @param {Boolean} isDefault 
+* @param {Null|Boolean} isDefault 
 */
 TaxRate.prototype.setIsDefault = function(isDefault) {
   this.isDefault = isDefault;
@@ -137,7 +115,7 @@ TaxRate.prototype.setIsDefault = function(isDefault) {
 /**
 * Get the field value
 * @memberof inventory.TaxRate
-* @return {Boolean} 
+* @return {Null|Boolean} 
 */
 TaxRate.prototype.getIsDefault = function() {
   return this.isDefault;
@@ -148,7 +126,7 @@ TaxRate.prototype.getIsDefault = function() {
 * Items associated with this tax rate
 *
 * @memberof inventory.TaxRate
-* @param {Array.<base.Reference>} items An array of 
+* @param {Null|Array.<base.Reference>} items An array of 
 */
 TaxRate.prototype.setItems = function(items) {
   this.items = items;
@@ -158,7 +136,7 @@ TaxRate.prototype.setItems = function(items) {
 * Get the field value
 * Items associated with this tax rate
 * @memberof inventory.TaxRate
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 TaxRate.prototype.getItems = function() {
   return this.items;
@@ -169,7 +147,7 @@ TaxRate.prototype.getItems = function() {
 * For a flat tax like recycling redemption fee, expressed as number of cents
 *
 * @memberof inventory.TaxRate
-* @param {Number} taxAmount must be a long integer
+* @param {Null|Number} taxAmount must be a long integer
 */
 TaxRate.prototype.setTaxAmount = function(taxAmount) {
   this.taxAmount = taxAmount;
@@ -179,7 +157,7 @@ TaxRate.prototype.setTaxAmount = function(taxAmount) {
 * Get the field value
 * For a flat tax like recycling redemption fee, expressed as number of cents
 * @memberof inventory.TaxRate
-* @return {Number} must be a long integer
+* @return {Null|Number} must be a long integer
 */
 TaxRate.prototype.getTaxAmount = function() {
   return this.taxAmount;
@@ -190,7 +168,7 @@ TaxRate.prototype.getTaxAmount = function() {
 * Timestamp when tax rate was last deleted
 *
 * @memberof inventory.TaxRate
-* @param {Number} deletedTime must be a long integer
+* @param {Null|Number} deletedTime must be a long integer
 */
 TaxRate.prototype.setDeletedTime = function(deletedTime) {
   this.deletedTime = deletedTime;
@@ -200,7 +178,7 @@ TaxRate.prototype.setDeletedTime = function(deletedTime) {
 * Get the field value
 * Timestamp when tax rate was last deleted
 * @memberof inventory.TaxRate
-* @return {Number} must be a long integer
+* @return {Null|Number} must be a long integer
 */
 TaxRate.prototype.getDeletedTime = function() {
   return this.deletedTime;
@@ -211,7 +189,7 @@ TaxRate.prototype.getDeletedTime = function() {
 * Timestamp when tax rate was last modified
 *
 * @memberof inventory.TaxRate
-* @param {Number} modifiedTime must be a long integer
+* @param {Null|Number} modifiedTime must be a long integer
 */
 TaxRate.prototype.setModifiedTime = function(modifiedTime) {
   this.modifiedTime = modifiedTime;
@@ -221,7 +199,7 @@ TaxRate.prototype.setModifiedTime = function(modifiedTime) {
 * Get the field value
 * Timestamp when tax rate was last modified
 * @memberof inventory.TaxRate
-* @return {Number} must be a long integer
+* @return {Null|Number} must be a long integer
 */
 TaxRate.prototype.getModifiedTime = function() {
   return this.modifiedTime;
@@ -255,8 +233,6 @@ TaxRate._meta_ =  {fields:  {}};
 TaxRate._meta_._class_ =  TaxRate;
 TaxRate._meta_.fields["id"] = {};
 TaxRate._meta_.fields["id"].type = String;
-TaxRate._meta_.fields["lineItemRef"] = {};
-TaxRate._meta_.fields["lineItemRef"].type = base_Reference;
 TaxRate._meta_.fields["name"] = {};
 TaxRate._meta_.fields["name"].type = String;
 TaxRate._meta_.fields["taxType"] = {};

@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var pay_PaymentRequestCardDetails = require("../pay/PaymentRequestCardDetails");
 var payments_Credit = require("../payments/Credit");
 
 /**
@@ -14,6 +15,7 @@ var CreditRequest = function() {
   this._class_ = CreditRequest;
   this.orderId = undefined;
   this.credit = undefined;
+  this.paymentCard = undefined;
 };
 
 
@@ -57,6 +59,24 @@ CreditRequest.prototype.getCredit = function() {
 };
 
 /**
+* Set the field value
+* @memberof payments.CreditRequest
+* @param {pay.PaymentRequestCardDetails|Null} paymentCard 
+*/
+CreditRequest.prototype.setPaymentCard = function(paymentCard) {
+  this.paymentCard = paymentCard;
+};
+
+/**
+* Get the field value
+* @memberof payments.CreditRequest
+* @return {pay.PaymentRequestCardDetails|Null} 
+*/
+CreditRequest.prototype.getPaymentCard = function() {
+  return this.paymentCard;
+};
+
+/**
 * @memberof payments.CreditRequest
 * @private
 */
@@ -86,6 +106,8 @@ CreditRequest._meta_.fields["orderId"] = {};
 CreditRequest._meta_.fields["orderId"].type = String;
 CreditRequest._meta_.fields["credit"] = {};
 CreditRequest._meta_.fields["credit"].type = payments_Credit;
+CreditRequest._meta_.fields["paymentCard"] = {};
+CreditRequest._meta_.fields["paymentCard"].type = pay_PaymentRequestCardDetails;
 
 //
 // Expose the module.

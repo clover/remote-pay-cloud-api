@@ -17,7 +17,6 @@ var DeviceAccessory = function() {
   this.model = undefined;
   this.serial = undefined;
   this.associatedDevice = undefined;
-  this.cpuId = undefined;
   this.pedCertificate = undefined;
   this.buildType = undefined;
   this.deviceType = undefined;
@@ -108,24 +107,6 @@ DeviceAccessory.prototype.setAssociatedDevice = function(associatedDevice) {
 */
 DeviceAccessory.prototype.getAssociatedDevice = function() {
   return this.associatedDevice;
-};
-
-/**
-* Set the field value
-* @memberof device.DeviceAccessory
-* @param {String} cpuId 
-*/
-DeviceAccessory.prototype.setCpuId = function(cpuId) {
-  this.cpuId = cpuId;
-};
-
-/**
-* Get the field value
-* @memberof device.DeviceAccessory
-* @return {String} 
-*/
-DeviceAccessory.prototype.getCpuId = function() {
-  return this.cpuId;
 };
 
 /**
@@ -306,8 +287,6 @@ DeviceAccessory._meta_.fields["serial"] = {};
 DeviceAccessory._meta_.fields["serial"].type = String;
 DeviceAccessory._meta_.fields["associatedDevice"] = {};
 DeviceAccessory._meta_.fields["associatedDevice"].type = base_Reference;
-DeviceAccessory._meta_.fields["cpuId"] = {};
-DeviceAccessory._meta_.fields["cpuId"].type = String;
 DeviceAccessory._meta_.fields["pedCertificate"] = {};
 DeviceAccessory._meta_.fields["pedCertificate"].type = String;
 DeviceAccessory._meta_.fields["buildType"] = {};

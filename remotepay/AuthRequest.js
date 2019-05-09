@@ -5,7 +5,6 @@
  */
 
 var remotepay_TransactionType = require("../remotepay/TransactionType");
-var payments_TipMode = require("../payments/TipMode");
 var remotepay_TransactionRequest = require("../remotepay/TransactionRequest");
 
 /** A authorization request */
@@ -18,39 +17,15 @@ var AuthRequest = function() {
   remotepay_TransactionRequest.call(this);
   this._superClass_ = remotepay_TransactionRequest;
   this._class_ = AuthRequest;
-  this.setType(remotepay_TransactionType["PAYMENT"]);
-  this.tipMode = undefined;
+  this.type = remotepay_TransactionType["PAYMENT"];
 };
 
 AuthRequest.prototype = Object.create(remotepay_TransactionRequest.prototype);
 AuthRequest.prototype.constructor = AuthRequest;
 
-/**
-* Set the field value
-* The tip mode for the auth request.  **NOTE**  THIS FIELD IS ONLY USED BY THE PAYMENT CONNECTOR. It does not make sense for the remote pay SDKs as it is for the Station/Station 2018 only.
-*
-* @memberof remotepay.AuthRequest
-* @param {payments.TipMode} tipMode 
-*/
-AuthRequest.prototype.setTipMode = function(tipMode) {
-  this.tipMode = tipMode;
-};
-
-/**
-* Get the field value
-* The tip mode for the auth request.  **NOTE**  THIS FIELD IS ONLY USED BY THE PAYMENT CONNECTOR. It does not make sense for the remote pay SDKs as it is for the Station/Station 2018 only.
-* @memberof remotepay.AuthRequest
-* @return {payments.TipMode} 
-*/
-AuthRequest.prototype.getTipMode = function() {
-  return this.tipMode;
-};
-
 AuthRequest._meta_ =  {fields:  {}};
 AuthRequest._meta_._class_ =  AuthRequest;
 AuthRequest._meta_._superMeta_ = remotepay_TransactionRequest._meta_;
-AuthRequest._meta_.fields["tipMode"] = {};
-AuthRequest._meta_.fields["tipMode"].type = payments_TipMode;
 
 //
 // Expose the module.

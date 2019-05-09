@@ -5,7 +5,6 @@
  */
 
 var employees_AccountRole = require("../employees/AccountRole");
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -16,7 +15,6 @@ var Role = function() {
   this.id = undefined;
   this.name = undefined;
   this.systemRole = undefined;
-  this.employeesRef = undefined;
 };
 
 
@@ -84,27 +82,6 @@ Role.prototype.getSystemRole = function() {
 };
 
 /**
-* Set the field value
-* employees with this role
-*
-* @memberof employees.Role
-* @param {Array.<base.Reference>} employeesRef An array of 
-*/
-Role.prototype.setEmployeesRef = function(employeesRef) {
-  this.employeesRef = employeesRef;
-};
-
-/**
-* Get the field value
-* employees with this role
-* @memberof employees.Role
-* @return {Array.<base.Reference>} An array of 
-*/
-Role.prototype.getEmployeesRef = function() {
-  return this.employeesRef;
-};
-
-/**
 * @memberof employees.Role
 * @private
 */
@@ -136,9 +113,6 @@ Role._meta_.fields["name"] = {};
 Role._meta_.fields["name"].type = String;
 Role._meta_.fields["systemRole"] = {};
 Role._meta_.fields["systemRole"].type = employees_AccountRole;
-Role._meta_.fields["employeesRef"] = {};
-Role._meta_.fields["employeesRef"].type = Array;
-Role._meta_.fields["employeesRef"].elementType = base_Reference;
 
 //
 // Expose the module.

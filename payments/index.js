@@ -10,6 +10,9 @@ payments.AVSResult = require("./AVSResult");
 payments.AccountType = require("./AccountType");
 payments.AdditionalChargeAmount = require("./AdditionalChargeAmount");
 payments.AdditionalChargeType = require("./AdditionalChargeType");
+payments.AssociatedPayment = require("./AssociatedPayment");
+payments.AssociatedPayments = require("./AssociatedPayments");
+payments.AssociationType = require("./AssociationType");
 payments.Authorization = require("./Authorization");
 payments.Batch = require("./Batch");
 payments.BatchCardTotal = require("./BatchCardTotal");
@@ -54,6 +57,7 @@ payments.GiftCardTransaction = require("./GiftCardTransaction");
 payments.IdType = require("./IdType");
 payments.LineItemPayment = require("./LineItemPayment");
 payments.Payment = require("./Payment");
+payments.PaymentAttribute = require("./PaymentAttribute");
 payments.PaymentResponse = require("./PaymentResponse");
 payments.PaymentTaxRate = require("./PaymentTaxRate");
 payments.Refund = require("./Refund");
@@ -65,6 +69,8 @@ payments.ReversalReason = require("./ReversalReason");
 payments.SelectedService = require("./SelectedService");
 payments.ServerTotalStats = require("./ServerTotalStats");
 payments.ServiceChargeAmount = require("./ServiceChargeAmount");
+payments.ServiceFeeRefundRequest = require("./ServiceFeeRefundRequest");
+payments.ServiceFeeRequest = require("./ServiceFeeRequest");
 payments.SignatureDisclaimer = require("./SignatureDisclaimer");
 payments.Tag = require("./Tag");
 payments.TaxableAmountRate = require("./TaxableAmountRate");
@@ -91,7 +97,7 @@ payments.VasPushMode = require("./VasPushMode");
 payments.VasResponseFormat = require("./VasResponseFormat");
 payments.VasServiceProvider = require("./VasServiceProvider");
 payments.VasSettings = require("./VasSettings");
-payments.VaultedCard = require("./VaultedCard.js");
+payments.VaultedCard = require("./VaultedCard");
 
 //
 // Expose the module.

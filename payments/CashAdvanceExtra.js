@@ -5,7 +5,6 @@
  */
 
 var payments_CashAdvanceCustomerIdentification = require("../payments/CashAdvanceCustomerIdentification");
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -15,7 +14,6 @@ var CashAdvanceExtra = function() {
   this._class_ = CashAdvanceExtra;
   this.cashAdvanceSerialNum = undefined;
   this.cashAdvanceCustomerIdentification = undefined;
-  this.paymentRef = undefined;
 };
 
 
@@ -56,27 +54,6 @@ CashAdvanceExtra.prototype.getCashAdvanceCustomerIdentification = function() {
 };
 
 /**
-* Set the field value
-* The payment with which this cash advance extra is associated
-*
-* @memberof payments.CashAdvanceExtra
-* @param {base.Reference} paymentRef 
-*/
-CashAdvanceExtra.prototype.setPaymentRef = function(paymentRef) {
-  this.paymentRef = paymentRef;
-};
-
-/**
-* Get the field value
-* The payment with which this cash advance extra is associated
-* @memberof payments.CashAdvanceExtra
-* @return {base.Reference} 
-*/
-CashAdvanceExtra.prototype.getPaymentRef = function() {
-  return this.paymentRef;
-};
-
-/**
 * @memberof payments.CashAdvanceExtra
 * @private
 */
@@ -106,8 +83,6 @@ CashAdvanceExtra._meta_.fields["cashAdvanceSerialNum"] = {};
 CashAdvanceExtra._meta_.fields["cashAdvanceSerialNum"].type = String;
 CashAdvanceExtra._meta_.fields["cashAdvanceCustomerIdentification"] = {};
 CashAdvanceExtra._meta_.fields["cashAdvanceCustomerIdentification"].type = payments_CashAdvanceCustomerIdentification;
-CashAdvanceExtra._meta_.fields["paymentRef"] = {};
-CashAdvanceExtra._meta_.fields["paymentRef"].type = base_Reference;
 
 //
 // Expose the module.

@@ -60,7 +60,7 @@ Employee.prototype.getId = function() {
 * Full name of the employee
 *
 * @memberof employees.Employee
-* @param {String} name 
+* @param {Null|String} name 
 */
 Employee.prototype.setName = function(name) {
   this.name = name;
@@ -70,7 +70,7 @@ Employee.prototype.setName = function(name) {
 * Get the field value
 * Full name of the employee
 * @memberof employees.Employee
-* @return {String} 
+* @return {Null|String} 
 */
 Employee.prototype.getName = function() {
   return this.name;
@@ -144,7 +144,7 @@ Employee.prototype.getEmail = function() {
 * Returns true if this employee was sent an invite to activate their account
 *
 * @memberof employees.Employee
-* @param {Boolean} inviteSent 
+* @param {Null|Boolean} inviteSent 
 */
 Employee.prototype.setInviteSent = function(inviteSent) {
   this.inviteSent = inviteSent;
@@ -154,7 +154,7 @@ Employee.prototype.setInviteSent = function(inviteSent) {
 * Get the field value
 * Returns true if this employee was sent an invite to activate their account
 * @memberof employees.Employee
-* @return {Boolean} 
+* @return {Null|Boolean} 
 */
 Employee.prototype.getInviteSent = function() {
   return this.inviteSent;
@@ -165,7 +165,7 @@ Employee.prototype.getInviteSent = function() {
 * Timestamp of when this employee claimed their account
 *
 * @memberof employees.Employee
-* @param {Number} claimedTime must be a long integer
+* @param {Null|Number} claimedTime must be a long integer
 */
 Employee.prototype.setClaimedTime = function(claimedTime) {
   this.claimedTime = claimedTime;
@@ -175,7 +175,7 @@ Employee.prototype.setClaimedTime = function(claimedTime) {
 * Get the field value
 * Timestamp of when this employee claimed their account
 * @memberof employees.Employee
-* @return {Number} must be a long integer
+* @return {Null|Number} must be a long integer
 */
 Employee.prototype.getClaimedTime = function() {
   return this.claimedTime;
@@ -186,7 +186,7 @@ Employee.prototype.getClaimedTime = function() {
 * Timestamp of when this employee was deleted
 *
 * @memberof employees.Employee
-* @param {Number} deletedTime must be a long integer
+* @param {Null|Number} deletedTime must be a long integer
 */
 Employee.prototype.setDeletedTime = function(deletedTime) {
   this.deletedTime = deletedTime;
@@ -196,7 +196,7 @@ Employee.prototype.setDeletedTime = function(deletedTime) {
 * Get the field value
 * Timestamp of when this employee was deleted
 * @memberof employees.Employee
-* @return {Number} must be a long integer
+* @return {Null|Number} must be a long integer
 */
 Employee.prototype.getDeletedTime = function() {
   return this.deletedTime;
@@ -207,7 +207,7 @@ Employee.prototype.getDeletedTime = function() {
 * Employee PIN (hashed)
 *
 * @memberof employees.Employee
-* @param {String} pin 
+* @param {Null|String} pin 
 */
 Employee.prototype.setPin = function(pin) {
   this.pin = pin;
@@ -217,7 +217,7 @@ Employee.prototype.setPin = function(pin) {
 * Get the field value
 * Employee PIN (hashed)
 * @memberof employees.Employee
-* @return {String} 
+* @return {Null|String} 
 */
 Employee.prototype.getPin = function() {
   return this.pin;
@@ -228,7 +228,7 @@ Employee.prototype.getPin = function() {
 * Employee PIN
 *
 * @memberof employees.Employee
-* @param {String} unhashedPin 
+* @param {Null|String} unhashedPin 
 */
 Employee.prototype.setUnhashedPin = function(unhashedPin) {
   this.unhashedPin = unhashedPin;
@@ -238,7 +238,7 @@ Employee.prototype.setUnhashedPin = function(unhashedPin) {
 * Get the field value
 * Employee PIN
 * @memberof employees.Employee
-* @return {String} 
+* @return {Null|String} 
 */
 Employee.prototype.getUnhashedPin = function() {
   return this.unhashedPin;
@@ -249,7 +249,7 @@ Employee.prototype.getUnhashedPin = function() {
 * Employee System Role
 *
 * @memberof employees.Employee
-* @param {employees.AccountRole} role 
+* @param {Null|employees.AccountRole} role 
 */
 Employee.prototype.setRole = function(role) {
   this.role = role;
@@ -259,7 +259,7 @@ Employee.prototype.setRole = function(role) {
 * Get the field value
 * Employee System Role
 * @memberof employees.Employee
-* @return {employees.AccountRole} 
+* @return {Null|employees.AccountRole} 
 */
 Employee.prototype.getRole = function() {
   return this.role;
@@ -268,7 +268,7 @@ Employee.prototype.getRole = function() {
 /**
 * Set the field value
 * @memberof employees.Employee
-* @param {Array.<base.Reference>} roles An array of 
+* @param {Null|Array.<base.Reference>} roles An array of 
 */
 Employee.prototype.setRoles = function(roles) {
   this.roles = roles;
@@ -277,7 +277,7 @@ Employee.prototype.setRoles = function(roles) {
 /**
 * Get the field value
 * @memberof employees.Employee
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 Employee.prototype.getRoles = function() {
   return this.roles;
@@ -288,7 +288,7 @@ Employee.prototype.getRoles = function() {
 * Returns true if this employee is the owner account for this merchant
 *
 * @memberof employees.Employee
-* @param {Boolean} isOwner 
+* @param {Null|Boolean} isOwner 
 */
 Employee.prototype.setIsOwner = function(isOwner) {
   this.isOwner = isOwner;
@@ -298,7 +298,7 @@ Employee.prototype.setIsOwner = function(isOwner) {
 * Get the field value
 * Returns true if this employee is the owner account for this merchant
 * @memberof employees.Employee
-* @return {Boolean} 
+* @return {Null|Boolean} 
 */
 Employee.prototype.getIsOwner = function() {
   return this.isOwner;
@@ -309,7 +309,7 @@ Employee.prototype.getIsOwner = function() {
 * This employee's shifts
 *
 * @memberof employees.Employee
-* @param {Array.<base.Reference>} shifts An array of 
+* @param {Null|Array.<base.Reference>} shifts An array of 
 */
 Employee.prototype.setShifts = function(shifts) {
   this.shifts = shifts;
@@ -319,7 +319,7 @@ Employee.prototype.setShifts = function(shifts) {
 * Get the field value
 * This employee's shifts
 * @memberof employees.Employee
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 Employee.prototype.getShifts = function() {
   return this.shifts;
@@ -330,7 +330,7 @@ Employee.prototype.getShifts = function() {
 * This employee's payments
 *
 * @memberof employees.Employee
-* @param {Array.<base.Reference>} payments An array of 
+* @param {Null|Array.<base.Reference>} payments An array of 
 */
 Employee.prototype.setPayments = function(payments) {
   this.payments = payments;
@@ -340,7 +340,7 @@ Employee.prototype.setPayments = function(payments) {
 * Get the field value
 * This employee's payments
 * @memberof employees.Employee
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 Employee.prototype.getPayments = function() {
   return this.payments;
@@ -351,7 +351,7 @@ Employee.prototype.getPayments = function() {
 * This employee's orders
 *
 * @memberof employees.Employee
-* @param {Array.<base.Reference>} orders An array of 
+* @param {Null|Array.<base.Reference>} orders An array of 
 */
 Employee.prototype.setOrders = function(orders) {
   this.orders = orders;
@@ -361,7 +361,7 @@ Employee.prototype.setOrders = function(orders) {
 * Get the field value
 * This employee's orders
 * @memberof employees.Employee
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 Employee.prototype.getOrders = function() {
   return this.orders;
@@ -372,7 +372,7 @@ Employee.prototype.getOrders = function() {
 * This employee's employee cards
 *
 * @memberof employees.Employee
-* @param {Array.<base.Reference>} employeeCards An array of 
+* @param {Null|Array.<base.Reference>} employeeCards An array of 
 */
 Employee.prototype.setEmployeeCards = function(employeeCards) {
   this.employeeCards = employeeCards;
@@ -382,7 +382,7 @@ Employee.prototype.setEmployeeCards = function(employeeCards) {
 * Get the field value
 * This employee's employee cards
 * @memberof employees.Employee
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 Employee.prototype.getEmployeeCards = function() {
   return this.employeeCards;
@@ -393,7 +393,7 @@ Employee.prototype.getEmployeeCards = function() {
 * The merchant employing this employee
 *
 * @memberof employees.Employee
-* @param {base.Reference} merchant 
+* @param {Null|base.Reference} merchant 
 */
 Employee.prototype.setMerchant = function(merchant) {
   this.merchant = merchant;
@@ -403,7 +403,7 @@ Employee.prototype.setMerchant = function(merchant) {
 * Get the field value
 * The merchant employing this employee
 * @memberof employees.Employee
-* @return {base.Reference} 
+* @return {Null|base.Reference} 
 */
 Employee.prototype.getMerchant = function() {
   return this.merchant;

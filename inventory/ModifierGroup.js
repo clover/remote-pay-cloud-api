@@ -71,7 +71,7 @@ ModifierGroup.prototype.getName = function() {
 /**
 * Set the field value
 * @memberof inventory.ModifierGroup
-* @param {String} alternateName 
+* @param {Null|String} alternateName 
 */
 ModifierGroup.prototype.setAlternateName = function(alternateName) {
   this.alternateName = alternateName;
@@ -80,7 +80,7 @@ ModifierGroup.prototype.setAlternateName = function(alternateName) {
 /**
 * Get the field value
 * @memberof inventory.ModifierGroup
-* @return {String} 
+* @return {Null|String} 
 */
 ModifierGroup.prototype.getAlternateName = function() {
   return this.alternateName;
@@ -91,7 +91,7 @@ ModifierGroup.prototype.getAlternateName = function() {
 * The minimum amount of modifiers from this group that must be applied to associated lineItems when using Register
 *
 * @memberof inventory.ModifierGroup
-* @param {Number} minRequired must be an integer
+* @param {Null|Number} minRequired must be an integer
 */
 ModifierGroup.prototype.setMinRequired = function(minRequired) {
   this.minRequired = minRequired;
@@ -101,7 +101,7 @@ ModifierGroup.prototype.setMinRequired = function(minRequired) {
 * Get the field value
 * The minimum amount of modifiers from this group that must be applied to associated lineItems when using Register
 * @memberof inventory.ModifierGroup
-* @return {Number} must be an integer
+* @return {Null|Number} must be an integer
 */
 ModifierGroup.prototype.getMinRequired = function() {
   return this.minRequired;
@@ -112,7 +112,7 @@ ModifierGroup.prototype.getMinRequired = function() {
 * The maximum amount of modifiers from this group that can be applied to associated lineItems when using Register
 *
 * @memberof inventory.ModifierGroup
-* @param {Number} maxAllowed must be an integer
+* @param {Null|Number} maxAllowed must be an integer
 */
 ModifierGroup.prototype.setMaxAllowed = function(maxAllowed) {
   this.maxAllowed = maxAllowed;
@@ -122,7 +122,7 @@ ModifierGroup.prototype.setMaxAllowed = function(maxAllowed) {
 * Get the field value
 * The maximum amount of modifiers from this group that can be applied to associated lineItems when using Register
 * @memberof inventory.ModifierGroup
-* @return {Number} must be an integer
+* @return {Null|Number} must be an integer
 */
 ModifierGroup.prototype.getMaxAllowed = function() {
   return this.maxAllowed;
@@ -133,7 +133,7 @@ ModifierGroup.prototype.getMaxAllowed = function() {
 * Whether employees will be automatically prompted to add modifiers from this category when using Register
 *
 * @memberof inventory.ModifierGroup
-* @param {Boolean} showByDefault 
+* @param {Null|Boolean} showByDefault 
 */
 ModifierGroup.prototype.setShowByDefault = function(showByDefault) {
   this.showByDefault = showByDefault;
@@ -143,7 +143,7 @@ ModifierGroup.prototype.setShowByDefault = function(showByDefault) {
 * Get the field value
 * Whether employees will be automatically prompted to add modifiers from this category when using Register
 * @memberof inventory.ModifierGroup
-* @return {Boolean} 
+* @return {Null|Boolean} 
 */
 ModifierGroup.prototype.getShowByDefault = function() {
   return this.showByDefault;
@@ -152,7 +152,7 @@ ModifierGroup.prototype.getShowByDefault = function() {
 /**
 * Set the field value
 * @memberof inventory.ModifierGroup
-* @param {Array.<inventory.Modifier>} modifiers An array of 
+* @param {Null|Array.<inventory.Modifier>} modifiers An array of 
 */
 ModifierGroup.prototype.setModifiers = function(modifiers) {
   this.modifiers = modifiers;
@@ -161,7 +161,7 @@ ModifierGroup.prototype.setModifiers = function(modifiers) {
 /**
 * Get the field value
 * @memberof inventory.ModifierGroup
-* @return {Array.<inventory.Modifier>} An array of 
+* @return {Null|Array.<inventory.Modifier>} An array of 
 */
 ModifierGroup.prototype.getModifiers = function() {
   return this.modifiers;
@@ -172,7 +172,7 @@ ModifierGroup.prototype.getModifiers = function() {
 * An ordered, comma-separated list of modifier ids in this group. (READ ONLY)
 *
 * @memberof inventory.ModifierGroup
-* @param {String} modifierIds 
+* @param {Null|String} modifierIds 
 */
 ModifierGroup.prototype.setModifierIds = function(modifierIds) {
   this.modifierIds = modifierIds;
@@ -182,7 +182,7 @@ ModifierGroup.prototype.setModifierIds = function(modifierIds) {
 * Get the field value
 * An ordered, comma-separated list of modifier ids in this group. (READ ONLY)
 * @memberof inventory.ModifierGroup
-* @return {String} 
+* @return {Null|String} 
 */
 ModifierGroup.prototype.getModifierIds = function() {
   return this.modifierIds;
@@ -191,7 +191,7 @@ ModifierGroup.prototype.getModifierIds = function() {
 /**
 * Set the field value
 * @memberof inventory.ModifierGroup
-* @param {Array.<base.Reference>} items An array of 
+* @param {Null|Array.<base.Reference>} items An array of 
 */
 ModifierGroup.prototype.setItems = function(items) {
   this.items = items;
@@ -200,7 +200,7 @@ ModifierGroup.prototype.setItems = function(items) {
 /**
 * Get the field value
 * @memberof inventory.ModifierGroup
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 ModifierGroup.prototype.getItems = function() {
   return this.items;
@@ -211,7 +211,7 @@ ModifierGroup.prototype.getItems = function() {
 * The ordinal value used to determine where in an ordered list this modifier group should appear relative to others.
 *
 * @memberof inventory.ModifierGroup
-* @param {Number} sortOrder must be an integer
+* @param {Null|Number} sortOrder must be an integer
 */
 ModifierGroup.prototype.setSortOrder = function(sortOrder) {
   this.sortOrder = sortOrder;
@@ -221,7 +221,7 @@ ModifierGroup.prototype.setSortOrder = function(sortOrder) {
 * Get the field value
 * The ordinal value used to determine where in an ordered list this modifier group should appear relative to others.
 * @memberof inventory.ModifierGroup
-* @return {Number} must be an integer
+* @return {Null|Number} must be an integer
 */
 ModifierGroup.prototype.getSortOrder = function() {
   return this.sortOrder;

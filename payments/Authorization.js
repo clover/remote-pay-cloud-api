@@ -24,6 +24,7 @@ var Authorization = function() {
   this.token = undefined;
   this.type = undefined;
   this.note = undefined;
+  this.externalReferenceId = undefined;
   this.closingPayment = undefined;
   this.createdTime = undefined;
 };
@@ -235,6 +236,27 @@ Authorization.prototype.getNote = function() {
 
 /**
 * Set the field value
+* The external reference id if associated with the payment
+*
+* @memberof payments.Authorization
+* @param {String|Null} externalReferenceId 
+*/
+Authorization.prototype.setExternalReferenceId = function(externalReferenceId) {
+  this.externalReferenceId = externalReferenceId;
+};
+
+/**
+* Get the field value
+* The external reference id if associated with the payment
+* @memberof payments.Authorization
+* @return {String|Null} 
+*/
+Authorization.prototype.getExternalReferenceId = function() {
+  return this.externalReferenceId;
+};
+
+/**
+* Set the field value
 * Payment that the auth was closed with
 *
 * @memberof payments.Authorization
@@ -321,6 +343,8 @@ Authorization._meta_.fields["type"] = {};
 Authorization._meta_.fields["type"].type = payments_Type;
 Authorization._meta_.fields["note"] = {};
 Authorization._meta_.fields["note"].type = String;
+Authorization._meta_.fields["externalReferenceId"] = {};
+Authorization._meta_.fields["externalReferenceId"].type = String;
 Authorization._meta_.fields["closingPayment"] = {};
 Authorization._meta_.fields["closingPayment"].type = payments_Payment;
 Authorization._meta_.fields["createdTime"] = {};

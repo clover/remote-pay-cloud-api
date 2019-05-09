@@ -6,7 +6,6 @@
 
 var payments_SelectedService = require("../payments/SelectedService");
 var payments_TxFormat = require("../payments/TxFormat");
-var base_Reference = require("../base/Reference");
 var payments_ReversalReason = require("../payments/ReversalReason");
 var payments_TransactionResult = require("../payments/TransactionResult");
 var payments_AccountType = require("../payments/AccountType");
@@ -21,20 +20,18 @@ var TransactionInfo = function() {
   this.languageIndicator = undefined;
   this.transactionLocale = undefined;
   this.accountSelection = undefined;
-  this.paymentRef = undefined;
-  this.creditRef = undefined;
-  this.refundRef = undefined;
-  this.creditRefundRef = undefined;
   this.fiscalInvoiceNumber = undefined;
   this.installmentsQuantity = undefined;
   this.installmentsPlanCode = undefined;
   this.installmentsPlanId = undefined;
   this.installmentsPlanDesc = undefined;
   this.cardTypeLabel = undefined;
+  this.cardSymbol = undefined;
   this.stan = undefined;
   this.identityDocument = undefined;
   this.batchNumber = undefined;
   this.receiptNumber = undefined;
+  this.reversalStanRefNum = undefined;
   this.reversalStan = undefined;
   this.reversalMac = undefined;
   this.reversalMacKsn = undefined;
@@ -54,6 +51,7 @@ var TransactionInfo = function() {
   this.isTokenBasedTx = false;
   this.origTransactionSequenceCounter = undefined;
   this.transactionSequenceCounterUpdate = undefined;
+  this.emergencyFlag = false;
 };
 
 
@@ -115,90 +113,6 @@ TransactionInfo.prototype.setAccountSelection = function(accountSelection) {
 */
 TransactionInfo.prototype.getAccountSelection = function() {
   return this.accountSelection;
-};
-
-/**
-* Set the field value
-* The payment with which this extra is associated
-*
-* @memberof payments.TransactionInfo
-* @param {base.Reference} paymentRef 
-*/
-TransactionInfo.prototype.setPaymentRef = function(paymentRef) {
-  this.paymentRef = paymentRef;
-};
-
-/**
-* Get the field value
-* The payment with which this extra is associated
-* @memberof payments.TransactionInfo
-* @return {base.Reference} 
-*/
-TransactionInfo.prototype.getPaymentRef = function() {
-  return this.paymentRef;
-};
-
-/**
-* Set the field value
-* The credit with which this extra is associated
-*
-* @memberof payments.TransactionInfo
-* @param {base.Reference} creditRef 
-*/
-TransactionInfo.prototype.setCreditRef = function(creditRef) {
-  this.creditRef = creditRef;
-};
-
-/**
-* Get the field value
-* The credit with which this extra is associated
-* @memberof payments.TransactionInfo
-* @return {base.Reference} 
-*/
-TransactionInfo.prototype.getCreditRef = function() {
-  return this.creditRef;
-};
-
-/**
-* Set the field value
-* The refund with which this extra is associated
-*
-* @memberof payments.TransactionInfo
-* @param {base.Reference} refundRef 
-*/
-TransactionInfo.prototype.setRefundRef = function(refundRef) {
-  this.refundRef = refundRef;
-};
-
-/**
-* Get the field value
-* The refund with which this extra is associated
-* @memberof payments.TransactionInfo
-* @return {base.Reference} 
-*/
-TransactionInfo.prototype.getRefundRef = function() {
-  return this.refundRef;
-};
-
-/**
-* Set the field value
-* The credit refund with which this extra is associated
-*
-* @memberof payments.TransactionInfo
-* @param {base.Reference} creditRefundRef 
-*/
-TransactionInfo.prototype.setCreditRefundRef = function(creditRefundRef) {
-  this.creditRefundRef = creditRefundRef;
-};
-
-/**
-* Get the field value
-* The credit refund with which this extra is associated
-* @memberof payments.TransactionInfo
-* @return {base.Reference} 
-*/
-TransactionInfo.prototype.getCreditRefundRef = function() {
-  return this.creditRefundRef;
 };
 
 /**
@@ -329,6 +243,27 @@ TransactionInfo.prototype.getCardTypeLabel = function() {
 
 /**
 * Set the field value
+* Card Symbol for identify in payment_card_config table
+*
+* @memberof payments.TransactionInfo
+* @param {String} cardSymbol 
+*/
+TransactionInfo.prototype.setCardSymbol = function(cardSymbol) {
+  this.cardSymbol = cardSymbol;
+};
+
+/**
+* Get the field value
+* Card Symbol for identify in payment_card_config table
+* @memberof payments.TransactionInfo
+* @return {String} 
+*/
+TransactionInfo.prototype.getCardSymbol = function() {
+  return this.cardSymbol;
+};
+
+/**
+* Set the field value
 * STAN(System Audit Trace Number)
 *
 * @memberof payments.TransactionInfo
@@ -409,6 +344,27 @@ TransactionInfo.prototype.setReceiptNumber = function(receiptNumber) {
 */
 TransactionInfo.prototype.getReceiptNumber = function() {
   return this.receiptNumber;
+};
+
+/**
+* Set the field value
+* Reversal STAN Ref Num
+*
+* @memberof payments.TransactionInfo
+* @param {String} reversalStanRefNum 
+*/
+TransactionInfo.prototype.setReversalStanRefNum = function(reversalStanRefNum) {
+  this.reversalStanRefNum = reversalStanRefNum;
+};
+
+/**
+* Get the field value
+* Reversal STAN Ref Num
+* @memberof payments.TransactionInfo
+* @return {String} 
+*/
+TransactionInfo.prototype.getReversalStanRefNum = function() {
+  return this.reversalStanRefNum;
 };
 
 /**
@@ -811,6 +767,27 @@ TransactionInfo.prototype.getTransactionSequenceCounterUpdate = function() {
 };
 
 /**
+* Set the field value
+* Boolean value defining if the corresponding TX was performed in NEXO emergency mode according NEXO IS Spec chapter 10.2
+*
+* @memberof payments.TransactionInfo
+* @param {Boolean} emergencyFlag 
+*/
+TransactionInfo.prototype.setEmergencyFlag = function(emergencyFlag) {
+  this.emergencyFlag = emergencyFlag;
+};
+
+/**
+* Get the field value
+* Boolean value defining if the corresponding TX was performed in NEXO emergency mode according NEXO IS Spec chapter 10.2
+* @memberof payments.TransactionInfo
+* @return {Boolean} 
+*/
+TransactionInfo.prototype.getEmergencyFlag = function() {
+  return this.emergencyFlag;
+};
+
+/**
 * @memberof payments.TransactionInfo
 * @private
 */
@@ -842,14 +819,6 @@ TransactionInfo._meta_.fields["transactionLocale"] = {};
 TransactionInfo._meta_.fields["transactionLocale"].type = String;
 TransactionInfo._meta_.fields["accountSelection"] = {};
 TransactionInfo._meta_.fields["accountSelection"].type = payments_AccountType;
-TransactionInfo._meta_.fields["paymentRef"] = {};
-TransactionInfo._meta_.fields["paymentRef"].type = base_Reference;
-TransactionInfo._meta_.fields["creditRef"] = {};
-TransactionInfo._meta_.fields["creditRef"].type = base_Reference;
-TransactionInfo._meta_.fields["refundRef"] = {};
-TransactionInfo._meta_.fields["refundRef"].type = base_Reference;
-TransactionInfo._meta_.fields["creditRefundRef"] = {};
-TransactionInfo._meta_.fields["creditRefundRef"].type = base_Reference;
 TransactionInfo._meta_.fields["fiscalInvoiceNumber"] = {};
 TransactionInfo._meta_.fields["fiscalInvoiceNumber"].type = String;
 TransactionInfo._meta_.fields["installmentsQuantity"] = {};
@@ -862,6 +831,8 @@ TransactionInfo._meta_.fields["installmentsPlanDesc"] = {};
 TransactionInfo._meta_.fields["installmentsPlanDesc"].type = String;
 TransactionInfo._meta_.fields["cardTypeLabel"] = {};
 TransactionInfo._meta_.fields["cardTypeLabel"].type = String;
+TransactionInfo._meta_.fields["cardSymbol"] = {};
+TransactionInfo._meta_.fields["cardSymbol"].type = String;
 TransactionInfo._meta_.fields["stan"] = {};
 TransactionInfo._meta_.fields["stan"].type = Number;
 TransactionInfo._meta_.fields["identityDocument"] = {};
@@ -870,6 +841,8 @@ TransactionInfo._meta_.fields["batchNumber"] = {};
 TransactionInfo._meta_.fields["batchNumber"].type = String;
 TransactionInfo._meta_.fields["receiptNumber"] = {};
 TransactionInfo._meta_.fields["receiptNumber"].type = String;
+TransactionInfo._meta_.fields["reversalStanRefNum"] = {};
+TransactionInfo._meta_.fields["reversalStanRefNum"].type = String;
 TransactionInfo._meta_.fields["reversalStan"] = {};
 TransactionInfo._meta_.fields["reversalStan"].type = Number;
 TransactionInfo._meta_.fields["reversalMac"] = {};
@@ -908,6 +881,8 @@ TransactionInfo._meta_.fields["origTransactionSequenceCounter"] = {};
 TransactionInfo._meta_.fields["origTransactionSequenceCounter"].type = String;
 TransactionInfo._meta_.fields["transactionSequenceCounterUpdate"] = {};
 TransactionInfo._meta_.fields["transactionSequenceCounterUpdate"].type = String;
+TransactionInfo._meta_.fields["emergencyFlag"] = {};
+TransactionInfo._meta_.fields["emergencyFlag"].type = Boolean;
 
 //
 // Expose the module.

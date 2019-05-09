@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -18,7 +17,6 @@ var CustomerMetadata = function() {
   this.dobMonth = undefined;
   this.dobDay = undefined;
   this.modifiedTime = undefined;
-  this.customer = undefined;
 };
 
 
@@ -149,27 +147,6 @@ CustomerMetadata.prototype.getModifiedTime = function() {
 };
 
 /**
-* Set the field value
-* Customer who this metadata belongs to.
-*
-* @memberof customers.CustomerMetadata
-* @param {base.Reference} customer 
-*/
-CustomerMetadata.prototype.setCustomer = function(customer) {
-  this.customer = customer;
-};
-
-/**
-* Get the field value
-* Customer who this metadata belongs to.
-* @memberof customers.CustomerMetadata
-* @return {base.Reference} 
-*/
-CustomerMetadata.prototype.getCustomer = function() {
-  return this.customer;
-};
-
-/**
 * @memberof customers.CustomerMetadata
 * @private
 */
@@ -207,8 +184,6 @@ CustomerMetadata._meta_.fields["dobDay"] = {};
 CustomerMetadata._meta_.fields["dobDay"].type = Number;
 CustomerMetadata._meta_.fields["modifiedTime"] = {};
 CustomerMetadata._meta_.fields["modifiedTime"].type = Number;
-CustomerMetadata._meta_.fields["customer"] = {};
-CustomerMetadata._meta_.fields["customer"].type = base_Reference;
 
 //
 // Expose the module.

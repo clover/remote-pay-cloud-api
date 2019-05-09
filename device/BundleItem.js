@@ -14,6 +14,7 @@ var BundleItem = function() {
   this.equipmentCode = undefined;
   this.equipmentCodeDesc = undefined;
   this.quantity = undefined;
+  this.version = undefined;
 };
 
 
@@ -72,6 +73,24 @@ BundleItem.prototype.getQuantity = function() {
 };
 
 /**
+* Set the field value
+* @memberof device.BundleItem
+* @param {Number} version must be an integer
+*/
+BundleItem.prototype.setVersion = function(version) {
+  this.version = version;
+};
+
+/**
+* Get the field value
+* @memberof device.BundleItem
+* @return {Number} must be an integer
+*/
+BundleItem.prototype.getVersion = function() {
+  return this.version;
+};
+
+/**
 * @memberof device.BundleItem
 * @private
 */
@@ -103,6 +122,8 @@ BundleItem._meta_.fields["equipmentCodeDesc"] = {};
 BundleItem._meta_.fields["equipmentCodeDesc"].type = String;
 BundleItem._meta_.fields["quantity"] = {};
 BundleItem._meta_.fields["quantity"].type = Number;
+BundleItem._meta_.fields["version"] = {};
+BundleItem._meta_.fields["version"].type = Number;
 
 //
 // Expose the module.

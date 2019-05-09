@@ -5,7 +5,6 @@
  */
 
 var payments_AdditionalChargeType = require("../payments/AdditionalChargeType");
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -16,8 +15,6 @@ var AdditionalChargeAmount = function() {
   this.id = undefined;
   this.amount = undefined;
   this.type = undefined;
-  this.payment = undefined;
-  this.refund = undefined;
 };
 
 
@@ -85,48 +82,6 @@ AdditionalChargeAmount.prototype.getType = function() {
 };
 
 /**
-* Set the field value
-* Reference to the payment the additional charge belongs to
-*
-* @memberof payments.AdditionalChargeAmount
-* @param {base.Reference} payment 
-*/
-AdditionalChargeAmount.prototype.setPayment = function(payment) {
-  this.payment = payment;
-};
-
-/**
-* Get the field value
-* Reference to the payment the additional charge belongs to
-* @memberof payments.AdditionalChargeAmount
-* @return {base.Reference} 
-*/
-AdditionalChargeAmount.prototype.getPayment = function() {
-  return this.payment;
-};
-
-/**
-* Set the field value
-* Reference to the payment the additional charge belongs to
-*
-* @memberof payments.AdditionalChargeAmount
-* @param {base.Reference} refund 
-*/
-AdditionalChargeAmount.prototype.setRefund = function(refund) {
-  this.refund = refund;
-};
-
-/**
-* Get the field value
-* Reference to the payment the additional charge belongs to
-* @memberof payments.AdditionalChargeAmount
-* @return {base.Reference} 
-*/
-AdditionalChargeAmount.prototype.getRefund = function() {
-  return this.refund;
-};
-
-/**
 * @memberof payments.AdditionalChargeAmount
 * @private
 */
@@ -158,10 +113,6 @@ AdditionalChargeAmount._meta_.fields["amount"] = {};
 AdditionalChargeAmount._meta_.fields["amount"].type = Number;
 AdditionalChargeAmount._meta_.fields["type"] = {};
 AdditionalChargeAmount._meta_.fields["type"].type = payments_AdditionalChargeType;
-AdditionalChargeAmount._meta_.fields["payment"] = {};
-AdditionalChargeAmount._meta_.fields["payment"].type = base_Reference;
-AdditionalChargeAmount._meta_.fields["refund"] = {};
-AdditionalChargeAmount._meta_.fields["refund"].type = base_Reference;
 
 //
 // Expose the module.

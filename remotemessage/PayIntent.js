@@ -52,9 +52,8 @@ var PayIntent = function() {
   this.germanInfo = undefined;
   this.cashAdvanceCustomerIdentification = undefined;
   this.transactionSettings = undefined;
-
+  this.externalReferenceId = undefined;
   this.passThroughValues = undefined;
-  this.applicationSpecificValues = undefined;
 };
 
 
@@ -262,7 +261,7 @@ PayIntent.prototype.getTaxableAmountRates = function() {
 /**
 * Set the field value
 * @memberof remotemessage.PayIntent
-* @param {Array.<payments.ServiceChargeAmount>} serviceChargeAmount An array of 
+* @param {payments.ServiceChargeAmount} serviceChargeAmount 
 */
 PayIntent.prototype.setServiceChargeAmount = function(serviceChargeAmount) {
   this.serviceChargeAmount = serviceChargeAmount;
@@ -271,7 +270,7 @@ PayIntent.prototype.setServiceChargeAmount = function(serviceChargeAmount) {
 /**
 * Get the field value
 * @memberof remotemessage.PayIntent
-* @return {Array.<payments.ServiceChargeAmount>} An array of 
+* @return {payments.ServiceChargeAmount} 
 */
 PayIntent.prototype.getServiceChargeAmount = function() {
   return this.serviceChargeAmount;
@@ -686,6 +685,48 @@ PayIntent.prototype.getTransactionSettings = function() {
 };
 
 /**
+* Set the field value
+* An id that can be passed to the merchant's gateway, and ultimately appear in settlement records.
+*
+* @memberof remotemessage.PayIntent
+* @param {String} externalReferenceId 
+*/
+PayIntent.prototype.setExternalReferenceId = function(externalReferenceId) {
+  this.externalReferenceId = externalReferenceId;
+};
+
+/**
+* Get the field value
+* An id that can be passed to the merchant's gateway, and ultimately appear in settlement records.
+* @memberof remotemessage.PayIntent
+* @return {String} 
+*/
+PayIntent.prototype.getExternalReferenceId = function() {
+  return this.externalReferenceId;
+};
+
+/**
+* Set the field value
+* A map of values passed through to the server that are NOT used in payment processing or persisted.
+*
+* @memberof remotemessage.PayIntent
+* @param {Object.<String,String>} passThroughValues A map of <String> to <>
+*/
+PayIntent.prototype.setPassThroughValues = function(passThroughValues) {
+  this.passThroughValues = passThroughValues;
+};
+
+/**
+* Get the field value
+* A map of values passed through to the server that are NOT used in payment processing or persisted.
+* @memberof remotemessage.PayIntent
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+PayIntent.prototype.getPassThroughValues = function() {
+  return this.passThroughValues;
+};
+
+/**
 * @memberof remotemessage.PayIntent
 * @private
 */
@@ -733,8 +774,7 @@ PayIntent._meta_.fields["taxableAmountRates"] = {};
 PayIntent._meta_.fields["taxableAmountRates"].type = Array;
 PayIntent._meta_.fields["taxableAmountRates"].elementType = payments_TaxableAmountRate;
 PayIntent._meta_.fields["serviceChargeAmount"] = {};
-PayIntent._meta_.fields["serviceChargeAmount"].type = Array;
-PayIntent._meta_.fields["serviceChargeAmount"].elementType = payments_ServiceChargeAmount;
+PayIntent._meta_.fields["serviceChargeAmount"].type = payments_ServiceChargeAmount;
 PayIntent._meta_.fields["isDisableCashBack"] = {};
 PayIntent._meta_.fields["isDisableCashBack"].type = Boolean;
 PayIntent._meta_.fields["isTesting"] = {};
@@ -779,6 +819,10 @@ PayIntent._meta_.fields["cashAdvanceCustomerIdentification"] = {};
 PayIntent._meta_.fields["cashAdvanceCustomerIdentification"].type = payments_CashAdvanceCustomerIdentification;
 PayIntent._meta_.fields["transactionSettings"] = {};
 PayIntent._meta_.fields["transactionSettings"].type = payments_TransactionSettings;
+PayIntent._meta_.fields["externalReferenceId"] = {};
+PayIntent._meta_.fields["externalReferenceId"].type = String;
+PayIntent._meta_.fields["passThroughValues"] = {};
+PayIntent._meta_.fields["passThroughValues"].type = Object;
 
 //
 // Expose the module.

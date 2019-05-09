@@ -12,7 +12,6 @@ var base_Reference = require("../base/Reference");
 */
 var SendReceiptRequest = function() {
   this._class_ = SendReceiptRequest;
-  this.orderRef = undefined;
   this.payment = undefined;
   this.refund = undefined;
   this.credit = undefined;
@@ -20,27 +19,6 @@ var SendReceiptRequest = function() {
   this.phoneNumbers = undefined;
 };
 
-
-/**
-* Set the field value
-* The order of the requested receipt.
-*
-* @memberof order.SendReceiptRequest
-* @param {base.Reference} orderRef 
-*/
-SendReceiptRequest.prototype.setOrderRef = function(orderRef) {
-  this.orderRef = orderRef;
-};
-
-/**
-* Get the field value
-* The order of the requested receipt.
-* @memberof order.SendReceiptRequest
-* @return {base.Reference} 
-*/
-SendReceiptRequest.prototype.getOrderRef = function() {
-  return this.orderRef;
-};
 
 /**
 * Set the field value
@@ -173,8 +151,6 @@ SendReceiptRequest.prototype.toString = function() {
 
 SendReceiptRequest._meta_ =  {fields:  {}};
 SendReceiptRequest._meta_._class_ =  SendReceiptRequest;
-SendReceiptRequest._meta_.fields["orderRef"] = {};
-SendReceiptRequest._meta_.fields["orderRef"].type = base_Reference;
 SendReceiptRequest._meta_.fields["payment"] = {};
 SendReceiptRequest._meta_.fields["payment"].type = base_Reference;
 SendReceiptRequest._meta_.fields["refund"] = {};

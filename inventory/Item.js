@@ -38,6 +38,7 @@ var Item = function() {
   this.modifierGroups = undefined;
   this.categories = undefined;
   this.tags = undefined;
+  this.canonical = undefined;
   this.itemStock = undefined;
   this.modifiedTime = undefined;
   this.deletedTime = undefined;
@@ -437,6 +438,27 @@ Item.prototype.getTags = function() {
 
 /**
 * Set the field value
+* Reference to canonical items
+*
+* @memberof inventory.Item
+* @param {Null|base.Reference} canonical 
+*/
+Item.prototype.setCanonical = function(canonical) {
+  this.canonical = canonical;
+};
+
+/**
+* Get the field value
+* Reference to canonical items
+* @memberof inventory.Item
+* @return {Null|base.Reference} 
+*/
+Item.prototype.getCanonical = function() {
+  return this.canonical;
+};
+
+/**
+* Set the field value
 * Item stock attribute that can be expanded to show stock quantity
 *
 * @memberof inventory.Item
@@ -585,6 +607,8 @@ Item._meta_.fields["categories"].elementType = inventory_Category;
 Item._meta_.fields["tags"] = {};
 Item._meta_.fields["tags"].type = Array;
 Item._meta_.fields["tags"].elementType = inventory_Tag;
+Item._meta_.fields["canonical"] = {};
+Item._meta_.fields["canonical"].type = base_Reference;
 Item._meta_.fields["itemStock"] = {};
 Item._meta_.fields["itemStock"].type = inventory_ItemStock;
 Item._meta_.fields["modifiedTime"] = {};

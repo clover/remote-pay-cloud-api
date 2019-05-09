@@ -16,7 +16,7 @@ var ManualRefundRequest = function() {
   remotepay_BaseTransactionRequest.call(this);
   this._superClass_ = remotepay_BaseTransactionRequest;
   this._class_ = ManualRefundRequest;
-  this.setType(remotepay_TransactionType["CREDIT"]);
+  this.type = remotepay_TransactionType["CREDIT"];
 };
 
 ManualRefundRequest.prototype = Object.create(remotepay_BaseTransactionRequest.prototype);

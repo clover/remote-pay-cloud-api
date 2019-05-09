@@ -15,8 +15,6 @@ var PermissionSetRole = function() {
   this.id = undefined;
   this.role = undefined;
   this.permissionSet = undefined;
-  this.modified_time = undefined;
-  this.deleted_time = undefined;
 };
 
 
@@ -84,42 +82,6 @@ PermissionSetRole.prototype.getPermissionSet = function() {
 };
 
 /**
-* Set the field value
-* @memberof employees.PermissionSetRole
-* @param {Number} modified_time must be a long integer
-*/
-PermissionSetRole.prototype.setModifiedTime = function(modified_time) {
-  this.modified_time = modified_time;
-};
-
-/**
-* Get the field value
-* @memberof employees.PermissionSetRole
-* @return {Number} must be a long integer
-*/
-PermissionSetRole.prototype.getModifiedTime = function() {
-  return this.modified_time;
-};
-
-/**
-* Set the field value
-* @memberof employees.PermissionSetRole
-* @param {Null|Number} deleted_time must be a long integer
-*/
-PermissionSetRole.prototype.setDeletedTime = function(deleted_time) {
-  this.deleted_time = deleted_time;
-};
-
-/**
-* Get the field value
-* @memberof employees.PermissionSetRole
-* @return {Null|Number} must be a long integer
-*/
-PermissionSetRole.prototype.getDeletedTime = function() {
-  return this.deleted_time;
-};
-
-/**
 * @memberof employees.PermissionSetRole
 * @private
 */
@@ -151,10 +113,6 @@ PermissionSetRole._meta_.fields["role"] = {};
 PermissionSetRole._meta_.fields["role"].type = base_Reference;
 PermissionSetRole._meta_.fields["permissionSet"] = {};
 PermissionSetRole._meta_.fields["permissionSet"].type = base_Reference;
-PermissionSetRole._meta_.fields["modified_time"] = {};
-PermissionSetRole._meta_.fields["modified_time"].type = Number;
-PermissionSetRole._meta_.fields["deleted_time"] = {};
-PermissionSetRole._meta_.fields["deleted_time"].type = Number;
 
 //
 // Expose the module.

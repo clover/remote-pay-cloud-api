@@ -67,7 +67,7 @@ Modifier.prototype.getName = function() {
 * Alternate name of the modifier
 *
 * @memberof inventory.Modifier
-* @param {String} alternateName 
+* @param {Null|String} alternateName 
 */
 Modifier.prototype.setAlternateName = function(alternateName) {
   this.alternateName = alternateName;
@@ -77,7 +77,7 @@ Modifier.prototype.setAlternateName = function(alternateName) {
 * Get the field value
 * Alternate name of the modifier
 * @memberof inventory.Modifier
-* @return {String} 
+* @return {Null|String} 
 */
 Modifier.prototype.getAlternateName = function() {
   return this.alternateName;
@@ -88,7 +88,7 @@ Modifier.prototype.getAlternateName = function() {
 * Additional cost when used
 *
 * @memberof inventory.Modifier
-* @param {Number} price must be a long integer
+* @param {Null|Number} price must be a long integer
 */
 Modifier.prototype.setPrice = function(price) {
   this.price = price;
@@ -98,7 +98,7 @@ Modifier.prototype.setPrice = function(price) {
 * Get the field value
 * Additional cost when used
 * @memberof inventory.Modifier
-* @return {Number} must be a long integer
+* @return {Null|Number} must be a long integer
 */
 Modifier.prototype.getPrice = function() {
   return this.price;
@@ -107,7 +107,7 @@ Modifier.prototype.getPrice = function() {
 /**
 * Set the field value
 * @memberof inventory.Modifier
-* @param {base.Reference} modifierGroup 
+* @param {Null|base.Reference} modifierGroup 
 */
 Modifier.prototype.setModifierGroup = function(modifierGroup) {
   this.modifierGroup = modifierGroup;
@@ -116,7 +116,7 @@ Modifier.prototype.setModifierGroup = function(modifierGroup) {
 /**
 * Get the field value
 * @memberof inventory.Modifier
-* @return {base.Reference} 
+* @return {Null|base.Reference} 
 */
 Modifier.prototype.getModifierGroup = function() {
   return this.modifierGroup;

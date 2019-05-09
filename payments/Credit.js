@@ -45,6 +45,7 @@ var Credit = function() {
   this.result = undefined;
   this.transactionInfo = undefined;
   this.merchant = undefined;
+  this.externalReferenceId = undefined;
 };
 
 
@@ -490,6 +491,27 @@ Credit.prototype.getMerchant = function() {
 };
 
 /**
+* Set the field value
+* The external reference id if associated with the credit
+*
+* @memberof payments.Credit
+* @param {String|Null} externalReferenceId 
+*/
+Credit.prototype.setExternalReferenceId = function(externalReferenceId) {
+  this.externalReferenceId = externalReferenceId;
+};
+
+/**
+* Get the field value
+* The external reference id if associated with the credit
+* @memberof payments.Credit
+* @return {String|Null} 
+*/
+Credit.prototype.getExternalReferenceId = function() {
+  return this.externalReferenceId;
+};
+
+/**
 * @memberof payments.Credit
 * @private
 */
@@ -561,6 +583,8 @@ Credit._meta_.fields["transactionInfo"] = {};
 Credit._meta_.fields["transactionInfo"].type = payments_TransactionInfo;
 Credit._meta_.fields["merchant"] = {};
 Credit._meta_.fields["merchant"].type = base_Reference;
+Credit._meta_.fields["externalReferenceId"] = {};
+Credit._meta_.fields["externalReferenceId"].type = String;
 
 //
 // Expose the module.

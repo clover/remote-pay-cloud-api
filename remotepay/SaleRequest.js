@@ -17,7 +17,7 @@ var SaleRequest = function() {
   remotepay_TransactionRequest.call(this);
   this._superClass_ = remotepay_TransactionRequest;
   this._class_ = SaleRequest;
-  this.setType(remotepay_TransactionType["PAYMENT"]);
+  this.type = remotepay_TransactionType["PAYMENT"];
   this.tipAmount = undefined;
   this.tipMode = undefined;
 };

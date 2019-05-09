@@ -4,19 +4,18 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var customers_Customer = require("../customers/Customer");
 var payments_Authorization = require("../payments/Authorization");
 var order_Discount = require("../order/Discount");
-var order_PaymentState = require("../order/PaymentState");
-var base_ServiceCharge = require("../base/ServiceCharge");
-var order_OrderTaxRate = require("../order/OrderTaxRate");
-var payments_Refund = require("../payments/Refund");
-var payments_Credit = require("../payments/Credit");
-var customers_Customer = require("../customers/Customer");
 var order_PayType = require("../order/PayType");
 var order_LineItem = require("../order/LineItem");
+var order_PaymentState = require("../order/PaymentState");
 var order_OrderType = require("../order/OrderType");
 var payments_Payment = require("../payments/Payment");
 var base_Reference = require("../base/Reference");
+var base_ServiceCharge = require("../base/ServiceCharge");
+var payments_Refund = require("../payments/Refund");
+var payments_Credit = require("../payments/Credit");
 
 /** The Order object is at the core of Clover’s transaction data. Almost every transaction either creates or updates an Order. When an order is created or updated via one of the Clover SDKs, the order data is automatically synchronized between the Clover Server and the merchant’s Clover devices. */
 /**
@@ -52,7 +51,6 @@ var Order = function() {
   this.serviceCharge = undefined;
   this.discounts = undefined;
   this.lineItems = undefined;
-  this.taxRates = undefined;
   this.payments = undefined;
   this.refunds = undefined;
   this.credits = undefined;
@@ -366,7 +364,7 @@ Order.prototype.getIsVat = function() {
 
 /**
 * Set the field value
-* A String generally describing the state of this Order. The value null indicates an empty Order that is not displayed in user interfaces. Other value such as "open" and "locked" are not checked or enforced by client or server and thus are not useful for making any logical decisions about this Order.
+* A String generally describing the state of the Order. When creating an Order, the value must be manually set to "open". If no value is set, the state defaults to null, which indicates an unfinished Order. An unfinished order is not displayed in user interfaces and can only be retrieved by its id. Non-null values such as "open" and "locked" are not checked or enforced by the server. Therefore, these values should not be used to make any logical decisions about the Order.
 *
 * @memberof order.Order
 * @param {Null|String} state 
@@ -377,7 +375,7 @@ Order.prototype.setState = function(state) {
 
 /**
 * Get the field value
-* A String generally describing the state of this Order. The value null indicates an empty Order that is not displayed in user interfaces. Other value such as "open" and "locked" are not checked or enforced by client or server and thus are not useful for making any logical decisions about this Order.
+* A String generally describing the state of the Order. When creating an Order, the value must be manually set to "open". If no value is set, the state defaults to null, which indicates an unfinished Order. An unfinished order is not displayed in user interfaces and can only be retrieved by its id. Non-null values such as "open" and "locked" are not checked or enforced by the server. Therefore, these values should not be used to make any logical decisions about the Order.
 * @memberof order.Order
 * @return {Null|String} 
 */
@@ -611,24 +609,6 @@ Order.prototype.setLineItems = function(lineItems) {
 */
 Order.prototype.getLineItems = function() {
   return this.lineItems;
-};
-
-/**
-* Set the field value
-* @memberof order.Order
-* @param {Array.<order.OrderTaxRate>} taxRates An array of 
-*/
-Order.prototype.setTaxRates = function(taxRates) {
-  this.taxRates = taxRates;
-};
-
-/**
-* Get the field value
-* @memberof order.Order
-* @return {Array.<order.OrderTaxRate>} An array of 
-*/
-Order.prototype.getTaxRates = function() {
-  return this.taxRates;
 };
 
 /**
@@ -879,9 +859,6 @@ Order._meta_.fields["discounts"].elementType = order_Discount;
 Order._meta_.fields["lineItems"] = {};
 Order._meta_.fields["lineItems"].type = Array;
 Order._meta_.fields["lineItems"].elementType = order_LineItem;
-Order._meta_.fields["taxRates"] = {};
-Order._meta_.fields["taxRates"].type = Array;
-Order._meta_.fields["taxRates"].elementType = order_OrderTaxRate;
 Order._meta_.fields["payments"] = {};
 Order._meta_.fields["payments"].type = Array;
 Order._meta_.fields["payments"].elementType = payments_Payment;

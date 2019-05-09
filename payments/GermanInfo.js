@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -39,10 +38,6 @@ var GermanInfo = function() {
   this.sepaElvCreditorId = undefined;
   this.sepaElvMandateId = undefined;
   this.sepaElvIban = undefined;
-  this.paymentRef = undefined;
-  this.creditRef = undefined;
-  this.refundRef = undefined;
-  this.creditRefundRef = undefined;
 };
 
 
@@ -533,90 +528,6 @@ GermanInfo.prototype.getSepaElvIban = function() {
 };
 
 /**
-* Set the field value
-* The payment with which this German info is associated
-*
-* @memberof payments.GermanInfo
-* @param {base.Reference} paymentRef 
-*/
-GermanInfo.prototype.setPaymentRef = function(paymentRef) {
-  this.paymentRef = paymentRef;
-};
-
-/**
-* Get the field value
-* The payment with which this German info is associated
-* @memberof payments.GermanInfo
-* @return {base.Reference} 
-*/
-GermanInfo.prototype.getPaymentRef = function() {
-  return this.paymentRef;
-};
-
-/**
-* Set the field value
-* The credit with which this German info is associated
-*
-* @memberof payments.GermanInfo
-* @param {base.Reference} creditRef 
-*/
-GermanInfo.prototype.setCreditRef = function(creditRef) {
-  this.creditRef = creditRef;
-};
-
-/**
-* Get the field value
-* The credit with which this German info is associated
-* @memberof payments.GermanInfo
-* @return {base.Reference} 
-*/
-GermanInfo.prototype.getCreditRef = function() {
-  return this.creditRef;
-};
-
-/**
-* Set the field value
-* The refund with which this German info is associated
-*
-* @memberof payments.GermanInfo
-* @param {base.Reference} refundRef 
-*/
-GermanInfo.prototype.setRefundRef = function(refundRef) {
-  this.refundRef = refundRef;
-};
-
-/**
-* Get the field value
-* The refund with which this German info is associated
-* @memberof payments.GermanInfo
-* @return {base.Reference} 
-*/
-GermanInfo.prototype.getRefundRef = function() {
-  return this.refundRef;
-};
-
-/**
-* Set the field value
-* The credit refund with which this German info is associated
-*
-* @memberof payments.GermanInfo
-* @param {base.Reference} creditRefundRef 
-*/
-GermanInfo.prototype.setCreditRefundRef = function(creditRefundRef) {
-  this.creditRefundRef = creditRefundRef;
-};
-
-/**
-* Get the field value
-* The credit refund with which this German info is associated
-* @memberof payments.GermanInfo
-* @return {base.Reference} 
-*/
-GermanInfo.prototype.getCreditRefundRef = function() {
-  return this.creditRefundRef;
-};
-
-/**
 * @memberof payments.GermanInfo
 * @private
 */
@@ -696,14 +607,6 @@ GermanInfo._meta_.fields["sepaElvMandateId"] = {};
 GermanInfo._meta_.fields["sepaElvMandateId"].type = String;
 GermanInfo._meta_.fields["sepaElvIban"] = {};
 GermanInfo._meta_.fields["sepaElvIban"].type = String;
-GermanInfo._meta_.fields["paymentRef"] = {};
-GermanInfo._meta_.fields["paymentRef"].type = base_Reference;
-GermanInfo._meta_.fields["creditRef"] = {};
-GermanInfo._meta_.fields["creditRef"].type = base_Reference;
-GermanInfo._meta_.fields["refundRef"] = {};
-GermanInfo._meta_.fields["refundRef"].type = base_Reference;
-GermanInfo._meta_.fields["creditRefundRef"] = {};
-GermanInfo._meta_.fields["creditRefundRef"].type = base_Reference;
 
 //
 // Expose the module.

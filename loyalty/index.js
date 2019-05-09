@@ -1,18 +1,19 @@
 
 module.exports.loyalty = loyalty;
 /**
- * @namespace loyalty
- */
+* @namespace loyalty
+*/
 function loyalty() {}
 
 
-loyalty.CustomerProvidedDataResponse = require("./CustomerProvidedDataResponse.js");
-loyalty.CustomerProvidedDataResponseType = require("./CustomerProvidedDataResponseType.js");
-loyalty.LoyaltyDataConfig = require("./LoyaltyDataConfig.js");
+loyalty.CustomerProvidedDataResponse = require("./CustomerProvidedDataResponse");
+loyalty.CustomerProvidedDataResponseType = require("./CustomerProvidedDataResponseType");
+loyalty.LoyaltyDataConfig = require("./LoyaltyDataConfig");
 
 //
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
-    module.exports = loyalty;
+  module.exports = loyalty;
 }
+    

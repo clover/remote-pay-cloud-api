@@ -4,8 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
-var customers_TokenType = require("../customers/TokenType");
 
 /**
 * @constructor
@@ -21,8 +19,6 @@ var Card = function() {
   this.expirationDate = undefined;
   this.cardType = undefined;
   this.token = undefined;
-  this.tokenType = undefined;
-  this.customer = undefined;
 };
 
 
@@ -171,45 +167,6 @@ Card.prototype.getToken = function() {
 };
 
 /**
-* Set the field value
-* @memberof customers.Card
-* @param {customers.TokenType} tokenType 
-*/
-Card.prototype.setTokenType = function(tokenType) {
-  this.tokenType = tokenType;
-};
-
-/**
-* Get the field value
-* @memberof customers.Card
-* @return {customers.TokenType} 
-*/
-Card.prototype.getTokenType = function() {
-  return this.tokenType;
-};
-
-/**
-* Set the field value
-* Customer who this card belongs to.
-*
-* @memberof customers.Card
-* @param {base.Reference} customer 
-*/
-Card.prototype.setCustomer = function(customer) {
-  this.customer = customer;
-};
-
-/**
-* Get the field value
-* Customer who this card belongs to.
-* @memberof customers.Card
-* @return {base.Reference} 
-*/
-Card.prototype.getCustomer = function() {
-  return this.customer;
-};
-
-/**
 * @memberof customers.Card
 * @private
 */
@@ -251,10 +208,6 @@ Card._meta_.fields["cardType"] = {};
 Card._meta_.fields["cardType"].type = String;
 Card._meta_.fields["token"] = {};
 Card._meta_.fields["token"].type = String;
-Card._meta_.fields["tokenType"] = {};
-Card._meta_.fields["tokenType"].type = customers_TokenType;
-Card._meta_.fields["customer"] = {};
-Card._meta_.fields["customer"].type = base_Reference;
 
 //
 // Expose the module.
