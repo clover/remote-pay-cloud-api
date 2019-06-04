@@ -46,11 +46,14 @@ var Payment = function() {
   this.result = undefined;
   this.cardTransaction = undefined;
   this.serviceCharge = undefined;
+  this.attributes = undefined;
   this.additionalCharges = undefined;
   this.taxRates = undefined;
   this.refunds = undefined;
   this.note = undefined;
   this.lineItemPayments = undefined;
+  this.authorization = undefined;
+  this.voidPaymentRef = undefined;
   this.voidReason = undefined;
   this.dccInfo = undefined;
   this.transactionSettings = undefined;
@@ -433,6 +436,24 @@ Payment.prototype.getServiceCharge = function() {
 /**
 * Set the field value
 * @memberof payments.Payment
+* @param {Object.<String,String>} attributes A map of <String> to <>
+*/
+Payment.prototype.setAttributes = function(attributes) {
+  this.attributes = attributes;
+};
+
+/**
+* Get the field value
+* @memberof payments.Payment
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+Payment.prototype.getAttributes = function() {
+  return this.attributes;
+};
+
+/**
+* Set the field value
+* @memberof payments.Payment
 * @param {Array.<payments.AdditionalChargeAmount>} additionalCharges An array of 
 */
 Payment.prototype.setAdditionalCharges = function(additionalCharges) {
@@ -518,6 +539,48 @@ Payment.prototype.setLineItemPayments = function(lineItemPayments) {
 */
 Payment.prototype.getLineItemPayments = function() {
   return this.lineItemPayments;
+};
+
+/**
+* Set the field value
+* Authorization which this payment is associated to (opening or closing payment) if one exists
+*
+* @memberof payments.Payment
+* @param {base.Reference} authorization 
+*/
+Payment.prototype.setAuthorization = function(authorization) {
+  this.authorization = authorization;
+};
+
+/**
+* Get the field value
+* Authorization which this payment is associated to (opening or closing payment) if one exists
+* @memberof payments.Payment
+* @return {base.Reference} 
+*/
+Payment.prototype.getAuthorization = function() {
+  return this.authorization;
+};
+
+/**
+* Set the field value
+* If voided, the corresponding successful payment, and vice versa
+*
+* @memberof payments.Payment
+* @param {base.Reference} voidPaymentRef 
+*/
+Payment.prototype.setVoidPaymentRef = function(voidPaymentRef) {
+  this.voidPaymentRef = voidPaymentRef;
+};
+
+/**
+* Get the field value
+* If voided, the corresponding successful payment, and vice versa
+* @memberof payments.Payment
+* @return {base.Reference} 
+*/
+Payment.prototype.getVoidPaymentRef = function() {
+  return this.voidPaymentRef;
 };
 
 /**
@@ -789,6 +852,8 @@ Payment._meta_.fields["cardTransaction"] = {};
 Payment._meta_.fields["cardTransaction"].type = payments_CardTransaction;
 Payment._meta_.fields["serviceCharge"] = {};
 Payment._meta_.fields["serviceCharge"].type = payments_ServiceChargeAmount;
+Payment._meta_.fields["attributes"] = {};
+Payment._meta_.fields["attributes"].type = Object;
 Payment._meta_.fields["additionalCharges"] = {};
 Payment._meta_.fields["additionalCharges"].type = Array;
 Payment._meta_.fields["additionalCharges"].elementType = payments_AdditionalChargeAmount;
@@ -803,6 +868,10 @@ Payment._meta_.fields["note"].type = String;
 Payment._meta_.fields["lineItemPayments"] = {};
 Payment._meta_.fields["lineItemPayments"].type = Array;
 Payment._meta_.fields["lineItemPayments"].elementType = payments_LineItemPayment;
+Payment._meta_.fields["authorization"] = {};
+Payment._meta_.fields["authorization"].type = base_Reference;
+Payment._meta_.fields["voidPaymentRef"] = {};
+Payment._meta_.fields["voidPaymentRef"].type = base_Reference;
 Payment._meta_.fields["voidReason"] = {};
 Payment._meta_.fields["voidReason"].type = order_VoidReason;
 Payment._meta_.fields["dccInfo"] = {};

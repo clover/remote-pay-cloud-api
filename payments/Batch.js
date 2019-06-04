@@ -16,10 +16,6 @@ var payments_BatchState = require("../payments/BatchState");
 var Batch = function() {
   this._class_ = Batch;
   this.id = undefined;
-  this.merchantId = undefined;
-  this.firstGatewayTxId = undefined;
-  this.lastGatewayTxId = undefined;
-  this.accountId = undefined;
   this.txCount = 0;
   this.totalBatchAmount = 0;
   this.devices = undefined;
@@ -48,81 +44,6 @@ Batch.prototype.setId = function(id) {
 */
 Batch.prototype.getId = function() {
   return this.id;
-};
-
-/**
-* Set the field value
-* @memberof payments.Batch
-* @param {Number} merchantId must be a long integer
-*/
-Batch.prototype.setMerchantId = function(merchantId) {
-  this.merchantId = merchantId;
-};
-
-/**
-* Get the field value
-* @memberof payments.Batch
-* @return {Number} must be a long integer
-*/
-Batch.prototype.getMerchantId = function() {
-  return this.merchantId;
-};
-
-/**
-* Set the field value
-* @memberof payments.Batch
-* @param {Number} firstGatewayTxId must be a long integer
-*/
-Batch.prototype.setFirstGatewayTxId = function(firstGatewayTxId) {
-  this.firstGatewayTxId = firstGatewayTxId;
-};
-
-/**
-* Get the field value
-* @memberof payments.Batch
-* @return {Number} must be a long integer
-*/
-Batch.prototype.getFirstGatewayTxId = function() {
-  return this.firstGatewayTxId;
-};
-
-/**
-* Set the field value
-* @memberof payments.Batch
-* @param {Number} lastGatewayTxId must be a long integer
-*/
-Batch.prototype.setLastGatewayTxId = function(lastGatewayTxId) {
-  this.lastGatewayTxId = lastGatewayTxId;
-};
-
-/**
-* Get the field value
-* @memberof payments.Batch
-* @return {Number} must be a long integer
-*/
-Batch.prototype.getLastGatewayTxId = function() {
-  return this.lastGatewayTxId;
-};
-
-/**
-* Set the field value
-* The id of employee who executed batch
-*
-* @memberof payments.Batch
-* @param {Number} accountId must be a long integer
-*/
-Batch.prototype.setAccountId = function(accountId) {
-  this.accountId = accountId;
-};
-
-/**
-* Get the field value
-* The id of employee who executed batch
-* @memberof payments.Batch
-* @return {Number} must be a long integer
-*/
-Batch.prototype.getAccountId = function() {
-  return this.accountId;
 };
 
 /**
@@ -336,14 +257,6 @@ Batch._meta_ =  {fields:  {}};
 Batch._meta_._class_ =  Batch;
 Batch._meta_.fields["id"] = {};
 Batch._meta_.fields["id"].type = String;
-Batch._meta_.fields["merchantId"] = {};
-Batch._meta_.fields["merchantId"].type = Number;
-Batch._meta_.fields["firstGatewayTxId"] = {};
-Batch._meta_.fields["firstGatewayTxId"].type = Number;
-Batch._meta_.fields["lastGatewayTxId"] = {};
-Batch._meta_.fields["lastGatewayTxId"].type = Number;
-Batch._meta_.fields["accountId"] = {};
-Batch._meta_.fields["accountId"].type = Number;
 Batch._meta_.fields["txCount"] = {};
 Batch._meta_.fields["txCount"].type = Number;
 Batch._meta_.fields["totalBatchAmount"] = {};

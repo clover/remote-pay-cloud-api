@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var device_BuildType = require("../device/BuildType");
 var base_Reference = require("../base/Reference");
 
 /**
@@ -21,10 +20,6 @@ var Device = function() {
   this.terminalId = undefined;
   this.terminalPrefix = undefined;
   this.serial = undefined;
-  this.buildNumber = undefined;
-  this.secureId = undefined;
-  this.buildType = undefined;
-  this.cpuId = undefined;
   this.imei = undefined;
   this.imsi = undefined;
   this.simIccid = undefined;
@@ -207,78 +202,6 @@ Device.prototype.setSerial = function(serial) {
 */
 Device.prototype.getSerial = function() {
   return this.serial;
-};
-
-/**
-* Set the field value
-* @memberof device.Device
-* @param {Number} buildNumber must be a long integer
-*/
-Device.prototype.setBuildNumber = function(buildNumber) {
-  this.buildNumber = buildNumber;
-};
-
-/**
-* Get the field value
-* @memberof device.Device
-* @return {Number} must be a long integer
-*/
-Device.prototype.getBuildNumber = function() {
-  return this.buildNumber;
-};
-
-/**
-* Set the field value
-* @memberof device.Device
-* @param {String} secureId 
-*/
-Device.prototype.setSecureId = function(secureId) {
-  this.secureId = secureId;
-};
-
-/**
-* Get the field value
-* @memberof device.Device
-* @return {String} 
-*/
-Device.prototype.getSecureId = function() {
-  return this.secureId;
-};
-
-/**
-* Set the field value
-* @memberof device.Device
-* @param {device.BuildType} buildType 
-*/
-Device.prototype.setBuildType = function(buildType) {
-  this.buildType = buildType;
-};
-
-/**
-* Get the field value
-* @memberof device.Device
-* @return {device.BuildType} 
-*/
-Device.prototype.getBuildType = function() {
-  return this.buildType;
-};
-
-/**
-* Set the field value
-* @memberof device.Device
-* @param {String} cpuId 
-*/
-Device.prototype.setCpuId = function(cpuId) {
-  this.cpuId = cpuId;
-};
-
-/**
-* Get the field value
-* @memberof device.Device
-* @return {String} 
-*/
-Device.prototype.getCpuId = function() {
-  return this.cpuId;
 };
 
 /**
@@ -734,14 +657,6 @@ Device._meta_.fields["terminalPrefix"] = {};
 Device._meta_.fields["terminalPrefix"].type = Number;
 Device._meta_.fields["serial"] = {};
 Device._meta_.fields["serial"].type = String;
-Device._meta_.fields["buildNumber"] = {};
-Device._meta_.fields["buildNumber"].type = Number;
-Device._meta_.fields["secureId"] = {};
-Device._meta_.fields["secureId"].type = String;
-Device._meta_.fields["buildType"] = {};
-Device._meta_.fields["buildType"].type = device_BuildType;
-Device._meta_.fields["cpuId"] = {};
-Device._meta_.fields["cpuId"].type = String;
 Device._meta_.fields["imei"] = {};
 Device._meta_.fields["imei"].type = String;
 Device._meta_.fields["imsi"] = {};

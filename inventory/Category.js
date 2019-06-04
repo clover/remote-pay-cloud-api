@@ -18,6 +18,7 @@ var Category = function() {
   this.items = undefined;
   this.deleted = undefined;
   this.modifiedTime = undefined;
+  this.canonical = undefined;
 };
 
 
@@ -68,7 +69,7 @@ Category.prototype.getName = function() {
 * Integer used to determine how this category is sorted against other categories.
 *
 * @memberof inventory.Category
-* @param {Number} sortOrder must be an integer
+* @param {Null|Number} sortOrder must be an integer
 */
 Category.prototype.setSortOrder = function(sortOrder) {
   this.sortOrder = sortOrder;
@@ -78,7 +79,7 @@ Category.prototype.setSortOrder = function(sortOrder) {
 * Get the field value
 * Integer used to determine how this category is sorted against other categories.
 * @memberof inventory.Category
-* @return {Number} must be an integer
+* @return {Null|Number} must be an integer
 */
 Category.prototype.getSortOrder = function() {
   return this.sortOrder;
@@ -89,7 +90,7 @@ Category.prototype.getSortOrder = function() {
 * Ordered list of items associated with this category.
 *
 * @memberof inventory.Category
-* @param {Array.<base.Reference>} items An array of 
+* @param {Null|Array.<base.Reference>} items An array of 
 */
 Category.prototype.setItems = function(items) {
   this.items = items;
@@ -99,7 +100,7 @@ Category.prototype.setItems = function(items) {
 * Get the field value
 * Ordered list of items associated with this category.
 * @memberof inventory.Category
-* @return {Array.<base.Reference>} An array of 
+* @return {Null|Array.<base.Reference>} An array of 
 */
 Category.prototype.getItems = function() {
   return this.items;
@@ -110,7 +111,7 @@ Category.prototype.getItems = function() {
 * Whether the category has been deleted.
 *
 * @memberof inventory.Category
-* @param {Boolean} deleted 
+* @param {Null|Boolean} deleted 
 */
 Category.prototype.setDeleted = function(deleted) {
   this.deleted = deleted;
@@ -120,7 +121,7 @@ Category.prototype.setDeleted = function(deleted) {
 * Get the field value
 * Whether the category has been deleted.
 * @memberof inventory.Category
-* @return {Boolean} 
+* @return {Null|Boolean} 
 */
 Category.prototype.getDeleted = function() {
   return this.deleted;
@@ -131,7 +132,7 @@ Category.prototype.getDeleted = function() {
 * The time this category was last modified
 *
 * @memberof inventory.Category
-* @param {Number} modifiedTime must be a long integer
+* @param {Null|Number} modifiedTime must be a long integer
 */
 Category.prototype.setModifiedTime = function(modifiedTime) {
   this.modifiedTime = modifiedTime;
@@ -141,10 +142,31 @@ Category.prototype.setModifiedTime = function(modifiedTime) {
 * Get the field value
 * The time this category was last modified
 * @memberof inventory.Category
-* @return {Number} must be a long integer
+* @return {Null|Number} must be a long integer
 */
 Category.prototype.getModifiedTime = function() {
   return this.modifiedTime;
+};
+
+/**
+* Set the field value
+* Reference to canonical category
+*
+* @memberof inventory.Category
+* @param {Null|base.Reference} canonical 
+*/
+Category.prototype.setCanonical = function(canonical) {
+  this.canonical = canonical;
+};
+
+/**
+* Get the field value
+* Reference to canonical category
+* @memberof inventory.Category
+* @return {Null|base.Reference} 
+*/
+Category.prototype.getCanonical = function() {
+  return this.canonical;
 };
 
 /**
@@ -186,6 +208,8 @@ Category._meta_.fields["deleted"] = {};
 Category._meta_.fields["deleted"].type = Boolean;
 Category._meta_.fields["modifiedTime"] = {};
 Category._meta_.fields["modifiedTime"].type = Number;
+Category._meta_.fields["canonical"] = {};
+Category._meta_.fields["canonical"].type = base_Reference;
 
 //
 // Expose the module.

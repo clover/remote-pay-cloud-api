@@ -6,13 +6,11 @@
 
 
 /**
-* @memberof customers
+* @memberof payments
 * @enum {string}
 */
-TokenType = {
-  MULTIPAY : "MULTIPAY",
-  FINANCIAL : "FINANCIAL",
-  CTOKEN : "CTOKEN"
+AssociationType = {
+  GOVT_ED_SERVICE_FEE : "GOVT_ED_SERVICE_FEE"
 };
 
 
@@ -20,6 +18,6 @@ TokenType = {
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
-module.exports = TokenType;
+module.exports = AssociationType;
 }
 

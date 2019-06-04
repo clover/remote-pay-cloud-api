@@ -30,17 +30,17 @@ remotepay.DeviceErrorEventCode = require("./DeviceErrorEventCode");
 remotepay.DeviceEventEnum = require("./DeviceEventEnum");
 remotepay.DeviceEventState = require("./DeviceEventState");
 remotepay.DeviceInfo = require("./DeviceInfo");
-remotepay.DisplayReceiptOptionsResponse = require("./DisplayReceiptOptionsResponse");
 remotepay.DisplayReceiptOptionsRequest = require("./DisplayReceiptOptionsRequest");
+remotepay.DisplayReceiptOptionsResponse = require("./DisplayReceiptOptionsResponse");
 remotepay.ErrorType = require("./ErrorType");
 remotepay.ExternalDeviceState = require("./ExternalDeviceState");
 remotepay.ExternalDeviceStateData = require("./ExternalDeviceStateData");
 remotepay.ExternalDeviceStateEnum = require("./ExternalDeviceStateEnum");
 remotepay.ICloverConnector = require("./ICloverConnector");
 remotepay.ICloverConnectorListener = require("./ICloverConnectorListener");
-remotepay.InvalidStateTransitionResponse = require("./InvalidStateTransitionResponse");
 remotepay.Img = require("./Img");
 remotepay.InputOption = require("./InputOption");
+remotepay.InvalidStateTransitionResponse = require("./InvalidStateTransitionResponse");
 remotepay.KeyPress = require("./KeyPress");
 remotepay.KeyPressEnum = require("./KeyPressEnum");
 remotepay.ManualRefundRequest = require("./ManualRefundRequest");
@@ -107,4 +107,3 @@ remotepay.VoidPaymentResponse = require("./VoidPaymentResponse.js");
 if ('undefined' !== typeof module) {
   module.exports = remotepay;
 }
-    

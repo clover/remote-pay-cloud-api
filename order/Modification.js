@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 var inventory_Modifier = require("../inventory/Modifier");
 
 /** Snapshot of a line item modifier at the time that the order was placed. */
@@ -15,7 +14,6 @@ var inventory_Modifier = require("../inventory/Modifier");
 var Modification = function() {
   this._class_ = Modification;
   this.id = undefined;
-  this.lineItemRef = undefined;
   this.name = undefined;
   this.alternateName = undefined;
   this.amount = undefined;
@@ -40,27 +38,6 @@ Modification.prototype.setId = function(id) {
 */
 Modification.prototype.getId = function() {
   return this.id;
-};
-
-/**
-* Set the field value
-* The line item with which the modification is associated
-*
-* @memberof order.Modification
-* @param {base.Reference} lineItemRef 
-*/
-Modification.prototype.setLineItemRef = function(lineItemRef) {
-  this.lineItemRef = lineItemRef;
-};
-
-/**
-* Get the field value
-* The line item with which the modification is associated
-* @memberof order.Modification
-* @return {base.Reference} 
-*/
-Modification.prototype.getLineItemRef = function() {
-  return this.lineItemRef;
 };
 
 /**
@@ -193,8 +170,6 @@ Modification._meta_ =  {fields:  {}};
 Modification._meta_._class_ =  Modification;
 Modification._meta_.fields["id"] = {};
 Modification._meta_.fields["id"].type = String;
-Modification._meta_.fields["lineItemRef"] = {};
-Modification._meta_.fields["lineItemRef"].type = base_Reference;
 Modification._meta_.fields["name"] = {};
 Modification._meta_.fields["name"].type = String;
 Modification._meta_.fields["alternateName"] = {};

@@ -18,7 +18,6 @@ var payments_Refund = require("../payments/Refund");
 var LineItem = function() {
   this._class_ = LineItem;
   this.id = undefined;
-  this.orderRef = undefined;
   this.item = undefined;
   this.name = undefined;
   this.alternateName = undefined;
@@ -70,27 +69,6 @@ LineItem.prototype.setId = function(id) {
 */
 LineItem.prototype.getId = function() {
   return this.id;
-};
-
-/**
-* Set the field value
-* Reference to the order with which the line item is associated.
-*
-* @memberof order.LineItem
-* @param {base.Reference} orderRef 
-*/
-LineItem.prototype.setOrderRef = function(orderRef) {
-  this.orderRef = orderRef;
-};
-
-/**
-* Get the field value
-* Reference to the order with which the line item is associated.
-* @memberof order.LineItem
-* @return {base.Reference} 
-*/
-LineItem.prototype.getOrderRef = function() {
-  return this.orderRef;
 };
 
 /**
@@ -706,8 +684,6 @@ LineItem._meta_ =  {fields:  {}};
 LineItem._meta_._class_ =  LineItem;
 LineItem._meta_.fields["id"] = {};
 LineItem._meta_.fields["id"].type = String;
-LineItem._meta_.fields["orderRef"] = {};
-LineItem._meta_.fields["orderRef"].type = base_Reference;
 LineItem._meta_.fields["item"] = {};
 LineItem._meta_.fields["item"].type = base_Reference;
 LineItem._meta_.fields["name"] = {};

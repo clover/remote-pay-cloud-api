@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -14,7 +13,6 @@ var SignatureDisclaimer = function() {
   this._class_ = SignatureDisclaimer;
   this.disclaimerText = undefined;
   this.disclaimerValues = undefined;
-  this.paymentRef = undefined;
 };
 
 
@@ -58,27 +56,6 @@ SignatureDisclaimer.prototype.getDisclaimerValues = function() {
 };
 
 /**
-* Set the field value
-* The payment with which this Signature disclaimer is associated
-*
-* @memberof payments.SignatureDisclaimer
-* @param {base.Reference} paymentRef 
-*/
-SignatureDisclaimer.prototype.setPaymentRef = function(paymentRef) {
-  this.paymentRef = paymentRef;
-};
-
-/**
-* Get the field value
-* The payment with which this Signature disclaimer is associated
-* @memberof payments.SignatureDisclaimer
-* @return {base.Reference} 
-*/
-SignatureDisclaimer.prototype.getPaymentRef = function() {
-  return this.paymentRef;
-};
-
-/**
 * @memberof payments.SignatureDisclaimer
 * @private
 */
@@ -108,8 +85,6 @@ SignatureDisclaimer._meta_.fields["disclaimerText"] = {};
 SignatureDisclaimer._meta_.fields["disclaimerText"].type = String;
 SignatureDisclaimer._meta_.fields["disclaimerValues"] = {};
 SignatureDisclaimer._meta_.fields["disclaimerValues"].type = Object;
-SignatureDisclaimer._meta_.fields["paymentRef"] = {};
-SignatureDisclaimer._meta_.fields["paymentRef"].type = base_Reference;
 
 //
 // Expose the module.

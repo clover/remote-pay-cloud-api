@@ -14,6 +14,7 @@ var TipSuggestion = function() {
   this.id = undefined;
   this.name = undefined;
   this.percentage = undefined;
+  this.amount = undefined;
   this.isEnabled = undefined;
 };
 
@@ -80,6 +81,27 @@ TipSuggestion.prototype.getPercentage = function() {
 
 /**
 * Set the field value
+* Suggested tip amount
+*
+* @memberof merchant.TipSuggestion
+* @param {Number} amount must be a long integer
+*/
+TipSuggestion.prototype.setAmount = function(amount) {
+  this.amount = amount;
+};
+
+/**
+* Get the field value
+* Suggested tip amount
+* @memberof merchant.TipSuggestion
+* @return {Number} must be a long integer
+*/
+TipSuggestion.prototype.getAmount = function() {
+  return this.amount;
+};
+
+/**
+* Set the field value
 * @memberof merchant.TipSuggestion
 * @param {Boolean} isEnabled 
 */
@@ -128,6 +150,8 @@ TipSuggestion._meta_.fields["name"] = {};
 TipSuggestion._meta_.fields["name"].type = String;
 TipSuggestion._meta_.fields["percentage"] = {};
 TipSuggestion._meta_.fields["percentage"].type = Number;
+TipSuggestion._meta_.fields["amount"] = {};
+TipSuggestion._meta_.fields["amount"].type = Number;
 TipSuggestion._meta_.fields["isEnabled"] = {};
 TipSuggestion._meta_.fields["isEnabled"].type = Boolean;
 

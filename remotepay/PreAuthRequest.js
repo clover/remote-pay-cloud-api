@@ -16,7 +16,7 @@ var PreAuthRequest = function() {
   remotepay_BaseTransactionRequest.call(this);
   this._superClass_ = remotepay_BaseTransactionRequest;
   this._class_ = PreAuthRequest;
-  this.setType(remotepay_TransactionType["AUTH"]);
+  this.type = remotepay_TransactionType["AUTH"];
 };
 
 PreAuthRequest.prototype = Object.create(remotepay_BaseTransactionRequest.prototype);

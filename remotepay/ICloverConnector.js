@@ -107,12 +107,13 @@ ICloverConnector.prototype.closeout = function(closeoutRequest) {
 };
 
 /**
- * Displays the customer-facing receipt options (print, email, etc.) for a Payment on the Clover device.
- * @memberof remotepay.ICloverConnector
- *
- * @param {remotepay.DisplayReceiptOptionsRequest} request
- * @return void
- */
+* Display receipt options for a Credit, Refund, or Payment
+  * @param request The request details
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.DisplayReceiptOptionsRequest} request 
+* @return void
+*/
 ICloverConnector.prototype.displayReceiptOptions = function(request) {
 };
 

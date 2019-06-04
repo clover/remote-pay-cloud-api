@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -13,8 +12,6 @@ var base_Reference = require("../base/Reference");
 var LineItemPayment = function() {
   this._class_ = LineItemPayment;
   this.id = undefined;
-  this.lineItemRef = undefined;
-  this.paymentRef = undefined;
   this.percentage = undefined;
   this.binName = undefined;
   this.refunded = undefined;
@@ -40,48 +37,6 @@ LineItemPayment.prototype.setId = function(id) {
 */
 LineItemPayment.prototype.getId = function() {
   return this.id;
-};
-
-/**
-* Set the field value
-* The line item with which the line item payment is associated
-*
-* @memberof payments.LineItemPayment
-* @param {base.Reference} lineItemRef 
-*/
-LineItemPayment.prototype.setLineItemRef = function(lineItemRef) {
-  this.lineItemRef = lineItemRef;
-};
-
-/**
-* Get the field value
-* The line item with which the line item payment is associated
-* @memberof payments.LineItemPayment
-* @return {base.Reference} 
-*/
-LineItemPayment.prototype.getLineItemRef = function() {
-  return this.lineItemRef;
-};
-
-/**
-* Set the field value
-* The payment with which the line item payment is associated
-*
-* @memberof payments.LineItemPayment
-* @param {base.Reference} paymentRef 
-*/
-LineItemPayment.prototype.setPaymentRef = function(paymentRef) {
-  this.paymentRef = paymentRef;
-};
-
-/**
-* Get the field value
-* The payment with which the line item payment is associated
-* @memberof payments.LineItemPayment
-* @return {base.Reference} 
-*/
-LineItemPayment.prototype.getPaymentRef = function() {
-  return this.paymentRef;
 };
 
 /**
@@ -175,10 +130,6 @@ LineItemPayment._meta_ =  {fields:  {}};
 LineItemPayment._meta_._class_ =  LineItemPayment;
 LineItemPayment._meta_.fields["id"] = {};
 LineItemPayment._meta_.fields["id"].type = String;
-LineItemPayment._meta_.fields["lineItemRef"] = {};
-LineItemPayment._meta_.fields["lineItemRef"].type = base_Reference;
-LineItemPayment._meta_.fields["paymentRef"] = {};
-LineItemPayment._meta_.fields["paymentRef"].type = base_Reference;
 LineItemPayment._meta_.fields["percentage"] = {};
 LineItemPayment._meta_.fields["percentage"].type = Number;
 LineItemPayment._meta_.fields["binName"] = {};

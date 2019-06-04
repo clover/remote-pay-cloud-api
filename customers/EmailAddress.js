@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -15,7 +14,6 @@ var EmailAddress = function() {
   this.id = undefined;
   this.emailAddress = undefined;
   this.verifiedTime = undefined;
-  this.customer = undefined;
 };
 
 
@@ -74,27 +72,6 @@ EmailAddress.prototype.getVerifiedTime = function() {
 };
 
 /**
-* Set the field value
-* Customer who this email address belongs to.
-*
-* @memberof customers.EmailAddress
-* @param {base.Reference} customer 
-*/
-EmailAddress.prototype.setCustomer = function(customer) {
-  this.customer = customer;
-};
-
-/**
-* Get the field value
-* Customer who this email address belongs to.
-* @memberof customers.EmailAddress
-* @return {base.Reference} 
-*/
-EmailAddress.prototype.getCustomer = function() {
-  return this.customer;
-};
-
-/**
 * @memberof customers.EmailAddress
 * @private
 */
@@ -126,8 +103,6 @@ EmailAddress._meta_.fields["emailAddress"] = {};
 EmailAddress._meta_.fields["emailAddress"].type = String;
 EmailAddress._meta_.fields["verifiedTime"] = {};
 EmailAddress._meta_.fields["verifiedTime"].type = Number;
-EmailAddress._meta_.fields["customer"] = {};
-EmailAddress._meta_.fields["customer"].type = base_Reference;
 
 //
 // Expose the module.

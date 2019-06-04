@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -15,8 +14,6 @@ var ServiceChargeAmount = function() {
   this.id = undefined;
   this.name = undefined;
   this.amount = undefined;
-  this.paymentRef = undefined;
-  this.refundRef = undefined;
 };
 
 
@@ -75,48 +72,6 @@ ServiceChargeAmount.prototype.getAmount = function() {
 };
 
 /**
-* Set the field value
-* The payment with which the payment tax rate is associated
-*
-* @memberof payments.ServiceChargeAmount
-* @param {base.Reference} paymentRef 
-*/
-ServiceChargeAmount.prototype.setPaymentRef = function(paymentRef) {
-  this.paymentRef = paymentRef;
-};
-
-/**
-* Get the field value
-* The payment with which the payment tax rate is associated
-* @memberof payments.ServiceChargeAmount
-* @return {base.Reference} 
-*/
-ServiceChargeAmount.prototype.getPaymentRef = function() {
-  return this.paymentRef;
-};
-
-/**
-* Set the field value
-* The refund with which the refund tax rate is associated
-*
-* @memberof payments.ServiceChargeAmount
-* @param {base.Reference} refundRef 
-*/
-ServiceChargeAmount.prototype.setRefundRef = function(refundRef) {
-  this.refundRef = refundRef;
-};
-
-/**
-* Get the field value
-* The refund with which the refund tax rate is associated
-* @memberof payments.ServiceChargeAmount
-* @return {base.Reference} 
-*/
-ServiceChargeAmount.prototype.getRefundRef = function() {
-  return this.refundRef;
-};
-
-/**
 * @memberof payments.ServiceChargeAmount
 * @private
 */
@@ -148,10 +103,6 @@ ServiceChargeAmount._meta_.fields["name"] = {};
 ServiceChargeAmount._meta_.fields["name"].type = String;
 ServiceChargeAmount._meta_.fields["amount"] = {};
 ServiceChargeAmount._meta_.fields["amount"].type = Number;
-ServiceChargeAmount._meta_.fields["paymentRef"] = {};
-ServiceChargeAmount._meta_.fields["paymentRef"].type = base_Reference;
-ServiceChargeAmount._meta_.fields["refundRef"] = {};
-ServiceChargeAmount._meta_.fields["refundRef"].type = base_Reference;
 
 //
 // Expose the module.

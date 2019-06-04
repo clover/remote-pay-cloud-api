@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -13,7 +12,6 @@ var base_Reference = require("../base/Reference");
 var PaymentTaxRate = function() {
   this._class_ = PaymentTaxRate;
   this.id = undefined;
-  this.paymentRef = undefined;
   this.name = undefined;
   this.rate = undefined;
   this.isDefault = undefined;
@@ -42,27 +40,6 @@ PaymentTaxRate.prototype.setId = function(id) {
 */
 PaymentTaxRate.prototype.getId = function() {
   return this.id;
-};
-
-/**
-* Set the field value
-* The payment with which the payment tax rate is associated
-*
-* @memberof payments.PaymentTaxRate
-* @param {base.Reference} paymentRef 
-*/
-PaymentTaxRate.prototype.setPaymentRef = function(paymentRef) {
-  this.paymentRef = paymentRef;
-};
-
-/**
-* Get the field value
-* The payment with which the payment tax rate is associated
-* @memberof payments.PaymentTaxRate
-* @return {base.Reference} 
-*/
-PaymentTaxRate.prototype.getPaymentRef = function() {
-  return this.paymentRef;
 };
 
 /**
@@ -219,8 +196,6 @@ PaymentTaxRate._meta_ =  {fields:  {}};
 PaymentTaxRate._meta_._class_ =  PaymentTaxRate;
 PaymentTaxRate._meta_.fields["id"] = {};
 PaymentTaxRate._meta_.fields["id"].type = String;
-PaymentTaxRate._meta_.fields["paymentRef"] = {};
-PaymentTaxRate._meta_.fields["paymentRef"].type = base_Reference;
 PaymentTaxRate._meta_.fields["name"] = {};
 PaymentTaxRate._meta_.fields["name"].type = String;
 PaymentTaxRate._meta_.fields["rate"] = {};

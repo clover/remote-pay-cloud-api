@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -20,8 +19,6 @@ var DCCInfo = function() {
   this.marginRatePercentage = undefined;
   this.exchangeRateSourceName = undefined;
   this.exchangeRateSourceTimeStamp = undefined;
-  this.paymentRef = undefined;
-  this.creditRef = undefined;
 };
 
 
@@ -194,48 +191,6 @@ DCCInfo.prototype.getExchangeRateSourceTimeStamp = function() {
 };
 
 /**
-* Set the field value
-* The payment with which this DCC info is associated
-*
-* @memberof payments.DCCInfo
-* @param {base.Reference} paymentRef 
-*/
-DCCInfo.prototype.setPaymentRef = function(paymentRef) {
-  this.paymentRef = paymentRef;
-};
-
-/**
-* Get the field value
-* The payment with which this DCC info is associated
-* @memberof payments.DCCInfo
-* @return {base.Reference} 
-*/
-DCCInfo.prototype.getPaymentRef = function() {
-  return this.paymentRef;
-};
-
-/**
-* Set the field value
-* The credit (manual refund) with which this DCC info is associated
-*
-* @memberof payments.DCCInfo
-* @param {base.Reference} creditRef 
-*/
-DCCInfo.prototype.setCreditRef = function(creditRef) {
-  this.creditRef = creditRef;
-};
-
-/**
-* Get the field value
-* The credit (manual refund) with which this DCC info is associated
-* @memberof payments.DCCInfo
-* @return {base.Reference} 
-*/
-DCCInfo.prototype.getCreditRef = function() {
-  return this.creditRef;
-};
-
-/**
 * @memberof payments.DCCInfo
 * @private
 */
@@ -277,10 +232,6 @@ DCCInfo._meta_.fields["exchangeRateSourceName"] = {};
 DCCInfo._meta_.fields["exchangeRateSourceName"].type = String;
 DCCInfo._meta_.fields["exchangeRateSourceTimeStamp"] = {};
 DCCInfo._meta_.fields["exchangeRateSourceTimeStamp"].type = String;
-DCCInfo._meta_.fields["paymentRef"] = {};
-DCCInfo._meta_.fields["paymentRef"].type = base_Reference;
-DCCInfo._meta_.fields["creditRef"] = {};
-DCCInfo._meta_.fields["creditRef"].type = base_Reference;
 
 //
 // Expose the module.

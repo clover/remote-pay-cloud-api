@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -20,7 +19,6 @@ var Address = function() {
   this.country = undefined;
   this.state = undefined;
   this.zip = undefined;
-  this.customer = undefined;
 };
 
 
@@ -169,27 +167,6 @@ Address.prototype.getZip = function() {
 };
 
 /**
-* Set the field value
-* Customer who this address belongs to.
-*
-* @memberof customers.Address
-* @param {base.Reference} customer 
-*/
-Address.prototype.setCustomer = function(customer) {
-  this.customer = customer;
-};
-
-/**
-* Get the field value
-* Customer who this address belongs to.
-* @memberof customers.Address
-* @return {base.Reference} 
-*/
-Address.prototype.getCustomer = function() {
-  return this.customer;
-};
-
-/**
 * @memberof customers.Address
 * @private
 */
@@ -231,8 +208,6 @@ Address._meta_.fields["state"] = {};
 Address._meta_.fields["state"].type = String;
 Address._meta_.fields["zip"] = {};
 Address._meta_.fields["zip"].type = String;
-Address._meta_.fields["customer"] = {};
-Address._meta_.fields["customer"].type = base_Reference;
 
 //
 // Expose the module.

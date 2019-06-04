@@ -13,8 +13,6 @@ var base_Reference = require("../base/Reference");
 var Discount = function() {
   this._class_ = Discount;
   this.id = undefined;
-  this.orderRef = undefined;
-  this.lineItemRef = undefined;
   this.discount = undefined;
   this.approver = undefined;
   this.name = undefined;
@@ -42,48 +40,6 @@ Discount.prototype.setId = function(id) {
 */
 Discount.prototype.getId = function() {
   return this.id;
-};
-
-/**
-* Set the field value
-* The order with which the discount is associated
-*
-* @memberof order.Discount
-* @param {Null|base.Reference} orderRef 
-*/
-Discount.prototype.setOrderRef = function(orderRef) {
-  this.orderRef = orderRef;
-};
-
-/**
-* Get the field value
-* The order with which the discount is associated
-* @memberof order.Discount
-* @return {Null|base.Reference} 
-*/
-Discount.prototype.getOrderRef = function() {
-  return this.orderRef;
-};
-
-/**
-* Set the field value
-* The lineItem with which the discount is associated
-*
-* @memberof order.Discount
-* @param {Null|base.Reference} lineItemRef 
-*/
-Discount.prototype.setLineItemRef = function(lineItemRef) {
-  this.lineItemRef = lineItemRef;
-};
-
-/**
-* Get the field value
-* The lineItem with which the discount is associated
-* @memberof order.Discount
-* @return {Null|base.Reference} 
-*/
-Discount.prototype.getLineItemRef = function() {
-  return this.lineItemRef;
 };
 
 /**
@@ -219,10 +175,6 @@ Discount._meta_ =  {fields:  {}};
 Discount._meta_._class_ =  Discount;
 Discount._meta_.fields["id"] = {};
 Discount._meta_.fields["id"].type = String;
-Discount._meta_.fields["orderRef"] = {};
-Discount._meta_.fields["orderRef"].type = base_Reference;
-Discount._meta_.fields["lineItemRef"] = {};
-Discount._meta_.fields["lineItemRef"].type = base_Reference;
 Discount._meta_.fields["discount"] = {};
 Discount._meta_.fields["discount"].type = base_Reference;
 Discount._meta_.fields["approver"] = {};

@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -14,7 +13,6 @@ var PhoneNumber = function() {
   this._class_ = PhoneNumber;
   this.id = undefined;
   this.phoneNumber = undefined;
-  this.customer = undefined;
 };
 
 
@@ -55,27 +53,6 @@ PhoneNumber.prototype.getPhoneNumber = function() {
 };
 
 /**
-* Set the field value
-* Customer who this phone number belongs to.
-*
-* @memberof customers.PhoneNumber
-* @param {base.Reference} customer 
-*/
-PhoneNumber.prototype.setCustomer = function(customer) {
-  this.customer = customer;
-};
-
-/**
-* Get the field value
-* Customer who this phone number belongs to.
-* @memberof customers.PhoneNumber
-* @return {base.Reference} 
-*/
-PhoneNumber.prototype.getCustomer = function() {
-  return this.customer;
-};
-
-/**
 * @memberof customers.PhoneNumber
 * @private
 */
@@ -105,8 +82,6 @@ PhoneNumber._meta_.fields["id"] = {};
 PhoneNumber._meta_.fields["id"].type = String;
 PhoneNumber._meta_.fields["phoneNumber"] = {};
 PhoneNumber._meta_.fields["phoneNumber"].type = String;
-PhoneNumber._meta_.fields["customer"] = {};
-PhoneNumber._meta_.fields["customer"].type = base_Reference;
 
 //
 // Expose the module.

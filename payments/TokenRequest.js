@@ -24,7 +24,6 @@ var TokenRequest = function() {
   this.device = undefined;
   this.merchant = undefined;
   this.tender = undefined;
-  this.gatewayTxId = undefined;
   this.customer = undefined;
   this.externalReferenceId = undefined;
   this.cardTransaction = undefined;
@@ -161,27 +160,6 @@ TokenRequest.prototype.setTender = function(tender) {
 */
 TokenRequest.prototype.getTender = function() {
   return this.tender;
-};
-
-/**
-* Set the field value
-* GatewayTx id
-*
-* @memberof payments.TokenRequest
-* @param {Number} gatewayTxId must be a long integer
-*/
-TokenRequest.prototype.setGatewayTxId = function(gatewayTxId) {
-  this.gatewayTxId = gatewayTxId;
-};
-
-/**
-* Get the field value
-* GatewayTx id
-* @memberof payments.TokenRequest
-* @return {Number} must be a long integer
-*/
-TokenRequest.prototype.getGatewayTxId = function() {
-  return this.gatewayTxId;
 };
 
 /**
@@ -411,8 +389,6 @@ TokenRequest._meta_.fields["merchant"] = {};
 TokenRequest._meta_.fields["merchant"].type = base_Reference;
 TokenRequest._meta_.fields["tender"] = {};
 TokenRequest._meta_.fields["tender"].type = base_Tender;
-TokenRequest._meta_.fields["gatewayTxId"] = {};
-TokenRequest._meta_.fields["gatewayTxId"].type = Number;
 TokenRequest._meta_.fields["customer"] = {};
 TokenRequest._meta_.fields["customer"].type = customers_Customer;
 TokenRequest._meta_.fields["externalReferenceId"] = {};

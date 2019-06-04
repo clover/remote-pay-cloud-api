@@ -42,6 +42,7 @@ var Refund = function() {
   this.cardTransaction = undefined;
   this.transactionInfo = undefined;
   this.merchant = undefined;
+  this.externalReferenceId = undefined;
 };
 
 
@@ -484,6 +485,27 @@ Refund.prototype.getMerchant = function() {
 };
 
 /**
+* Set the field value
+* The external reference id if associated with the refund
+*
+* @memberof payments.Refund
+* @param {String|Null} externalReferenceId 
+*/
+Refund.prototype.setExternalReferenceId = function(externalReferenceId) {
+  this.externalReferenceId = externalReferenceId;
+};
+
+/**
+* Get the field value
+* The external reference id if associated with the refund
+* @memberof payments.Refund
+* @return {String|Null} 
+*/
+Refund.prototype.getExternalReferenceId = function() {
+  return this.externalReferenceId;
+};
+
+/**
 * @memberof payments.Refund
 * @private
 */
@@ -556,6 +578,8 @@ Refund._meta_.fields["transactionInfo"] = {};
 Refund._meta_.fields["transactionInfo"].type = payments_TransactionInfo;
 Refund._meta_.fields["merchant"] = {};
 Refund._meta_.fields["merchant"].type = base_Reference;
+Refund._meta_.fields["externalReferenceId"] = {};
+Refund._meta_.fields["externalReferenceId"].type = String;
 
 //
 // Expose the module.

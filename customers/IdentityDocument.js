@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -11,10 +12,36 @@
 */
 var IdentityDocument = function() {
   this._class_ = IdentityDocument;
+  this.id = undefined;
   this.type = undefined;
   this.number = undefined;
+  this.createdTime = undefined;
+  this.modifiedTime = undefined;
+  this.deletedTime = undefined;
+  this.payment = undefined;
 };
 
+
+/**
+* Set the field value
+* Unique identifier
+*
+* @memberof customers.IdentityDocument
+* @param {String} id 
+*/
+IdentityDocument.prototype.setId = function(id) {
+  this.id = id;
+};
+
+/**
+* Get the field value
+* Unique identifier
+* @memberof customers.IdentityDocument
+* @return {String} 
+*/
+IdentityDocument.prototype.getId = function() {
+  return this.id;
+};
 
 /**
 * Set the field value
@@ -59,6 +86,87 @@ IdentityDocument.prototype.getNumber = function() {
 };
 
 /**
+* Set the field value
+* Created timestamp.
+*
+* @memberof customers.IdentityDocument
+* @param {Number} createdTime must be a long integer
+*/
+IdentityDocument.prototype.setCreatedTime = function(createdTime) {
+  this.createdTime = createdTime;
+};
+
+/**
+* Get the field value
+* Created timestamp.
+* @memberof customers.IdentityDocument
+* @return {Number} must be a long integer
+*/
+IdentityDocument.prototype.getCreatedTime = function() {
+  return this.createdTime;
+};
+
+/**
+* Set the field value
+* Modified timestamp.
+*
+* @memberof customers.IdentityDocument
+* @param {Number} modifiedTime must be a long integer
+*/
+IdentityDocument.prototype.setModifiedTime = function(modifiedTime) {
+  this.modifiedTime = modifiedTime;
+};
+
+/**
+* Get the field value
+* Modified timestamp.
+* @memberof customers.IdentityDocument
+* @return {Number} must be a long integer
+*/
+IdentityDocument.prototype.getModifiedTime = function() {
+  return this.modifiedTime;
+};
+
+/**
+* Set the field value
+* Deleted timestamp.
+*
+* @memberof customers.IdentityDocument
+* @param {Number} deletedTime must be a long integer
+*/
+IdentityDocument.prototype.setDeletedTime = function(deletedTime) {
+  this.deletedTime = deletedTime;
+};
+
+/**
+* Get the field value
+* Deleted timestamp.
+* @memberof customers.IdentityDocument
+* @return {Number} must be a long integer
+*/
+IdentityDocument.prototype.getDeletedTime = function() {
+  return this.deletedTime;
+};
+
+/**
+* Set the field value
+* @memberof customers.IdentityDocument
+* @param {base.Reference} payment 
+*/
+IdentityDocument.prototype.setPayment = function(payment) {
+  this.payment = payment;
+};
+
+/**
+* Get the field value
+* @memberof customers.IdentityDocument
+* @return {base.Reference} 
+*/
+IdentityDocument.prototype.getPayment = function() {
+  return this.payment;
+};
+
+/**
 * @memberof customers.IdentityDocument
 * @private
 */
@@ -84,10 +192,20 @@ IdentityDocument.prototype.toString = function() {
 
 IdentityDocument._meta_ =  {fields:  {}};
 IdentityDocument._meta_._class_ =  IdentityDocument;
+IdentityDocument._meta_.fields["id"] = {};
+IdentityDocument._meta_.fields["id"].type = String;
 IdentityDocument._meta_.fields["type"] = {};
 IdentityDocument._meta_.fields["type"].type = String;
 IdentityDocument._meta_.fields["number"] = {};
 IdentityDocument._meta_.fields["number"].type = String;
+IdentityDocument._meta_.fields["createdTime"] = {};
+IdentityDocument._meta_.fields["createdTime"].type = Number;
+IdentityDocument._meta_.fields["modifiedTime"] = {};
+IdentityDocument._meta_.fields["modifiedTime"].type = Number;
+IdentityDocument._meta_.fields["deletedTime"] = {};
+IdentityDocument._meta_.fields["deletedTime"].type = Number;
+IdentityDocument._meta_.fields["payment"] = {};
+IdentityDocument._meta_.fields["payment"].type = base_Reference;
 
 //
 // Expose the module.

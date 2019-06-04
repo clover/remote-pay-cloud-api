@@ -4,7 +4,6 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var base_Reference = require("../base/Reference");
 
 /**
 * @constructor
@@ -13,7 +12,6 @@ var base_Reference = require("../base/Reference");
 var ServiceCharge = function() {
   this._class_ = ServiceCharge;
   this.id = undefined;
-  this.orderRef = undefined;
   this.name = undefined;
   this.enabled = undefined;
   this.percentage = undefined;
@@ -40,27 +38,6 @@ ServiceCharge.prototype.setId = function(id) {
 */
 ServiceCharge.prototype.getId = function() {
   return this.id;
-};
-
-/**
-* Set the field value
-* The order with which the service charge is associated
-*
-* @memberof base.ServiceCharge
-* @param {base.Reference} orderRef 
-*/
-ServiceCharge.prototype.setOrderRef = function(orderRef) {
-  this.orderRef = orderRef;
-};
-
-/**
-* Get the field value
-* The order with which the service charge is associated
-* @memberof base.ServiceCharge
-* @return {base.Reference} 
-*/
-ServiceCharge.prototype.getOrderRef = function() {
-  return this.orderRef;
 };
 
 /**
@@ -175,8 +152,6 @@ ServiceCharge._meta_ =  {fields:  {}};
 ServiceCharge._meta_._class_ =  ServiceCharge;
 ServiceCharge._meta_.fields["id"] = {};
 ServiceCharge._meta_.fields["id"].type = String;
-ServiceCharge._meta_.fields["orderRef"] = {};
-ServiceCharge._meta_.fields["orderRef"].type = base_Reference;
 ServiceCharge._meta_.fields["name"] = {};
 ServiceCharge._meta_.fields["name"].type = String;
 ServiceCharge._meta_.fields["enabled"] = {};
