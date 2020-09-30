@@ -18,6 +18,8 @@ var VaultCardMessage = function() {
   this._class_ = VaultCardMessage;
   this.setMethod(remotemessage_Method["VAULT_CARD"]);
   this.cardEntryMethods = undefined;
+  this.tokenType = undefined;
+  this.singleUse = false;
 };
 
 VaultCardMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -44,11 +46,57 @@ VaultCardMessage.prototype.getCardEntryMethods = function() {
   return this.cardEntryMethods;
 };
 
+/**
+* Set the field value
+* If set, this indicates the token type.  If unset or unrecognized, the default legacy type of tokenization is used
+*
+* @memberof remotemessage.VaultCardMessage
+* @param {String} tokenType 
+*/
+VaultCardMessage.prototype.setTokenType = function(tokenType) {
+  this.tokenType = tokenType;
+};
+
+/**
+* Get the field value
+* If set, this indicates the token type.  If unset or unrecognized, the default legacy type of tokenization is used
+* @memberof remotemessage.VaultCardMessage
+* @return {String} 
+*/
+VaultCardMessage.prototype.getTokenType = function() {
+  return this.tokenType;
+};
+
+/**
+* Set the field value
+* If true, then request a token that can be used only one time.
+*
+* @memberof remotemessage.VaultCardMessage
+* @param {Boolean} singleUse 
+*/
+VaultCardMessage.prototype.setSingleUse = function(singleUse) {
+  this.singleUse = singleUse;
+};
+
+/**
+* Get the field value
+* If true, then request a token that can be used only one time.
+* @memberof remotemessage.VaultCardMessage
+* @return {Boolean} 
+*/
+VaultCardMessage.prototype.getSingleUse = function() {
+  return this.singleUse;
+};
+
 VaultCardMessage._meta_ =  {fields:  {}};
 VaultCardMessage._meta_._class_ =  VaultCardMessage;
 VaultCardMessage._meta_._superMeta_ = remotemessage_Message._meta_;
 VaultCardMessage._meta_.fields["cardEntryMethods"] = {};
 VaultCardMessage._meta_.fields["cardEntryMethods"].type = Number;
+VaultCardMessage._meta_.fields["tokenType"] = {};
+VaultCardMessage._meta_.fields["tokenType"].type = String;
+VaultCardMessage._meta_.fields["singleUse"] = {};
+VaultCardMessage._meta_.fields["singleUse"].type = Boolean;
 
 //
 // Expose the module.

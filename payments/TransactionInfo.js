@@ -5,7 +5,11 @@
  */
 
 var payments_SelectedService = require("../payments/SelectedService");
+var payments_PromotionalMessage = require("../payments/PromotionalMessage");
 var payments_TxFormat = require("../payments/TxFormat");
+var payments_ECommTransactionInfo = require("../payments/ECommTransactionInfo");
+var payments_CardType = require("../payments/CardType");
+var payments_CardEntryType = require("../payments/CardEntryType");
 var payments_ReversalReason = require("../payments/ReversalReason");
 var payments_TransactionResult = require("../payments/TransactionResult");
 var payments_AccountType = require("../payments/AccountType");
@@ -52,12 +56,16 @@ var TransactionInfo = function() {
   this.origTransactionSequenceCounter = undefined;
   this.transactionSequenceCounterUpdate = undefined;
   this.emergencyFlag = false;
+  this.entryType = undefined;
+  this.promotionalMessage = undefined;
+  this.eCommTransactionInfo = undefined;
+  this.clientCardType = undefined;
 };
 
 
 /**
 * Set the field value
-* 2 character language used for the transaction.  Deprecated in factor of transactionLocale.
+* 2 character language used for the transaction. Deprecated in factor of transactionLocale.
 *
 * @memberof payments.TransactionInfo
 * @param {String} languageIndicator 
@@ -68,7 +76,7 @@ TransactionInfo.prototype.setLanguageIndicator = function(languageIndicator) {
 
 /**
 * Get the field value
-* 2 character language used for the transaction.  Deprecated in factor of transactionLocale.
+* 2 character language used for the transaction. Deprecated in factor of transactionLocale.
 * @memberof payments.TransactionInfo
 * @return {String} 
 */
@@ -788,6 +796,92 @@ TransactionInfo.prototype.getEmergencyFlag = function() {
 };
 
 /**
+* Set the field value
+* This field contains the entry type of a transaction.
+*
+* @memberof payments.TransactionInfo
+* @param {payments.CardEntryType} entryType 
+*/
+TransactionInfo.prototype.setEntryType = function(entryType) {
+  this.entryType = entryType;
+};
+
+/**
+* Get the field value
+* This field contains the entry type of a transaction.
+* @memberof payments.TransactionInfo
+* @return {payments.CardEntryType} 
+*/
+TransactionInfo.prototype.getEntryType = function() {
+  return this.entryType;
+};
+
+/**
+* Set the field value
+* @memberof payments.TransactionInfo
+* @param {payments.PromotionalMessage} promotionalMessage 
+*/
+TransactionInfo.prototype.setPromotionalMessage = function(promotionalMessage) {
+  this.promotionalMessage = promotionalMessage;
+};
+
+/**
+* Get the field value
+* @memberof payments.TransactionInfo
+* @return {payments.PromotionalMessage} 
+*/
+TransactionInfo.prototype.getPromotionalMessage = function() {
+  return this.promotionalMessage;
+};
+
+/**
+* Set the field value
+* @memberof payments.TransactionInfo
+* @param {payments.ECommTransactionInfo} eCommTransactionInfo 
+*/
+TransactionInfo.prototype.setECommTransactionInfo = function(eCommTransactionInfo) {
+  this.eCommTransactionInfo = eCommTransactionInfo;
+};
+
+/**
+* Get the field value
+* @memberof payments.TransactionInfo
+* @return {payments.ECommTransactionInfo} 
+*/
+TransactionInfo.prototype.getECommTransactionInfo = function() {
+  return this.eCommTransactionInfo;
+};
+
+/**
+* Set the field value
+* Client card type should be used only limited purpose only and should not be confused with cardType in other objects.
+ This is a read only field and must not to be overwritten on server or client once set on client. 
+ This is set on client only for MSR tx for now as the AIDs are not identified for MSR. 
+ For few MSR tx, the card type was identified incorrectly on client side, and also on server side based on the bin match. 
+ In order to get the correct card types, this client card type will be sent to the server
+*
+* @memberof payments.TransactionInfo
+* @param {payments.CardType} clientCardType 
+*/
+TransactionInfo.prototype.setClientCardType = function(clientCardType) {
+  this.clientCardType = clientCardType;
+};
+
+/**
+* Get the field value
+* Client card type should be used only limited purpose only and should not be confused with cardType in other objects.
+ This is a read only field and must not to be overwritten on server or client once set on client. 
+ This is set on client only for MSR tx for now as the AIDs are not identified for MSR. 
+ For few MSR tx, the card type was identified incorrectly on client side, and also on server side based on the bin match. 
+ In order to get the correct card types, this client card type will be sent to the server
+* @memberof payments.TransactionInfo
+* @return {payments.CardType} 
+*/
+TransactionInfo.prototype.getClientCardType = function() {
+  return this.clientCardType;
+};
+
+/**
 * @memberof payments.TransactionInfo
 * @private
 */
@@ -883,6 +977,14 @@ TransactionInfo._meta_.fields["transactionSequenceCounterUpdate"] = {};
 TransactionInfo._meta_.fields["transactionSequenceCounterUpdate"].type = String;
 TransactionInfo._meta_.fields["emergencyFlag"] = {};
 TransactionInfo._meta_.fields["emergencyFlag"].type = Boolean;
+TransactionInfo._meta_.fields["entryType"] = {};
+TransactionInfo._meta_.fields["entryType"].type = payments_CardEntryType;
+TransactionInfo._meta_.fields["promotionalMessage"] = {};
+TransactionInfo._meta_.fields["promotionalMessage"].type = payments_PromotionalMessage;
+TransactionInfo._meta_.fields["eCommTransactionInfo"] = {};
+TransactionInfo._meta_.fields["eCommTransactionInfo"].type = payments_ECommTransactionInfo;
+TransactionInfo._meta_.fields["clientCardType"] = {};
+TransactionInfo._meta_.fields["clientCardType"].type = payments_CardType;
 
 //
 // Expose the module.

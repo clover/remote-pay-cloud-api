@@ -6,7 +6,7 @@
 
 var customers_Customer = require("../customers/Customer");
 
-/** @deprecated  *Use CustomerInfo instead*  Represents a customer that is linked to an external system.  This customer may be persisted in Clover, or it may not. */
+/** Deprecated, use CustomerInfo instead. Represents a customer that is linked to an external system. This customer may be persisted in Clover, or it may not. */
 /**
 * @constructor
 * @memberof customers

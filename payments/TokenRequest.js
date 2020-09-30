@@ -101,7 +101,7 @@ TokenRequest.prototype.getEmployee = function() {
 
 /**
 * Set the field value
-* The device that processed the token request
+* The device that processed the token request, a 128-bit UUID, not a normal base-13 Clover ID.
 *
 * @memberof payments.TokenRequest
 * @param {base.Reference} device 
@@ -112,7 +112,7 @@ TokenRequest.prototype.setDevice = function(device) {
 
 /**
 * Get the field value
-* The device that processed the token request
+* The device that processed the token request, a 128-bit UUID, not a normal base-13 Clover ID.
 * @memberof payments.TokenRequest
 * @return {base.Reference} 
 */

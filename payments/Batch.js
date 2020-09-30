@@ -23,6 +23,7 @@ var Batch = function() {
   this.batchType = undefined;
   this.createdTime = undefined;
   this.modifiedTime = undefined;
+  this.closeoutTimeDifference = undefined;
   this.batchDetails = undefined;
   this.batchTransactions = undefined;
 };
@@ -189,6 +190,27 @@ Batch.prototype.getModifiedTime = function() {
 
 /**
 * Set the field value
+* Time difference in minutes between expected and actual closeout
+*
+* @memberof payments.Batch
+* @param {Number} closeoutTimeDifference must be a long integer
+*/
+Batch.prototype.setCloseoutTimeDifference = function(closeoutTimeDifference) {
+  this.closeoutTimeDifference = closeoutTimeDifference;
+};
+
+/**
+* Get the field value
+* Time difference in minutes between expected and actual closeout
+* @memberof payments.Batch
+* @return {Number} must be a long integer
+*/
+Batch.prototype.getCloseoutTimeDifference = function() {
+  return this.closeoutTimeDifference;
+};
+
+/**
+* Set the field value
 * Details split based on card / employees
 *
 * @memberof payments.Batch
@@ -271,6 +293,8 @@ Batch._meta_.fields["createdTime"] = {};
 Batch._meta_.fields["createdTime"].type = Number;
 Batch._meta_.fields["modifiedTime"] = {};
 Batch._meta_.fields["modifiedTime"].type = Number;
+Batch._meta_.fields["closeoutTimeDifference"] = {};
+Batch._meta_.fields["closeoutTimeDifference"].type = Number;
 Batch._meta_.fields["batchDetails"] = {};
 Batch._meta_.fields["batchDetails"].type = payments_BatchDetail;
 Batch._meta_.fields["batchTransactions"] = {};

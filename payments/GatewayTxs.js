@@ -22,6 +22,7 @@ var GatewayTxs = function() {
   this.adjustAmount = undefined;
   this.taxAmount = undefined;
   this.tipAmount = undefined;
+  this.refundTaxAmount = undefined;
   this.currency = undefined;
   this.state = undefined;
   this.retries = undefined;
@@ -47,6 +48,9 @@ var GatewayTxs = function() {
   this.extraGatewayInfo = undefined;
   this.refundDeviceId = undefined;
   this.paymentDeviceId = undefined;
+  this.paymentUuid = undefined;
+  this.refundUuid = undefined;
+  this.creditUuid = undefined;
 };
 
 
@@ -156,6 +160,24 @@ GatewayTxs.prototype.setTipAmount = function(tipAmount) {
 */
 GatewayTxs.prototype.getTipAmount = function() {
   return this.tipAmount;
+};
+
+/**
+* Set the field value
+* @memberof payments.GatewayTxs
+* @param {Number} refundTaxAmount must be a long integer
+*/
+GatewayTxs.prototype.setRefundTaxAmount = function(refundTaxAmount) {
+  this.refundTaxAmount = refundTaxAmount;
+};
+
+/**
+* Get the field value
+* @memberof payments.GatewayTxs
+* @return {Number} must be a long integer
+*/
+GatewayTxs.prototype.getRefundTaxAmount = function() {
+  return this.refundTaxAmount;
 };
 
 /**
@@ -609,6 +631,60 @@ GatewayTxs.prototype.getPaymentDeviceId = function() {
 };
 
 /**
+* Set the field value
+* @memberof payments.GatewayTxs
+* @param {String} paymentUuid 
+*/
+GatewayTxs.prototype.setPaymentUuid = function(paymentUuid) {
+  this.paymentUuid = paymentUuid;
+};
+
+/**
+* Get the field value
+* @memberof payments.GatewayTxs
+* @return {String} 
+*/
+GatewayTxs.prototype.getPaymentUuid = function() {
+  return this.paymentUuid;
+};
+
+/**
+* Set the field value
+* @memberof payments.GatewayTxs
+* @param {String} refundUuid 
+*/
+GatewayTxs.prototype.setRefundUuid = function(refundUuid) {
+  this.refundUuid = refundUuid;
+};
+
+/**
+* Get the field value
+* @memberof payments.GatewayTxs
+* @return {String} 
+*/
+GatewayTxs.prototype.getRefundUuid = function() {
+  return this.refundUuid;
+};
+
+/**
+* Set the field value
+* @memberof payments.GatewayTxs
+* @param {String} creditUuid 
+*/
+GatewayTxs.prototype.setCreditUuid = function(creditUuid) {
+  this.creditUuid = creditUuid;
+};
+
+/**
+* Get the field value
+* @memberof payments.GatewayTxs
+* @return {String} 
+*/
+GatewayTxs.prototype.getCreditUuid = function() {
+  return this.creditUuid;
+};
+
+/**
 * @memberof payments.GatewayTxs
 * @private
 */
@@ -646,6 +722,8 @@ GatewayTxs._meta_.fields["taxAmount"] = {};
 GatewayTxs._meta_.fields["taxAmount"].type = Number;
 GatewayTxs._meta_.fields["tipAmount"] = {};
 GatewayTxs._meta_.fields["tipAmount"].type = Number;
+GatewayTxs._meta_.fields["refundTaxAmount"] = {};
+GatewayTxs._meta_.fields["refundTaxAmount"].type = Number;
 GatewayTxs._meta_.fields["currency"] = {};
 GatewayTxs._meta_.fields["currency"].type = payments_Currency;
 GatewayTxs._meta_.fields["state"] = {};
@@ -696,6 +774,12 @@ GatewayTxs._meta_.fields["refundDeviceId"] = {};
 GatewayTxs._meta_.fields["refundDeviceId"].type = Number;
 GatewayTxs._meta_.fields["paymentDeviceId"] = {};
 GatewayTxs._meta_.fields["paymentDeviceId"].type = Number;
+GatewayTxs._meta_.fields["paymentUuid"] = {};
+GatewayTxs._meta_.fields["paymentUuid"].type = String;
+GatewayTxs._meta_.fields["refundUuid"] = {};
+GatewayTxs._meta_.fields["refundUuid"].type = String;
+GatewayTxs._meta_.fields["creditUuid"] = {};
+GatewayTxs._meta_.fields["creditUuid"].type = String;
 
 //
 // Expose the module.

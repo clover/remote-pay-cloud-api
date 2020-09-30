@@ -14,6 +14,7 @@ var EmailAddress = function() {
   this.id = undefined;
   this.emailAddress = undefined;
   this.verifiedTime = undefined;
+  this.primaryEmail = undefined;
 };
 
 
@@ -72,6 +73,24 @@ EmailAddress.prototype.getVerifiedTime = function() {
 };
 
 /**
+* Set the field value
+* @memberof customers.EmailAddress
+* @param {Boolean} primaryEmail 
+*/
+EmailAddress.prototype.setPrimaryEmail = function(primaryEmail) {
+  this.primaryEmail = primaryEmail;
+};
+
+/**
+* Get the field value
+* @memberof customers.EmailAddress
+* @return {Boolean} 
+*/
+EmailAddress.prototype.getPrimaryEmail = function() {
+  return this.primaryEmail;
+};
+
+/**
 * @memberof customers.EmailAddress
 * @private
 */
@@ -103,6 +122,8 @@ EmailAddress._meta_.fields["emailAddress"] = {};
 EmailAddress._meta_.fields["emailAddress"].type = String;
 EmailAddress._meta_.fields["verifiedTime"] = {};
 EmailAddress._meta_.fields["verifiedTime"].type = Number;
+EmailAddress._meta_.fields["primaryEmail"] = {};
+EmailAddress._meta_.fields["primaryEmail"].type = Boolean;
 
 //
 // Expose the module.

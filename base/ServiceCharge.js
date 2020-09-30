@@ -84,7 +84,7 @@ ServiceCharge.prototype.getEnabled = function() {
 
 /**
 * Set the field value
-* DEPRECATED
+* Deprecated use percentageDecimal instead
 *
 * @memberof base.ServiceCharge
 * @param {Number} percentage must be a long integer
@@ -95,7 +95,7 @@ ServiceCharge.prototype.setPercentage = function(percentage) {
 
 /**
 * Get the field value
-* DEPRECATED
+* Deprecated use percentageDecimal instead
 * @memberof base.ServiceCharge
 * @return {Number} must be a long integer
 */

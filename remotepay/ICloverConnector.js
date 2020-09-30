@@ -96,6 +96,16 @@ ICloverConnector.prototype.capturePreAuth = function(capturePreAuthRequest) {
 };
 
 /**
+* Increases the total authorized amount of an open PreAuth by the amount increment passed into the request.
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.IncrementPreAuthRequest} incrementPreauthRequest 
+* @return void
+*/
+ICloverConnector.prototype.incrementPreAuth = function(incrementPreauthRequest) {
+};
+
+/**
 * Sends a request to the Clover server to close out all transactions.
   * Note: The merchant account must be configured to allow transaction closeout.
 * @memberof remotepay.ICloverConnector
@@ -468,6 +478,39 @@ ICloverConnector.prototype.registerForCustomerProvidedData = function(request) {
 * @return void
 */
 ICloverConnector.prototype.setCustomerInfo = function(request) {
+};
+
+/**
+* Check the balance on a card, if card supports balance inquiry
+   * @param request
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.CheckBalanceRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.checkBalance = function(request) {
+};
+
+/**
+* Launch customer facing signature screen to collect a signature
+   * @param request
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.SignatureRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.requestSignature = function(request) {
+};
+
+/**
+* Launch customer facing tip screen to request a tip amount
+   * @param request
+* @memberof remotepay.ICloverConnector
+*
+* @param {remotepay.TipRequest} request 
+* @return void
+*/
+ICloverConnector.prototype.requestTip = function(request) {
 };
 
 

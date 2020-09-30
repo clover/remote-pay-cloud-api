@@ -90,7 +90,7 @@ Refund.prototype.getOrderRef = function() {
 
 /**
 * Set the field value
-* Device which processed the transaction for this refund
+* Device which processed the transaction for this refund, a 128-bit UUID, not a normal base-13 Clover ID.
 *
 * @memberof payments.Refund
 * @param {base.Reference|Null} device 
@@ -101,7 +101,7 @@ Refund.prototype.setDevice = function(device) {
 
 /**
 * Get the field value
-* Device which processed the transaction for this refund
+* Device which processed the transaction for this refund, a 128-bit UUID, not a normal base-13 Clover ID.
 * @memberof payments.Refund
 * @return {base.Reference|Null} 
 */

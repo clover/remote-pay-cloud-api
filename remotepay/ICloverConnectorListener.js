@@ -20,16 +20,6 @@ var ICloverConnectorListener = function() {
 
 
 /**
- * @deprecated - use {@link #onDeviceDisconnected()}
- * @memberof remotepay.ICloverConnectorListener
- *
- * @return void
- */
-ICloverConnectorListener.prototype.onDisconnected = function() {
-};
-
-
-/**
 * Called when the Clover device is disconnected from the CloverConnector or not responding.
 * @memberof remotepay.ICloverConnectorListener
 *
@@ -45,16 +35,6 @@ ICloverConnectorListener.prototype.onDeviceDisconnected = function() {
 * @return void
 */
 ICloverConnectorListener.prototype.onDeviceConnected = function() {
-};
-
-/**
- * @deprecated - use {@link #onDeviceReady()}
- * @memberof remotepay.ICloverConnectorListener
- *
- * @param {remotepay.MerchantInfo} merchantInfo
- * @return void
- */
-ICloverConnectorListener.prototype.onReady = function(merchantInfo) {
 };
 
 /**
@@ -129,6 +109,16 @@ ICloverConnectorListener.prototype.onTipAdjustAuthResponse = function(response) 
 * @return void
 */
 ICloverConnectorListener.prototype.onCapturePreAuthResponse = function(response) {
+};
+
+/**
+* Called in response to an incrementPreAuth() request. Contains the incremented PreAuth with the new authorized total, if successful.
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.IncrementPreAuthResponse} response 
+* @return void
+*/
+ICloverConnectorListener.prototype.onIncrementPreAuthResponse = function(response) {
 };
 
 /**
@@ -470,6 +460,39 @@ ICloverConnectorListener.prototype.onCustomerProvidedData = function(response) {
 * @return void
 */
 ICloverConnectorListener.prototype.onDisplayReceiptOptionsResponse = function(response) {
+};
+
+/**
+* Called in response to a RequestSignatureRequest
+   * @param response
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.SignatureResponse} response 
+* @return void
+*/
+ICloverConnectorListener.prototype.onRequestSignatureResponse = function(response) {
+};
+
+/**
+* Called in response to a CheckBalanceRequest
+   * @param response
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.CheckBalanceResponse} response 
+* @return void
+*/
+ICloverConnectorListener.prototype.onCheckBalanceResponse = function(response) {
+};
+
+/**
+* Called in response to a TipRequest
+   * @param response
+* @memberof remotepay.ICloverConnectorListener
+*
+* @param {remotepay.TipResponse} response 
+* @return void
+*/
+ICloverConnectorListener.prototype.onRequestTipResponse = function(response) {
 };
 
 

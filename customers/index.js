@@ -8,6 +8,7 @@ function customers() {}
 
 customers.Address = require("./Address");
 customers.Card = require("./Card");
+customers.Confirmation = require("./Confirmation");
 customers.Customer = require("./Customer");
 customers.CustomerAssociationRequest = require("./CustomerAssociationRequest");
 customers.CustomerInfo = require("./CustomerInfo");

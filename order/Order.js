@@ -4,18 +4,21 @@
  * DO NOT EDIT DIRECTLY
  */
 
-var customers_Customer = require("../customers/Customer");
 var payments_Authorization = require("../payments/Authorization");
 var order_Discount = require("../order/Discount");
+var onlineorder_OnlineOrder = require("../onlineorder/OnlineOrder");
+var order_PaymentState = require("../order/PaymentState");
+var base_ServiceCharge = require("../base/ServiceCharge");
+var payments_Refund = require("../payments/Refund");
+var payments_Credit = require("../payments/Credit");
+var customers_Customer = require("../customers/Customer");
+var order_PrintGroup = require("../order/PrintGroup");
 var order_PayType = require("../order/PayType");
 var order_LineItem = require("../order/LineItem");
 var order_PaymentState = require("../order/PaymentState");
 var order_OrderType = require("../order/OrderType");
 var payments_Payment = require("../payments/Payment");
 var base_Reference = require("../base/Reference");
-var base_ServiceCharge = require("../base/ServiceCharge");
-var payments_Refund = require("../payments/Refund");
-var payments_Credit = require("../payments/Credit");
 
 /** The Order object is at the core of Clover’s transaction data. Almost every transaction either creates or updates an Order. When an order is created or updated via one of the Clover SDKs, the order data is automatically synchronized between the Clover Server and the merchant’s Clover devices. */
 /**
@@ -32,6 +35,7 @@ var Order = function() {
   this.customers = undefined;
   this.employee = undefined;
   this.total = undefined;
+  this.externalReferenceId = undefined;
   this.unpaidBalance = undefined;
   this.paymentState = undefined;
   this.title = undefined;
@@ -59,6 +63,8 @@ var Order = function() {
   this.device = undefined;
   this.authorizations = undefined;
   this.merchant = undefined;
+  this.onlineOrder = undefined;
+  this.printGroups = undefined;
 };
 
 
@@ -219,6 +225,27 @@ Order.prototype.setTotal = function(total) {
 */
 Order.prototype.getTotal = function() {
   return this.total;
+};
+
+/**
+* Set the field value
+* External reference id if present in the order
+*
+* @memberof order.Order
+* @param {Null|String} externalReferenceId 
+*/
+Order.prototype.setExternalReferenceId = function(externalReferenceId) {
+  this.externalReferenceId = externalReferenceId;
+};
+
+/**
+* Get the field value
+* External reference id if present in the order
+* @memberof order.Order
+* @return {Null|String} 
+*/
+Order.prototype.getExternalReferenceId = function() {
+  return this.externalReferenceId;
 };
 
 /**
@@ -718,7 +745,7 @@ Order.prototype.getPreAuths = function() {
 
 /**
 * Set the field value
-* Device which created the order
+* Device which created the order, a 128-bit UUID, not a normal base-13 Clover ID.
 *
 * @memberof order.Order
 * @param {base.Reference|Null} device 
@@ -729,7 +756,7 @@ Order.prototype.setDevice = function(device) {
 
 /**
 * Get the field value
-* Device which created the order
+* Device which created the order, a 128-bit UUID, not a normal base-13 Clover ID.
 * @memberof order.Order
 * @return {base.Reference|Null} 
 */
@@ -777,6 +804,45 @@ Order.prototype.getMerchant = function() {
 };
 
 /**
+* Set the field value
+* @memberof order.Order
+* @param {Null|onlineorder.OnlineOrder} onlineOrder 
+*/
+Order.prototype.setOnlineOrder = function(onlineOrder) {
+  this.onlineOrder = onlineOrder;
+};
+
+/**
+* Get the field value
+* @memberof order.Order
+* @return {Null|onlineorder.OnlineOrder} 
+*/
+Order.prototype.getOnlineOrder = function() {
+  return this.onlineOrder;
+};
+
+/**
+* Set the field value
+* Print groups for line items of this order.
+*
+* @memberof order.Order
+* @param {Array.<order.PrintGroup>} printGroups An array of 
+*/
+Order.prototype.setPrintGroups = function(printGroups) {
+  this.printGroups = printGroups;
+};
+
+/**
+* Get the field value
+* Print groups for line items of this order.
+* @memberof order.Order
+* @return {Array.<order.PrintGroup>} An array of 
+*/
+Order.prototype.getPrintGroups = function() {
+  return this.printGroups;
+};
+
+/**
 * @memberof order.Order
 * @private
 */
@@ -819,6 +885,8 @@ Order._meta_.fields["employee"] = {};
 Order._meta_.fields["employee"].type = base_Reference;
 Order._meta_.fields["total"] = {};
 Order._meta_.fields["total"].type = Number;
+Order._meta_.fields["externalReferenceId"] = {};
+Order._meta_.fields["externalReferenceId"].type = String;
 Order._meta_.fields["unpaidBalance"] = {};
 Order._meta_.fields["unpaidBalance"].type = Number;
 Order._meta_.fields["paymentState"] = {};
@@ -881,6 +949,11 @@ Order._meta_.fields["authorizations"].type = Array;
 Order._meta_.fields["authorizations"].elementType = payments_Authorization;
 Order._meta_.fields["merchant"] = {};
 Order._meta_.fields["merchant"].type = base_Reference;
+Order._meta_.fields["onlineOrder"] = {};
+Order._meta_.fields["onlineOrder"].type = onlineorder_OnlineOrder;
+Order._meta_.fields["printGroups"] = {};
+Order._meta_.fields["printGroups"].type = Array;
+Order._meta_.fields["printGroups"].elementType = order_PrintGroup;
 
 //
 // Expose the module.

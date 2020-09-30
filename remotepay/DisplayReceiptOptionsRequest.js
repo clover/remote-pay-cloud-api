@@ -21,7 +21,7 @@ var DisplayReceiptOptionsRequest = function() {
 
 /**
 * Set the field value
-* Unique identifier
+* Unique identifier of a Clover order
 *
 * @memberof remotepay.DisplayReceiptOptionsRequest
 * @param {String} orderId 
@@ -32,7 +32,7 @@ DisplayReceiptOptionsRequest.prototype.setOrderId = function(orderId) {
 
 /**
 * Get the field value
-* Unique identifier
+* Unique identifier of a Clover order
 * @memberof remotepay.DisplayReceiptOptionsRequest
 * @return {String} 
 */
@@ -42,7 +42,7 @@ DisplayReceiptOptionsRequest.prototype.getOrderId = function() {
 
 /**
 * Set the field value
-* Unique identifier
+* Unique identifier of the payment associated with an order
 *
 * @memberof remotepay.DisplayReceiptOptionsRequest
 * @param {String} paymentId 
@@ -53,7 +53,7 @@ DisplayReceiptOptionsRequest.prototype.setPaymentId = function(paymentId) {
 
 /**
 * Get the field value
-* Unique identifier
+* Unique identifier of the payment associated with an order
 * @memberof remotepay.DisplayReceiptOptionsRequest
 * @return {String} 
 */
@@ -63,7 +63,7 @@ DisplayReceiptOptionsRequest.prototype.getPaymentId = function() {
 
 /**
 * Set the field value
-* Unique identifier
+* Unique identifier of the refund associated with an order
 *
 * @memberof remotepay.DisplayReceiptOptionsRequest
 * @param {String} refundId 
@@ -74,7 +74,7 @@ DisplayReceiptOptionsRequest.prototype.setRefundId = function(refundId) {
 
 /**
 * Get the field value
-* Unique identifier
+* Unique identifier of the refund associated with an order
 * @memberof remotepay.DisplayReceiptOptionsRequest
 * @return {String} 
 */
@@ -84,7 +84,7 @@ DisplayReceiptOptionsRequest.prototype.getRefundId = function() {
 
 /**
 * Set the field value
-* Unique identifier
+* Unique identifier of a credit (manual refund) given to a customer
 *
 * @memberof remotepay.DisplayReceiptOptionsRequest
 * @param {String} creditId 
@@ -95,7 +95,7 @@ DisplayReceiptOptionsRequest.prototype.setCreditId = function(creditId) {
 
 /**
 * Get the field value
-* Unique identifier
+* Unique identifier of a credit (manual refund) given to a customer
 * @memberof remotepay.DisplayReceiptOptionsRequest
 * @return {String} 
 */

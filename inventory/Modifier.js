@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var inventory_MenuModifier = require("../inventory/MenuModifier");
 var base_Reference = require("../base/Reference");
 
 /**
@@ -17,6 +18,7 @@ var Modifier = function() {
   this.alternateName = undefined;
   this.price = 0;
   this.modifierGroup = undefined;
+  this.menuModifier = undefined;
 };
 
 
@@ -123,6 +125,27 @@ Modifier.prototype.getModifierGroup = function() {
 };
 
 /**
+* Set the field value
+* Menu Modifier attribute that can be expanded to menu specific attributes
+*
+* @memberof inventory.Modifier
+* @param {Null|inventory.MenuModifier} menuModifier 
+*/
+Modifier.prototype.setMenuModifier = function(menuModifier) {
+  this.menuModifier = menuModifier;
+};
+
+/**
+* Get the field value
+* Menu Modifier attribute that can be expanded to menu specific attributes
+* @memberof inventory.Modifier
+* @return {Null|inventory.MenuModifier} 
+*/
+Modifier.prototype.getMenuModifier = function() {
+  return this.menuModifier;
+};
+
+/**
 * @memberof inventory.Modifier
 * @private
 */
@@ -158,6 +181,8 @@ Modifier._meta_.fields["price"] = {};
 Modifier._meta_.fields["price"].type = Number;
 Modifier._meta_.fields["modifierGroup"] = {};
 Modifier._meta_.fields["modifierGroup"].type = base_Reference;
+Modifier._meta_.fields["menuModifier"] = {};
+Modifier._meta_.fields["menuModifier"].type = inventory_MenuModifier;
 
 //
 // Expose the module.

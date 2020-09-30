@@ -21,6 +21,7 @@ var VoidPaymentRefundMessage = function() {
   this.refundId = undefined;
   this.disableCloverPrinting = false;
   this.disableReceiptSelection = false;
+  this.extras = undefined;
 };
 
 VoidPaymentRefundMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -98,6 +99,27 @@ VoidPaymentRefundMessage.prototype.getDisableReceiptSelection = function() {
   return this.disableReceiptSelection;
 };
 
+/**
+* Set the field value
+* Extra data used by external systems.
+*
+* @memberof remotemessage.VoidPaymentRefundMessage
+* @param {Object.<String,String>} extras A map of <String> to <>
+*/
+VoidPaymentRefundMessage.prototype.setExtras = function(extras) {
+  this.extras = extras;
+};
+
+/**
+* Get the field value
+* Extra data used by external systems.
+* @memberof remotemessage.VoidPaymentRefundMessage
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+VoidPaymentRefundMessage.prototype.getExtras = function() {
+  return this.extras;
+};
+
 VoidPaymentRefundMessage._meta_ =  {fields:  {}};
 VoidPaymentRefundMessage._meta_._class_ =  VoidPaymentRefundMessage;
 VoidPaymentRefundMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -109,6 +131,8 @@ VoidPaymentRefundMessage._meta_.fields["disableCloverPrinting"] = {};
 VoidPaymentRefundMessage._meta_.fields["disableCloverPrinting"].type = Boolean;
 VoidPaymentRefundMessage._meta_.fields["disableReceiptSelection"] = {};
 VoidPaymentRefundMessage._meta_.fields["disableReceiptSelection"].type = Boolean;
+VoidPaymentRefundMessage._meta_.fields["extras"] = {};
+VoidPaymentRefundMessage._meta_.fields["extras"].type = Object;
 
 //
 // Expose the module.

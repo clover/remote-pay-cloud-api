@@ -21,6 +21,7 @@ var VaultCardResponseMessage = function() {
   this.setMethod(remotemessage_Method["VAULT_CARD_RESPONSE"]);
   this.reason = undefined;
   this.status = undefined;
+  this.tokenType = undefined;
   this.card = undefined;
 };
 
@@ -68,6 +69,27 @@ VaultCardResponseMessage.prototype.getStatus = function() {
 
 /**
 * Set the field value
+* If set, this indicates the token type.  If unset or unrecognized, the default legacy type of tokenization was used
+*
+* @memberof remotemessage.VaultCardResponseMessage
+* @param {String} tokenType 
+*/
+VaultCardResponseMessage.prototype.setTokenType = function(tokenType) {
+  this.tokenType = tokenType;
+};
+
+/**
+* Get the field value
+* If set, this indicates the token type.  If unset or unrecognized, the default legacy type of tokenization was used
+* @memberof remotemessage.VaultCardResponseMessage
+* @return {String} 
+*/
+VaultCardResponseMessage.prototype.getTokenType = function() {
+  return this.tokenType;
+};
+
+/**
+* Set the field value
 * The card that was vaulted.
 *
 * @memberof remotemessage.VaultCardResponseMessage
@@ -94,6 +116,8 @@ VaultCardResponseMessage._meta_.fields["reason"] = {};
 VaultCardResponseMessage._meta_.fields["reason"].type = String;
 VaultCardResponseMessage._meta_.fields["status"] = {};
 VaultCardResponseMessage._meta_.fields["status"].type = remotemessage_ResultStatus;
+VaultCardResponseMessage._meta_.fields["tokenType"] = {};
+VaultCardResponseMessage._meta_.fields["tokenType"].type = String;
 VaultCardResponseMessage._meta_.fields["card"] = {};
 VaultCardResponseMessage._meta_.fields["card"].type = payments_VaultedCard;
 

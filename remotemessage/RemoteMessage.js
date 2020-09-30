@@ -25,6 +25,8 @@ var RemoteMessage = function() {
   this.lastFragment = undefined;
   this.attachmentEncoding = undefined;
   this.attachment = undefined;
+  this.attachmentUri = undefined;
+  this.remotePayCompatibilityVersion = undefined;
 };
 
 
@@ -278,6 +280,48 @@ RemoteMessage.prototype.getAttachment = function() {
 };
 
 /**
+* Set the field value
+* The attachment URI.
+*
+* @memberof remotemessage.RemoteMessage
+* @param {String} attachmentUri 
+*/
+RemoteMessage.prototype.setAttachmentUri = function(attachmentUri) {
+  this.attachmentUri = attachmentUri;
+};
+
+/**
+* Get the field value
+* The attachment URI.
+* @memberof remotemessage.RemoteMessage
+* @return {String} 
+*/
+RemoteMessage.prototype.getAttachmentUri = function() {
+  return this.attachmentUri;
+};
+
+/**
+* Set the field value
+* This indicates the version of the SDK compatibility to the version of the Pay Display.  This is set to > 1 for 'nextGen' messages
+*
+* @memberof remotemessage.RemoteMessage
+* @param {Number} remotePayCompatibilityVersion must be an integer
+*/
+RemoteMessage.prototype.setRemotePayCompatibilityVersion = function(remotePayCompatibilityVersion) {
+  this.remotePayCompatibilityVersion = remotePayCompatibilityVersion;
+};
+
+/**
+* Get the field value
+* This indicates the version of the SDK compatibility to the version of the Pay Display.  This is set to > 1 for 'nextGen' messages
+* @memberof remotemessage.RemoteMessage
+* @return {Number} must be an integer
+*/
+RemoteMessage.prototype.getRemotePayCompatibilityVersion = function() {
+  return this.remotePayCompatibilityVersion;
+};
+
+/**
 * @memberof remotemessage.RemoteMessage
 * @private
 */
@@ -327,6 +371,10 @@ RemoteMessage._meta_.fields["attachmentEncoding"] = {};
 RemoteMessage._meta_.fields["attachmentEncoding"].type = String;
 RemoteMessage._meta_.fields["attachment"] = {};
 RemoteMessage._meta_.fields["attachment"].type = String;
+RemoteMessage._meta_.fields["attachmentUri"] = {};
+RemoteMessage._meta_.fields["attachmentUri"].type = String;
+RemoteMessage._meta_.fields["remotePayCompatibilityVersion"] = {};
+RemoteMessage._meta_.fields["remotePayCompatibilityVersion"].type = Number;
 
 //
 // Expose the module.

@@ -20,7 +20,7 @@ var PermissionSetRole = function() {
 
 /**
 * Set the field value
-* Unique identifier
+* Not a normal Clover ID
 *
 * @memberof employees.PermissionSetRole
 * @param {String} id 
@@ -31,7 +31,7 @@ PermissionSetRole.prototype.setId = function(id) {
 
 /**
 * Get the field value
-* Unique identifier
+* Not a normal Clover ID
 * @memberof employees.PermissionSetRole
 * @return {String} 
 */

@@ -22,6 +22,7 @@ var DisplayOrder = function() {
   this.total = undefined;
   this.title = undefined;
   this.note = undefined;
+  this.isVat = undefined;
   this.serviceChargeName = undefined;
   this.serviceChargeAmount = undefined;
   this.discounts = undefined;
@@ -195,6 +196,27 @@ DisplayOrder.prototype.getNote = function() {
 
 /**
 * Set the field value
+* This order was created by merchant with VAT enabled.
+*
+* @memberof order.DisplayOrder
+* @param {Boolean} isVat 
+*/
+DisplayOrder.prototype.setIsVat = function(isVat) {
+  this.isVat = isVat;
+};
+
+/**
+* Get the field value
+* This order was created by merchant with VAT enabled.
+* @memberof order.DisplayOrder
+* @return {Boolean} 
+*/
+DisplayOrder.prototype.getIsVat = function() {
+  return this.isVat;
+};
+
+/**
+* Set the field value
 * Optional service charge name (gratuity) applied to this order
 *
 * @memberof order.DisplayOrder
@@ -355,6 +377,8 @@ DisplayOrder._meta_.fields["title"] = {};
 DisplayOrder._meta_.fields["title"].type = String;
 DisplayOrder._meta_.fields["note"] = {};
 DisplayOrder._meta_.fields["note"].type = String;
+DisplayOrder._meta_.fields["isVat"] = {};
+DisplayOrder._meta_.fields["isVat"].type = Boolean;
 DisplayOrder._meta_.fields["serviceChargeName"] = {};
 DisplayOrder._meta_.fields["serviceChargeName"].type = String;
 DisplayOrder._meta_.fields["serviceChargeAmount"] = {};

@@ -43,7 +43,7 @@ ItemStock.prototype.getItem = function() {
 
 /**
 * Set the field value
-* DEPRECATED: use quantity instead
+* Deprecated, use quantity instead.
 *
 * @memberof inventory.ItemStock
 * @param {Null|Number} stockCount must be a long integer
@@ -54,7 +54,7 @@ ItemStock.prototype.setStockCount = function(stockCount) {
 
 /**
 * Get the field value
-* DEPRECATED: use quantity instead
+* Deprecated, use quantity instead.
 * @memberof inventory.ItemStock
 * @return {Null|Number} must be a long integer
 */
@@ -64,7 +64,7 @@ ItemStock.prototype.getStockCount = function() {
 
 /**
 * Set the field value
-* Current count of this item in stock
+* Current count of this item in stock.
 *
 * @memberof inventory.ItemStock
 * @param {Number} quantity must be a double
@@ -75,7 +75,7 @@ ItemStock.prototype.setQuantity = function(quantity) {
 
 /**
 * Get the field value
-* Current count of this item in stock
+* Current count of this item in stock.
 * @memberof inventory.ItemStock
 * @return {Number} must be a double
 */

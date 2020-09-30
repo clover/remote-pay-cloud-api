@@ -25,7 +25,7 @@ FinishCancelMessage.prototype.constructor = FinishCancelMessage;
 
 /**
 * Set the field value
-* Extra information to include with the request, like type of request
+* Extra information to include with the request, like type of request. Use constants in TxTypeRequestInfo.
 *
 * @memberof remotemessage.FinishCancelMessage
 * @param {String} requestInfo 
@@ -36,7 +36,7 @@ FinishCancelMessage.prototype.setRequestInfo = function(requestInfo) {
 
 /**
 * Get the field value
-* Extra information to include with the request, like type of request
+* Extra information to include with the request, like type of request. Use constants in TxTypeRequestInfo.
 * @memberof remotemessage.FinishCancelMessage
 * @return {String} 
 */
