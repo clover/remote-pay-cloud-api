@@ -17,9 +17,9 @@ var PrintRequest = function() {
   remotepay_BaseRequest.call(this);
   this._superClass_ = remotepay_BaseRequest;
   this._class_ = PrintRequest;
-  this.image = undefined;
+  this.images = undefined;
   this.text = undefined;
-  this.imageUrl = undefined;
+  this.imageUrls = undefined;
   this.printRequestId = undefined;
   this.printDeviceId = undefined;
 };
@@ -32,10 +32,10 @@ PrintRequest.prototype.constructor = PrintRequest;
 * The image to be printed (put in an array for future extensibility).
 *
 * @memberof remotepay.PrintRequest
-* @param {Array.<remotepay.Img>} image An array of 
+* @param {Array.<remotepay.Img>} images An array of 
 */
-PrintRequest.prototype.setImage = function(image) {
-  this.image = image;
+PrintRequest.prototype.setImages = function(images) {
+  this.images = images;
 };
 
 /**
@@ -44,8 +44,8 @@ PrintRequest.prototype.setImage = function(image) {
 * @memberof remotepay.PrintRequest
 * @return {Array.<remotepay.Img>} An array of 
 */
-PrintRequest.prototype.getImage = function() {
-  return this.image;
+PrintRequest.prototype.getImages = function() {
+  return this.images;
 };
 
 /**
@@ -74,10 +74,10 @@ PrintRequest.prototype.getText = function() {
 * The image URLs to be printed (put in an array for future extensibility).
 *
 * @memberof remotepay.PrintRequest
-* @param {Array.<String>} imageUrl An array of 
+* @param {Array.<String>} imageUrls An array of 
 */
-PrintRequest.prototype.setImageUrl = function(imageUrl) {
-  this.imageUrl = imageUrl;
+PrintRequest.prototype.setImageUrls = function(imageUrls) {
+  this.imageUrls = imageUrls;
 };
 
 /**
@@ -86,8 +86,8 @@ PrintRequest.prototype.setImageUrl = function(imageUrl) {
 * @memberof remotepay.PrintRequest
 * @return {Array.<String>} An array of 
 */
-PrintRequest.prototype.getImageUrl = function() {
-  return this.imageUrl;
+PrintRequest.prototype.getImageUrls = function() {
+  return this.imageUrls;
 };
 
 /**
@@ -135,13 +135,13 @@ PrintRequest.prototype.getPrintDeviceId = function() {
 PrintRequest._meta_ =  {fields:  {}};
 PrintRequest._meta_._class_ =  PrintRequest;
 PrintRequest._meta_._superMeta_ = remotepay_BaseRequest._meta_;
-PrintRequest._meta_.fields["image"] = {};
-PrintRequest._meta_.fields["image"].type = Array;
-PrintRequest._meta_.fields["image"].elementType = remotepay_Img;
+PrintRequest._meta_.fields["images"] = {};
+PrintRequest._meta_.fields["images"].type = Array;
+PrintRequest._meta_.fields["images"].elementType = remotepay_Img;
 PrintRequest._meta_.fields["text"] = {};
 PrintRequest._meta_.fields["text"].type = Array;
-PrintRequest._meta_.fields["imageUrl"] = {};
-PrintRequest._meta_.fields["imageUrl"].type = Array;
+PrintRequest._meta_.fields["imageUrls"] = {};
+PrintRequest._meta_.fields["imageUrls"].type = Array;
 PrintRequest._meta_.fields["printRequestId"] = {};
 PrintRequest._meta_.fields["printRequestId"].type = String;
 PrintRequest._meta_.fields["printDeviceId"] = {};

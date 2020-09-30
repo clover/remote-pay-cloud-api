@@ -47,6 +47,7 @@ var LineItem = function() {
   this.payments = undefined;
   this.revenueAmount = undefined;
   this.quantitySold = undefined;
+  this.printGroup = undefined;
 };
 
 
@@ -657,6 +658,27 @@ LineItem.prototype.getQuantitySold = function() {
 };
 
 /**
+* Set the field value
+* Optional reference to the print group that this line item belongs to.
+*
+* @memberof order.LineItem
+* @param {Null|base.Reference} printGroup 
+*/
+LineItem.prototype.setPrintGroup = function(printGroup) {
+  this.printGroup = printGroup;
+};
+
+/**
+* Get the field value
+* Optional reference to the print group that this line item belongs to.
+* @memberof order.LineItem
+* @return {Null|base.Reference} 
+*/
+LineItem.prototype.getPrintGroup = function() {
+  return this.printGroup;
+};
+
+/**
 * @memberof order.LineItem
 * @private
 */
@@ -747,6 +769,8 @@ LineItem._meta_.fields["revenueAmount"] = {};
 LineItem._meta_.fields["revenueAmount"].type = Number;
 LineItem._meta_.fields["quantitySold"] = {};
 LineItem._meta_.fields["quantitySold"].type = Number;
+LineItem._meta_.fields["printGroup"] = {};
+LineItem._meta_.fields["printGroup"].type = base_Reference;
 
 //
 // Expose the module.

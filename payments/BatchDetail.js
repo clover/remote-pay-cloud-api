@@ -7,6 +7,7 @@
 var payments_BatchCardTotal = require("../payments/BatchCardTotal");
 var payments_DeviceTotalStats = require("../payments/DeviceTotalStats");
 var payments_BatchTotalStats = require("../payments/BatchTotalStats");
+var payments_EndpointTotalStats = require("../payments/EndpointTotalStats");
 var payments_ServerTotalStats = require("../payments/ServerTotalStats");
 
 /**
@@ -15,14 +16,37 @@ var payments_ServerTotalStats = require("../payments/ServerTotalStats");
 */
 var BatchDetail = function() {
   this._class_ = BatchDetail;
+  this.terminalId = undefined;
   this.batchTotals = undefined;
   this.serverTotals = undefined;
   this.cardTotals = undefined;
   this.deviceTotals = undefined;
+  this.endpointTotals = undefined;
   this.openTips = undefined;
   this.openTabs = undefined;
 };
 
+
+/**
+* Set the field value
+* Terminal ID.
+*
+* @memberof payments.BatchDetail
+* @param {String} terminalId 
+*/
+BatchDetail.prototype.setTerminalId = function(terminalId) {
+  this.terminalId = terminalId;
+};
+
+/**
+* Get the field value
+* Terminal ID.
+* @memberof payments.BatchDetail
+* @return {String} 
+*/
+BatchDetail.prototype.getTerminalId = function() {
+  return this.terminalId;
+};
 
 /**
 * Set the field value
@@ -98,6 +122,24 @@ BatchDetail.prototype.getDeviceTotals = function() {
 
 /**
 * Set the field value
+* @memberof payments.BatchDetail
+* @param {Array.<payments.EndpointTotalStats>} endpointTotals An array of 
+*/
+BatchDetail.prototype.setEndpointTotals = function(endpointTotals) {
+  this.endpointTotals = endpointTotals;
+};
+
+/**
+* Get the field value
+* @memberof payments.BatchDetail
+* @return {Array.<payments.EndpointTotalStats>} An array of 
+*/
+BatchDetail.prototype.getEndpointTotals = function() {
+  return this.endpointTotals;
+};
+
+/**
+* Set the field value
 * Number of open tips.
 *
 * @memberof payments.BatchDetail
@@ -164,6 +206,8 @@ BatchDetail.prototype.toString = function() {
 
 BatchDetail._meta_ =  {fields:  {}};
 BatchDetail._meta_._class_ =  BatchDetail;
+BatchDetail._meta_.fields["terminalId"] = {};
+BatchDetail._meta_.fields["terminalId"].type = String;
 BatchDetail._meta_.fields["batchTotals"] = {};
 BatchDetail._meta_.fields["batchTotals"].type = payments_BatchTotalStats;
 BatchDetail._meta_.fields["serverTotals"] = {};
@@ -175,6 +219,9 @@ BatchDetail._meta_.fields["cardTotals"].elementType = payments_BatchCardTotal;
 BatchDetail._meta_.fields["deviceTotals"] = {};
 BatchDetail._meta_.fields["deviceTotals"].type = Array;
 BatchDetail._meta_.fields["deviceTotals"].elementType = payments_DeviceTotalStats;
+BatchDetail._meta_.fields["endpointTotals"] = {};
+BatchDetail._meta_.fields["endpointTotals"].type = Array;
+BatchDetail._meta_.fields["endpointTotals"].elementType = payments_EndpointTotalStats;
 BatchDetail._meta_.fields["openTips"] = {};
 BatchDetail._meta_.fields["openTips"].type = Number;
 BatchDetail._meta_.fields["openTabs"] = {};

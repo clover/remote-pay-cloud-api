@@ -48,6 +48,7 @@ var PaymentRequestCardDetails = function() {
   this.entryType = undefined;
   this.transactionNo = undefined;
   this.cardholderName = undefined;
+  this.plainCardData = undefined;
   this.transactionData = undefined;
 };
 
@@ -649,6 +650,24 @@ PaymentRequestCardDetails.prototype.getCardholderName = function() {
 /**
 * Set the field value
 * @memberof pay.PaymentRequestCardDetails
+* @param {String} plainCardData 
+*/
+PaymentRequestCardDetails.prototype.setPlainCardData = function(plainCardData) {
+  this.plainCardData = plainCardData;
+};
+
+/**
+* Get the field value
+* @memberof pay.PaymentRequestCardDetails
+* @return {String} 
+*/
+PaymentRequestCardDetails.prototype.getPlainCardData = function() {
+  return this.plainCardData;
+};
+
+/**
+* Set the field value
+* @memberof pay.PaymentRequestCardDetails
 * @param {pay.TransactionData} transactionData 
 */
 PaymentRequestCardDetails.prototype.setTransactionData = function(transactionData) {
@@ -756,6 +775,8 @@ PaymentRequestCardDetails._meta_.fields["transactionNo"] = {};
 PaymentRequestCardDetails._meta_.fields["transactionNo"].type = String;
 PaymentRequestCardDetails._meta_.fields["cardholderName"] = {};
 PaymentRequestCardDetails._meta_.fields["cardholderName"].type = String;
+PaymentRequestCardDetails._meta_.fields["plainCardData"] = {};
+PaymentRequestCardDetails._meta_.fields["plainCardData"].type = String;
 PaymentRequestCardDetails._meta_.fields["transactionData"] = {};
 PaymentRequestCardDetails._meta_.fields["transactionData"].type = pay_TransactionData;
 

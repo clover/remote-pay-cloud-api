@@ -15,6 +15,7 @@ var DeviceInfo = function() {
   this.model = undefined;
   this.serial = undefined;
   this.supportsAcks = undefined;
+  this.supportsVoidPaymentResponse = undefined;
 };
 
 
@@ -97,6 +98,27 @@ DeviceInfo.prototype.getSupportsAcks = function() {
 };
 
 /**
+* Set the field value
+* If true, then the device supports a void payment response.
+*
+* @memberof remotepay.DeviceInfo
+* @param {Boolean} supportsVoidPaymentResponse 
+*/
+DeviceInfo.prototype.setSupportsVoidPaymentResponse = function(supportsVoidPaymentResponse) {
+  this.supportsVoidPaymentResponse = supportsVoidPaymentResponse;
+};
+
+/**
+* Get the field value
+* If true, then the device supports a void payment response.
+* @memberof remotepay.DeviceInfo
+* @return {Boolean} 
+*/
+DeviceInfo.prototype.getSupportsVoidPaymentResponse = function() {
+  return this.supportsVoidPaymentResponse;
+};
+
+/**
 * @memberof remotepay.DeviceInfo
 * @private
 */
@@ -130,6 +152,8 @@ DeviceInfo._meta_.fields["serial"] = {};
 DeviceInfo._meta_.fields["serial"].type = String;
 DeviceInfo._meta_.fields["supportsAcks"] = {};
 DeviceInfo._meta_.fields["supportsAcks"].type = Boolean;
+DeviceInfo._meta_.fields["supportsVoidPaymentResponse"] = {};
+DeviceInfo._meta_.fields["supportsVoidPaymentResponse"].type = Boolean;
 
 //
 // Expose the module.

@@ -21,7 +21,7 @@ var SystemOrderType = function() {
 
 /**
 * Set the field value
-* Unqiue identifier
+* Unique identifier
 *
 * @memberof order.SystemOrderType
 * @param {String} id 
@@ -32,7 +32,7 @@ SystemOrderType.prototype.setId = function(id) {
 
 /**
 * Get the field value
-* Unqiue identifier
+* Unique identifier
 * @memberof order.SystemOrderType
 * @return {String} 
 */

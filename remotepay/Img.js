@@ -11,11 +11,33 @@
 */
 var Img = function() {
   this._class_ = Img;
+  this.data = undefined;
   this.src = undefined;
   this.width = undefined;
   this.height = undefined;
 };
 
+
+/**
+* Set the field value
+* The base64 encoded data of the image if available
+*
+* @memberof remotepay.Img
+* @param {String} data 
+*/
+Img.prototype.setData = function(data) {
+  this.data = data;
+};
+
+/**
+* Get the field value
+* The base64 encoded data of the image if available
+* @memberof remotepay.Img
+* @return {String} 
+*/
+Img.prototype.getData = function() {
+  return this.data;
+};
 
 /**
 * Set the field value
@@ -106,6 +128,8 @@ Img.prototype.toString = function() {
 
 Img._meta_ =  {fields:  {}};
 Img._meta_._class_ =  Img;
+Img._meta_.fields["data"] = {};
+Img._meta_.fields["data"].type = String;
 Img._meta_.fields["src"] = {};
 Img._meta_.fields["src"].type = String;
 Img._meta_.fields["width"] = {};

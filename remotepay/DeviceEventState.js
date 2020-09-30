@@ -6,6 +6,7 @@
 
 
 /**
+We can not include WELCOME_SCREEN, THANKYOU_SCREEN, DISPLAY_MESSAGE, DISPLAY_ORDER until we can filter them out in remote-pay before they go through the interface to older versions of the sdk
 * @memberof remotepay
 * @enum {string}
 */

@@ -13,6 +13,8 @@ var remotemessage_Method = require("../remotemessage/Method");
 var Message = function() {
   this._class_ = Message;
   this.method = undefined;
+  this.messageId = undefined;
+  this.sourceMessageId = undefined;
   this.version = 0;
 };
 
@@ -36,6 +38,48 @@ Message.prototype.setMethod = function(method) {
 */
 Message.prototype.getMethod = function() {
   return this.method;
+};
+
+/**
+* Set the field value
+* The business message id for this message.  This can be used to set the 'sourceMessageId' for meesages that are 'caused' by this message.  This may be null.
+*
+* @memberof remotemessage.Message
+* @param {String} messageId 
+*/
+Message.prototype.setMessageId = function(messageId) {
+  this.messageId = messageId;
+};
+
+/**
+* Get the field value
+* The business message id for this message.  This can be used to set the 'sourceMessageId' for meesages that are 'caused' by this message.  This may be null.
+* @memberof remotemessage.Message
+* @return {String} 
+*/
+Message.prototype.getMessageId = function() {
+  return this.messageId;
+};
+
+/**
+* Set the field value
+* The remote message id that 'caused' this message to be sent.  This may not be set.
+*
+* @memberof remotemessage.Message
+* @param {String} sourceMessageId 
+*/
+Message.prototype.setSourceMessageId = function(sourceMessageId) {
+  this.sourceMessageId = sourceMessageId;
+};
+
+/**
+* Get the field value
+* The remote message id that 'caused' this message to be sent.  This may not be set.
+* @memberof remotemessage.Message
+* @return {String} 
+*/
+Message.prototype.getSourceMessageId = function() {
+  return this.sourceMessageId;
 };
 
 /**
@@ -87,6 +131,10 @@ Message._meta_ =  {fields:  {}};
 Message._meta_._class_ =  Message;
 Message._meta_.fields["method"] = {};
 Message._meta_.fields["method"].type = remotemessage_Method;
+Message._meta_.fields["messageId"] = {};
+Message._meta_.fields["messageId"].type = String;
+Message._meta_.fields["sourceMessageId"] = {};
+Message._meta_.fields["sourceMessageId"].type = String;
 Message._meta_.fields["version"] = {};
 Message._meta_.fields["version"].type = Number;
 

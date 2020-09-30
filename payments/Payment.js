@@ -15,6 +15,7 @@ var payments_GermanInfo = require("../payments/GermanInfo");
 var payments_CardTransaction = require("../payments/CardTransaction");
 var payments_LineItemPayment = require("../payments/LineItemPayment");
 var order_VoidReason = require("../order/VoidReason");
+var payments_IncrementalAuthorization = require("../payments/IncrementalAuthorization");
 var apps_AppTracking = require("../apps/AppTracking");
 var payments_TransactionInfo = require("../payments/TransactionInfo");
 var base_Reference = require("../base/Reference");
@@ -64,6 +65,7 @@ var Payment = function() {
   this.signatureDisclaimer = undefined;
   this.externalReferenceId = undefined;
   this.merchant = undefined;
+  this.increments = undefined;
 };
 
 
@@ -111,7 +113,7 @@ Payment.prototype.getOrder = function() {
 
 /**
 * Set the field value
-* Device which processed the transaction for this payment
+* Device which processed the transaction for this payment, a 128-bit UUID, not a normal base-13 Clover ID.
 *
 * @memberof payments.Payment
 * @param {base.Reference|Null} device 
@@ -122,7 +124,7 @@ Payment.prototype.setDevice = function(device) {
 
 /**
 * Get the field value
-* Device which processed the transaction for this payment
+* Device which processed the transaction for this payment, a 128-bit UUID, not a normal base-13 Clover ID.
 * @memberof payments.Payment
 * @return {base.Reference|Null} 
 */
@@ -791,6 +793,24 @@ Payment.prototype.getMerchant = function() {
 };
 
 /**
+* Set the field value
+* @memberof payments.Payment
+* @param {Array.<payments.IncrementalAuthorization>} increments An array of 
+*/
+Payment.prototype.setIncrements = function(increments) {
+  this.increments = increments;
+};
+
+/**
+* Get the field value
+* @memberof payments.Payment
+* @return {Array.<payments.IncrementalAuthorization>} An array of 
+*/
+Payment.prototype.getIncrements = function() {
+  return this.increments;
+};
+
+/**
 * @memberof payments.Payment
 * @private
 */
@@ -892,6 +912,9 @@ Payment._meta_.fields["externalReferenceId"] = {};
 Payment._meta_.fields["externalReferenceId"].type = String;
 Payment._meta_.fields["merchant"] = {};
 Payment._meta_.fields["merchant"].type = base_Reference;
+Payment._meta_.fields["increments"] = {};
+Payment._meta_.fields["increments"].type = Array;
+Payment._meta_.fields["increments"].elementType = payments_IncrementalAuthorization;
 
 //
 // Expose the module.

@@ -93,7 +93,7 @@ Credit.prototype.getOrderRef = function() {
 
 /**
 * Set the field value
-* Device which processed this credit
+* Device which processed this credit, a 128-bit UUID, not a normal base-13 Clover ID.
 *
 * @memberof payments.Credit
 * @param {base.Reference|Null} device 
@@ -104,7 +104,7 @@ Credit.prototype.setDevice = function(device) {
 
 /**
 * Get the field value
-* Device which processed this credit
+* Device which processed this credit, a 128-bit UUID, not a normal base-13 Clover ID.
 * @memberof payments.Credit
 * @return {base.Reference|Null} 
 */

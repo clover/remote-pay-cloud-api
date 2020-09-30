@@ -15,6 +15,7 @@ var RegionalExtras = function() {
   this.INSTALLMENT_NUMBER_KEY = "com.clover.regionalextras.ar.INSTALLMENT_NUMBER_KEY";
   this.INSTALLMENT_PLAN_KEY = "com.clover.regionalextras.ar.INSTALLMENT_PLAN_KEY";
   this.SKIP_FISCAL_INVOICE_NUMBER_SCREEN_VALUE = "com.clover.regionalextras.ar.SKIP_FISCAL_INVOICE_NUMBER_SCREEN_VALUE";
+  this.CONFIRM_FISCAL_INVOICE_NUMBER_PROVIDED_VALUE = "com.clover.regionalextras.ar.CONFIRM_FISCAL_INVOICE_NUMBER_PROVIDED_VALUE";
   this.INSTALLMENT_NUMBER_DEFAULT_VALUE = "1";
 };
 
@@ -60,6 +61,15 @@ RegionalExtras.prototype.getSKIPFISCALINVOICENUMBERSCREENVALUE = function() {
 * @memberof payments.RegionalExtras
 * @return {String} 
 */
+RegionalExtras.prototype.getCONFIRMFISCALINVOICENUMBERPROVIDEDVALUE = function() {
+  return this.CONFIRM_FISCAL_INVOICE_NUMBER_PROVIDED_VALUE;
+};
+
+/**
+* Get the field value
+* @memberof payments.RegionalExtras
+* @return {String} 
+*/
 RegionalExtras.prototype.getINSTALLMENTNUMBERDEFAULTVALUE = function() {
   return this.INSTALLMENT_NUMBER_DEFAULT_VALUE;
 };
@@ -98,6 +108,8 @@ RegionalExtras._meta_.fields["INSTALLMENT_PLAN_KEY"] = {};
 RegionalExtras._meta_.fields["INSTALLMENT_PLAN_KEY"].type = String;
 RegionalExtras._meta_.fields["SKIP_FISCAL_INVOICE_NUMBER_SCREEN_VALUE"] = {};
 RegionalExtras._meta_.fields["SKIP_FISCAL_INVOICE_NUMBER_SCREEN_VALUE"].type = String;
+RegionalExtras._meta_.fields["CONFIRM_FISCAL_INVOICE_NUMBER_PROVIDED_VALUE"] = {};
+RegionalExtras._meta_.fields["CONFIRM_FISCAL_INVOICE_NUMBER_PROVIDED_VALUE"].type = String;
 RegionalExtras._meta_.fields["INSTALLMENT_NUMBER_DEFAULT_VALUE"] = {};
 RegionalExtras._meta_.fields["INSTALLMENT_NUMBER_DEFAULT_VALUE"].type = String;
 

@@ -49,7 +49,7 @@ RemoteError.prototype.getErrorDetail = function() {
 
 /**
 * Set the field value
-* A concise description of the error
+* A concise description of the error (fixme: the value 13 is suspicious)
 *
 * @memberof remotemessage.RemoteError
 * @param {String} errorMessage 
@@ -60,7 +60,7 @@ RemoteError.prototype.setErrorMessage = function(errorMessage) {
 
 /**
 * Get the field value
-* A concise description of the error
+* A concise description of the error (fixme: the value 13 is suspicious)
 * @memberof remotemessage.RemoteError
 * @return {String} 
 */

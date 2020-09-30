@@ -8,7 +8,7 @@ function loyalty() {}
 
 loyalty.CustomerProvidedDataResponse = require("./CustomerProvidedDataResponse");
 loyalty.CustomerProvidedDataResponseType = require("./CustomerProvidedDataResponseType");
-loyalty.LoyaltyDataConfig = require("./LoyaltyDataConfig");
+loyalty.LoyaltyDataConfig = require("./LoyaltyDataConfig.js");
 
 //
 // Expose the module.

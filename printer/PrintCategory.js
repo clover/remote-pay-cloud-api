@@ -12,7 +12,8 @@
 PrintCategory = {
   ORDER : "ORDER",
   RECEIPT : "RECEIPT",
-  FISCAL : "FISCAL"
+  FISCAL : "FISCAL",
+  LABEL : "LABEL"
 };
 
 

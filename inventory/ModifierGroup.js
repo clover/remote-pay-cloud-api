@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var inventory_MenuModifierGroup = require("../inventory/MenuModifierGroup");
 var base_Reference = require("../base/Reference");
 var inventory_Modifier = require("../inventory/Modifier");
 
@@ -22,6 +23,7 @@ var ModifierGroup = function() {
   this.modifiers = undefined;
   this.modifierIds = undefined;
   this.items = undefined;
+  this.menuModifierGroup = undefined;
   this.sortOrder = undefined;
 };
 
@@ -208,6 +210,27 @@ ModifierGroup.prototype.getItems = function() {
 
 /**
 * Set the field value
+* Menu Modifier Group attribute that can be expanded to menu group specific attributes
+*
+* @memberof inventory.ModifierGroup
+* @param {Null|inventory.MenuModifierGroup} menuModifierGroup 
+*/
+ModifierGroup.prototype.setMenuModifierGroup = function(menuModifierGroup) {
+  this.menuModifierGroup = menuModifierGroup;
+};
+
+/**
+* Get the field value
+* Menu Modifier Group attribute that can be expanded to menu group specific attributes
+* @memberof inventory.ModifierGroup
+* @return {Null|inventory.MenuModifierGroup} 
+*/
+ModifierGroup.prototype.getMenuModifierGroup = function() {
+  return this.menuModifierGroup;
+};
+
+/**
+* Set the field value
 * The ordinal value used to determine where in an ordered list this modifier group should appear relative to others.
 *
 * @memberof inventory.ModifierGroup
@@ -273,6 +296,8 @@ ModifierGroup._meta_.fields["modifierIds"].type = String;
 ModifierGroup._meta_.fields["items"] = {};
 ModifierGroup._meta_.fields["items"].type = Array;
 ModifierGroup._meta_.fields["items"].elementType = base_Reference;
+ModifierGroup._meta_.fields["menuModifierGroup"] = {};
+ModifierGroup._meta_.fields["menuModifierGroup"].type = inventory_MenuModifierGroup;
 ModifierGroup._meta_.fields["sortOrder"] = {};
 ModifierGroup._meta_.fields["sortOrder"].type = Number;
 

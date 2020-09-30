@@ -23,6 +23,7 @@ var RefundRequestMessage = function() {
   this.paymentId = undefined;
   this.disableCloverPrinting = false;
   this.disableReceiptSelection = false;
+  this.extras = undefined;
 };
 
 RefundRequestMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -148,6 +149,27 @@ RefundRequestMessage.prototype.getDisableReceiptSelection = function() {
   return this.disableReceiptSelection;
 };
 
+/**
+* Set the field value
+* Extra data used by external systems.
+*
+* @memberof remotemessage.RefundRequestMessage
+* @param {Object.<String,String>} extras A map of <String> to <>
+*/
+RefundRequestMessage.prototype.setExtras = function(extras) {
+  this.extras = extras;
+};
+
+/**
+* Get the field value
+* Extra data used by external systems.
+* @memberof remotemessage.RefundRequestMessage
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+RefundRequestMessage.prototype.getExtras = function() {
+  return this.extras;
+};
+
 RefundRequestMessage._meta_ =  {fields:  {}};
 RefundRequestMessage._meta_._class_ =  RefundRequestMessage;
 RefundRequestMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -163,6 +185,8 @@ RefundRequestMessage._meta_.fields["disableCloverPrinting"] = {};
 RefundRequestMessage._meta_.fields["disableCloverPrinting"].type = Boolean;
 RefundRequestMessage._meta_.fields["disableReceiptSelection"] = {};
 RefundRequestMessage._meta_.fields["disableReceiptSelection"].type = Boolean;
+RefundRequestMessage._meta_.fields["extras"] = {};
+RefundRequestMessage._meta_.fields["extras"].type = Object;
 
 //
 // Expose the module.

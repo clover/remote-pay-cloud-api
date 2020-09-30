@@ -12,7 +12,7 @@ var order_DisplayLineItem = require("../order/DisplayLineItem");
 */
 var AddLineItemAction = function() {
   this._class_ = AddLineItemAction;
-  this.discount = undefined;
+  this.lineItem = undefined;
   this.taxable = undefined;
 };
 
@@ -20,10 +20,10 @@ var AddLineItemAction = function() {
 /**
 * Set the field value
 * @memberof remotemessage.AddLineItemAction
-* @param {order.DisplayLineItem} discount 
+* @param {order.DisplayLineItem} lineItem 
 */
-AddLineItemAction.prototype.setDiscount = function(discount) {
-  this.discount = discount;
+AddLineItemAction.prototype.setLineItem = function(lineItem) {
+  this.lineItem = lineItem;
 };
 
 /**
@@ -31,8 +31,8 @@ AddLineItemAction.prototype.setDiscount = function(discount) {
 * @memberof remotemessage.AddLineItemAction
 * @return {order.DisplayLineItem} 
 */
-AddLineItemAction.prototype.getDiscount = function() {
-  return this.discount;
+AddLineItemAction.prototype.getLineItem = function() {
+  return this.lineItem;
 };
 
 /**
@@ -79,8 +79,8 @@ AddLineItemAction.prototype.toString = function() {
 
 AddLineItemAction._meta_ =  {fields:  {}};
 AddLineItemAction._meta_._class_ =  AddLineItemAction;
-AddLineItemAction._meta_.fields["discount"] = {};
-AddLineItemAction._meta_.fields["discount"].type = order_DisplayLineItem;
+AddLineItemAction._meta_.fields["lineItem"] = {};
+AddLineItemAction._meta_.fields["lineItem"].type = order_DisplayLineItem;
 AddLineItemAction._meta_.fields["taxable"] = {};
 AddLineItemAction._meta_.fields["taxable"].type = Boolean;
 

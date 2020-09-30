@@ -36,6 +36,7 @@ var DeviceProvision = function() {
   this.bundleIndicator = undefined;
   this.modifiedTime = undefined;
   this.deletedTime = undefined;
+  this.deviceWarrantyRef = undefined;
 };
 
 
@@ -62,6 +63,8 @@ DeviceProvision.prototype.getId = function() {
 
 /**
 * Set the field value
+* A 128-bit UUID, not a normal base-13 Clover ID.
+*
 * @memberof device.DeviceProvision
 * @param {base.Reference} deviceRef 
 */
@@ -71,6 +74,7 @@ DeviceProvision.prototype.setDeviceRef = function(deviceRef) {
 
 /**
 * Get the field value
+* A 128-bit UUID, not a normal base-13 Clover ID.
 * @memberof device.DeviceProvision
 * @return {base.Reference} 
 */
@@ -469,6 +473,24 @@ DeviceProvision.prototype.getDeletedTime = function() {
 };
 
 /**
+* Set the field value
+* @memberof device.DeviceProvision
+* @param {base.Reference} deviceWarrantyRef 
+*/
+DeviceProvision.prototype.setDeviceWarrantyRef = function(deviceWarrantyRef) {
+  this.deviceWarrantyRef = deviceWarrantyRef;
+};
+
+/**
+* Get the field value
+* @memberof device.DeviceProvision
+* @return {base.Reference} 
+*/
+DeviceProvision.prototype.getDeviceWarrantyRef = function() {
+  return this.deviceWarrantyRef;
+};
+
+/**
 * @memberof device.DeviceProvision
 * @private
 */
@@ -540,6 +562,8 @@ DeviceProvision._meta_.fields["modifiedTime"] = {};
 DeviceProvision._meta_.fields["modifiedTime"].type = Number;
 DeviceProvision._meta_.fields["deletedTime"] = {};
 DeviceProvision._meta_.fields["deletedTime"].type = Number;
+DeviceProvision._meta_.fields["deviceWarrantyRef"] = {};
+DeviceProvision._meta_.fields["deviceWarrantyRef"].type = base_Reference;
 
 //
 // Expose the module.

@@ -13,7 +13,7 @@ var PendingPaymentEntry = function() {
   this._class_ = PendingPaymentEntry;
   this.amount = undefined;
   this.paymentId = undefined;
-  this.externalId = undefined;
+  this.externalPaymentId = undefined;
   this.tipAmount = undefined;
 };
 
@@ -65,10 +65,10 @@ PendingPaymentEntry.prototype.getPaymentId = function() {
 * An id that will be persisted with transactions.
 *
 * @memberof base.PendingPaymentEntry
-* @param {String} externalId 
+* @param {String} externalPaymentId 
 */
-PendingPaymentEntry.prototype.setExternalId = function(externalId) {
-  this.externalId = externalId;
+PendingPaymentEntry.prototype.setExternalPaymentId = function(externalPaymentId) {
+  this.externalPaymentId = externalPaymentId;
 };
 
 /**
@@ -77,8 +77,8 @@ PendingPaymentEntry.prototype.setExternalId = function(externalId) {
 * @memberof base.PendingPaymentEntry
 * @return {String} 
 */
-PendingPaymentEntry.prototype.getExternalId = function() {
-  return this.externalId;
+PendingPaymentEntry.prototype.getExternalPaymentId = function() {
+  return this.externalPaymentId;
 };
 
 /**
@@ -132,8 +132,8 @@ PendingPaymentEntry._meta_.fields["amount"] = {};
 PendingPaymentEntry._meta_.fields["amount"].type = Number;
 PendingPaymentEntry._meta_.fields["paymentId"] = {};
 PendingPaymentEntry._meta_.fields["paymentId"].type = String;
-PendingPaymentEntry._meta_.fields["externalId"] = {};
-PendingPaymentEntry._meta_.fields["externalId"].type = String;
+PendingPaymentEntry._meta_.fields["externalPaymentId"] = {};
+PendingPaymentEntry._meta_.fields["externalPaymentId"].type = String;
 PendingPaymentEntry._meta_.fields["tipAmount"] = {};
 PendingPaymentEntry._meta_.fields["tipAmount"].type = Number;
 

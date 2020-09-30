@@ -90,7 +90,7 @@ DeviceAccessory.prototype.getSerial = function() {
 
 /**
 * Set the field value
-* The device that this accessory is currently connected to.
+* The device that this accessory is currently connected to, a 128-bit UUID, not a normal base-13 Clover ID.
 *
 * @memberof device.DeviceAccessory
 * @param {base.Reference} associatedDevice 
@@ -101,7 +101,7 @@ DeviceAccessory.prototype.setAssociatedDevice = function(associatedDevice) {
 
 /**
 * Get the field value
-* The device that this accessory is currently connected to.
+* The device that this accessory is currently connected to, a 128-bit UUID, not a normal base-13 Clover ID.
 * @memberof device.DeviceAccessory
 * @return {base.Reference} 
 */

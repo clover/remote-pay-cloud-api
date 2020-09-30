@@ -117,7 +117,7 @@ FinishOkMessage.prototype.getSignature = function() {
 
 /**
 * Set the field value
-* Extra information to include with the request, like type of request
+* Extra information to include with the request, like type of request. Use constants in TxTypeRequestInfo.
 *
 * @memberof remotemessage.FinishOkMessage
 * @param {String} requestInfo 
@@ -128,7 +128,7 @@ FinishOkMessage.prototype.setRequestInfo = function(requestInfo) {
 
 /**
 * Get the field value
-* Extra information to include with the request, like type of request
+* Extra information to include with the request, like type of request. Use constants in TxTypeRequestInfo.
 * @memberof remotemessage.FinishOkMessage
 * @return {String} 
 */

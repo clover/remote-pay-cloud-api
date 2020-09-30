@@ -21,6 +21,7 @@ var VasPayloadMessage = function() {
   this.setMethod(remotemessage_Method["VAS_PAYLOAD_MESSAGE"]);
   this.vasPayload = undefined;
   this.vasMode = undefined;
+  this.extras = undefined;
 };
 
 VasPayloadMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -68,6 +69,27 @@ VasPayloadMessage.prototype.getVasMode = function() {
   return this.vasMode;
 };
 
+/**
+* Set the field value
+* Extra data used by external systems.
+*
+* @memberof remotemessage.VasPayloadMessage
+* @param {Object.<String,String>} extras A map of <String> to <>
+*/
+VasPayloadMessage.prototype.setExtras = function(extras) {
+  this.extras = extras;
+};
+
+/**
+* Get the field value
+* Extra data used by external systems.
+* @memberof remotemessage.VasPayloadMessage
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+VasPayloadMessage.prototype.getExtras = function() {
+  return this.extras;
+};
+
 VasPayloadMessage._meta_ =  {fields:  {}};
 VasPayloadMessage._meta_._class_ =  VasPayloadMessage;
 VasPayloadMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -75,6 +97,8 @@ VasPayloadMessage._meta_.fields["vasPayload"] = {};
 VasPayloadMessage._meta_.fields["vasPayload"].type = payments_VasPayload;
 VasPayloadMessage._meta_.fields["vasMode"] = {};
 VasPayloadMessage._meta_.fields["vasMode"].type = payments_VasMode;
+VasPayloadMessage._meta_.fields["extras"] = {};
+VasPayloadMessage._meta_.fields["extras"].type = Object;
 
 //
 // Expose the module.

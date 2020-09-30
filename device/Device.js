@@ -26,6 +26,7 @@ var Device = function() {
   this.deviceCertificate = undefined;
   this.pedCertificate = undefined;
   this.deviceTypeName = undefined;
+  this.productName = undefined;
   this.pinDisabled = false;
   this.offlinePayments = false;
   this.offlinePaymentsAll = false;
@@ -305,8 +306,6 @@ Device.prototype.getPedCertificate = function() {
 
 /**
 * Set the field value
-* The type of device. Possible values are "GOLDLEAF" (Station), "LEAFCUTTER" (Mobile), "MAPLECUTTER" (Mini), "CLOVER_GO" (Clover Go), or "OTHER" (Unknown).
-*
 * @memberof device.Device
 * @param {String} deviceTypeName 
 */
@@ -316,12 +315,29 @@ Device.prototype.setDeviceTypeName = function(deviceTypeName) {
 
 /**
 * Get the field value
-* The type of device. Possible values are "GOLDLEAF" (Station), "LEAFCUTTER" (Mobile), "MAPLECUTTER" (Mini), "CLOVER_GO" (Clover Go), or "OTHER" (Unknown).
 * @memberof device.Device
 * @return {String} 
 */
 Device.prototype.getDeviceTypeName = function() {
   return this.deviceTypeName;
+};
+
+/**
+* Set the field value
+* @memberof device.Device
+* @param {String} productName 
+*/
+Device.prototype.setProductName = function(productName) {
+  this.productName = productName;
+};
+
+/**
+* Get the field value
+* @memberof device.Device
+* @return {String} 
+*/
+Device.prototype.getProductName = function() {
+  return this.productName;
 };
 
 /**
@@ -669,6 +685,8 @@ Device._meta_.fields["pedCertificate"] = {};
 Device._meta_.fields["pedCertificate"].type = String;
 Device._meta_.fields["deviceTypeName"] = {};
 Device._meta_.fields["deviceTypeName"].type = String;
+Device._meta_.fields["productName"] = {};
+Device._meta_.fields["productName"].type = String;
 Device._meta_.fields["pinDisabled"] = {};
 Device._meta_.fields["pinDisabled"].type = Boolean;
 Device._meta_.fields["offlinePayments"] = {};

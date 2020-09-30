@@ -23,6 +23,7 @@ var VoidPaymentMessage = function() {
   this.voidReason = undefined;
   this.disableCloverPrinting = false;
   this.disableReceiptSelection = false;
+  this.extras = undefined;
 };
 
 VoidPaymentMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -103,6 +104,27 @@ VoidPaymentMessage.prototype.getDisableReceiptSelection = function() {
   return this.disableReceiptSelection;
 };
 
+/**
+* Set the field value
+* Extra data used by external systems.
+*
+* @memberof remotemessage.VoidPaymentMessage
+* @param {Object.<String,String>} extras A map of <String> to <>
+*/
+VoidPaymentMessage.prototype.setExtras = function(extras) {
+  this.extras = extras;
+};
+
+/**
+* Get the field value
+* Extra data used by external systems.
+* @memberof remotemessage.VoidPaymentMessage
+* @return {Object.<String,String>} A map of <String> to <>
+*/
+VoidPaymentMessage.prototype.getExtras = function() {
+  return this.extras;
+};
+
 VoidPaymentMessage._meta_ =  {fields:  {}};
 VoidPaymentMessage._meta_._class_ =  VoidPaymentMessage;
 VoidPaymentMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -114,6 +136,8 @@ VoidPaymentMessage._meta_.fields["disableCloverPrinting"] = {};
 VoidPaymentMessage._meta_.fields["disableCloverPrinting"].type = Boolean;
 VoidPaymentMessage._meta_.fields["disableReceiptSelection"] = {};
 VoidPaymentMessage._meta_.fields["disableReceiptSelection"].type = Boolean;
+VoidPaymentMessage._meta_.fields["extras"] = {};
+VoidPaymentMessage._meta_.fields["extras"].type = Object;
 
 //
 // Expose the module.

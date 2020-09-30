@@ -4,6 +4,7 @@
  * DO NOT EDIT DIRECTLY
  */
 
+var inventory_MenuSection = require("../inventory/MenuSection");
 var base_Reference = require("../base/Reference");
 
 /**
@@ -19,6 +20,7 @@ var Category = function() {
   this.deleted = undefined;
   this.modifiedTime = undefined;
   this.canonical = undefined;
+  this.menuSection = undefined;
 };
 
 
@@ -170,6 +172,27 @@ Category.prototype.getCanonical = function() {
 };
 
 /**
+* Set the field value
+* Menu Section attribute that can be expanded to menu section specific attributes
+*
+* @memberof inventory.Category
+* @param {Null|inventory.MenuSection} menuSection 
+*/
+Category.prototype.setMenuSection = function(menuSection) {
+  this.menuSection = menuSection;
+};
+
+/**
+* Get the field value
+* Menu Section attribute that can be expanded to menu section specific attributes
+* @memberof inventory.Category
+* @return {Null|inventory.MenuSection} 
+*/
+Category.prototype.getMenuSection = function() {
+  return this.menuSection;
+};
+
+/**
 * @memberof inventory.Category
 * @private
 */
@@ -210,6 +233,8 @@ Category._meta_.fields["modifiedTime"] = {};
 Category._meta_.fields["modifiedTime"].type = Number;
 Category._meta_.fields["canonical"] = {};
 Category._meta_.fields["canonical"].type = base_Reference;
+Category._meta_.fields["menuSection"] = {};
+Category._meta_.fields["menuSection"].type = inventory_MenuSection;
 
 //
 // Expose the module.

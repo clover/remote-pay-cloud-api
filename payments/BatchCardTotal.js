@@ -13,6 +13,8 @@ var payments_CardType = require("../payments/CardType");
 var BatchCardTotal = function() {
   this._class_ = BatchCardTotal;
   this.cardType = undefined;
+  this.cardTypeLabel = undefined;
+  this.installments = undefined;
   this.count = undefined;
   this.total = undefined;
 };
@@ -34,6 +36,48 @@ BatchCardTotal.prototype.setCardType = function(cardType) {
 */
 BatchCardTotal.prototype.getCardType = function() {
   return this.cardType;
+};
+
+/**
+* Set the field value
+* In the case of CardType.OTHER, an optional label might be provided
+*
+* @memberof payments.BatchCardTotal
+* @param {String} cardTypeLabel 
+*/
+BatchCardTotal.prototype.setCardTypeLabel = function(cardTypeLabel) {
+  this.cardTypeLabel = cardTypeLabel;
+};
+
+/**
+* Get the field value
+* In the case of CardType.OTHER, an optional label might be provided
+* @memberof payments.BatchCardTotal
+* @return {String} 
+*/
+BatchCardTotal.prototype.getCardTypeLabel = function() {
+  return this.cardTypeLabel;
+};
+
+/**
+* Set the field value
+* Number of installments for this CardTotal
+*
+* @memberof payments.BatchCardTotal
+* @param {Number} installments must be a long integer
+*/
+BatchCardTotal.prototype.setInstallments = function(installments) {
+  this.installments = installments;
+};
+
+/**
+* Get the field value
+* Number of installments for this CardTotal
+* @memberof payments.BatchCardTotal
+* @return {Number} must be a long integer
+*/
+BatchCardTotal.prototype.getInstallments = function() {
+  return this.installments;
 };
 
 /**
@@ -106,6 +150,10 @@ BatchCardTotal._meta_ =  {fields:  {}};
 BatchCardTotal._meta_._class_ =  BatchCardTotal;
 BatchCardTotal._meta_.fields["cardType"] = {};
 BatchCardTotal._meta_.fields["cardType"].type = payments_CardType;
+BatchCardTotal._meta_.fields["cardTypeLabel"] = {};
+BatchCardTotal._meta_.fields["cardTypeLabel"].type = String;
+BatchCardTotal._meta_.fields["installments"] = {};
+BatchCardTotal._meta_.fields["installments"].type = Number;
 BatchCardTotal._meta_.fields["count"] = {};
 BatchCardTotal._meta_.fields["count"].type = Number;
 BatchCardTotal._meta_.fields["total"] = {};

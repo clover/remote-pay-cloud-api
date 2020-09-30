@@ -6,6 +6,7 @@
 
 var inventory_ItemStock = require("../inventory/ItemStock");
 var inventory_TaxRate = require("../inventory/TaxRate");
+var inventory_MenuItem = require("../inventory/MenuItem");
 var inventory_ModifierGroup = require("../inventory/ModifierGroup");
 var inventory_PriceType = require("../inventory/PriceType");
 var inventory_Category = require("../inventory/Category");
@@ -40,6 +41,7 @@ var Item = function() {
   this.tags = undefined;
   this.canonical = undefined;
   this.itemStock = undefined;
+  this.menuItem = undefined;
   this.modifiedTime = undefined;
   this.deletedTime = undefined;
   this.priceWithoutVat = undefined;
@@ -339,7 +341,7 @@ Item.prototype.getIsRevenue = function() {
 
 /**
 * Set the field value
-* DEPRECATED: use itemStock instead
+* Deprecated, use itemStock instead.
 *
 * @memberof inventory.Item
 * @param {Null|Number} stockCount must be a long integer
@@ -350,7 +352,7 @@ Item.prototype.setStockCount = function(stockCount) {
 
 /**
 * Get the field value
-* DEPRECATED: use itemStock instead
+* Deprecated, use itemStock instead.
 * @memberof inventory.Item
 * @return {Null|Number} must be a long integer
 */
@@ -476,6 +478,27 @@ Item.prototype.setItemStock = function(itemStock) {
 */
 Item.prototype.getItemStock = function() {
   return this.itemStock;
+};
+
+/**
+* Set the field value
+* Menu Item attribute that can be expanded to menu specific attributes
+*
+* @memberof inventory.Item
+* @param {Null|inventory.MenuItem} menuItem 
+*/
+Item.prototype.setMenuItem = function(menuItem) {
+  this.menuItem = menuItem;
+};
+
+/**
+* Get the field value
+* Menu Item attribute that can be expanded to menu specific attributes
+* @memberof inventory.Item
+* @return {Null|inventory.MenuItem} 
+*/
+Item.prototype.getMenuItem = function() {
+  return this.menuItem;
 };
 
 /**
@@ -611,6 +634,8 @@ Item._meta_.fields["canonical"] = {};
 Item._meta_.fields["canonical"].type = base_Reference;
 Item._meta_.fields["itemStock"] = {};
 Item._meta_.fields["itemStock"].type = inventory_ItemStock;
+Item._meta_.fields["menuItem"] = {};
+Item._meta_.fields["menuItem"].type = inventory_MenuItem;
 Item._meta_.fields["modifiedTime"] = {};
 Item._meta_.fields["modifiedTime"].type = Number;
 Item._meta_.fields["deletedTime"] = {};

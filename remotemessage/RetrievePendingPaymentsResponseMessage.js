@@ -21,6 +21,7 @@ var RetrievePendingPaymentsResponseMessage = function() {
   this.setMethod(remotemessage_Method["RETRIEVE_PENDING_PAYMENTS_RESPONSE"]);
   this.status = undefined;
   this.pendingPaymentEntries = undefined;
+  this.reason = undefined;
 };
 
 RetrievePendingPaymentsResponseMessage.prototype = Object.create(remotemessage_Message.prototype);
@@ -68,6 +69,27 @@ RetrievePendingPaymentsResponseMessage.prototype.getPendingPaymentEntries = func
   return this.pendingPaymentEntries;
 };
 
+/**
+* Set the field value
+* May be populated when the operation fails.
+*
+* @memberof remotemessage.RetrievePendingPaymentsResponseMessage
+* @param {String} reason 
+*/
+RetrievePendingPaymentsResponseMessage.prototype.setReason = function(reason) {
+  this.reason = reason;
+};
+
+/**
+* Get the field value
+* May be populated when the operation fails.
+* @memberof remotemessage.RetrievePendingPaymentsResponseMessage
+* @return {String} 
+*/
+RetrievePendingPaymentsResponseMessage.prototype.getReason = function() {
+  return this.reason;
+};
+
 RetrievePendingPaymentsResponseMessage._meta_ =  {fields:  {}};
 RetrievePendingPaymentsResponseMessage._meta_._class_ =  RetrievePendingPaymentsResponseMessage;
 RetrievePendingPaymentsResponseMessage._meta_._superMeta_ = remotemessage_Message._meta_;
@@ -76,6 +98,8 @@ RetrievePendingPaymentsResponseMessage._meta_.fields["status"].type = remotemess
 RetrievePendingPaymentsResponseMessage._meta_.fields["pendingPaymentEntries"] = {};
 RetrievePendingPaymentsResponseMessage._meta_.fields["pendingPaymentEntries"].type = Array;
 RetrievePendingPaymentsResponseMessage._meta_.fields["pendingPaymentEntries"].elementType = base_PendingPaymentEntry;
+RetrievePendingPaymentsResponseMessage._meta_.fields["reason"] = {};
+RetrievePendingPaymentsResponseMessage._meta_.fields["reason"].type = String;
 
 //
 // Expose the module.

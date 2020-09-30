@@ -17,7 +17,6 @@ var AcknowledgementMessage = function() {
   this._superClass_ = remotemessage_Message;
   this._class_ = AcknowledgementMessage;
   this.setMethod(remotemessage_Method["ACK"]);
-  this.sourceMessageId = undefined;
   this.sourceMethod = undefined;
 };
 
@@ -26,23 +25,23 @@ AcknowledgementMessage.prototype.constructor = AcknowledgementMessage;
 
 /**
 * Set the field value
-* The remote message id that is being acknowledged
+* The remote message method type that is being acknowledged
 *
 * @memberof remotemessage.AcknowledgementMessage
-* @param {String} sourceMessageId 
+* @param {remotemessage.Method} sourceMethod 
 */
-AcknowledgementMessage.prototype.setSourceMessageId = function(sourceMessageId) {
-  this.sourceMessageId = sourceMessageId;
+AcknowledgementMessage.prototype.setSourceMethod = function(sourceMethod) {
+  this.sourceMethod = sourceMethod;
 };
 
 /**
 * Get the field value
-* The remote message id that is being acknowledged
+* The remote message method type that is being acknowledged
 * @memberof remotemessage.AcknowledgementMessage
-* @return {String} 
+* @return {remotemessage.Method} 
 */
-AcknowledgementMessage.prototype.getSourceMessageId = function() {
-  return this.sourceMessageId;
+AcknowledgementMessage.prototype.getSourceMethod = function() {
+  return this.sourceMethod;
 };
 
 /**
@@ -69,8 +68,6 @@ AcknowledgementMessage.prototype.getSourceMethod = function() {
 AcknowledgementMessage._meta_ =  {fields:  {}};
 AcknowledgementMessage._meta_._class_ =  AcknowledgementMessage;
 AcknowledgementMessage._meta_._superMeta_ = remotemessage_Message._meta_;
-AcknowledgementMessage._meta_.fields["sourceMessageId"] = {};
-AcknowledgementMessage._meta_.fields["sourceMessageId"].type = String;
 AcknowledgementMessage._meta_.fields["sourceMethod"] = {};
 AcknowledgementMessage._meta_.fields["sourceMethod"].type = remotemessage_Method;
 

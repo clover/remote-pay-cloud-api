@@ -19,6 +19,7 @@ var Card = function() {
   this.expirationDate = undefined;
   this.cardType = undefined;
   this.token = undefined;
+  this.modifiedTime = undefined;
 };
 
 
@@ -167,6 +168,27 @@ Card.prototype.getToken = function() {
 };
 
 /**
+* Set the field value
+* The timestamp from when this card was last updated.
+*
+* @memberof customers.Card
+* @param {Number} modifiedTime must be a long integer
+*/
+Card.prototype.setModifiedTime = function(modifiedTime) {
+  this.modifiedTime = modifiedTime;
+};
+
+/**
+* Get the field value
+* The timestamp from when this card was last updated.
+* @memberof customers.Card
+* @return {Number} must be a long integer
+*/
+Card.prototype.getModifiedTime = function() {
+  return this.modifiedTime;
+};
+
+/**
 * @memberof customers.Card
 * @private
 */
@@ -208,6 +230,8 @@ Card._meta_.fields["cardType"] = {};
 Card._meta_.fields["cardType"].type = String;
 Card._meta_.fields["token"] = {};
 Card._meta_.fields["token"].type = String;
+Card._meta_.fields["modifiedTime"] = {};
+Card._meta_.fields["modifiedTime"].type = Number;
 
 //
 // Expose the module.

@@ -14,6 +14,7 @@ var AdditionalChargeAmount = function() {
   this._class_ = AdditionalChargeAmount;
   this.id = undefined;
   this.amount = undefined;
+  this.rate = undefined;
   this.type = undefined;
 };
 
@@ -58,6 +59,27 @@ AdditionalChargeAmount.prototype.setAmount = function(amount) {
 */
 AdditionalChargeAmount.prototype.getAmount = function() {
   return this.amount;
+};
+
+/**
+* Set the field value
+* Percent rate of the additional charge times 10000
+*
+* @memberof payments.AdditionalChargeAmount
+* @param {Number} rate must be a long integer
+*/
+AdditionalChargeAmount.prototype.setRate = function(rate) {
+  this.rate = rate;
+};
+
+/**
+* Get the field value
+* Percent rate of the additional charge times 10000
+* @memberof payments.AdditionalChargeAmount
+* @return {Number} must be a long integer
+*/
+AdditionalChargeAmount.prototype.getRate = function() {
+  return this.rate;
 };
 
 /**
@@ -111,6 +133,8 @@ AdditionalChargeAmount._meta_.fields["id"] = {};
 AdditionalChargeAmount._meta_.fields["id"].type = String;
 AdditionalChargeAmount._meta_.fields["amount"] = {};
 AdditionalChargeAmount._meta_.fields["amount"].type = Number;
+AdditionalChargeAmount._meta_.fields["rate"] = {};
+AdditionalChargeAmount._meta_.fields["rate"].type = Number;
 AdditionalChargeAmount._meta_.fields["type"] = {};
 AdditionalChargeAmount._meta_.fields["type"].type = payments_AdditionalChargeType;
 
