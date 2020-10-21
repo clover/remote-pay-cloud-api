@@ -491,29 +491,6 @@ ICloverConnector.prototype.setCustomerInfo = function(request) {
 ICloverConnector.prototype.checkBalance = function(request) {
 };
 
-/**
-* Launch customer facing signature screen to collect a signature
-   * @param request
-* @memberof remotepay.ICloverConnector
-*
-* @param {remotepay.SignatureRequest} request 
-* @return void
-*/
-ICloverConnector.prototype.requestSignature = function(request) {
-};
-
-/**
-* Launch customer facing tip screen to request a tip amount
-   * @param request
-* @memberof remotepay.ICloverConnector
-*
-* @param {remotepay.TipRequest} request 
-* @return void
-*/
-ICloverConnector.prototype.requestTip = function(request) {
-};
-
-
 //
 // Expose the module.
 //

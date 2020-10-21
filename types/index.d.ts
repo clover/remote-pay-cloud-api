@@ -10681,6 +10681,8 @@ export class ICloverConnector {
     vaultCard(cardEntryMethods: number): void;
     voidPayment(request: remotepay.VoidPaymentRequest): void;
     initializeConnection(): void;
+    addCloverConnectorListener(connectorListener: remotepay.ICloverConnectorListener): void;
+    removeCloverConnectorListener(connectorListener: remotepay.ICloverConnectorListener): void;
     retrievePendingPayments(): void;
     readCardData(request: remotepay.ReadCardDataRequest): void;
     sendMessageToActivity(request: remotepay.MessageToActivity): void;
@@ -10692,8 +10694,6 @@ export class ICloverConnector {
     registerForCustomerProvidedData(request: remotepay.RegisterForCustomerProvidedDataRequest): void;
     setCustomerInfo(request: remotepay.SetCustomerInfoRequest): void;
     checkBalance(request: remotepay.CheckBalanceRequest): void;
-    requestSignature(request: remotepay.SignatureRequest): void;
-    requestTip(request: remotepay.TipRequest): void;
 }
 
 
@@ -10737,9 +10737,7 @@ export class ICloverConnectorListener {
     onPrintRefundPaymentReceipt(message: remotepay.PrintRefundPaymentReceiptMessage): void;
     onCustomerProvidedData(response: remotepay.CustomerProvidedDataEvent): void;
     onDisplayReceiptOptionsResponse(response: remotepay.DisplayReceiptOptionsResponse): void;
-    onRequestSignatureResponse(response: remotepay.SignatureResponse): void;
     onCheckBalanceResponse(response: remotepay.CheckBalanceResponse): void;
-    onRequestTipResponse(response: remotepay.TipResponse): void;
 }
 
 
