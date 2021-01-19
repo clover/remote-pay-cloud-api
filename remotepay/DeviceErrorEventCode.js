@@ -9,7 +9,7 @@
 * @memberof remotepay
 * @enum {string}
 */
-DeviceErrorEventCode = {
+var DeviceErrorEventCode = {
   AbortEndpoint : "AbortEndpoint",
   AccessDenied : "AccessDenied",
   CancelIoFailed : "CancelIoFailed",

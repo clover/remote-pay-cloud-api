@@ -10,7 +10,7 @@ Protocol identifier
 * @memberof payments
 * @enum {string}
 */
-VasProtocol = {
+var VasProtocol = {
   ST : "ST",
   PK : "PK"
 };

@@ -9,7 +9,7 @@
 * @memberof pay
 * @enum {string}
 */
-TxResult = {
+var TxResult = {
   ERROR : "ERROR",
   MSR : "MSR",
   EMV_OFFLINE_APPROVED : "EMV_OFFLINE_APPROVED",

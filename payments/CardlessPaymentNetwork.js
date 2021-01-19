@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-CardlessPaymentNetwork = {
+var CardlessPaymentNetwork = {
   ALIPAY : "ALIPAY",
   WECHAT : "WECHAT"
 };

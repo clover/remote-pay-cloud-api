@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-VasPushMode = {
+var VasPushMode = {
   PUSH_NONE : "PUSH_NONE",
   PUSH_ONLY : "PUSH_ONLY",
   PUSH_AND_GET : "PUSH_AND_GET"

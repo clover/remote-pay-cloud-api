@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-ExternalDeviceState = {
+var ExternalDeviceState = {
   IDLE : "IDLE",
   BUSY : "BUSY",
   WAITING_FOR_POS : "WAITING_FOR_POS",

@@ -10,7 +10,7 @@ Symbols beginning with USER_ or REJECT_ are user-initiated.  Others are client- 
 * @memberof order
 * @enum {string}
 */
-VoidReason = {
+var VoidReason = {
   USER_CANCEL : "USER_CANCEL",
   TRANSPORT_ERROR : "TRANSPORT_ERROR",
   REJECT_SIGNATURE : "REJECT_SIGNATURE",

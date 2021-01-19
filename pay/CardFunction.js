@@ -9,7 +9,7 @@
 * @memberof pay
 * @enum {string}
 */
-CardFunction = {
+var CardFunction = {
   CREDIT : "CREDIT",
   DEBIT : "DEBIT",
   PREPAID : "PREPAID",

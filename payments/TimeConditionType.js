@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-TimeConditionType = {
+var TimeConditionType = {
   WAITING_TIME : "WAITING_TIME",
   START_TIME : "START_TIME",
   END_TIME : "END_TIME",

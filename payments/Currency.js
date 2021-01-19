@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-Currency = {
+var Currency = {
   USD : "USD",
   GBP : "GBP",
   EUR : "EUR"

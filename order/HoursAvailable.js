@@ -9,7 +9,7 @@
 * @memberof order
 * @enum {string}
 */
-HoursAvailable = {
+var HoursAvailable = {
   ALL : "ALL",
   BUSINESS : "BUSINESS",
   CUSTOM : "CUSTOM"

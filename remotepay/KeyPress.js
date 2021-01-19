@@ -9,7 +9,7 @@
 * @memberof remotepay
 * @enum {string}
 */
-KeyPress = {
+var KeyPress = {
   NONE : "NONE",
   ENTER : "ENTER",
   ESC : "ESC",

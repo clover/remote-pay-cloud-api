@@ -1,7 +1,9 @@
 const gulp = require('gulp');
 const del = require('del');
 const webpack = require('webpack-stream');
-const typescript = require('gulp-tsc');
+const typescript = require('gulp-typescript');
+// Added to ensure that our generated JS is strict mode compatible
+const jshint = require('gulp-jshint');
 
 gulp.task('clean', function () {
     return del([
@@ -20,4 +22,10 @@ gulp.task('compile', function(){
     .pipe(typescript())
 });
 
-gulp.task('default', gulp.series(['clean', 'bundle', 'compile']));
+gulp.task('lint', function() {
+    return gulp.src(['*/**.js', '!./{node_modules, node_modules/**}', '!./bundle/sdk.js', '!./bundle/sdk.min.js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+});
+
+gulp.task('default', gulp.series(['clean', 'bundle', 'lint', 'compile']));

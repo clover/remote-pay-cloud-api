@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-TxFormat = {
+var TxFormat = {
   DEFAULT : "DEFAULT",
   NEXO : "NEXO"
 };

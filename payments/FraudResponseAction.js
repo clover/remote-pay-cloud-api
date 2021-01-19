@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-FraudResponseAction = {
+var FraudResponseAction = {
   VOID : "VOID",
   PROMPT : "PROMPT",
   IGNORE : "IGNORE",

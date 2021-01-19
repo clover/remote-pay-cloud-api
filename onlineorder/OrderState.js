@@ -17,7 +17,7 @@
 * @memberof onlineorder
 * @enum {string}
 */
-OrderState = {
+var OrderState = {
   CREATED : "CREATED",
   CONFIRMED : "CONFIRMED",
   REJECTED : "REJECTED",

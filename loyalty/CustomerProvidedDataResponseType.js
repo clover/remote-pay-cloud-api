@@ -9,7 +9,7 @@
 * @memberof loyalty
 * @enum {string}
 */
-CustomerProvidedDataResponseType = {
+var CustomerProvidedDataResponseType = {
   ACCEPTED : "ACCEPTED",
   PENDING : "PENDING"
 };

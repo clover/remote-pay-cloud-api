@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-CardTransactionType = {
+var CardTransactionType = {
   AUTH : "AUTH",
   PREAUTH : "PREAUTH",
   PREAUTHCAPTURE : "PREAUTHCAPTURE",

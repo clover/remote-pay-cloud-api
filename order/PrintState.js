@@ -12,7 +12,7 @@
 * @memberof order
 * @enum {string}
 */
-PrintState = {
+var PrintState = {
   CREATED : "CREATED",
   FAILED : "FAILED",
   DONE : "DONE"

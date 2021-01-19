@@ -10,7 +10,7 @@ Type of event to trigger the action
 * @memberof payments
 * @enum {string}
 */
-ManagementPlanActionTriggerType = {
+var ManagementPlanActionTriggerType = {
   DATE_TIME : "DATE_TIME",
   HOST : "HOST",
   MANUAL : "MANUAL",

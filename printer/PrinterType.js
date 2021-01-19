@@ -9,7 +9,7 @@
 * @memberof printer
 * @enum {string}
 */
-PrinterType = {
+var PrinterType = {
   NETWORK : "NETWORK",
   MY_LOCAL : "MY_LOCAL"
 };

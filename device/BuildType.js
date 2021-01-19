@@ -9,7 +9,7 @@
 * @memberof device
 * @enum {string}
 */
-BuildType = {
+var BuildType = {
   ENG : "ENG",
   USER : "USER",
   USERDEBUG : "USERDEBUG"

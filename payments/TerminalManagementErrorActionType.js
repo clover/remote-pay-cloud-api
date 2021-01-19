@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-TerminalManagementErrorActionType = {
+var TerminalManagementErrorActionType = {
   STATUS_REPORT : "STATUS_REPORT",
   STOP : "STOP"
 };

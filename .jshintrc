@@ -1,0 +1,6 @@
+{
+  "strict": "implied",
+  "sub": true,
+  "node": true,
+  "asi": true
+}

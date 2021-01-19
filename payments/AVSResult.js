@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-AVSResult = {
+var AVSResult = {
   SUCCESS : "SUCCESS",
   ZIP_CODE_MATCH : "ZIP_CODE_MATCH",
   ZIP_CODE_MATCH_ADDRESS_NOT_CHECKED : "ZIP_CODE_MATCH_ADDRESS_NOT_CHECKED",

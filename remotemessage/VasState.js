@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-VasState = {
+var VasState = {
   START_REQUESTED : "START_REQUESTED",
   STARTED : "STARTED",
   TIMED_OUT : "TIMED_OUT",

@@ -10,7 +10,7 @@ The expected values of the payment.result and credit.result fields
 * @memberof payments
 * @enum {string}
 */
-Result = {
+var Result = {
   SUCCESS : "SUCCESS",
   FAIL : "FAIL",
   INITIATED : "INITIATED",

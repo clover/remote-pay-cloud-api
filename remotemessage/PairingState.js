@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-PairingState = {
+var PairingState = {
   UNINITIALIZED : "UNINITIALIZED",
   PAIRED : "PAIRED",
   FAILED : "FAILED",

@@ -9,7 +9,7 @@
 * @memberof onlineorder
 * @enum {string}
 */
-Reason = {
+var Reason = {
   MENU_ITEM_UNAVAILABLE : "MENU_ITEM_UNAVAILABLE",
   RESTAURANT_CLOSED : "RESTAURANT_CLOSED"
 };

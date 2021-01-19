@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-RemoteMessageType = {
+var RemoteMessageType = {
   COMMAND : "COMMAND",
   QUERY : "QUERY",
   EVENT : "EVENT",

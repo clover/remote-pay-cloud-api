@@ -9,7 +9,7 @@
 * @memberof inventory
 * @enum {string}
 */
-PriceType = {
+var PriceType = {
   FIXED : "FIXED",
   VARIABLE : "VARIABLE",
   PER_UNIT : "PER_UNIT"

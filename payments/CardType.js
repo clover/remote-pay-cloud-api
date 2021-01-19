@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-CardType = {
+var CardType = {
   VISA : "VISA",
   MC : "MC",
   AMEX : "AMEX",

@@ -9,7 +9,7 @@
 * @memberof device
 * @enum {string}
 */
-RomBuildType = {
+var RomBuildType = {
   ENG : "ENG",
   USER : "USER"
 };

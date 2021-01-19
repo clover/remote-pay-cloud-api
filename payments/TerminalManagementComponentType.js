@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-TerminalManagementComponentType = {
+var TerminalManagementComponentType = {
   ACQUIRER_PROTOCOL_PARAMS : "ACQUIRER_PROTOCOL_PARAMS",
   APPLICATION_PARAMS : "APPLICATION_PARAMS",
   TERMINAL_PARAMS : "TERMINAL_PARAMS",

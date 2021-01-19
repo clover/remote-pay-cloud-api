@@ -9,7 +9,7 @@
 * @memberof remotepay
 * @enum {string}
 */
-TransactionType = {
+var TransactionType = {
   PAYMENT : "PAYMENT",
   CREDIT : "CREDIT",
   AUTH : "AUTH",

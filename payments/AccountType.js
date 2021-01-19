@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-AccountType = {
+var AccountType = {
   CREDIT : "CREDIT",
   DEBIT : "DEBIT",
   CHECKING : "CHECKING",

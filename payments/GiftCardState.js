@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-GiftCardState = {
+var GiftCardState = {
   INVALID : "INVALID",
   ACTIVATED : "ACTIVATED",
   INACTIVE : "INACTIVE"

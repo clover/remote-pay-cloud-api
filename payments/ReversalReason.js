@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-ReversalReason = {
+var ReversalReason = {
   CHIP_DECLINE : "CHIP_DECLINE",
   CARDHOLDER_CANCELLATION : "CARDHOLDER_CANCELLATION",
   COMMUNICATION_ERROR : "COMMUNICATION_ERROR",

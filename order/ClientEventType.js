@@ -9,7 +9,7 @@
 * @memberof order
 * @enum {string}
 */
-ClientEventType = {
+var ClientEventType = {
   DELETED_LINE_ITEM : "DELETED_LINE_ITEM",
   MOVED_TABLE : "MOVED_TABLE",
   LEFT_TABLE : "LEFT_TABLE"

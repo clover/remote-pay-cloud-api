@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-BatchType = {
+var BatchType = {
   MANUAL_CLOSE : "MANUAL_CLOSE",
   AUTO_CLOSE : "AUTO_CLOSE"
 };
