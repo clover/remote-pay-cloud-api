@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-VasMode = {
+var VasMode = {
   PAY_ONLY : "PAY_ONLY",
   VAS_ONLY : "VAS_ONLY",
   VAS_OR_PAYMENT : "VAS_OR_PAYMENT",

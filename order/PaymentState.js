@@ -9,7 +9,7 @@
 * @memberof order
 * @enum {string}
 */
-PaymentState = {
+var PaymentState = {
   OPEN : "OPEN",
   PAID : "PAID",
   REFUNDED : "REFUNDED",

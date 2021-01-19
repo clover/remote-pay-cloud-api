@@ -9,7 +9,7 @@
 * @memberof onlineorder
 * @enum {string}
 */
-ProviderId = {
+var ProviderId = {
   GOOGLE : "GOOGLE"
 };
 

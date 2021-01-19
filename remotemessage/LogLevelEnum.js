@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-LogLevelEnum = {
+var LogLevelEnum = {
   VERBOSE : "VERBOSE",
   DEBUG : "DEBUG",
   INFO : "INFO",

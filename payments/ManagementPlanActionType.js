@@ -10,7 +10,7 @@ Type of action to take
 * @memberof payments
 * @enum {string}
 */
-ManagementPlanActionType = {
+var ManagementPlanActionType = {
   DELETE : "DELETE",
   RESTART : "RESTART",
   DOWNLOAD : "DOWNLOAD",

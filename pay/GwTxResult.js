@@ -9,7 +9,7 @@
 * @memberof pay
 * @enum {string}
 */
-GwTxResult = {
+var GwTxResult = {
   APPROVED_ONLINE : "APPROVED_ONLINE",
   DECLINED_ONLINE : "DECLINED_ONLINE",
   UNABLE_TO_GO_ONLINE : "UNABLE_TO_GO_ONLINE",

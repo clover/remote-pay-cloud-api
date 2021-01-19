@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-UiDirection = {
+var UiDirection = {
   ENTER : "ENTER",
   EXIT : "EXIT"
 };

@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-OverrideType = {
+var OverrideType = {
   RESELLER : "RESELLER",
   MERCHANT_GROUP : "MERCHANT_GROUP"
 };

@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-Type = {
+var Type = {
   TAB : "TAB",
   AUTH : "AUTH"
 };

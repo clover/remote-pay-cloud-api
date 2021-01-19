@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-VasPayloadResponseType = {
+var VasPayloadResponseType = {
   ACCEPTED : "ACCEPTED",
   PENDING : "PENDING"
 };

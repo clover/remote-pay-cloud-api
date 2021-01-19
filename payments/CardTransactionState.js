@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-CardTransactionState = {
+var CardTransactionState = {
   PENDING : "PENDING",
   CLOSED : "CLOSED"
 };

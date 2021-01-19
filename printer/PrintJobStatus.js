@@ -9,7 +9,7 @@
 * @memberof printer
 * @enum {string}
 */
-PrintJobStatus = {
+var PrintJobStatus = {
   IN_QUEUE : "IN_QUEUE",
   PRINTING : "PRINTING",
   DONE : "DONE",

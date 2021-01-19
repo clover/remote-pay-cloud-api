@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-FraudResponseCodeType = {
+var FraudResponseCodeType = {
   AVS : "AVS",
   CVV : "CVV"
 };

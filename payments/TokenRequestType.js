@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-TokenRequestType = {
+var TokenRequestType = {
   VERIFICATION : "VERIFICATION",
   TOKEN_REQUEST : "TOKEN_REQUEST"
 };

@@ -10,7 +10,7 @@ Identification type
 * @memberof payments
 * @enum {string}
 */
-IdType = {
+var IdType = {
   DRIVERS_LICENSE : "DRIVERS_LICENSE",
   PASSPORT : "PASSPORT"
 };

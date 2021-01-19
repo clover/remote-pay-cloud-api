@@ -9,7 +9,7 @@
 * @memberof device
 * @enum {string}
 */
-DeviceProvisionState = {
+var DeviceProvisionState = {
   NOT_ASSOCIATED : "NOT_ASSOCIATED",
   DISASSOCIATED : "DISASSOCIATED",
   ASSOCIATED : "ASSOCIATED"

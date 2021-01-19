@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-DataEntryLocation = {
+var DataEntryLocation = {
   ON_SCREEN : "ON_SCREEN",
   ON_PAPER : "ON_PAPER",
   NONE : "NONE"

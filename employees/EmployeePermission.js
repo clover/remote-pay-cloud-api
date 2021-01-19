@@ -9,7 +9,7 @@
 * @memberof employees
 * @enum {string}
 */
-EmployeePermission = {
+var EmployeePermission = {
   MERCHANT_R : "MERCHANT_R",
   MERCHANT_W : "MERCHANT_W",
   PAYMENTS_R : "PAYMENTS_R",

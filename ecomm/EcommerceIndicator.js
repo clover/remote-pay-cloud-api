@@ -9,7 +9,7 @@
 * @memberof ecomm
 * @enum {string}
 */
-EcommerceIndicator = {
+var EcommerceIndicator = {
   ecom : "ecom",
   moto : "moto",
   recurring : "recurring"

@@ -9,7 +9,7 @@
 * @memberof base
 * @enum {string}
 */
-BusinessTypeCode = {
+var BusinessTypeCode = {
   FULL_SERVICE_RESTAURANT : "FULL_SERVICE_RESTAURANT",
   QUICK_SERVICE_RESTAURANT : "QUICK_SERVICE_RESTAURANT",
   COFFEE_SHOP : "COFFEE_SHOP",

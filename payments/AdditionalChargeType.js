@@ -10,7 +10,7 @@ Type of additional charge. INTERAC is deprecated, use INTERAC_V2
 * @memberof payments
 * @enum {string}
 */
-AdditionalChargeType = {
+var AdditionalChargeType = {
   INTERAC : "INTERAC",
   CREDIT_SURCHARGE : "CREDIT_SURCHARGE",
   CONVENIENCE_FEE : "CONVENIENCE_FEE",

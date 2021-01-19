@@ -9,7 +9,7 @@
 * @memberof remotepay
 * @enum {string}
 */
-ErrorType = {
+var ErrorType = {
   COMMUNICATION : "COMMUNICATION",
   VALIDATION : "VALIDATION",
   EXCEPTION : "EXCEPTION"

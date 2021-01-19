@@ -9,7 +9,7 @@
 * @memberof printer
 * @enum {string}
 */
-PrintCategory = {
+var PrintCategory = {
   ORDER : "ORDER",
   RECEIPT : "RECEIPT",
   FISCAL : "FISCAL",

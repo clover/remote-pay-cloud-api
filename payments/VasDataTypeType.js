@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-VasDataTypeType = {
+var VasDataTypeType = {
   ALL : "ALL",
   LOYALTY : "LOYALTY",
   OFFER : "OFFER",

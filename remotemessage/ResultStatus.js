@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-ResultStatus = {
+var ResultStatus = {
   SUCCESS : "SUCCESS",
   FAIL : "FAIL",
   CANCEL : "CANCEL"

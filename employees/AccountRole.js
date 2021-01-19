@@ -9,7 +9,7 @@
 * @memberof employees
 * @enum {string}
 */
-AccountRole = {
+var AccountRole = {
   OWNER : "OWNER",
   ADMIN : "ADMIN",
   MANAGER : "MANAGER",

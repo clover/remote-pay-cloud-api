@@ -9,7 +9,7 @@
 * @memberof remotepay
 * @enum {string}
 */
-QueryStatus = {
+var QueryStatus = {
   FOUND : "FOUND",
   NOT_FOUND : "NOT_FOUND",
   IN_PROGRESS : "IN_PROGRESS"

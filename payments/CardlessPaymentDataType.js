@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-CardlessPaymentDataType = {
+var CardlessPaymentDataType = {
   QR_CODE : "QR_CODE",
   BARCODE : "BARCODE"
 };

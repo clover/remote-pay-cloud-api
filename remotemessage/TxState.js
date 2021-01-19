@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-TxState = {
+var TxState = {
   START : "START",
   SUCCESS : "SUCCESS",
   FAIL : "FAIL"

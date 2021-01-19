@@ -10,7 +10,7 @@ We can not include WELCOME_SCREEN, THANKYOU_SCREEN, DISPLAY_MESSAGE, DISPLAY_ORD
 * @memberof remotepay
 * @enum {string}
 */
-DeviceEventState = {
+var DeviceEventState = {
   ADD_SIGNATURE : "ADD_SIGNATURE",
   ADD_SIGNATURE_CANCEL_CONFIRM : "ADD_SIGNATURE_CANCEL_CONFIRM",
   ADD_TIP : "ADD_TIP",

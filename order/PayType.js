@@ -9,7 +9,7 @@
 * @memberof order
 * @enum {string}
 */
-PayType = {
+var PayType = {
   SPLIT_GUEST : "SPLIT_GUEST",
   SPLIT_ITEM : "SPLIT_ITEM",
   SPLIT_CUSTOM : "SPLIT_CUSTOM",

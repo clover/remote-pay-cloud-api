@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-Method = {
+var Method = {
   ACK : "ACK",
   ACTIVITY_MESSAGE_FROM_ACTIVITY : "ACTIVITY_MESSAGE_FROM_ACTIVITY",
   ACTIVITY_MESSAGE_TO_ACTIVITY : "ACTIVITY_MESSAGE_TO_ACTIVITY",

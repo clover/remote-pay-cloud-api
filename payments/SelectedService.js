@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-SelectedService = {
+var SelectedService = {
   NONE : "NONE",
   PAYMENT : "PAYMENT",
   REFUND : "REFUND",

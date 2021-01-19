@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
+    mode: 'production',
     entry: {
-        "sdk": './index.js',
-        "sdk.min": './index.js'
+        "sdk": './index.js'
     },
     output: {
         path: path.join(__dirname, 'bundle'),

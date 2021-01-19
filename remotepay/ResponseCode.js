@@ -9,7 +9,7 @@
 * @memberof remotepay
 * @enum {string}
 */
-ResponseCode = {
+var ResponseCode = {
   SUCCESS : "SUCCESS",
   FAIL : "FAIL",
   UNSUPPORTED : "UNSUPPORTED",

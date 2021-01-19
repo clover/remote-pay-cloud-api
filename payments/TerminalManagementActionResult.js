@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-TerminalManagementActionResult = {
+var TerminalManagementActionResult = {
   ACCESS_DENIED : "ACCESS_DENIED",
   CONNECTION_ERROR : "CONNECTION_ERROR",
   FORMAT_ERROR : "FORMAT_ERROR",

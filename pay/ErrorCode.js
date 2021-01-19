@@ -9,7 +9,7 @@
 * @memberof pay
 * @enum {string}
 */
-ErrorCode = {
+var ErrorCode = {
   TERMINAL_BUSY : "TERMINAL_BUSY",
   TERMINAL_UNAVAILABLE : "TERMINAL_UNAVAILABLE",
   TERMINAL_GENERAL : "TERMINAL_GENERAL"

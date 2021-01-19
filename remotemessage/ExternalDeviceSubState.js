@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-ExternalDeviceSubState = {
+var ExternalDeviceSubState = {
   CUSTOM_ACTIVITY : "CUSTOM_ACTIVITY",
   STARTING_PAYMENT_FLOW : "STARTING_PAYMENT_FLOW",
   PROCESSING_PAYMENT : "PROCESSING_PAYMENT",

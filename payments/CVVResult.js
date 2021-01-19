@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-CVVResult = {
+var CVVResult = {
   SUCCESS : "SUCCESS",
   FAILURE : "FAILURE",
   NOT_PROCESSED : "NOT_PROCESSED",

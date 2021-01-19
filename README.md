@@ -1,6 +1,6 @@
 # Clover API classes
 
-Current version: 4.0.3
+Current version: 4.0.4
 
 ## Overview
 

@@ -9,7 +9,7 @@
 * @memberof base
 * @enum {string}
 */
-ApprovalStatus = {
+var ApprovalStatus = {
   NEW : "NEW",
   PENDING : "PENDING",
   APPROVED_PENDING_SIGNING : "APPROVED_PENDING_SIGNING",

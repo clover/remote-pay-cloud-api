@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-GatewayTxState = {
+var GatewayTxState = {
   INITIATED : "INITIATED",
   INITIATED_ON_AUTH : "INITIATED_ON_AUTH",
   ACKNOWLEDGED : "ACKNOWLEDGED",

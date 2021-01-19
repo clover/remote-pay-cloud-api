@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-ManagementPlanActionAdditionalProcess = {
+var ManagementPlanActionAdditionalProcess = {
   RECONCILIATION : "RECONCILIATION",
   MANUAL_CONFIRMATION : "MANUAL_CONFIRMATION",
   RESTART : "RESTART"

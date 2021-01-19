@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-TxType = {
+var TxType = {
   AUTH : "AUTH",
   PREAUTH : "PREAUTH",
   PREAUTHCAPTURE : "PREAUTHCAPTURE",

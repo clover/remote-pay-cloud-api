@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-CardEntryType = {
+var CardEntryType = {
   SWIPED : "SWIPED",
   KEYED : "KEYED",
   VOICE : "VOICE",

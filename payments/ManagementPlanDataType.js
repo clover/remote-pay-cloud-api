@@ -10,7 +10,7 @@ Type of data to act on during the action execution
 * @memberof payments
 * @enum {string}
 */
-ManagementPlanDataType = {
+var ManagementPlanDataType = {
   ACQUIRER_PARAMETERS : "ACQUIRER_PARAMETERS",
   APPLICATION_PARAMETERS : "APPLICATION_PARAMETERS",
   MANAGEMENT_PLAN : "MANAGEMENT_PLAN",

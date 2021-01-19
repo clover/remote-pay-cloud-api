@@ -10,7 +10,7 @@ token type
 * @memberof tokens
 * @enum {string}
 */
-TokenType = {
+var TokenType = {
   ONEOFF : "ONEOFF",
   MULTIPAY : "MULTIPAY",
   RECURRING : "RECURRING"

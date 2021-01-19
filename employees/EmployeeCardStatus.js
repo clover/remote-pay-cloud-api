@@ -9,7 +9,7 @@
 * @memberof employees
 * @enum {string}
 */
-EmployeeCardStatus = {
+var EmployeeCardStatus = {
   ACTIVE : "ACTIVE",
   DISABLED : "DISABLED"
 };

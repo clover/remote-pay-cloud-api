@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-TipMode = {
+var TipMode = {
   TIP_PROVIDED : "TIP_PROVIDED",
   ON_SCREEN_BEFORE_PAYMENT : "ON_SCREEN_BEFORE_PAYMENT",
   ON_SCREEN_AFTER_PAYMENT : "ON_SCREEN_AFTER_PAYMENT",

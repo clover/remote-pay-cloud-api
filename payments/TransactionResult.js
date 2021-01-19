@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-TransactionResult = {
+var TransactionResult = {
   APPROVED : "APPROVED",
   DECLINED : "DECLINED",
   ABORTED : "ABORTED",

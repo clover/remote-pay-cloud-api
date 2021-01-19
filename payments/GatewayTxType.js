@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-GatewayTxType = {
+var GatewayTxType = {
   AUTH : "AUTH",
   PREAUTH : "PREAUTH",
   PREAUTHCAPTURE : "PREAUTHCAPTURE",

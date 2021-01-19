@@ -9,7 +9,7 @@
 * @memberof order
 * @enum {string}
 */
-CustomerIdMethod = {
+var CustomerIdMethod = {
   NAME : "NAME",
   TABLE : "TABLE",
   NAME_TABLE : "NAME_TABLE"

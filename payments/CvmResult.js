@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-CvmResult = {
+var CvmResult = {
   NO_CVM_REQUIRED : "NO_CVM_REQUIRED",
   SIGNATURE : "SIGNATURE",
   SIGNATURE_VERIFIED : "SIGNATURE_VERIFIED",

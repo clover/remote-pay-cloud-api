@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-TxStartResponseResult = {
+var TxStartResponseResult = {
   SUCCESS : "SUCCESS",
   ORDER_MODIFIED : "ORDER_MODIFIED",
   ORDER_LOAD : "ORDER_LOAD",

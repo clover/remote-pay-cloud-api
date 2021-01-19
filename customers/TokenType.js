@@ -9,7 +9,7 @@
 * @memberof customers
 * @enum {string}
 */
-TokenType = {
+var TokenType = {
   MULTIPAY : "MULTIPAY",
   FINANCIAL : "FINANCIAL",
   CTOKEN : "CTOKEN"

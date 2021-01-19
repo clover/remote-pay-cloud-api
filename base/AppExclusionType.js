@@ -9,7 +9,7 @@
 * @memberof base
 * @enum {string}
 */
-AppExclusionType = {
+var AppExclusionType = {
   ALL : "ALL",
   MARKET : "MARKET",
   SEARCH : "SEARCH",

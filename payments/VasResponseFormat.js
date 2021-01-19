@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-VasResponseFormat = {
+var VasResponseFormat = {
   NDEF : "NDEF",
   STRING : "STRING",
   ENCRYPTED : "ENCRYPTED"

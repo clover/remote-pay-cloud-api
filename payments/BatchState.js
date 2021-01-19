@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-BatchState = {
+var BatchState = {
   OPEN : "OPEN",
   QUEUED_FOR_PROCESSING : "QUEUED_FOR_PROCESSING",
   PROCESSING : "PROCESSING",

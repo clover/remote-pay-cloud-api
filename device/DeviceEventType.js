@@ -9,7 +9,7 @@
 * @memberof device
 * @enum {string}
 */
-DeviceEventType = {
+var DeviceEventType = {
   REGISTERED : "REGISTERED",
   PROVISIONED : "PROVISIONED",
   ACTIVATED : "ACTIVATED",

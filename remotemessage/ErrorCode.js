@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-ErrorCode = {
+var ErrorCode = {
   ORDER_NOT_FOUND : "ORDER_NOT_FOUND",
   PAYMENT_NOT_FOUND : "PAYMENT_NOT_FOUND",
   FAIL : "FAIL"

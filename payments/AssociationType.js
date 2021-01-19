@@ -9,7 +9,7 @@
 * @memberof payments
 * @enum {string}
 */
-AssociationType = {
+var AssociationType = {
   GOVT_ED_SERVICE_FEE : "GOVT_ED_SERVICE_FEE"
 };
 

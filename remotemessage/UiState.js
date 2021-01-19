@@ -9,7 +9,7 @@
 * @memberof remotemessage
 * @enum {string}
 */
-UiState = {
+var UiState = {
   ADD_SIGNATURE : "ADD_SIGNATURE",
   ADD_SIGNATURE_CANCEL_CONFIRM : "ADD_SIGNATURE_CANCEL_CONFIRM",
   ADD_TIP : "ADD_TIP",
