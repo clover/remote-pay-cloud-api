@@ -8886,6 +8886,10 @@ export class PayIntent {
 
   setPassThroughValues(passThroughValues: object): void;
 
+  getIsPresentQrcOnly(): boolean;
+
+  setIsPresentQrcOnly(isPresentQrcOnly: boolean): void;
+
   getMetaInfo(fieldName: string): object
 }
 
@@ -9768,6 +9772,7 @@ export enum UiState {
   SIGNATURE_REJECT = "SIGNATURE_REJECT",
   START = "START",
   STARTING_CUSTOM_ACTIVITY = "STARTING_CUSTOM_ACTIVITY",
+  START_QR_CODE_MODE = "START_QR_CODE_MODE",
   SWIPE_CVV_ENTRY = "SWIPE_CVV_ENTRY",
   THANKYOU_SCREEN = "THANKYOU_SCREEN",
   TIMED_OUT = "TIMED_OUT",
@@ -10154,6 +10159,10 @@ export class BaseTransactionRequest extends BaseRequest {
 
   setCardEntryMethods(cardEntryMethods: number): void;
 
+  getPresentQrcOnly(): boolean;
+
+  setPresentQrcOnly(presentQrcOnly: boolean): void;
+
   getVaultedCard(): payments.VaultedCard;
 
   setVaultedCard(vaultedCard: payments.VaultedCard): void;
@@ -10530,6 +10539,7 @@ export enum DeviceEventState {
   SIGNATURE_REJECT = "SIGNATURE_REJECT",
   START = "START",
   STARTING_CUSTOM_ACTIVITY = "STARTING_CUSTOM_ACTIVITY",
+  START_QR_CODE_MODE = "START_QR_CODE_MODE",
   SWIPE_CVV_ENTRY = "SWIPE_CVV_ENTRY",
   TIMED_OUT = "TIMED_OUT",
   TRY_AGAIN = "TRY_AGAIN",

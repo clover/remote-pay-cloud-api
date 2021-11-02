@@ -14,9 +14,9 @@ var payments_TransactionSettings = require("../payments/TransactionSettings");
 var payments_GermanInfo = require("../payments/GermanInfo");
 
 /**
-* @constructor
-* @memberof remotemessage
-*/
+ * @constructor
+ * @memberof remotemessage
+ */
 var PayIntent = function() {
   this._class_ = PayIntent;
   this.action = "com.clover.remote.protocol.action.START_REMOTE_PROTOCOL_PAY";
@@ -54,687 +54,706 @@ var PayIntent = function() {
   this.transactionSettings = undefined;
   this.externalReferenceId = undefined;
   this.passThroughValues = undefined;
+  this.isPresentQrcOnly = undefined;
 };
 
 
 /**
-* Set the field value
-* The action to fire in the device (com.clover.remote.protocol.action.START_REMOTE_PROTOCOL_PAY)
-*
-* @memberof remotemessage.PayIntent
-* @param {String} action 
-*/
+ * Set the field value
+ * The action to fire in the device (com.clover.remote.protocol.action.START_REMOTE_PROTOCOL_PAY)
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {String} action
+ */
 PayIntent.prototype.setAction = function(action) {
   this.action = action;
 };
 
 /**
-* Get the field value
-* The action to fire in the device (com.clover.remote.protocol.action.START_REMOTE_PROTOCOL_PAY)
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * The action to fire in the device (com.clover.remote.protocol.action.START_REMOTE_PROTOCOL_PAY)
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getAction = function() {
   return this.action;
 };
 
 /**
-* Set the field value
-* Amount for transaction
-*
-* @memberof remotemessage.PayIntent
-* @param {Number|Null} amount must be a long integer, 
-*/
+ * Set the field value
+ * Amount for transaction
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {Number|Null} amount must be a long integer,
+ */
 PayIntent.prototype.setAmount = function(amount) {
   this.amount = amount;
 };
 
 /**
-* Get the field value
-* Amount for transaction
-* @memberof remotemessage.PayIntent
-* @return {Number|Null} must be a long integer, 
-*/
+ * Get the field value
+ * Amount for transaction
+ * @memberof remotemessage.PayIntent
+ * @return {Number|Null} must be a long integer,
+ */
 PayIntent.prototype.getAmount = function() {
   return this.amount;
 };
 
 /**
-* Set the field value
-* Amount used when calculating on screen tips
-*
-* @memberof remotemessage.PayIntent
-* @param {Number|Null} tippableAmount must be a long integer, 
-*/
+ * Set the field value
+ * Amount used when calculating on screen tips
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {Number|Null} tippableAmount must be a long integer,
+ */
 PayIntent.prototype.setTippableAmount = function(tippableAmount) {
   this.tippableAmount = tippableAmount;
 };
 
 /**
-* Get the field value
-* Amount used when calculating on screen tips
-* @memberof remotemessage.PayIntent
-* @return {Number|Null} must be a long integer, 
-*/
+ * Get the field value
+ * Amount used when calculating on screen tips
+ * @memberof remotemessage.PayIntent
+ * @return {Number|Null} must be a long integer,
+ */
 PayIntent.prototype.getTippableAmount = function() {
   return this.tippableAmount;
 };
 
 /**
-* Set the field value
-* Amount paid in tips
-*
-* @memberof remotemessage.PayIntent
-* @param {Number|Null} tipAmount must be a long integer, 
-*/
+ * Set the field value
+ * Amount paid in tips
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {Number|Null} tipAmount must be a long integer,
+ */
 PayIntent.prototype.setTipAmount = function(tipAmount) {
   this.tipAmount = tipAmount;
 };
 
 /**
-* Get the field value
-* Amount paid in tips
-* @memberof remotemessage.PayIntent
-* @return {Number|Null} must be a long integer, 
-*/
+ * Get the field value
+ * Amount paid in tips
+ * @memberof remotemessage.PayIntent
+ * @return {Number|Null} must be a long integer,
+ */
 PayIntent.prototype.getTipAmount = function() {
   return this.tipAmount;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Number|Null} taxAmount must be a long integer, 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Number|Null} taxAmount must be a long integer,
+ */
 PayIntent.prototype.setTaxAmount = function(taxAmount) {
   this.taxAmount = taxAmount;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Number|Null} must be a long integer, 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Number|Null} must be a long integer,
+ */
 PayIntent.prototype.getTaxAmount = function() {
   return this.taxAmount;
 };
 
 /**
-* Set the field value
-* Unique identifier for a order
-*
-* @memberof remotemessage.PayIntent
-* @param {String} orderId 
-*/
+ * Set the field value
+ * Unique identifier for a order
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {String} orderId
+ */
 PayIntent.prototype.setOrderId = function(orderId) {
   this.orderId = orderId;
 };
 
 /**
-* Get the field value
-* Unique identifier for a order
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * Unique identifier for a order
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getOrderId = function() {
   return this.orderId;
 };
 
 /**
-* Set the field value
-* Unique identifier for a payment
-*
-* @memberof remotemessage.PayIntent
-* @param {String} paymentId 
-*/
+ * Set the field value
+ * Unique identifier for a payment
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {String} paymentId
+ */
 PayIntent.prototype.setPaymentId = function(paymentId) {
   this.paymentId = paymentId;
 };
 
 /**
-* Get the field value
-* Unique identifier for a payment
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * Unique identifier for a payment
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getPaymentId = function() {
   return this.paymentId;
 };
 
 /**
-* Set the field value
-* Unique identifier for a employee
-*
-* @memberof remotemessage.PayIntent
-* @param {String} employeeId 
-*/
+ * Set the field value
+ * Unique identifier for a employee
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {String} employeeId
+ */
 PayIntent.prototype.setEmployeeId = function(employeeId) {
   this.employeeId = employeeId;
 };
 
 /**
-* Get the field value
-* Unique identifier for a employee
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * Unique identifier for a employee
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getEmployeeId = function() {
   return this.employeeId;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {remotemessage.TransactionType} transactionType 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {remotemessage.TransactionType} transactionType
+ */
 PayIntent.prototype.setTransactionType = function(transactionType) {
   this.transactionType = transactionType;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {remotemessage.TransactionType} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {remotemessage.TransactionType}
+ */
 PayIntent.prototype.getTransactionType = function() {
   return this.transactionType;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Array.<payments.TaxableAmountRate>} taxableAmountRates An array of 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Array.<payments.TaxableAmountRate>} taxableAmountRates An array of
+ */
 PayIntent.prototype.setTaxableAmountRates = function(taxableAmountRates) {
   this.taxableAmountRates = taxableAmountRates;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Array.<payments.TaxableAmountRate>} An array of 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Array.<payments.TaxableAmountRate>} An array of
+ */
 PayIntent.prototype.getTaxableAmountRates = function() {
   return this.taxableAmountRates;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {payments.ServiceChargeAmount} serviceChargeAmount 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {payments.ServiceChargeAmount} serviceChargeAmount
+ */
 PayIntent.prototype.setServiceChargeAmount = function(serviceChargeAmount) {
   this.serviceChargeAmount = serviceChargeAmount;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {payments.ServiceChargeAmount} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {payments.ServiceChargeAmount}
+ */
 PayIntent.prototype.getServiceChargeAmount = function() {
   return this.serviceChargeAmount;
 };
 
 /**
-* Set the field value
-* If true, then cash back will not be offered.
-*
-* @memberof remotemessage.PayIntent
-* @param {Boolean} isDisableCashBack 
-*/
+ * Set the field value
+ * If true, then cash back will not be offered.
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean} isDisableCashBack
+ */
 PayIntent.prototype.setIsDisableCashBack = function(isDisableCashBack) {
   this.isDisableCashBack = isDisableCashBack;
 };
 
 /**
-* Get the field value
-* If true, then cash back will not be offered.
-* @memberof remotemessage.PayIntent
-* @return {Boolean} 
-*/
+ * Get the field value
+ * If true, then cash back will not be offered.
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean}
+ */
 PayIntent.prototype.getIsDisableCashBack = function() {
   return this.isDisableCashBack;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Boolean} isTesting 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean} isTesting
+ */
 PayIntent.prototype.setIsTesting = function(isTesting) {
   this.isTesting = isTesting;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Boolean} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean}
+ */
 PayIntent.prototype.getIsTesting = function() {
   return this.isTesting;
 };
 
 /**
-* Set the field value
-* Allowed entry methods
-*
-* @memberof remotemessage.PayIntent
-* @param {Number} cardEntryMethods must be an integer
-*/
+ * Set the field value
+ * Allowed entry methods
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {Number} cardEntryMethods must be an integer
+ */
 PayIntent.prototype.setCardEntryMethods = function(cardEntryMethods) {
   this.cardEntryMethods = cardEntryMethods;
 };
 
 /**
-* Get the field value
-* Allowed entry methods
-* @memberof remotemessage.PayIntent
-* @return {Number} must be an integer
-*/
+ * Get the field value
+ * Allowed entry methods
+ * @memberof remotemessage.PayIntent
+ * @return {Number} must be an integer
+ */
 PayIntent.prototype.getCardEntryMethods = function() {
   return this.cardEntryMethods;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {String} voiceAuthCode 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {String} voiceAuthCode
+ */
 PayIntent.prototype.setVoiceAuthCode = function(voiceAuthCode) {
   this.voiceAuthCode = voiceAuthCode;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getVoiceAuthCode = function() {
   return this.voiceAuthCode;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {String} streetAddress 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {String} streetAddress
+ */
 PayIntent.prototype.setStreetAddress = function(streetAddress) {
   this.streetAddress = streetAddress;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getStreetAddress = function() {
   return this.streetAddress;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {String} postalCode 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {String} postalCode
+ */
 PayIntent.prototype.setPostalCode = function(postalCode) {
   this.postalCode = postalCode;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getPostalCode = function() {
   return this.postalCode;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Boolean} isCardNotPresent 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean} isCardNotPresent
+ */
 PayIntent.prototype.setIsCardNotPresent = function(isCardNotPresent) {
   this.isCardNotPresent = isCardNotPresent;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Boolean} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean}
+ */
 PayIntent.prototype.getIsCardNotPresent = function() {
   return this.isCardNotPresent;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {String} cardDataMessage 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {String} cardDataMessage
+ */
 PayIntent.prototype.setCardDataMessage = function(cardDataMessage) {
   this.cardDataMessage = cardDataMessage;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getCardDataMessage = function() {
   return this.cardDataMessage;
 };
 
 /**
-* Set the field value
-* If true, then the receiver of this message does NOT print
-*
-* @memberof remotemessage.PayIntent
-* @param {Boolean} remotePrint 
-*/
+ * Set the field value
+ * If true, then the receiver of this message does NOT print
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean} remotePrint
+ */
 PayIntent.prototype.setRemotePrint = function(remotePrint) {
   this.remotePrint = remotePrint;
 };
 
 /**
-* Get the field value
-* If true, then the receiver of this message does NOT print
-* @memberof remotemessage.PayIntent
-* @return {Boolean} 
-*/
+ * Get the field value
+ * If true, then the receiver of this message does NOT print
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean}
+ */
 PayIntent.prototype.getRemotePrint = function() {
   return this.remotePrint;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {String} transactionNo 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {String} transactionNo
+ */
 PayIntent.prototype.setTransactionNo = function(transactionNo) {
   this.transactionNo = transactionNo;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getTransactionNo = function() {
   return this.transactionNo;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Boolean} isForceSwipePinEntry 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean} isForceSwipePinEntry
+ */
 PayIntent.prototype.setIsForceSwipePinEntry = function(isForceSwipePinEntry) {
   this.isForceSwipePinEntry = isForceSwipePinEntry;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Boolean} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean}
+ */
 PayIntent.prototype.getIsForceSwipePinEntry = function() {
   return this.isForceSwipePinEntry;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Boolean} disableRestartTransactionWhenFailed 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean} disableRestartTransactionWhenFailed
+ */
 PayIntent.prototype.setDisableRestartTransactionWhenFailed = function(disableRestartTransactionWhenFailed) {
   this.disableRestartTransactionWhenFailed = disableRestartTransactionWhenFailed;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Boolean} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean}
+ */
 PayIntent.prototype.getDisableRestartTransactionWhenFailed = function() {
   return this.disableRestartTransactionWhenFailed;
 };
 
 /**
-* Set the field value
-* An id that allows an external system to link to a payment.
-*
-* @memberof remotemessage.PayIntent
-* @param {String} externalPaymentId 
-*/
+ * Set the field value
+ * An id that allows an external system to link to a payment.
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {String} externalPaymentId
+ */
 PayIntent.prototype.setExternalPaymentId = function(externalPaymentId) {
   this.externalPaymentId = externalPaymentId;
 };
 
 /**
-* Get the field value
-* An id that allows an external system to link to a payment.
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * An id that allows an external system to link to a payment.
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getExternalPaymentId = function() {
   return this.externalPaymentId;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {payments.VaultedCard} vaultedCard 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {payments.VaultedCard} vaultedCard
+ */
 PayIntent.prototype.setVaultedCard = function(vaultedCard) {
   this.vaultedCard = vaultedCard;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {payments.VaultedCard} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {payments.VaultedCard}
+ */
 PayIntent.prototype.getVaultedCard = function() {
   return this.vaultedCard;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Boolean|Null} allowOfflinePayment 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean|Null} allowOfflinePayment
+ */
 PayIntent.prototype.setAllowOfflinePayment = function(allowOfflinePayment) {
   this.allowOfflinePayment = allowOfflinePayment;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Boolean|Null} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean|Null}
+ */
 PayIntent.prototype.getAllowOfflinePayment = function() {
   return this.allowOfflinePayment;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Boolean|Null} approveOfflinePaymentWithoutPrompt 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean|Null} approveOfflinePaymentWithoutPrompt
+ */
 PayIntent.prototype.setApproveOfflinePaymentWithoutPrompt = function(approveOfflinePaymentWithoutPrompt) {
   this.approveOfflinePaymentWithoutPrompt = approveOfflinePaymentWithoutPrompt;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Boolean|Null} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean|Null}
+ */
 PayIntent.prototype.getApproveOfflinePaymentWithoutPrompt = function() {
   return this.approveOfflinePaymentWithoutPrompt;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Boolean|Null} requiresRemoteConfirmation 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean|Null} requiresRemoteConfirmation
+ */
 PayIntent.prototype.setRequiresRemoteConfirmation = function(requiresRemoteConfirmation) {
   this.requiresRemoteConfirmation = requiresRemoteConfirmation;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Boolean|Null} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean|Null}
+ */
 PayIntent.prototype.getRequiresRemoteConfirmation = function() {
   return this.requiresRemoteConfirmation;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {apps.AppTracking} applicationTracking 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {apps.AppTracking} applicationTracking
+ */
 PayIntent.prototype.setApplicationTracking = function(applicationTracking) {
   this.applicationTracking = applicationTracking;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {apps.AppTracking} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {apps.AppTracking}
+ */
 PayIntent.prototype.getApplicationTracking = function() {
   return this.applicationTracking;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {Boolean|Null} allowPartialAuth 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean|Null} allowPartialAuth
+ */
 PayIntent.prototype.setAllowPartialAuth = function(allowPartialAuth) {
   this.allowPartialAuth = allowPartialAuth;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {Boolean|Null} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean|Null}
+ */
 PayIntent.prototype.getAllowPartialAuth = function() {
   return this.allowPartialAuth;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {payments.GermanInfo} germanInfo 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {payments.GermanInfo} germanInfo
+ */
 PayIntent.prototype.setGermanInfo = function(germanInfo) {
   this.germanInfo = germanInfo;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {payments.GermanInfo} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {payments.GermanInfo}
+ */
 PayIntent.prototype.getGermanInfo = function() {
   return this.germanInfo;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {payments.CashAdvanceCustomerIdentification} cashAdvanceCustomerIdentification 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {payments.CashAdvanceCustomerIdentification} cashAdvanceCustomerIdentification
+ */
 PayIntent.prototype.setCashAdvanceCustomerIdentification = function(cashAdvanceCustomerIdentification) {
   this.cashAdvanceCustomerIdentification = cashAdvanceCustomerIdentification;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {payments.CashAdvanceCustomerIdentification} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {payments.CashAdvanceCustomerIdentification}
+ */
 PayIntent.prototype.getCashAdvanceCustomerIdentification = function() {
   return this.cashAdvanceCustomerIdentification;
 };
 
 /**
-* Set the field value
-* @memberof remotemessage.PayIntent
-* @param {payments.TransactionSettings} transactionSettings 
-*/
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {payments.TransactionSettings} transactionSettings
+ */
 PayIntent.prototype.setTransactionSettings = function(transactionSettings) {
   this.transactionSettings = transactionSettings;
 };
 
 /**
-* Get the field value
-* @memberof remotemessage.PayIntent
-* @return {payments.TransactionSettings} 
-*/
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {payments.TransactionSettings}
+ */
 PayIntent.prototype.getTransactionSettings = function() {
   return this.transactionSettings;
 };
 
 /**
-* Set the field value
-* An id that can be passed to the merchant's gateway, and ultimately appear in settlement records.
-*
-* @memberof remotemessage.PayIntent
-* @param {String} externalReferenceId 
-*/
+ * Set the field value
+ * An id that can be passed to the merchant's gateway, and ultimately appear in settlement records.
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {String} externalReferenceId
+ */
 PayIntent.prototype.setExternalReferenceId = function(externalReferenceId) {
   this.externalReferenceId = externalReferenceId;
 };
 
 /**
-* Get the field value
-* An id that can be passed to the merchant's gateway, and ultimately appear in settlement records.
-* @memberof remotemessage.PayIntent
-* @return {String} 
-*/
+ * Get the field value
+ * An id that can be passed to the merchant's gateway, and ultimately appear in settlement records.
+ * @memberof remotemessage.PayIntent
+ * @return {String}
+ */
 PayIntent.prototype.getExternalReferenceId = function() {
   return this.externalReferenceId;
 };
 
 /**
-* Set the field value
-* A map of values passed through to the server that are NOT used in payment processing or persisted.
-*
-* @memberof remotemessage.PayIntent
-* @param {Object.<String,String>} passThroughValues A map of <String> to <>
-*/
+ * Set the field value
+ * A map of values passed through to the server that are NOT used in payment processing or persisted.
+ *
+ * @memberof remotemessage.PayIntent
+ * @param {Object.<String,String>} passThroughValues A map of <String> to <>
+ */
 PayIntent.prototype.setPassThroughValues = function(passThroughValues) {
   this.passThroughValues = passThroughValues;
 };
 
 /**
-* Get the field value
-* A map of values passed through to the server that are NOT used in payment processing or persisted.
-* @memberof remotemessage.PayIntent
-* @return {Object.<String,String>} A map of <String> to <>
-*/
-PayIntent.prototype.getPassThroughValues = function() {
+ * Get the field value
+ * A map of values passed through to the server that are NOT used in payment processing or persisted.
+ * @memberof remotemessage.PayIntent
+ * @return {Object.<String,String>} A map of <String> to <>
+ */
+PayIntent.prototype.getPassThroughValues = function () {
   return this.passThroughValues;
 };
 
 /**
-* @memberof remotemessage.PayIntent
-* @private
-*/
-PayIntent.prototype.getMetaInfo = function(fieldName) {
+ * Set the field value
+ * @memberof remotemessage.PayIntent
+ * @param {Boolean|Null} isPresentQrcOnly
+ */
+PayIntent.prototype.setIsPresentQrcOnly = function (isPresentQrcOnly) {
+  this.isPresentQrcOnly = isPresentQrcOnly;
+};
+
+/**
+ * Get the field value
+ * @memberof remotemessage.PayIntent
+ * @return {Boolean|Null}
+ */
+PayIntent.prototype.getIsPresentQrcOnly = function () {
+  return this.isPresentQrcOnly;
+};
+
+/**
+ * @memberof remotemessage.PayIntent
+ * @private
+ */
+PayIntent.prototype.getMetaInfo = function (fieldName) {
   var curclass = this._class_;
   do {
     var fieldMetaInfo = curclass._meta_.fields[fieldName];
-    if(fieldMetaInfo) {
+    if (fieldMetaInfo) {
       return fieldMetaInfo;
     }
     if(curclass._meta_._superMeta_) {
@@ -823,11 +842,12 @@ PayIntent._meta_.fields["externalReferenceId"] = {};
 PayIntent._meta_.fields["externalReferenceId"].type = String;
 PayIntent._meta_.fields["passThroughValues"] = {};
 PayIntent._meta_.fields["passThroughValues"].type = Object;
+PayIntent._meta_.fields["isPresentQrcOnly"] = {};
+PayIntent._meta_.fields["isPresentQrcOnly"].type = Boolean;
 
 //
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
-module.exports = PayIntent;
+  module.exports = PayIntent;
 }
-

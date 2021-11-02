@@ -1,6 +1,6 @@
 {
   "name": "remote-pay-cloud-api",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "API objects for the remote-pay cloud only. Includes objects used in serialization, and the ICloverConnector and ICloverConnectorListener",
   "main": "index.js",
   "types": "./types/index.d.ts",
@@ -31,6 +31,7 @@
     "url": "https://github.com/clover/remote-pay-cloud-api/issues"
   },
   "devDependencies": {
+    "@types/node": "15.6.1",
     "del": "5.1.0",
     "gulp": "4.0.2",
     "gulp-typescript": "6.0.0-alpha.1",

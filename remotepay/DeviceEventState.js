@@ -6,10 +6,10 @@
 
 
 /**
-We can not include WELCOME_SCREEN, THANKYOU_SCREEN, DISPLAY_MESSAGE, DISPLAY_ORDER until we can filter them out in remote-pay before they go through the interface to older versions of the sdk
-* @memberof remotepay
-* @enum {string}
-*/
+ We can not include WELCOME_SCREEN, THANKYOU_SCREEN, DISPLAY_MESSAGE, DISPLAY_ORDER until we can filter them out in remote-pay before they go through the interface to older versions of the sdk
+ * @memberof remotepay
+ * @enum {string}
+ */
 var DeviceEventState = {
   ADD_SIGNATURE : "ADD_SIGNATURE",
   ADD_SIGNATURE_CANCEL_CONFIRM : "ADD_SIGNATURE_CANCEL_CONFIRM",
@@ -71,6 +71,7 @@ var DeviceEventState = {
   SIGNATURE_REJECT : "SIGNATURE_REJECT",
   START : "START",
   STARTING_CUSTOM_ACTIVITY : "STARTING_CUSTOM_ACTIVITY",
+  START_QR_CODE_MODE : "START_QR_CODE_MODE",
   SWIPE_CVV_ENTRY : "SWIPE_CVV_ENTRY",
   TIMED_OUT : "TIMED_OUT",
   TRY_AGAIN : "TRY_AGAIN",
@@ -89,6 +90,6 @@ var DeviceEventState = {
 // Expose the module.
 //
 if ('undefined' !== typeof module) {
-module.exports = DeviceEventState;
+  module.exports = DeviceEventState;
 }
 
